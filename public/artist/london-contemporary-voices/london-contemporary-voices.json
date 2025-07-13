@@ -72,19 +72,23 @@
       "type": "lastfm_artist_",
       "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
       "width": null
+    },
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://images.squarespace-cdn.com/content/v1/5aca61cd4611a00780bec6c5/1718385241205-C2VJYTN4YPS3SKJ0PUCO/image-asset.jpeg",
+      "width": 2000
     }
   ],
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/London+Contemporary+Voices",
   "local_images": {
-    "hi-res": "../public/artist/london-contemporary-voices/london-contemporary-voices-hi-res.jpg",
-    "medium": "../public/artist/london-contemporary-voices/london-contemporary-voices-medium.jpg",
-    "small": "../public/artist/london-contemporary-voices/london-contemporary-voices-small.jpg"
+    "hi-res": "../public/artist/london-contemporary-voices/london-contemporary-voices-hi-res.jpg"
   },
   "name": "London Contemporary Voices",
   "popularity": 27,
   "raw_data": {
-    "apple_music": "ArtistAppleMusicData(id='763875908', url='https://music.apple.com/gb/artist/london-contemporary-voices/763875908', name='London Contemporary Voices', artwork_url='https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/77/f2/6277f286-8148-3ab2-8d39-deff80a8aaee/196872624526.jpg/2000x2000ac.jpg', genres=['Alternative'], origin='', born_or_formed=None, editorial_video_url=None, editorial_notes=None, raw_data={'id': '763875908', 'type': 'artists', 'href': '/v1/catalog/gb/artists/763875908', 'attributes': {'name': 'London Contemporary Voices', 'genreNames': ['Alternative'], 'artwork': {'width': 6000, 'height': 6000, 'url': 'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/77/f2/6277f286-8148-3ab2-8d39-deff80a8aaee/196872624526.jpg/{w}x{h}ac.jpg', 'bgColor': '221f1a', 'textColor1': 'fdfdfd', 'textColor2': 'f5eee3', 'textColor3': 'd1d1d0', 'textColor4': 'cbc4bb'}, 'url': 'https://music.apple.com/gb/artist/london-contemporary-voices/763875908'}, 'relationships': {'albums': {'href': '/v1/catalog/gb/artists/763875908/albums', 'data': [{'id': '763875884', 'type': 'albums', 'href': '/v1/catalog/gb/albums/763875884'}, {'id': '1780358816', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1780358816'}]}}})",
+    "apple_music": "ArtistAppleMusicData(id='763875908', url='https://music.apple.com/gb/artist/london-contemporary-voices/763875908', name='London Contemporary Voices', artwork_url='https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/77/f2/6277f286-8148-3ab2-8d39-deff80a8aaee/196872624526.jpg/2000x2000ac.jpg', genres=['Alternative'], origin='', born_or_formed=None, editorial_video_url=None, editorial_notes=None, raw_data={'id': '763875908', 'type': 'artists', 'href': '/v1/catalog/gb/artists/763875908', 'attributes': {'name': 'London Contemporary Voices', 'genreNames': ['Alternative'], 'artwork': {'width': 6000, 'height': 6000, 'url': 'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/77/f2/6277f286-8148-3ab2-8d39-deff80a8aaee/196872624526.jpg/{w}x{h}ac.jpg', 'bgColor': '221f1a', 'textColor1': 'fdfdfd', 'textColor2': 'f5eee3', 'textColor3': 'd1d1d0', 'textColor4': 'cbc4bb'}, 'url': 'https://music.apple.com/gb/artist/london-contemporary-voices/763875908'}, 'relationships': {'albums': {'href': '/v1/catalog/gb/artists/763875908/albums', 'data': [{'id': '1780358816', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1780358816'}, {'id': '763875884', 'type': 'albums', 'href': '/v1/catalog/gb/albums/763875884'}]}}})",
     "discogs": {
       "cover_image": "",
       "id": "3949957",
@@ -203,6 +207,6 @@
   },
   "spotify_id": "4AP9UXcQ9PWrnHsR8vnwsE",
   "spotify_url": "https://open.spotify.com/artist/4AP9UXcQ9PWrnHsR8vnwsE",
-  "updated_at": "2025-07-08T20:48:29.127867",
+  "updated_at": "2025-07-13T19:51:46.961001",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Martin_Smith_(English_musician)"
 }

@@ -61,14 +61,18 @@
       "type": "lastfm_artist_",
       "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
       "width": null
+    },
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://cdn.glean.art/media/pages/21-tracks-for-the-21st-century/liam-gillick/5b4973f868-1726591432/liam_gillick-3.jpg",
+      "width": 2000
     }
   ],
   "lastfm_mbid": "fc07c71e-efa8-41ee-828c-13feb4c34720",
   "lastfm_url": "https://www.last.fm/music/Liam+Gillick",
   "local_images": {
-    "hi-res": "../public/artist/liam-gillick/liam-gillick-hi-res.jpg",
-    "medium": "../public/artist/liam-gillick/liam-gillick-medium.jpg",
-    "small": "../public/artist/liam-gillick/liam-gillick-small.jpg"
+    "hi-res": "../public/artist/liam-gillick/liam-gillick-hi-res.jpg"
   },
   "name": "Liam Gillick",
   "popularity": null,
@@ -206,6 +210,6 @@
   },
   "spotify_id": "1KAB5B6Hq7w12j4nQmrO21",
   "spotify_url": "https://open.spotify.com/artist/1KAB5B6Hq7w12j4nQmrO21",
-  "updated_at": "2025-07-08T20:52:13.561472",
+  "updated_at": "2025-07-13T19:48:32.158640",
   "wikipedia_url": "https://en.wikipedia.org/wiki/List_of_people_named_Liam"
 }
