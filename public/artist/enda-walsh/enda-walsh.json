@@ -12,10 +12,19 @@
     "Theatre"
   ],
   "id": "enda-walsh-1751733410",
-  "images": [],
+  "images": [
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://d19lfjg8hluhfw.cloudfront.net/wp-content/uploads/2016/12/09154051/Enda-Walsh-Photo-by-Patrick-Redmond-High-Res-Web-res.jpg",
+      "width": 2000
+    }
+  ],
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/Enda+Walsh",
-  "local_images": {},
+  "local_images": {
+    "hi-res": "../public/artist/enda-walsh/enda-walsh-hi-res.jpg"
+  },
   "name": "Enda Walsh",
   "popularity": 4,
   "raw_data": {
@@ -40,41 +49,7 @@
     },
     "lastfm": "ArtistLastFmData(name='Enda Walsh', url='https://www.last.fm/music/Enda+Walsh', mbid=None, listeners=5, playcount=38, bio_summary='<a href=\"https://www.last.fm/music/Enda+Walsh\">Read more on Last.fm</a>', bio_content=None, tags=[], similar_artists=[], images=[{'size': 'small', 'url': ''}, {'size': 'medium', 'url': ''}, {'size': 'large', 'url': ''}, {'size': 'extralarge', 'url': ''}, {'size': 'mega', 'url': ''}, {'size': '', 'url': ''}], top_albums=[], top_tracks=[], raw_data={'artist': {'name': 'Enda Walsh', 'url': 'https://www.last.fm/music/Enda+Walsh', 'image': [{'#text': '', 'size': 'small'}, {'#text': '', 'size': 'medium'}, {'#text': '', 'size': 'large'}, {'#text': '', 'size': 'extralarge'}, {'#text': '', 'size': 'mega'}, {'#text': '', 'size': ''}], 'streamable': '0', 'ontour': '0', 'stats': {'listeners': '5', 'playcount': '38'}, 'similar': {'artist': []}, 'tags': {'tag': []}, 'bio': {'links': {'link': {'#text': '', 'rel': 'original', 'href': 'https://last.fm/music/Enda+Walsh/+wiki'}}, 'published': '01 Jan 1970, 00:00', 'summary': ' <a href=\"https://www.last.fm/music/Enda+Walsh\">Read more on Last.fm</a>', 'content': ''}}})",
     "spotify": "ArtistSpotifyData(id='00OYlRVIPDjrLrt47Yv3OD', url='https://open.spotify.com/artist/00OYlRVIPDjrLrt47Yv3OD', name='Enda Walsh', popularity=4, followers=46, genres=[], images=[], external_urls={'spotify': 'https://open.spotify.com/artist/00OYlRVIPDjrLrt47Yv3OD'}, raw_data={'external_urls': {'spotify': 'https://open.spotify.com/artist/00OYlRVIPDjrLrt47Yv3OD'}, 'followers': {'href': None, 'total': 46}, 'genres': [], 'href': 'https://api.spotify.com/v1/artists/00OYlRVIPDjrLrt47Yv3OD', 'id': '00OYlRVIPDjrLrt47Yv3OD', 'images': [], 'name': 'Enda Walsh', 'popularity': 4, 'type': 'artist', 'uri': 'spotify:artist:00OYlRVIPDjrLrt47Yv3OD'})",
-    "theaudiodb": {
-      "albums": null,
-      "alternate_names": null,
-      "biography_de": null,
-      "biography_en": "",
-      "biography_es": null,
-      "biography_fr": null,
-      "biography_it": null,
-      "biography_jp": null,
-      "biography_nl": null,
-      "biography_pt": null,
-      "biography_ru": null,
-      "biography_se": null,
-      "born_year": null,
-      "country": null,
-      "country_code": "",
-      "died_year": null,
-      "disbanded": false,
-      "facebook": null,
-      "formed_year": "0",
-      "gender": null,
-      "genre": "",
-      "id": "177094",
-      "images": [],
-      "last_fm_chart": null,
-      "members": null,
-      "mood": null,
-      "music_videos": null,
-      "musicbrainz_id": "86502814-c7d8-479c-9863-ba93bdc3529e",
-      "name": "Enda Walsh",
-      "raw_data": {},
-      "style": null,
-      "twitter": null,
-      "website": null
-    }
+    "theaudiodb": {}
   },
   "services": {
     "apple_music": {
@@ -152,44 +127,10 @@
       "popularity": 4,
       "url": "https://open.spotify.com/artist/00OYlRVIPDjrLrt47Yv3OD"
     },
-    "theaudiodb": {
-      "albums": null,
-      "alternate_names": null,
-      "biography_de": null,
-      "biography_en": "",
-      "biography_es": null,
-      "biography_fr": null,
-      "biography_it": null,
-      "biography_jp": null,
-      "biography_nl": null,
-      "biography_pt": null,
-      "biography_ru": null,
-      "biography_se": null,
-      "born_year": null,
-      "country": null,
-      "country_code": "",
-      "died_year": null,
-      "disbanded": false,
-      "facebook": null,
-      "formed_year": "0",
-      "gender": null,
-      "genre": "",
-      "id": "177094",
-      "images": [],
-      "last_fm_chart": null,
-      "members": null,
-      "mood": null,
-      "music_videos": null,
-      "musicbrainz_id": "86502814-c7d8-479c-9863-ba93bdc3529e",
-      "name": "Enda Walsh",
-      "raw_data": {},
-      "style": null,
-      "twitter": null,
-      "website": null
-    }
+    "theaudiodb": {}
   },
   "spotify_id": "00OYlRVIPDjrLrt47Yv3OD",
   "spotify_url": "https://open.spotify.com/artist/00OYlRVIPDjrLrt47Yv3OD",
-  "updated_at": "2025-07-08T20:57:12.753065",
+  "updated_at": "2025-07-13T13:38:18.550422",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cillian_Murphy"
 }

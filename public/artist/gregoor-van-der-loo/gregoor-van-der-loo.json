@@ -51,11 +51,19 @@
       "type": "lastfm_artist_",
       "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
       "width": null
+    },
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://i0.wp.com/mottthedog.com/wp-content/uploads/2022/07/EW-2.jpg?resize=922%2C692&ssl=1",
+      "width": 2000
     }
   ],
   "lastfm_mbid": "4584cd23-1b55-4f4f-8f24-43220c6baa6f",
   "lastfm_url": "https://www.last.fm/music/Gregoor+van+der+Loo",
-  "local_images": {},
+  "local_images": {
+    "hi-res": "../public/artist/gregoor-van-der-loo/gregoor-van-der-loo-hi-res.jpg"
+  },
   "name": "Gregoor Van Der Loo",
   "popularity": 1,
   "raw_data": {
@@ -188,6 +196,6 @@
   },
   "spotify_id": "5SS6E4XWJ5rxdg4lcsVfPR",
   "spotify_url": "https://open.spotify.com/artist/5SS6E4XWJ5rxdg4lcsVfPR",
-  "updated_at": "2025-07-08T20:48:47.247677",
+  "updated_at": "2025-07-13T13:43:10.361682",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Sun_Caged"
 }

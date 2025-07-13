@@ -6,7 +6,7 @@
   "created_at": "2025-07-05T17:35:57.126915",
   "discogs_id": "1611895",
   "discogs_url": "https://www.discogs.com/artist/1611895-Adrian-Younge",
-  "followers": 50612,
+  "followers": 50659,
   "formed_date": null,
   "genres": [
     "Jazz",
@@ -27,68 +27,20 @@
     {
       "height": 640,
       "type": "spotify_artist",
-      "url": "https://i.scdn.co/image/ab6761610000e5eb892bfa72a0cd8e4907eded3c",
+      "url": "https://i.scdn.co/image/ab6761610000e5eb127f8c83e7447023498d4df5",
       "width": 640
     },
     {
       "height": 320,
       "type": "spotify_artist",
-      "url": "https://i.scdn.co/image/ab67616100005174892bfa72a0cd8e4907eded3c",
+      "url": "https://i.scdn.co/image/ab67616100005174127f8c83e7447023498d4df5",
       "width": 320
     },
     {
       "height": 160,
       "type": "spotify_artist",
-      "url": "https://i.scdn.co/image/ab6761610000f178892bfa72a0cd8e4907eded3c",
+      "url": "https://i.scdn.co/image/ab6761610000f178127f8c83e7447023498d4df5",
       "width": 160
-    },
-    {
-      "height": null,
-      "type": "lastfm_artist_small",
-      "url": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
-      "width": null
-    },
-    {
-      "height": null,
-      "type": "lastfm_artist_medium",
-      "url": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
-      "width": null
-    },
-    {
-      "height": null,
-      "type": "lastfm_artist_large",
-      "url": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
-      "width": null
-    },
-    {
-      "height": null,
-      "type": "lastfm_artist_extralarge",
-      "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
-      "width": null
-    },
-    {
-      "height": null,
-      "type": "lastfm_artist_mega",
-      "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
-      "width": null
-    },
-    {
-      "height": null,
-      "type": "lastfm_artist_",
-      "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
-      "width": null
-    },
-    {
-      "height": 1000,
-      "type": "artist",
-      "url": "https://r2.theaudiodb.com/images/media/artist/thumb/stsxyv1416168278.jpg",
-      "width": 1000
-    },
-    {
-      "height": 1080,
-      "type": "fanart",
-      "url": "https://r2.theaudiodb.com/images/media/artist/fanart/younge-adrian-54c467ab81ac7.jpg",
-      "width": 1920
     },
     {
       "height": null,
@@ -101,19 +53,23 @@
       "type": "discogs_artist_thumb",
       "url": "https://i.discogs.com/REO9GiKnxoNXT7DERdaQXsfl-GSKaH35mHqIqgE_Aew/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE2MTE4/OTUtMTM0MjI3ODUy/MS05MjE5LmdpZg.jpeg",
       "width": null
+    },
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://kalx.berkeley.edu/wp-content/uploads/2025/03/AdrianStudio.jpg",
+      "width": 2000
     }
   ],
-  "lastfm_mbid": "69bb7a74-99ee-4da0-bc3d-84586676e4ea",
-  "lastfm_url": "https://www.last.fm/music/Adrian+Younge",
+  "lastfm_mbid": null,
+  "lastfm_url": null,
   "local_images": {
-    "hi-res": "../public/artist/adrian-younge/adrian-younge-hi-res.jpg",
-    "medium": "../public/artist/adrian-younge/adrian-younge-medium.jpg",
-    "small": "../public/artist/adrian-younge/adrian-younge-small.jpg"
+    "hi-res": "../public/artist/adrian-younge/adrian-younge-hi-res.jpg"
   },
   "name": "Adrian Younge",
   "popularity": 44,
   "raw_data": {
-    "apple_music": "ArtistAppleMusicData(id='333961452', url='https://music.apple.com/gb/artist/adrian-younge/333961452', name='Adrian Younge', artwork_url='https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/27/31/7d/27317d99-9d10-68ed-09d1-804b625a963d/pr_source.png/2000x2000bb.jpg', genres=['Jazz'], origin='', born_or_formed=None, editorial_video_url=None, editorial_notes=None, raw_data={'id': '333961452', 'type': 'artists', 'href': '/v1/catalog/gb/artists/333961452', 'attributes': {'name': 'Adrian Younge', 'genreNames': ['Jazz'], 'artwork': {'width': 500, 'height': 500, 'url': 'https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/27/31/7d/27317d99-9d10-68ed-09d1-804b625a963d/pr_source.png/{w}x{h}bb.jpg', 'bgColor': '0a0904', 'textColor1': 'cdbc6d', 'textColor2': 'dda571', 'textColor3': 'a69858', 'textColor4': 'b3865b'}, 'url': 'https://music.apple.com/gb/artist/adrian-younge/333961452'}, 'relationships': {'albums': {'href': '/v1/catalog/gb/artists/333961452/albums', 'next': '/v1/catalog/gb/artists/333961452/albums?offset=25', 'data': [{'id': '1730792301', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730792301'}, {'id': '1731447564', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731447564'}, {'id': '1784555775', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1784555775'}, {'id': '1747012929', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1747012929'}, {'id': '1752693302', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1752693302'}, {'id': '1730802167', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730802167'}, {'id': '1731445790', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731445790'}, {'id': '1730752030', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730752030'}, {'id': '1732136362', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1732136362'}, {'id': '1730743968', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730743968'}, {'id': '1752694363', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1752694363'}, {'id': '1730793306', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730793306'}, {'id': '1730753036', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730753036'}, {'id': '1730747237', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730747237'}, {'id': '1752694165', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1752694165'}, {'id': '1730752613', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730752613'}, {'id': '1731440355', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731440355'}, {'id': '1731447722', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731447722'}, {'id': '1731882334', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731882334'}, {'id': '1730751572', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730751572'}, {'id': '1730809562', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730809562'}, {'id': '1760038116', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1760038116'}, {'id': '1645127732', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1645127732'}, {'id': '1781758510', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1781758510'}, {'id': '1734518050', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1734518050'}]}}})",
+    "apple_music": "ArtistAppleMusicData(id='333961452', url='https://music.apple.com/gb/artist/adrian-younge/333961452', name='Adrian Younge', artwork_url='https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/27/31/7d/27317d99-9d10-68ed-09d1-804b625a963d/pr_source.png/2000x2000bb.jpg', genres=['Jazz'], origin='', born_or_formed=None, editorial_video_url=None, editorial_notes=None, raw_data={'id': '333961452', 'type': 'artists', 'href': '/v1/catalog/gb/artists/333961452', 'attributes': {'name': 'Adrian Younge', 'genreNames': ['Jazz'], 'artwork': {'width': 500, 'height': 500, 'url': 'https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/27/31/7d/27317d99-9d10-68ed-09d1-804b625a963d/pr_source.png/{w}x{h}bb.jpg', 'bgColor': '0a0904', 'textColor1': 'cdbc6d', 'textColor2': 'dda571', 'textColor3': 'a69858', 'textColor4': 'b3865b'}, 'url': 'https://music.apple.com/gb/artist/adrian-younge/333961452'}, 'relationships': {'albums': {'href': '/v1/catalog/gb/artists/333961452/albums', 'next': '/v1/catalog/gb/artists/333961452/albums?offset=25', 'data': [{'id': '1730792301', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730792301'}, {'id': '1731447564', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731447564'}, {'id': '1784555775', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1784555775'}, {'id': '1747012929', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1747012929'}, {'id': '1752693302', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1752693302'}, {'id': '1730802167', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730802167'}, {'id': '1731445790', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731445790'}, {'id': '1730752030', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730752030'}, {'id': '1732136362', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1732136362'}, {'id': '1730743968', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730743968'}, {'id': '1752694363', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1752694363'}, {'id': '1730793306', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730793306'}, {'id': '1730753036', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730753036'}, {'id': '1730747237', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730747237'}, {'id': '1752694165', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1752694165'}, {'id': '1804195001', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1804195001'}, {'id': '1730752613', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730752613'}, {'id': '1731447722', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731447722'}, {'id': '1730751572', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730751572'}, {'id': '1731882334', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731882334'}, {'id': '1730809562', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1730809562'}, {'id': '1761894297', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1761894297'}, {'id': '1731440355', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1731440355'}, {'id': '1760038116', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1760038116'}, {'id': '1645127732', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1645127732'}]}}})",
     "discogs": {
       "cover_image": "https://i.discogs.com/NX7x6ORrZnDHhQMyN8vVF_ax5oTle8lg8IG38WPccM0/rs:fit/g:sm/q:90/h:560/w:490/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE2MTE4/OTUtMTM0MjI3ODUy/MS05MjE5LmdpZg.jpeg",
       "fetch_timestamp": "2025-07-06T13:50:00Z",
@@ -232,58 +188,9 @@
         "http://www.dailymotion.com/AdrianYounge-vevo"
       ]
     },
-    "lastfm": "ArtistLastFmData(name='Adrian Younge', url='https://www.last.fm/music/Adrian+Younge', mbid='69bb7a74-99ee-4da0-bc3d-84586676e4ea', listeners=114691, playcount=1353328, bio_summary='Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.\\n\\nInspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision. <a href=\"https://www.last.fm/music/Adrian+Younge\">Read more on Last.fm</a>', bio_content='Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.\\n\\nInspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision. <a href=\"https://www.last.fm/music/Adrian+Younge\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.', tags=['soul', 'funk', 'Soundtrack', 'blaxploitation', 'black dynamite'], similar_artists=[{'name': 'Roy Ayers', 'url': 'https://www.last.fm/music/Roy+Ayers'}, {'name': 'El Michels Affair', 'url': 'https://www.last.fm/music/El+Michels+Affair'}, {'name': \"Me'Shell Ndegéocello\", 'url': 'https://www.last.fm/music/Me%27Shell+Ndeg%C3%A9ocello'}, {'name': 'Sault', 'url': 'https://www.last.fm/music/Sault'}, {'name': 'Butcher Brown', 'url': 'https://www.last.fm/music/Butcher+Brown'}], images=[{'size': 'small', 'url': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png'}, {'size': 'medium', 'url': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png'}, {'size': 'large', 'url': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png'}, {'size': 'extralarge', 'url': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png'}, {'size': 'mega', 'url': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png'}, {'size': '', 'url': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png'}], top_albums=[], top_tracks=[], raw_data={'artist': {'name': 'Adrian Younge', 'mbid': '69bb7a74-99ee-4da0-bc3d-84586676e4ea', 'url': 'https://www.last.fm/music/Adrian+Younge', 'image': [{'#text': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'small'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'medium'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'large'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'extralarge'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'mega'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': ''}], 'streamable': '0', 'ontour': '0', 'stats': {'listeners': '114691', 'playcount': '1353328'}, 'similar': {'artist': [{'name': 'Roy Ayers', 'url': 'https://www.last.fm/music/Roy+Ayers', 'image': [{'#text': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'small'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'medium'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'large'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'extralarge'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'mega'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': ''}]}, {'name': 'El Michels Affair', 'url': 'https://www.last.fm/music/El+Michels+Affair', 'image': [{'#text': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'small'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'medium'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'large'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'extralarge'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'mega'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': ''}]}, {'name': \"Me'Shell Ndegéocello\", 'url': 'https://www.last.fm/music/Me%27Shell+Ndeg%C3%A9ocello', 'image': [{'#text': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'small'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'medium'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'large'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'extralarge'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'mega'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': ''}]}, {'name': 'Sault', 'url': 'https://www.last.fm/music/Sault', 'image': [{'#text': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'small'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'medium'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'large'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'extralarge'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'mega'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': ''}]}, {'name': 'Butcher Brown', 'url': 'https://www.last.fm/music/Butcher+Brown', 'image': [{'#text': 'https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'small'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'medium'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'large'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'extralarge'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': 'mega'}, {'#text': 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png', 'size': ''}]}]}, 'tags': {'tag': [{'name': 'soul', 'url': 'https://www.last.fm/tag/soul'}, {'name': 'funk', 'url': 'https://www.last.fm/tag/funk'}, {'name': 'Soundtrack', 'url': 'https://www.last.fm/tag/Soundtrack'}, {'name': 'blaxploitation', 'url': 'https://www.last.fm/tag/blaxploitation'}, {'name': 'black dynamite', 'url': 'https://www.last.fm/tag/black+dynamite'}]}, 'bio': {'links': {'link': {'#text': '', 'rel': 'original', 'href': 'https://last.fm/music/Adrian+Younge/+wiki'}}, 'published': '18 Sep 2010, 20:27', 'summary': 'Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.\\n\\nInspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision. <a href=\"https://www.last.fm/music/Adrian+Younge\">Read more on Last.fm</a>', 'content': 'Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.\\n\\nInspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision. <a href=\"https://www.last.fm/music/Adrian+Younge\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.'}}})",
-    "spotify": "ArtistSpotifyData(id='4aMeIY7MkJoZg7O91cmDDd', url='https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd', name='Adrian Younge', popularity=44, followers=50612, genres=[], images=[{'url': 'https://i.scdn.co/image/ab6761610000e5eb892bfa72a0cd8e4907eded3c', 'height': 640, 'width': 640}, {'url': 'https://i.scdn.co/image/ab67616100005174892bfa72a0cd8e4907eded3c', 'height': 320, 'width': 320}, {'url': 'https://i.scdn.co/image/ab6761610000f178892bfa72a0cd8e4907eded3c', 'height': 160, 'width': 160}], external_urls={'spotify': 'https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd'}, raw_data={'external_urls': {'spotify': 'https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd'}, 'followers': {'href': None, 'total': 50612}, 'genres': [], 'href': 'https://api.spotify.com/v1/artists/4aMeIY7MkJoZg7O91cmDDd', 'id': '4aMeIY7MkJoZg7O91cmDDd', 'images': [{'url': 'https://i.scdn.co/image/ab6761610000e5eb892bfa72a0cd8e4907eded3c', 'height': 640, 'width': 640}, {'url': 'https://i.scdn.co/image/ab67616100005174892bfa72a0cd8e4907eded3c', 'height': 320, 'width': 320}, {'url': 'https://i.scdn.co/image/ab6761610000f178892bfa72a0cd8e4907eded3c', 'height': 160, 'width': 160}], 'name': 'Adrian Younge', 'popularity': 44, 'type': 'artist', 'uri': 'spotify:artist:4aMeIY7MkJoZg7O91cmDDd'})",
-    "theaudiodb": {
-      "albums": null,
-      "alternate_names": null,
-      "biography_de": null,
-      "biography_en": "Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.  Inspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision.",
-      "biography_es": null,
-      "biography_fr": null,
-      "biography_it": null,
-      "biography_jp": null,
-      "biography_nl": null,
-      "biography_pt": null,
-      "biography_ru": null,
-      "biography_se": null,
-      "born_year": "1979",
-      "country": null,
-      "country_code": "US",
-      "died_year": null,
-      "disbanded": false,
-      "facebook": null,
-      "formed_year": "1979",
-      "gender": null,
-      "genre": null,
-      "id": "133070",
-      "images": [
-        {
-          "height": 1000,
-          "resource_url": null,
-          "type": "artist",
-          "url": "https://r2.theaudiodb.com/images/media/artist/thumb/stsxyv1416168278.jpg",
-          "width": 1000
-        },
-        {
-          "height": 1080,
-          "resource_url": null,
-          "type": "fanart",
-          "url": "https://r2.theaudiodb.com/images/media/artist/fanart/younge-adrian-54c467ab81ac7.jpg",
-          "width": 1920
-        }
-      ],
-      "last_fm_chart": null,
-      "members": null,
-      "mood": null,
-      "music_videos": null,
-      "musicbrainz_id": "69bb7a74-99ee-4da0-bc3d-84586676e4ea",
-      "name": "Adrian Younge",
-      "raw_data": {},
-      "style": null,
-      "twitter": null,
-      "website": null
-    }
+    "lastfm": {},
+    "spotify": "ArtistSpotifyData(id='4aMeIY7MkJoZg7O91cmDDd', url='https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd', name='Adrian Younge', popularity=44, followers=50659, genres=[], images=[{'url': 'https://i.scdn.co/image/ab6761610000e5eb127f8c83e7447023498d4df5', 'height': 640, 'width': 640}, {'url': 'https://i.scdn.co/image/ab67616100005174127f8c83e7447023498d4df5', 'height': 320, 'width': 320}, {'url': 'https://i.scdn.co/image/ab6761610000f178127f8c83e7447023498d4df5', 'height': 160, 'width': 160}], external_urls={'spotify': 'https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd'}, raw_data={'external_urls': {'spotify': 'https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd'}, 'followers': {'href': None, 'total': 50659}, 'genres': [], 'href': 'https://api.spotify.com/v1/artists/4aMeIY7MkJoZg7O91cmDDd', 'id': '4aMeIY7MkJoZg7O91cmDDd', 'images': [{'url': 'https://i.scdn.co/image/ab6761610000e5eb127f8c83e7447023498d4df5', 'height': 640, 'width': 640}, {'url': 'https://i.scdn.co/image/ab67616100005174127f8c83e7447023498d4df5', 'height': 320, 'width': 320}, {'url': 'https://i.scdn.co/image/ab6761610000f178127f8c83e7447023498d4df5', 'height': 160, 'width': 160}], 'name': 'Adrian Younge', 'popularity': 44, 'type': 'artist', 'uri': 'spotify:artist:4aMeIY7MkJoZg7O91cmDDd'})",
+    "theaudiodb": {}
   },
   "services": {
     "apple_music": {
@@ -415,88 +322,25 @@
         "http://www.dailymotion.com/AdrianYounge-vevo"
       ]
     },
-    "lastfm": {
-      "bio_content": "Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.\n\nInspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision. <a href=\"https://www.last.fm/music/Adrian+Younge\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.",
-      "bio_summary": "Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.\n\nInspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision. <a href=\"https://www.last.fm/music/Adrian+Younge\">Read more on Last.fm</a>",
-      "images": [
-        {
-          "size": "small",
-          "url": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-        },
-        {
-          "size": "medium",
-          "url": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-        },
-        {
-          "size": "large",
-          "url": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-        },
-        {
-          "size": "extralarge",
-          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-        },
-        {
-          "size": "mega",
-          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-        },
-        {
-          "size": "",
-          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-        }
-      ],
-      "listeners": 114691,
-      "mbid": "69bb7a74-99ee-4da0-bc3d-84586676e4ea",
-      "name": "Adrian Younge",
-      "playcount": 1353328,
-      "similar_artists": [
-        {
-          "name": "Roy Ayers",
-          "url": "https://www.last.fm/music/Roy+Ayers"
-        },
-        {
-          "name": "El Michels Affair",
-          "url": "https://www.last.fm/music/El+Michels+Affair"
-        },
-        {
-          "name": "Me'Shell Ndegéocello",
-          "url": "https://www.last.fm/music/Me%27Shell+Ndeg%C3%A9ocello"
-        },
-        {
-          "name": "Sault",
-          "url": "https://www.last.fm/music/Sault"
-        },
-        {
-          "name": "Butcher Brown",
-          "url": "https://www.last.fm/music/Butcher+Brown"
-        }
-      ],
-      "tags": [
-        "soul",
-        "funk",
-        "Soundtrack",
-        "blaxploitation",
-        "black dynamite"
-      ],
-      "url": "https://www.last.fm/music/Adrian+Younge"
-    },
+    "lastfm": {},
     "spotify": {
-      "followers": 50612,
+      "followers": 50659,
       "genres": [],
       "id": "4aMeIY7MkJoZg7O91cmDDd",
       "images": [
         {
           "height": 640,
-          "url": "https://i.scdn.co/image/ab6761610000e5eb892bfa72a0cd8e4907eded3c",
+          "url": "https://i.scdn.co/image/ab6761610000e5eb127f8c83e7447023498d4df5",
           "width": 640
         },
         {
           "height": 320,
-          "url": "https://i.scdn.co/image/ab67616100005174892bfa72a0cd8e4907eded3c",
+          "url": "https://i.scdn.co/image/ab67616100005174127f8c83e7447023498d4df5",
           "width": 320
         },
         {
           "height": 160,
-          "url": "https://i.scdn.co/image/ab6761610000f178892bfa72a0cd8e4907eded3c",
+          "url": "https://i.scdn.co/image/ab6761610000f178127f8c83e7447023498d4df5",
           "width": 160
         }
       ],
@@ -504,59 +348,10 @@
       "popularity": 44,
       "url": "https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd"
     },
-    "theaudiodb": {
-      "albums": null,
-      "alternate_names": null,
-      "biography_de": null,
-      "biography_en": "Multi-instrumentalist Adrian Younge makes his debut on Wax Poetics Records with his original score to the Michael Jai White comedy Black Dynamite.  Inspired by the great blaxploitation soundtracks of the 1970s, Younge commands the Rhodes electric piano, Hammond organ, Hohner Clavinet, harpsichord, synthesizer, vibraphone, guitar, bass, flute, sax, cello, and drums, crafting with a singular vision.",
-      "biography_es": null,
-      "biography_fr": null,
-      "biography_it": null,
-      "biography_jp": null,
-      "biography_nl": null,
-      "biography_pt": null,
-      "biography_ru": null,
-      "biography_se": null,
-      "born_year": "1979",
-      "country": null,
-      "country_code": "US",
-      "died_year": null,
-      "disbanded": false,
-      "facebook": null,
-      "formed_year": "1979",
-      "gender": null,
-      "genre": null,
-      "id": "133070",
-      "images": [
-        {
-          "height": 1000,
-          "resource_url": null,
-          "type": "artist",
-          "url": "https://r2.theaudiodb.com/images/media/artist/thumb/stsxyv1416168278.jpg",
-          "width": 1000
-        },
-        {
-          "height": 1080,
-          "resource_url": null,
-          "type": "fanart",
-          "url": "https://r2.theaudiodb.com/images/media/artist/fanart/younge-adrian-54c467ab81ac7.jpg",
-          "width": 1920
-        }
-      ],
-      "last_fm_chart": null,
-      "members": null,
-      "mood": null,
-      "music_videos": null,
-      "musicbrainz_id": "69bb7a74-99ee-4da0-bc3d-84586676e4ea",
-      "name": "Adrian Younge",
-      "raw_data": {},
-      "style": null,
-      "twitter": null,
-      "website": null
-    }
+    "theaudiodb": {}
   },
   "spotify_id": "4aMeIY7MkJoZg7O91cmDDd",
   "spotify_url": "https://open.spotify.com/artist/4aMeIY7MkJoZg7O91cmDDd",
-  "updated_at": "2025-07-08T20:59:53.287937",
+  "updated_at": "2025-07-13T12:51:17.192741",
   "wikipedia_url": null
 }

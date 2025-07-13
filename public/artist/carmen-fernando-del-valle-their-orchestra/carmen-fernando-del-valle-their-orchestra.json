@@ -31,14 +31,18 @@
       "type": "spotify_artist",
       "url": "https://i.scdn.co/image/ab67616d000048510bafb5c47fd0c954c7417f84",
       "width": 64
+    },
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://static.grupojoly.com/clip/628bea6a-8200-45b5-82e8-4d69191889ba_16-9-aspect-ratio_default_0.jpg",
+      "width": 2000
     }
   ],
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/Carmen+&+Fernando+Del+Valle+&+Their+Orchestra",
   "local_images": {
-    "hi-res": "../public/artist/carmen-fernando-del-valle-their-orchestra/carmen-fernando-del-valle-their-orchestra-hi-res.jpg",
-    "medium": "../public/artist/carmen-fernando-del-valle-their-orchestra/carmen-fernando-del-valle-their-orchestra-medium.jpg",
-    "small": "../public/artist/carmen-fernando-del-valle-their-orchestra/carmen-fernando-del-valle-their-orchestra-small.jpg"
+    "hi-res": "../public/artist/carmen-fernando-del-valle-their-orchestra/carmen-fernando-del-valle-their-orchestra-hi-res.jpg"
   },
   "name": "Carmen & Fernando Del Valle & Their Orchestra",
   "popularity": null,
@@ -155,6 +159,6 @@
   },
   "spotify_id": "3599skkAcvsaVqrb7RzBa2",
   "spotify_url": "https://open.spotify.com/artist/3599skkAcvsaVqrb7RzBa2",
-  "updated_at": "2025-07-08T20:50:35.909690",
+  "updated_at": "2025-07-13T13:17:56.728488",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Fernando_del_Valle"
 }

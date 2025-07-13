@@ -74,19 +74,23 @@
       "type": "lastfm_artist_",
       "url": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
       "width": null
+    },
+    {
+      "height": 2000,
+      "type": "custom_artist_image",
+      "url": "https://www.thetimes.com/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fdbb73902-f528-4fbb-8ad8-4b9a338bf7cc.jpg?crop=1667%2C938%2C0%2C293",
+      "width": 2000
     }
   ],
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/Charles+Hazlewood",
   "local_images": {
-    "hi-res": "../public/artist/charles-hazlewood/charles-hazlewood-hi-res.jpg",
-    "medium": "../public/artist/charles-hazlewood/charles-hazlewood-medium.jpg",
-    "small": "../public/artist/charles-hazlewood/charles-hazlewood-small.jpg"
+    "hi-res": "../public/artist/charles-hazlewood/charles-hazlewood-hi-res.jpg"
   },
   "name": "Charles Hazlewood",
   "popularity": 2,
   "raw_data": {
-    "apple_music": "ArtistAppleMusicData(id='151040720', url='https://music.apple.com/gb/artist/charles-hazlewood/151040720', name='Charles Hazlewood', artwork_url='https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/e0/12/19/e01219eb-0ffe-c9c4-38b3-4ad39deab1f3/724357350150.jpg/2000x2000ac.jpg', genres=['Soundtrack'], origin='', born_or_formed=None, editorial_video_url=None, editorial_notes=None, raw_data={'id': '151040720', 'type': 'artists', 'href': '/v1/catalog/gb/artists/151040720', 'attributes': {'name': 'Charles Hazlewood', 'genreNames': ['Soundtrack'], 'artwork': {'width': 1425, 'height': 1425, 'url': 'https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/e0/12/19/e01219eb-0ffe-c9c4-38b3-4ad39deab1f3/724357350150.jpg/{w}x{h}ac.jpg', 'bgColor': '121210', 'textColor1': 'efcaaf', 'textColor2': 'efb061', 'textColor3': 'c2a58f', 'textColor4': 'c39151'}, 'url': 'https://music.apple.com/gb/artist/charles-hazlewood/151040720'}, 'relationships': {'albums': {'href': '/v1/catalog/gb/artists/151040720/albums', 'data': [{'id': '1725353225', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1725353225'}, {'id': '1725351628', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1725351628'}, {'id': '319985802', 'type': 'albums', 'href': '/v1/catalog/gb/albums/319985802'}, {'id': '1725347474', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1725347474'}, {'id': '692151292', 'type': 'albums', 'href': '/v1/catalog/gb/albums/692151292'}]}}})",
+    "apple_music": "ArtistAppleMusicData(id='151040720', url='https://music.apple.com/gb/artist/charles-hazlewood/151040720', name='Charles Hazlewood', artwork_url='https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/e0/12/19/e01219eb-0ffe-c9c4-38b3-4ad39deab1f3/724357350150.jpg/2000x2000ac.jpg', genres=['Soundtrack'], origin='', born_or_formed=None, editorial_video_url=None, editorial_notes=None, raw_data={'id': '151040720', 'type': 'artists', 'href': '/v1/catalog/gb/artists/151040720', 'attributes': {'name': 'Charles Hazlewood', 'genreNames': ['Soundtrack'], 'artwork': {'width': 1425, 'height': 1425, 'url': 'https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/e0/12/19/e01219eb-0ffe-c9c4-38b3-4ad39deab1f3/724357350150.jpg/{w}x{h}ac.jpg', 'bgColor': '121210', 'textColor1': 'efcaaf', 'textColor2': 'efb061', 'textColor3': 'c2a58f', 'textColor4': 'c39151'}, 'url': 'https://music.apple.com/gb/artist/charles-hazlewood/151040720'}, 'relationships': {'albums': {'href': '/v1/catalog/gb/artists/151040720/albums', 'data': [{'id': '1725353225', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1725353225'}, {'id': '319985802', 'type': 'albums', 'href': '/v1/catalog/gb/albums/319985802'}, {'id': '1725351628', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1725351628'}, {'id': '1725347474', 'type': 'albums', 'href': '/v1/catalog/gb/albums/1725347474'}, {'id': '692151292', 'type': 'albums', 'href': '/v1/catalog/gb/albums/692151292'}]}}})",
     "discogs": {
       "cover_image": "",
       "id": "3538784",
@@ -229,6 +233,6 @@
   },
   "spotify_id": "79QqCojTx4GX7Lu6uUXyMl",
   "spotify_url": "https://open.spotify.com/artist/79QqCojTx4GX7Lu6uUXyMl",
-  "updated_at": "2025-07-08T20:46:57.380471",
+  "updated_at": "2025-07-13T13:19:27.468120",
   "wikipedia_url": null
 }
