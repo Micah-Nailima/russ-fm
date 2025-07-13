@@ -85,6 +85,8 @@ export function GenrePage() {
       album.artists.forEach((artist) => {
         // Skip "Various" artists
         if (artist.name.toLowerCase().includes('various')) return;
+        // Skip Sigur Rós
+        if (artist.name.trim().toLowerCase() === 'sigur rós') return;
         
         genres.forEach((genre) => {
           const cleanGenre = genre.trim();
@@ -111,13 +113,13 @@ export function GenrePage() {
         artistMap
       }))
       .sort((a, b) => b.albumCount - a.albumCount)
-      .slice(0, 8);
+      .slice(0, 10);
     
     return sortedGenres.map((genreData, index) => {
       // If this genre is focused, show MANY more artists, otherwise normal amounts
       const isFocused = focusedGenre === genreData.genre;
       const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-      const focusedCount = isMobile ? 25 : 50; // Half as many on mobile
+      const focusedCount = isMobile ? 40 : 80; // Show more in focused view
       const maxArtists = isFocused ? focusedCount : (index === 0 ? 12 : index < 3 ? 8 : 6);
       
       const sortedArtists = Array.from(genreData.artistMap.entries())
@@ -149,11 +151,21 @@ export function GenrePage() {
   useEffect(() => {
     if (!genreArtistData.length || !svgRef.current) return;
 
+    // Find max albumCount for focused genre (for scaling in focused view)
+    let focusedMaxAlbumCount = 1;
+    if (focusedGenre) {
+      const focusedGenreObj = genreArtistData.find(g => g.genre === focusedGenre);
+      if (focusedGenreObj && focusedGenreObj.topArtists.length > 0) {
+        focusedMaxAlbumCount = Math.max(...focusedGenreObj.topArtists.map(a => a.albumCount));
+      }
+    }
+
     // Handle window resize
     const handleResize = () => {
       // Force re-render by clearing and re-running effect
-      if (svgRef.current) {
-        const svg = d3.select(svgRef.current);
+      const elem = svgRef.current;
+      if (elem) {
+        const svg = d3.select(elem);
         svg.selectAll('*').remove();
       }
       // Small delay to ensure container has updated dimensions
@@ -165,444 +177,564 @@ export function GenrePage() {
     };
 
     const renderVisualization = () => {
-    const svg = d3.select(svgRef.current);
-    svg.selectAll('*').remove(); // Clear previous render
+      const elem = svgRef.current;
+      if (!elem) return;
 
-    // Get container dimensions dynamically
-    const container = svgRef.current.parentElement;
-    const width = container?.clientWidth || 1200;
-    const height = container?.clientHeight || 800;
-    const centerX = width / 2;
-    const centerY = height / 2;
+      const svg = d3.select(elem);
+      svg.selectAll('*').remove(); // Clear previous render
 
-    svg.attr('viewBox', `0 0 ${width} ${height}`)
-       .attr('width', '100%')
-       .attr('height', '100%')
-       .on('click', () => {
-         // Click on background to unfocus
-         if (focusedGenre) {
-           setFocusedGenre(null);
-         }
-       });
+      // Get container dimensions dynamically
+      const container = elem.parentElement;
+      const width = container?.clientWidth || 1200;
+      const height = container?.clientHeight || 800;
+      const centerX = width / 2;
+      const centerY = height / 2;
 
-    // Create nodes and links
-    const nodes: MindMapNode[] = [];
-    const links: MindMapLink[] = [];
+      svg.attr('viewBox', `0 0 ${width} ${height}`)
+         .attr('width', '100%')
+         .attr('height', '100%')
+         .on('click', () => {
+           // Click on background to unfocus
+           if (focusedGenre) {
+             setFocusedGenre(null);
+           }
+         });
 
-    // Place genres strategically across the space with much better spacing
-    const genrePositions = [
-      // Center area
-      { x: 0, y: 0 },           // Dead center
-      { x: 0.9, y: 0 },         // Far right
-      { x: -0.9, y: 0 },        // Far left
-      // Upper area
-      { x: 0, y: -0.8 },        // Top center
-      { x: 0.7, y: -0.6 },      // Top right
-      { x: -0.7, y: -0.6 },     // Top left
-      // Lower area
-      { x: 0, y: 0.8 },         // Bottom center
-      { x: 0.7, y: 0.6 },       // Bottom right
-    ];
+      // Create nodes and links
+      const nodes: MindMapNode[] = [];
+      const links: MindMapLink[] = [];
+
+      // Place genres strategically across the space with much better spacing
+      const genrePositions = [
+        // Center area
+        { x: 0, y: 0 },           // Dead center
+        { x: 0.9, y: 0 },         // Far right
+        { x: -0.9, y: 0 },        // Far left
+        // Upper area
+        { x: 0, y: -0.8 },        // Top center
+        { x: 0.7, y: -0.6 },      // Top right
+        { x: -0.7, y: -0.6 },     // Top left
+        // Lower area
+        { x: 0, y: 0.8 },         // Bottom center
+        { x: 0.7, y: 0.6 },       // Bottom right
+        { x: -0.7, y: 0.6 },      // Bottom left
+        { x: 0, y: -0.95 },       // Far top center
+      ];
     
-    genreArtistData.forEach((genreData, i) => {
-      const isFocused = focusedGenre === genreData.genre;
-      const pos = genrePositions[i] || { x: 0, y: 0 };
-      
-      // If something is focused and this isn't it, skip this genre entirely
-      if (focusedGenre && !isFocused) {
-        return;
-      }
-      
-      // Position logic
-      let genreX, genreY;
-      if (isFocused || focusedGenre === genreData.genre) {
-        genreX = centerX;
-        genreY = centerY;
-      } else {
-        // Normal positioning
-        genreX = centerX + pos.x * Math.min(width, height) * 0.3;
-        genreY = centerY + pos.y * Math.min(width, height) * 0.3;
-      }
-      
-      const genreNode: MindMapNode = {
-        id: `genre-${genreData.genre}`,
-        type: 'genre',
-        name: genreData.genre,
-        albumCount: genreData.albumCount,
-        x: genreX,
-        y: genreY,
-      };
-      nodes.push(genreNode);
-
-      // Adjust cluster based on focus state
-      const artistCount = genreData.topArtists.length;
-      const clusterRadius = isFocused ? 100 : 120; // Start closer to center for focused view
-      
-      genreData.topArtists.forEach((artist, j) => {
-        let angle, radius;
+      genreArtistData.forEach((genreData, i) => {
+        const isFocused = focusedGenre === genreData.genre;
+        const pos = genrePositions[i] || { x: 0, y: 0 };
         
-        if (isFocused) {
-          // Mobile-responsive focused view
-          const isMobile = width < 768;
-          const artistsPerRing = isMobile ? 8 : 12; // Fewer per ring on mobile
-          const ring = Math.floor(j / artistsPerRing);
-          const angleInRing = (j % artistsPerRing) / artistsPerRing * 2 * Math.PI;
-          angle = angleInRing;
-          
-          // Mobile gets smaller radius and tighter spacing
-          const maxRadius = isMobile ? 
-            Math.min(width, height) * 0.25 : // 25% on mobile for more zoom
-            Math.min(width, height) * 0.4;   // 40% on desktop
-          
-          const ringSpacing = maxRadius / Math.ceil(artistCount / artistsPerRing);
-          const randomOffset = isMobile ? 20 : 30; // Less randomness on mobile
-          radius = clusterRadius + (ring * ringSpacing) + (Math.random() - 0.5) * randomOffset;
-        } else {
-          // Normal circular arrangement
-          angle = (j / artistCount) * 2 * Math.PI;
-          radius = clusterRadius + (Math.random() - 0.5) * 20;
+        // If something is focused and this isn't it, skip this genre entirely
+        if (focusedGenre && !isFocused) {
+          return;
         }
         
-        const artistNode: MindMapNode = {
-          id: `artist-${artist.slug}`,
-          type: 'artist',
-          name: artist.name,
-          genre: genreData.genre,
-          albumCount: artist.albumCount,
-          avatar: artist.avatar,
-          slug: artist.slug,
-          x: genreNode.x! + Math.cos(angle) * radius,
-          y: genreNode.y! + Math.sin(angle) * radius,
+        // Position logic
+        let genreX, genreY;
+        if (isFocused || focusedGenre === genreData.genre) {
+          genreX = centerX;
+          genreY = centerY;
+        } else {
+          // Normal positioning
+          genreX = centerX + pos.x * Math.min(width, height) * 0.3;
+          genreY = centerY + pos.y * Math.min(width, height) * 0.3;
+        }
+        
+        const genreNode: MindMapNode = {
+          id: `genre-${genreData.genre}`,
+          type: 'genre',
+          name: genreData.genre,
+          albumCount: genreData.albumCount,
+          x: genreX,
+          y: genreY,
         };
-        nodes.push(artistNode);
+        nodes.push(genreNode);
 
-        // Create link between genre and artist
-        links.push({
-          source: genreNode.id,
-          target: artistNode.id
-        });
-      });
-    });
-
-    // Gentle force simulation to maintain clusters with no overlap
-    const simulation = d3.forceSimulation(nodes as any)
-      .force('link', d3.forceLink(links).id((d: any) => d.id).distance(120).strength(0.7))
-      .force('charge', d3.forceManyBody().strength(-80)) // Gentle repulsion
-      .force('collision', d3.forceCollide().radius((d: any) => {
-        // Dynamic collision radius based on artist size and mobile
-        if (d.type === 'artist') {
-          const isMobile = width < 768;
-          const minSize = isMobile ? 16 : 20;
-          const maxSize = isMobile ? 32 : 40;
-          const multiplier = isMobile ? 2 : 3;
-          const size = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-          return size + (isMobile ? 8 : 10); // Tighter padding on mobile
-        }
-        return 60; // Genre nodes
-      })) // Dynamic collision radius
-      .force('boundary', () => {
-        // Keep nodes within viewport bounds
-        const margin = 100;
-        nodes.forEach((node: any) => {
-          node.x = Math.max(margin, Math.min(width - margin, node.x));
-          node.y = Math.max(margin, Math.min(height - margin, node.y));
-        });
-      })
-      .alphaDecay(0.06) // Settle slower for better positioning
-      .velocityDecay(0.8); // More damping
-
-    // Create links with straight lines
-    const linkGroup = svg.append('g').attr('class', 'links');
-    const linkElements = linkGroup.selectAll('line')
-      .data(links)
-      .enter().append('line')
-      .attr('stroke', '#64748b')
-      .attr('stroke-width', 1.5)
-      .attr('stroke-opacity', (d: any) => {
-        if (!focusedGenre) return 0.3;
-        const sourceNode = nodes.find(n => n.id === d.source);
-        return sourceNode?.genre === focusedGenre ? 0.6 : 0.1;
-      });
-
-    // Create genre nodes
-    const genreGroup = svg.append('g').attr('class', 'genres');
-    const genreNodes = genreGroup.selectAll('g')
-      .data(nodes.filter(n => n.type === 'genre'))
-      .enter().append('g')
-      .style('cursor', 'pointer')
-      .on('click', (event, d: any) => {
-        event.stopPropagation();
-        if (focusedGenre === d.name) {
-          // If already focused, unfocus
-          setFocusedGenre(null);
-        } else {
-          // Focus this genre
-          setFocusedGenre(d.name);
-        }
-      })
-      .call(d3.drag<any, any>()
-        .on('start', (event, d: any) => {
-          if (!event.active) simulation.alphaTarget(0.3).restart();
-          d.fx = d.x;
-          d.fy = d.y;
-        })
-        .on('drag', (event, d: any) => {
-          d.fx = event.x;
-          d.fy = event.y;
-        })
-        .on('end', (event, d: any) => {
-          if (!event.active) simulation.alphaTarget(0);
-          d.fx = null;
-          d.fy = null;
-        }));
-
-    genreNodes.append('circle')
-      .attr('r', d => Math.max(35, Math.min(55, d.albumCount * 1.5)))
-      .attr('fill', (d, i) => d3.schemeSet3[i % d3.schemeSet3.length])
-      .attr('stroke', '#fff')
-      .attr('stroke-width', 3)
-      .style('filter', 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))')
-      .style('opacity', (d: any) => {
-        if (!focusedGenre) return 1;
-        return focusedGenre === d.name ? 1 : 0.3;
-      });
-
-    // Add wrapped text for genre names
-    genreNodes.each(function(d: any) {
-      const node = d3.select(this);
-      const words = d.name.split(/[\s,&]+/); // Split on spaces, commas, and ampersands
-      const lineHeight = 12;
-      const maxWidth = 80; // Maximum width for text
-      
-      if (words.length <= 2) {
-        // Short names - single or two words
-        if (words.length === 1) {
-          node.append('text')
-            .attr('text-anchor', 'middle')
-            .attr('dy', 4)
-            .style('fill', '#1f2937')
-            .style('font-weight', 'bold')
-            .style('font-size', '11px')
-            .text(d.name);
-        } else {
-          // Two words - put each on its own line
-          node.append('text')
-            .attr('text-anchor', 'middle')
-            .attr('dy', -2)
-            .style('fill', '#1f2937')
-            .style('font-weight', 'bold')
-            .style('font-size', '11px')
-            .text(words[0]);
-          
-          node.append('text')
-            .attr('text-anchor', 'middle')
-            .attr('dy', 10)
-            .style('fill', '#1f2937')
-            .style('font-weight', 'bold')
-            .style('font-size', '11px')
-            .text(words.slice(1).join(' '));
-        }
-      } else {
-        // Long names - wrap intelligently
-        const lines: string[] = [];
-        let currentLine = '';
+        // Adjust cluster based on focus state
+        const artistCount = genreData.topArtists.length;
+        const clusterRadius = isFocused ? 100 : 120; // Start closer to center for focused view
         
-        words.forEach(word => {
-          const testLine = currentLine ? `${currentLine} ${word}` : word;
-          if (testLine.length > 8 && currentLine) { // Rough character limit
-            lines.push(currentLine);
-            currentLine = word;
+        genreData.topArtists.forEach((artist, j) => {
+          let angle, radius;
+          
+          if (isFocused) {
+            // Sort artists by albumCount descending for ring placement
+            const sortedArtists = [...genreData.topArtists].sort((a, b) => b.albumCount - a.albumCount);
+            const artistIndex = sortedArtists.findIndex(a => a.slug === artist.slug);
+            const rings = 4;
+            const artistsPerRing = Math.ceil(artistCount / rings);
+            const ring = Math.floor(artistIndex / artistsPerRing);
+            const angleInRing = (artistIndex % artistsPerRing) / artistsPerRing * 2 * Math.PI;
+            angle = angleInRing;
+            const maxRadius = Math.min(width, height) * 0.4;
+            const minRadius = clusterRadius;
+            const ringSpacing = (maxRadius - minRadius) / (rings - 1);
+            radius = minRadius + ring * ringSpacing + (Math.random() - 0.5) * 10;
           } else {
-            currentLine = testLine;
+            // Normal circular arrangement
+            angle = (j / artistCount) * 2 * Math.PI;
+            radius = clusterRadius + (Math.random() - 0.5) * 20;
+          }
+          
+          const artistNode: MindMapNode = {
+            id: `artist-${artist.slug}`,
+            type: 'artist',
+            name: artist.name,
+            genre: genreData.genre,
+            albumCount: artist.albumCount,
+            avatar: artist.avatar,
+            slug: artist.slug,
+            x: genreNode.x! + Math.cos(angle) * radius,
+            y: genreNode.y! + Math.sin(angle) * radius,
+          };
+          nodes.push(artistNode);
+
+          // Create link between genre and artist
+          links.push({
+            source: genreNode.id,
+            target: artistNode.id
+          });
+        });
+      });
+
+      // Gentle force simulation to maintain clusters with no overlap
+      const simulation = d3.forceSimulation(nodes as any)
+        .force('link', d3.forceLink(links).id((d: any) => d.id).distance(120).strength(0.7))
+        .force('charge', d3.forceManyBody().strength(-80)) // Gentle repulsion
+        .force('collision', d3.forceCollide().radius((d: any) => {
+          // Dynamic collision radius based on artist size and mobile
+          if (d.type === 'artist') {
+            const isMobile = width < 768;
+            const minSize = isMobile ? 16 : 20;
+            const maxSize = isMobile ? 32 : 40;
+            const multiplier = isMobile ? 2 : 3;
+            const size = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
+            return size + (isMobile ? 8 : 10); // Tighter padding on mobile
+          }
+          return 60; // Genre nodes
+        })) // Dynamic collision radius
+        .force('boundary', () => {
+          // Keep nodes within viewport bounds
+          const margin = 100;
+          nodes.forEach((node: any) => {
+            node.x = Math.max(margin, Math.min(width - margin, node.x));
+            node.y = Math.max(margin, Math.min(height - margin, node.y));
+          });
+        })
+        .alphaDecay(0.06) // Settle slower for better positioning
+        .velocityDecay(0.8); // More damping
+
+      // Create links with straight lines
+      const linkGroup = svg.append('g').attr('class', 'links');
+      const linkElements = linkGroup.selectAll('line')
+        .data(links)
+        .enter().append('line')
+        .attr('stroke', '#64748b')
+        .attr('stroke-width', 1.5)
+        .attr('stroke-opacity', (d: any) => {
+          if (!focusedGenre) return 0.3;
+          const sourceNode = nodes.find(n => n.id === d.source);
+          return sourceNode?.genre === focusedGenre ? 0.6 : 0.1;
+        });
+
+      // Create genre nodes
+      const genreGroup = svg.append('g').attr('class', 'genres');
+      const genreNodes = genreGroup.selectAll('g')
+        .data(nodes.filter(n => n.type === 'genre'))
+        .enter().append('g')
+        .style('cursor', 'pointer')
+        .on('click', (event, d: any) => {
+          event.stopPropagation();
+          if (focusedGenre === d.name) {
+            // If already focused, unfocus
+            setFocusedGenre(null);
+          } else {
+            // Focus this genre
+            setFocusedGenre(d.name);
+          }
+        })
+        .call(d3.drag<any, any>()
+          .on('start', (event, d: any) => {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+          })
+          .on('drag', (event, d: any) => {
+            d.fx = event.x;
+            d.fy = event.y;
+          })
+          .on('end', (event, d: any) => {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+          }));
+
+      genreNodes.append('circle')
+        .attr('r', d => Math.max(35, Math.min(55, d.albumCount * 1.5)))
+        .attr('fill', (d, i) => d3.schemeSet3[i % d3.schemeSet3.length])
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 3)
+        .style('filter', 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))')
+        .style('opacity', (d: any) => {
+          if (!focusedGenre) return 1;
+          return focusedGenre === d.name ? 1 : 0.3;
+        });
+
+      // Add wrapped text for genre names
+      genreNodes.each(function(d: any) {
+        const node = d3.select(this);
+        const words = d.name.split(/[\s,&]+/); // Split on spaces, commas, and ampersands
+        const lineHeight = 12;
+        const maxWidth = 80; // Maximum width for text
+        
+        if (words.length <= 2) {
+          // Short names - single or two words
+          if (words.length === 1) {
+            node.append('text')
+              .attr('text-anchor', 'middle')
+              .attr('dy', 4)
+              .style('fill', '#1f2937')
+              .style('font-weight', 'bold')
+              .style('font-size', '11px')
+              .text(d.name);
+          } else {
+            // Two words - put each on its own line
+            node.append('text')
+              .attr('text-anchor', 'middle')
+              .attr('dy', -2)
+              .style('fill', '#1f2937')
+              .style('font-weight', 'bold')
+              .style('font-size', '11px')
+              .text(words[0]);
+            
+            node.append('text')
+              .attr('text-anchor', 'middle')
+              .attr('dy', 10)
+              .style('fill', '#1f2937')
+              .style('font-weight', 'bold')
+              .style('font-size', '11px')
+              .text(words.slice(1).join(' '));
+          }
+        } else {
+          // Long names - wrap intelligently
+          const lines: string[] = [];
+          let currentLine = '';
+          
+          words.forEach((word: string) => {
+            const testLine = currentLine ? `${currentLine} ${word}` : word;
+            if (testLine.length > 8 && currentLine) { // Rough character limit
+              lines.push(currentLine);
+              currentLine = word;
+            } else {
+              currentLine = testLine;
+            }
+          });
+          if (currentLine) lines.push(currentLine);
+          
+          // Add text lines
+          lines.forEach((line, i) => {
+            node.append('text')
+              .attr('text-anchor', 'middle')
+              .attr('dy', (i - (lines.length - 1) / 2) * lineHeight + 4)
+              .style('fill', '#1f2937')
+              .style('font-weight', 'bold')
+              .style('font-size', '10px')
+              .text(line);
+          });
+        }
+      });
+
+      // Create artist nodes with avatars
+      const artistGroup = svg.append('g').attr('class', 'artists');
+      const artistNodes = artistGroup.selectAll('g')
+        .data(nodes.filter(n => n.type === 'artist'))
+        .enter().append('g')
+        .style('cursor', 'pointer')
+        .attr('data-hovered', 'false')
+        .call(d3.drag<any, any>()
+          .on('start', (event, d: any) => {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+          })
+          .on('drag', (event, d: any) => {
+            d.fx = event.x;
+            d.fy = event.y;
+          })
+          .on('end', (event, d: any) => {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+          }))
+        .on('click', (event, d) => {
+          if (d.slug) {
+            navigate(`/artist/${d.slug}`);
           }
         });
-        if (currentLine) lines.push(currentLine);
-        
-        // Add text lines
-        lines.forEach((line, i) => {
-          node.append('text')
-            .attr('text-anchor', 'middle')
-            .attr('dy', (i - (lines.length - 1) / 2) * lineHeight + 4)
-            .style('fill', '#1f2937')
-            .style('font-weight', 'bold')
-            .style('font-size', '10px')
-            .text(line);
+
+      // Artist avatar border (no fill, just stroke for definition) - size based on album count
+      artistNodes.append('circle')
+        .attr('r', (d: any) => {
+          const isMobile = width < 768;
+          if (!focusedGenre) {
+            const minSize = isMobile ? 12 : 16;
+            const maxSize = isMobile ? 32 : 44;
+            const size = minSize + Math.sqrt(d.albumCount) * (isMobile ? 2.5 : 3.5);
+            return Math.max(minSize, Math.min(maxSize, size));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            const size = minSize + (maxSize - minSize) * Math.pow(ratio, 0.9);
+            return Math.max(minSize, Math.min(maxSize, size));
+          }
+        })
+        .attr('fill', 'none')
+        .attr('stroke', '#64748b')
+        .attr('stroke-width', 2)
+        .style('filter', 'drop-shadow(1px 1px 3px rgba(0,0,0,0.3))')
+        .style('opacity', (d: any) => {
+          if (!focusedGenre) return 1;
+          return d.genre === focusedGenre ? 1 : 0.2;
         });
+
+      // Artist avatar images - create circular clipping mask with dynamic size
+      artistNodes.append('defs').append('clipPath')
+        .attr('id', (d, i) => `clip-${d.slug}`)
+        .append('circle')
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .attr('r', (d: any) => {
+          const isMobile = width < 768;
+          if (!focusedGenre) {
+            const minSize = isMobile ? 12 : 16;
+            const maxSize = isMobile ? 32 : 44;
+            const size = minSize + Math.sqrt(d.albumCount) * (isMobile ? 2.5 : 3.5);
+            return Math.max(minSize, Math.min(maxSize, size));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            const size = minSize + (maxSize - minSize) * Math.pow(ratio, 0.9);
+            return Math.max(minSize, Math.min(maxSize, size));
+          }
+        });
+
+      artistNodes.append('image')
+        .attr('href', d => d.avatar || '')
+        .attr('x', (d: any) => {
+          const isMobile = width < 768;
+          let size;
+          if (!focusedGenre) {
+            const minSize = isMobile ? 12 : 16;
+            const maxSize = isMobile ? 32 : 44;
+            size = Math.max(minSize, Math.min(maxSize, minSize + Math.sqrt(d.albumCount) * (isMobile ? 2.5 : 3.5)));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            size = Math.max(minSize, Math.min(maxSize, minSize + (maxSize - minSize) * Math.pow(ratio, 0.9)));
+          }
+          return -size;
+        })
+        .attr('y', (d: any) => {
+          const isMobile = width < 768;
+          let size;
+          if (!focusedGenre) {
+            const minSize = isMobile ? 12 : 16;
+            const maxSize = isMobile ? 32 : 44;
+            size = Math.max(minSize, Math.min(maxSize, minSize + Math.sqrt(d.albumCount) * (isMobile ? 2.5 : 3.5)));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            size = Math.max(minSize, Math.min(maxSize, minSize + (maxSize - minSize) * Math.pow(ratio, 0.9)));
+          }
+          return -size;
+        })
+        .attr('width', (d: any) => {
+          const isMobile = width < 768;
+          let size;
+          if (!focusedGenre) {
+            const minSize = isMobile ? 12 : 16;
+            const maxSize = isMobile ? 32 : 44;
+            size = Math.max(minSize, Math.min(maxSize, minSize + Math.sqrt(d.albumCount) * (isMobile ? 2.5 : 3.5)));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            size = Math.max(minSize, Math.min(maxSize, minSize + (maxSize - minSize) * Math.pow(ratio, 0.9)));
+          }
+          return size * 2;
+        })
+        .attr('height', (d: any) => {
+          const isMobile = width < 768;
+          let size;
+          if (!focusedGenre) {
+            const minSize = isMobile ? 12 : 16;
+            const maxSize = isMobile ? 32 : 44;
+            size = Math.max(minSize, Math.min(maxSize, minSize + Math.sqrt(d.albumCount) * (isMobile ? 2.5 : 3.5)));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            size = Math.max(minSize, Math.min(maxSize, minSize + (maxSize - minSize) * Math.pow(ratio, 0.9)));
+          }
+          return size * 2;
+        })
+        .attr('clip-path', (d, i) => `url(#clip-${d.slug})`)
+        .attr('preserveAspectRatio', 'xMidYMid slice')
+        .style('opacity', (d: any) => {
+          if (!focusedGenre) return 1;
+          return d.genre === focusedGenre ? 1 : 0.2;
+        })
+        .on('error', function() {
+          // For failed images, add a gray background circle
+          if (this.parentNode) {
+            d3.select(this.parentNode as Element)
+              .append('circle')
+              .attr('r', 28)
+              .attr('fill', '#e2e8f0')
+              .attr('stroke', '#64748b')
+              .attr('stroke-width', 2);
+          }
+        });
+
+      // No artist labels - cleaner look
+
+      // Tooltip group (one for all artists, reused)
+      let tooltipGroup: d3.Selection<SVGGElement, unknown, null, undefined> = svg.select('g.artist-tooltip');
+      if (tooltipGroup.empty()) {
+        tooltipGroup = svg.append('g').attr('class', 'artist-tooltip') as d3.Selection<SVGGElement, unknown, null, undefined>;
       }
-    });
+      tooltipGroup.style('pointer-events', 'none');
+      tooltipGroup.selectAll('*').remove();
 
-    // Create artist nodes with avatars
-    const artistGroup = svg.append('g').attr('class', 'artists');
-    const artistNodes = artistGroup.selectAll('g')
-      .data(nodes.filter(n => n.type === 'artist'))
-      .enter().append('g')
-      .style('cursor', 'pointer')
-      .attr('data-hovered', 'false')
-      .call(d3.drag<any, any>()
-        .on('start', (event, d: any) => {
-          if (!event.active) simulation.alphaTarget(0.3).restart();
-          d.fx = d.x;
-          d.fy = d.y;
+      // Simple hover effects - just scale the entire node
+      artistNodes
+        .on('mouseenter', function(event, d: any) {
+          d3.select(this).attr('data-hovered', 'true');
+          // Move this node to the end of the group to bring to foreground
+          if (this.parentNode) {
+            this.parentNode.appendChild(this);
+          }
+          // Calculate current radius for this node
+          let currentRadius;
+          if (!focusedGenre) {
+            const minSize = width < 768 ? 12 : 16;
+            const maxSize = width < 768 ? 32 : 44;
+            currentRadius = Math.max(minSize, Math.min(maxSize, minSize + Math.sqrt(d.albumCount) * (width < 768 ? 2.5 : 3.5)));
+          } else {
+            const minSize = 10;
+            const maxSize = 50;
+            const ratio = focusedMaxAlbumCount > 0 ? d.albumCount / focusedMaxAlbumCount : 0;
+            currentRadius = Math.max(minSize, Math.min(maxSize, minSize + (maxSize - minSize) * Math.pow(ratio, 0.9)));
+          }
+          // Animate to 128px diameter (radius 64)
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr('transform', `translate(${d.x},${d.y}) scale(${64 / currentRadius})`);
+          // Pulse effect on border
+          d3.select(this).select('circle')
+            .attr('class', 'pulse-border')
+            .transition()
+            .duration(200)
+            .attr('stroke', '#3b82f6')
+            .attr('stroke-width', 4);
+          // Tooltip: show and animate
+          tooltipGroup.selectAll('*').remove();
+          // Calculate text width for dynamic sizing
+          const tempText = svg.append('text')
+            .attr('font-size', 15)
+            .attr('font-weight', 'bold')
+            .text(d.name);
+          const textWidth = tempText.node()?.getBBox().width || 60;
+          tempText.remove();
+          const padding = 18;
+          const boxWidth = textWidth + padding * 2;
+          const boxHeight = 32;
+          const tooltipY = (d.y ?? 0) - 80;
+          const tooltip = tooltipGroup.append('g')
+            .attr('transform', `translate(${d.x},${tooltipY}) scale(0.7)`)
+            .attr('opacity', 0);
+          // Tooltip background
+          tooltip.append('rect')
+            .attr('x', -boxWidth / 2)
+            .attr('y', -boxHeight / 2)
+            .attr('rx', 8)
+            .attr('ry', 8)
+            .attr('width', boxWidth)
+            .attr('height', boxHeight)
+            .attr('fill', '#f8fafc')
+            .attr('stroke', '#60a5fa')
+            .attr('stroke-width', 1.5)
+            .attr('filter', 'drop-shadow(0px 2px 6px rgba(0,0,0,0.10))');
+          // Tooltip text
+          tooltip.append('text')
+            .attr('x', 0)
+            .attr('y', 5)
+            .attr('text-anchor', 'middle')
+            .attr('font-size', 15)
+            .attr('font-weight', 'bold')
+            .attr('fill', '#334155')
+            .text(d.name);
+          // Animate tooltip pop
+          tooltip.transition()
+            .duration(180)
+            .attr('transform', `translate(${d.x},${tooltipY}) scale(1)`)
+            .attr('opacity', 1);
         })
-        .on('drag', (event, d: any) => {
-          d.fx = event.x;
-          d.fy = event.y;
-        })
-        .on('end', (event, d: any) => {
-          if (!event.active) simulation.alphaTarget(0);
-          d.fx = null;
-          d.fy = null;
-        }))
-      .on('click', (event, d) => {
-        if (d.slug) {
-          navigate(`/artist/${d.slug}`);
-        }
-      });
-
-    // Artist avatar border (no fill, just stroke for definition) - size based on album count
-    artistNodes.append('circle')
-      .attr('r', (d: any) => {
-        // Mobile-responsive sizing
-        const isMobile = width < 768;
-        const minSize = isMobile ? 16 : 20;
-        const maxSize = isMobile ? 32 : 40;
-        const multiplier = isMobile ? 2 : 3;
-        const baseSize = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-        return baseSize;
-      })
-      .attr('fill', 'none')
-      .attr('stroke', '#64748b')
-      .attr('stroke-width', 2)
-      .style('filter', 'drop-shadow(1px 1px 3px rgba(0,0,0,0.3))')
-      .style('opacity', (d: any) => {
-        if (!focusedGenre) return 1;
-        return d.genre === focusedGenre ? 1 : 0.2;
-      });
-
-    // Artist avatar images - create circular clipping mask with dynamic size
-    artistNodes.append('defs').append('clipPath')
-      .attr('id', (d, i) => `clip-${d.slug}`)
-      .append('circle')
-      .attr('cx', 0)
-      .attr('cy', 0)
-      .attr('r', (d: any) => {
-        const isMobile = width < 768;
-        const minSize = isMobile ? 16 : 20;
-        const maxSize = isMobile ? 32 : 40;
-        const multiplier = isMobile ? 2 : 3;
-        return Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-      });
-
-    artistNodes.append('image')
-      .attr('href', d => d.avatar || '')
-      .attr('x', (d: any) => {
-        const isMobile = width < 768;
-        const minSize = isMobile ? 16 : 20;
-        const maxSize = isMobile ? 32 : 40;
-        const multiplier = isMobile ? 2 : 3;
-        const size = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-        return -(size + 10);
-      })
-      .attr('y', (d: any) => {
-        const isMobile = width < 768;
-        const minSize = isMobile ? 16 : 20;
-        const maxSize = isMobile ? 32 : 40;
-        const multiplier = isMobile ? 2 : 3;
-        const size = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-        return -(size + 10);
-      })
-      .attr('width', (d: any) => {
-        const isMobile = width < 768;
-        const minSize = isMobile ? 16 : 20;
-        const maxSize = isMobile ? 32 : 40;
-        const multiplier = isMobile ? 2 : 3;
-        const size = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-        return (size + 10) * 2;
-      })
-      .attr('height', (d: any) => {
-        const isMobile = width < 768;
-        const minSize = isMobile ? 16 : 20;
-        const maxSize = isMobile ? 32 : 40;
-        const multiplier = isMobile ? 2 : 3;
-        const size = Math.max(minSize, Math.min(maxSize, (isMobile ? 14 : 18) + (d.albumCount * multiplier)));
-        return (size + 10) * 2;
-      })
-      .attr('clip-path', (d, i) => `url(#clip-${d.slug})`)
-      .attr('preserveAspectRatio', 'xMidYMid slice')
-      .style('opacity', (d: any) => {
-        if (!focusedGenre) return 1;
-        return d.genre === focusedGenre ? 1 : 0.2;
-      })
-      .on('error', function() {
-        // For failed images, add a gray background circle
-        d3.select(this.parentNode)
-          .append('circle')
-          .attr('r', 28)
-          .attr('fill', '#e2e8f0')
-          .attr('stroke', '#64748b')
-          .attr('stroke-width', 2);
-      });
-
-    // No artist labels - cleaner look
-
-    // Simple hover effects - just scale the entire node
-    artistNodes
-      .on('mouseenter', function(event, d) {
-        d3.select(this).attr('data-hovered', 'true');
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .attr('transform', `translate(${d.x},${d.y}) scale(1.15)`);
-        
-        d3.select(this).select('circle')
-          .transition()
-          .duration(200)
-          .attr('stroke', '#3b82f6')
-          .attr('stroke-width', 3);
-      })
-      .on('mouseleave', function(event, d) {
-        d3.select(this).attr('data-hovered', 'false');
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .attr('transform', `translate(${d.x},${d.y}) scale(1)`);
-        
-        d3.select(this).select('circle')
-          .transition()
-          .duration(200)
-          .attr('stroke', '#64748b')
-          .attr('stroke-width', 2);
-      });
-
-    // Update positions on simulation tick
-    simulation.on('tick', () => {
-      // Update link positions with straight lines
-      linkElements
-        .attr('x1', (d: any) => {
-          const source = nodes.find(n => n.id === d.source.id);
-          return source?.x || 0;
-        })
-        .attr('y1', (d: any) => {
-          const source = nodes.find(n => n.id === d.source.id);
-          return source?.y || 0;
-        })
-        .attr('x2', (d: any) => {
-          const target = nodes.find(n => n.id === d.target.id);
-          return target?.x || 0;
-        })
-        .attr('y2', (d: any) => {
-          const target = nodes.find(n => n.id === d.target.id);
-          return target?.y || 0;
+        .on('mouseleave', function(event, d) {
+          d3.select(this).attr('data-hovered', 'false');
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr('transform', `translate(${d.x},${d.y}) scale(1)`);
+          d3.select(this).select('circle')
+            .attr('class', null)
+            .transition()
+            .duration(200)
+            .attr('stroke', '#64748b')
+            .attr('stroke-width', 2);
+          // Animate tooltip out
+          tooltipGroup.selectAll('g').transition()
+            .duration(120)
+            .attr('transform', `translate(${d.x},${(d.y ?? 0) - 80}) scale(0.7)`)
+            .attr('opacity', 0)
+            .remove();
         });
 
-      // Update node positions
-      genreNodes.attr('transform', d => `translate(${d.x},${d.y})`);
-      artistNodes.attr('transform', function(d: any) {
-        const isHovered = d3.select(this).attr('data-hovered') === 'true';
-        const scale = isHovered ? 'scale(1.15)' : 'scale(1)';
-        return `translate(${d.x},${d.y}) ${scale}`;
+      // Update positions on simulation tick
+      simulation.on('tick', () => {
+        // Update link positions with straight lines
+        linkElements
+          .attr('x1', (d: any) => {
+            const source = nodes.find(n => n.id === d.source.id);
+            return source?.x || 0;
+          })
+          .attr('y1', (d: any) => {
+            const source = nodes.find(n => n.id === d.source.id);
+            return source?.y || 0;
+          })
+          .attr('x2', (d: any) => {
+            const target = nodes.find(n => n.id === d.target.id);
+            return target?.x || 0;
+          })
+          .attr('y2', (d: any) => {
+            const target = nodes.find(n => n.id === d.target.id);
+            return target?.y || 0;
+          });
+
+        // Update node positions
+        genreNodes.attr('transform', d => `translate(${d.x},${d.y})`);
+        artistNodes.attr('transform', function(d: any) {
+          const isHovered = d3.select(this).attr('data-hovered') === 'true';
+          const scale = isHovered ? 'scale(1.15)' : 'scale(1)';
+          return `translate(${d.x},${d.y}) ${scale}`;
+        });
       });
-    });
     };
 
     // Initial render
@@ -610,6 +742,22 @@ export function GenrePage() {
 
     // Add resize listener
     window.addEventListener('resize', handleResize);
+
+    // Add CSS for pulse effect
+    if (!document.getElementById('pulse-style')) {
+      const style = document.createElement('style');
+      style.id = 'pulse-style';
+      style.textContent = `
+        .pulse-border {
+          animation: pulse 0.7s infinite alternate;
+        }
+        @keyframes pulse {
+          0% { stroke-width: 4; stroke: #3b82f6; }
+          100% { stroke-width: 14; stroke: #60a5fa; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
 
     // Cleanup
     return () => {
