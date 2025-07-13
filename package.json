@@ -12,9 +12,7 @@
     "check-corrupted-images": "tsx scripts/check-corrupted-images.js",
     "clear-cache": "./clear-cache.sh",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "wrangler deploy",
-    "deploy:dev": "wrangler dev"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
@@ -53,7 +51,6 @@
     "tsx": "^4.20.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
-    "vite": "^7.0.0",
-    "wrangler": "^4.24.3"
+    "vite": "^7.0.0"
   }
 }
