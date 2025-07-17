@@ -438,7 +438,7 @@ export function ArtistDetailPage() {
                       onClick={() => window.open(artistData.services.apple_music.url, '_blank')}
                     >
                       <SiApplemusic className="service-icon" />
-                      <span className="service-text">Listen on Apple Music</span>
+                      <span className="service-text">View on Apple Music</span>
                     </Button>
                   );
                 }
@@ -453,7 +453,7 @@ export function ArtistDetailPage() {
                       onClick={() => window.open(artistData?.spotify_url || artistData?.services?.spotify?.url || artistData?.services?.spotify?.external_urls?.spotify, '_blank')}
                     >
                       <SiSpotify className="service-icon" />
-                      <span className="service-text">Listen on Spotify</span>
+                      <span className="service-text">View on Spotify</span>
                     </Button>
                   );
                 }
