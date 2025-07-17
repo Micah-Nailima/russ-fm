@@ -11,6 +11,7 @@ import { usePageTitle } from '@/hooks/usePageTitle';
 import { filterGenres } from '@/lib/filterGenres';
 import { getCleanGenres } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
+import { MusicPlayerSection } from '@/components/MusicPlayerSection';
 
 interface Album {
   release_name: string;
@@ -56,6 +57,7 @@ interface Track {
 interface DetailedAlbum {
   id?: string;
   title: string;
+  artist: string; // Added for MusicPlayerSection compatibility
   artists: Array<{
     name: string;
     biography?: string;
@@ -186,6 +188,8 @@ export function AlbumDetailPage() {
         try {
           const albumDetailResponse = await fetch(`${foundAlbum.json_detailed_release}`);
           const albumDetail = await albumDetailResponse.json();
+          // Add artist property for MusicPlayerSection compatibility
+          albumDetail.artist = foundAlbum.release_artist;
           setDetailedAlbum(albumDetail);
         } catch (error) {
           console.error('Error loading album details:', error);
@@ -573,7 +577,7 @@ export function AlbumDetailPage() {
                       onClick={() => window.open(detailedAlbum.services.apple_music.url, '_blank')}
                     >
                       <SiApplemusic className="service-icon" />
-                      <span className="service-text">Listen on Apple Music</span>
+                      <span className="service-text">View on Apple Music</span>
                     </Button>
                   );
                 }
@@ -588,7 +592,7 @@ export function AlbumDetailPage() {
                       onClick={() => window.open(detailedAlbum?.spotify_url || detailedAlbum?.services?.spotify?.url || detailedAlbum?.services?.spotify?.raw_data?.external_urls?.spotify, '_blank')}
                     >
                       <SiSpotify className="service-icon" />
-                      <span className="service-text">Listen on Spotify</span>
+                      <span className="service-text">View on Spotify</span>
                     </Button>
                   );
                 }
@@ -635,8 +639,6 @@ export function AlbumDetailPage() {
                 return pairs;
               })()}
             </div>
-
-
           </div>
         </div>
       </div>
@@ -759,6 +761,14 @@ export function AlbumDetailPage() {
             </div>
           </CardContent>
         </Card>
+      )}
+
+      {/* Music Player Embeds */}
+      {detailedAlbum && (
+        <MusicPlayerSection 
+          album={detailedAlbum} 
+          className="mt-8 mb-8"
+        />
       )}
 
       {/* Artist Biographies */}
