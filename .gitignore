@@ -10,6 +10,7 @@ dist/
 downloads/
 eggs/
 .eggs/
+
 # Python lib directory (but not src/lib/)
 **/lib/
 !src/lib/
@@ -143,10 +144,12 @@ v1_index_cache.json
 test_output/
 test_results/
 
+# Node.js
 node_modules/
 package-lock.json
 dist/
 
+# Claude
 .claude/
 
 # Generated image sizes (only keep hi-res originals)
@@ -156,4 +159,3 @@ public/album/**/*-avatar.jpg
 public/artist/**/*-medium.jpg
 public/artist/**/*-small.jpg
 public/artist/**/*-avatar.jpg
-
