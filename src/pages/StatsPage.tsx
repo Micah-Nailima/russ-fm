@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -83,23 +83,6 @@ export function StatsPage() {
 
   usePageTitle('Collection Statistics | Russ.fm');
 
-  useEffect(() => {
-    loadCollection();
-  }, []);
-
-  const loadCollection = async () => {
-    try {
-      const response = await fetch('/collection.json');
-      const data = await response.json();
-      setCollection(data);
-      calculateStats(data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error loading collection:', error);
-      setLoading(false);
-    }
-  };
-
   // Generate avatar URL from existing artist images
   const getAvatarUrl = (images_uri_artist: { avatar?: string; 'hi-res'?: string; medium?: string } | undefined) => {
     if (images_uri_artist?.avatar) {
@@ -113,7 +96,7 @@ export function StatsPage() {
     return '';
   };
 
-  const calculateStats = (data: Album[]) => {
+  const calculateStats = useCallback((data: Album[]) => {
     // Basic counts
     const totalAlbums = data.length;
     const uniqueArtists = new Set(data.map(album => album.release_artist)).size;
@@ -215,7 +198,24 @@ export function StatsPage() {
       recentAdditions,
       oldestAdditions
     });
-  };
+  }, []);
+
+  const loadCollection = useCallback(async () => {
+    try {
+      const response = await fetch('/collection.json');
+      const data = await response.json();
+      setCollection(data);
+      calculateStats(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error loading collection:', error);
+      setLoading(false);
+    }
+  }, [calculateStats]);
+
+  useEffect(() => {
+    loadCollection();
+  }, [loadCollection]);
 
   const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4', '#F97316', '#EC4899', '#84CC16', '#6366F1'];
 

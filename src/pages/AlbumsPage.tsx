@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { Music } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -98,6 +98,18 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
   
   usePageTitle(getPageTitle());
 
+  const loadCollection = async () => {
+    try {
+      const response = await fetch('/collection.json');
+      const data = await response.json();
+      setCollection(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error loading collection:', error);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     loadCollection();
   }, []);
@@ -126,6 +138,53 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
     setSearchParams(params);
   };
 
+  const filterAndSortCollection = useCallback(() => {
+    let filtered = [...collection];
+
+    // Apply search filter
+    if (searchTerm) {
+      filtered = filtered.filter(album =>
+        album.release_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        album.release_artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        album.genre_names.some(genre => genre.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (album.artists && album.artists.some(artist => 
+          artist.name.toLowerCase().includes(searchTerm.toLowerCase())
+        ))
+      );
+    }
+
+    // Apply genre filter
+    if (selectedGenre !== 'all') {
+      filtered = filtered.filter(album => 
+        album.genre_names.some(genre => genre === selectedGenre)
+      );
+    }
+
+    // Apply year filter
+    if (selectedYear !== 'all') {
+      filtered = filtered.filter(album => {
+        const albumYear = new Date(album.date_release_year).getFullYear().toString();
+        return albumYear === selectedYear;
+      });
+    }
+
+    // Apply sorting
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'release_name':
+          return a.release_name.localeCompare(b.release_name);
+        case 'release_artist':
+          return a.release_artist.localeCompare(b.release_artist);
+        case 'date_release_year':
+          return new Date(b.date_release_year).getTime() - new Date(a.date_release_year).getTime();
+        default:
+          return new Date(b.date_added).getTime() - new Date(a.date_added).getTime();
+      }
+    });
+
+    setFilteredCollection(filtered);
+  }, [collection, searchTerm, selectedGenre, selectedYear, sortBy]);
+
   useEffect(() => {
     filterAndSortCollection();
     
@@ -136,65 +195,8 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
         navigate('/albums/1');
       }
     }
-  }, [collection, searchTerm, selectedGenre, selectedYear, sortBy]);
+  }, [collection, searchTerm, selectedGenre, selectedYear, sortBy, currentPage, filterAndSortCollection, navigate, prevSearchTerm]);
 
-
-  const loadCollection = async () => {
-    try {
-      const response = await fetch('/collection.json');
-      const data = await response.json();
-      setCollection(data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error loading collection:', error);
-      setLoading(false);
-    }
-  };
-
-  const filterAndSortCollection = () => {
-    let filtered = [...collection];
-
-    // Apply search filter
-    if (searchTerm) {
-      filtered = filtered.filter(album =>
-        album.release_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        album.release_artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        album.genre_names.some(genre => genre.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
-    }
-
-    // Apply genre filter
-    if (selectedGenre && selectedGenre !== 'all') {
-      filtered = filtered.filter(album =>
-        album.genre_names.includes(selectedGenre)
-      );
-    }
-
-    // Apply year filter
-    if (selectedYear && selectedYear !== 'all') {
-      filtered = filtered.filter(album => {
-        const year = new Date(album.date_release_year).getFullYear().toString();
-        return year === selectedYear;
-      });
-    }
-
-    // Sort collection
-    filtered.sort((a, b) => {
-      switch (sortBy) {
-        case 'release_name':
-          return a.release_name.localeCompare(b.release_name);
-        case 'release_artist':
-          return a.release_artist.localeCompare(b.release_artist);
-        case 'date_release_year':
-          return new Date(b.date_release_year).getTime() - new Date(a.date_release_year).getTime();
-        case 'date_added':
-        default:
-          return new Date(b.date_added).getTime() - new Date(a.date_added).getTime();
-      }
-    });
-
-    setFilteredCollection(filtered);
-  };
 
 
   const getAllGenres = () => {

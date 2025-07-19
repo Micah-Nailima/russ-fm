@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Users } from 'lucide-react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -100,42 +100,6 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
   
   usePageTitle(getPageTitle());
 
-  useEffect(() => {
-    loadCollection();
-  }, []);
-
-  useEffect(() => {
-    if (collection.length > 0) {
-      processArtists();
-    }
-  }, [collection]);
-
-  // Update URL params when filters change
-  const updateURLParams = (newParams: Record<string, string>) => {
-    const params = new URLSearchParams(searchParams);
-    Object.entries(newParams).forEach(([key, value]) => {
-      if (value === 'all' || value === 'name') {
-        params.delete(key);
-      } else {
-        params.set(key, value);
-      }
-    });
-    setSearchParams(params);
-  };
-
-  useEffect(() => {
-    filterAndSortArtists();
-    
-    // Only navigate to page 1 if search term actually changed
-    if (searchTerm !== prevSearchTerm) {
-      setPrevSearchTerm(searchTerm);
-      if (currentPage !== 1) {
-        navigate('/artists/1');
-      }
-    }
-  }, [artists, searchTerm, sortBy, selectedLetter]);
-
-
   const loadCollection = async () => {
     try {
       const response = await fetch('/collection.json');
@@ -167,7 +131,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
       ;
   };
 
-  const processArtists = () => {
+  const processArtists = useCallback(() => {
     const artistMap = new Map<string, Artist>();
     const normalizedToOriginal = new Map<string, string>(); // Track normalized -> original name mapping
 
@@ -288,9 +252,9 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
     });
 
     setArtists(Array.from(artistMap.values()));
-  };
+  }, [collection]);
 
-  const filterAndSortArtists = () => {
+  const filterAndSortArtists = useCallback(() => {
     let filtered = [...artists];
 
     // Apply search filter
@@ -323,7 +287,42 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
     });
 
     setFilteredArtists(filtered);
+  }, [artists, searchTerm, sortBy, selectedLetter]);
+
+  useEffect(() => {
+    loadCollection();
+  }, []);
+
+  useEffect(() => {
+    if (collection.length > 0) {
+      processArtists();
+    }
+  }, [collection, processArtists]);
+
+  // Update URL params when filters change
+  const updateURLParams = (newParams: Record<string, string>) => {
+    const params = new URLSearchParams(searchParams);
+    Object.entries(newParams).forEach(([key, value]) => {
+      if (value === 'all' || value === 'name') {
+        params.delete(key);
+      } else {
+        params.set(key, value);
+      }
+    });
+    setSearchParams(params);
   };
+
+  useEffect(() => {
+    filterAndSortArtists();
+    
+    // Only navigate to page 1 if search term actually changed
+    if (searchTerm !== prevSearchTerm) {
+      setPrevSearchTerm(searchTerm);
+      if (currentPage !== 1) {
+        navigate('/artists/1');
+      }
+    }
+  }, [artists, searchTerm, sortBy, selectedLetter, currentPage, filterAndSortArtists, navigate, prevSearchTerm]);
 
   // Get available letters from artist names
   const getAvailableLetters = () => {

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Disc, Calendar, ExternalLink, Globe, Music, Plus, Star, Play, Users, CalendarDays, MapPin } from 'lucide-react';
+import { ArrowLeft, Clock, Disc } from 'lucide-react';
 import { SiSpotify, SiApplemusic, SiLastdotfm, SiDiscogs } from 'react-icons/si';
 import { FcCalendar, FcPlus, FcGlobe } from 'react-icons/fc';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -130,7 +130,7 @@ interface DetailedAlbum {
       raw_data?: {
         album?: {
           tracks?: {
-            track?: any; // Can be array or single track
+            track?: Track | Track[]; // Can be array or single track
           };
         };
       };
@@ -166,11 +166,7 @@ export function AlbumDetailPage() {
   
   usePageTitle(pageTitle);
 
-  useEffect(() => {
-    loadAlbumData();
-  }, [albumPath]);
-
-  const loadAlbumData = async () => {
+  const loadAlbumData = useCallback(async () => {
     try {
       // Load collection to find this specific album
       const collectionResponse = await fetch('/collection.json');
@@ -201,7 +197,11 @@ export function AlbumDetailPage() {
       console.error('Error loading album data:', error);
       setLoading(false);
     }
-  };
+  }, [albumPath]);
+
+  useEffect(() => {
+    loadAlbumData();
+  }, [albumPath, loadAlbumData]);
 
   const formatDuration = (ms: number) => {
     if (!ms) return '';
@@ -296,7 +296,7 @@ export function AlbumDetailPage() {
       const firstTrack = detailedAlbum.tracklist[0];
       if (firstTrack && typeof firstTrack === 'object' && 'title' in firstTrack && 'artists' in firstTrack) {
         // This is a compilation format - convert to our standard format
-        return detailedAlbum.tracklist.map((track: any, index: number) => ({
+        return detailedAlbum.tracklist.map((track: Track & { title?: string; artists?: Array<{ name: string; discogs_id?: string; spotify_id?: string }>; duration?: string }, index: number) => ({
           track_number: index + 1,
           name: track.title,
           duration_ms: track.duration ? convertDurationToMs(track.duration) : undefined,
@@ -316,7 +316,12 @@ export function AlbumDetailPage() {
     
     // Fallback to raw Spotify data tracks
     if (detailedAlbum?.services?.spotify?.raw_data?.tracks?.items && detailedAlbum.services.spotify.raw_data.tracks.items.length > 0) {
-      return detailedAlbum.services.spotify.raw_data.tracks.items.map((track: any, index: number) => ({
+      return detailedAlbum.services.spotify.raw_data.tracks.items.map((track: {
+        track_number?: number;
+        name: string;
+        duration_ms?: number;
+        disc_number?: number;
+      }, index: number) => ({
         track_number: track.track_number || index + 1,
         name: track.name,
         duration_ms: track.duration_ms,
@@ -328,7 +333,11 @@ export function AlbumDetailPage() {
     // Last fallback to Last.fm tracks
     if (detailedAlbum?.services?.lastfm?.raw_data?.album?.tracks?.track) {
       const lastfmTracks = detailedAlbum.services.lastfm.raw_data.album.tracks.track;
-      return (Array.isArray(lastfmTracks) ? lastfmTracks : [lastfmTracks]).map((track: any, index: number) => ({
+      return (Array.isArray(lastfmTracks) ? lastfmTracks : [lastfmTracks]).map((track: {
+        '@attr'?: { rank?: number };
+        name: string;
+        duration?: string;
+      }, index: number) => ({
         track_number: track['@attr']?.rank || index + 1,
         name: track.name,
         duration_ms: track.duration ? parseInt(track.duration) * 1000 : undefined,
@@ -744,7 +753,7 @@ export function AlbumDetailPage() {
                         <span className="font-medium block truncate">{track.name}</span>
                         {track.artists && track.artists.length > 0 && (
                           <span className="text-sm text-muted-foreground block truncate">
-                            by {track.artists.map((artist: any) => artist.name).join(', ')}
+                            by {track.artists.map((artist: { name: string; discogs_id?: string; spotify_id?: string }) => artist.name).join(', ')}
                           </span>
                         )}
                       </div>
@@ -847,6 +856,18 @@ export function AlbumDetailPage() {
                         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent dark:from-gray-950 pointer-events-none"></div>
                       )}
                     </div>
+                    {artist.biography && (
+                      <div className="mt-4 text-center">
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          onClick={() => setBiographyExpanded(!biographyExpanded)}
+                          className="text-muted-foreground hover:text-foreground"
+                        >
+                          {biographyExpanded ? 'Show Less' : 'Show More'}
+                        </Button>
+                      </div>
+                    )}
                     <div className="mt-4 text-center">
                       {artist.name.toLowerCase() === 'various' ? (
                         <Button 
@@ -937,17 +958,18 @@ export function AlbumDetailPage() {
                     </div>
                   )}
                   {/* Artist Discogs IDs */}
-                  {detailedAlbum?.artists && detailedAlbum.artists.length > 0 && detailedAlbum.artists.some(artist => (artist as any).discogs_id) && (
-                    detailedAlbum.artists.map((artist, index) => 
-                      (artist as any).discogs_id && (
+                  {detailedAlbum?.artists && detailedAlbum.artists.length > 0 && detailedAlbum.artists.some(artist => 'discogs_id' in artist && (artist as { discogs_id?: string }).discogs_id) && (
+                    detailedAlbum.artists.map((artist, index) => {
+                      const artistWithId = artist as typeof artist & { discogs_id?: string };
+                      return artistWithId.discogs_id && (
                         <div key={index} className="grid grid-cols-3 gap-4">
                           <span className="font-semibold text-sm">{artist.name} Discogs ID:</span>
                           <span className="col-span-2 text-muted-foreground font-mono text-sm">
-                            {(artist as any).discogs_id}
+                            {artistWithId.discogs_id}
                           </span>
                         </div>
-                      )
-                    )
+                      );
+                    })
                   )}
                   {detailedAlbum?.services?.spotify?.id && (
                     <div className="grid grid-cols-3 gap-4">

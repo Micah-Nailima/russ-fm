@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -34,6 +34,7 @@ interface ArtistCardProps {
 }
 
 export function ArtistCard({ artist, onClick }: ArtistCardProps) {
+  const navigate = useNavigate();
 
   const CardWrapper = ({ children }: { children: React.ReactNode }) => {
     if (onClick) {
@@ -65,10 +66,12 @@ export function ArtistCard({ artist, onClick }: ArtistCardProps) {
             .map((album, index) => {
               const albumPath = album.uri_release?.replace('/album/', '').replace('/', '') || '';
               return (
-                <Link 
+                <div 
                   key={index} 
-                  to={`/album/${albumPath}`}
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/album/${albumPath}`);
+                  }}
                   className="inline-block"
                 >
                   <Avatar className="h-8 w-8 cursor-pointer">
@@ -81,7 +84,7 @@ export function ArtistCard({ artist, onClick }: ArtistCardProps) {
                       {album.release_name.substring(0, 2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                </Link>
+                </div>
               );
             })}
         </AvatarGroup>

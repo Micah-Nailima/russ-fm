@@ -63,6 +63,40 @@ export function RandomPage() {
 
   usePageTitle('Random Discovery | RussFM');
 
+  const getRandomItems = (albums: Album[], artists: Artist[], currentShuffleCount: number): RandomItem[] => {
+    const items: RandomItem[] = [];
+    
+    // Determine if we should include an artist (every 3-4 shuffles)
+    const shouldIncludeArtist = currentShuffleCount > 0 && currentShuffleCount % 3 === 0 && artists.length > 0;
+    
+    if (shouldIncludeArtist) {
+      // Add one random artist
+      const randomArtist = artists[Math.floor(Math.random() * artists.length)];
+      items.push({ type: 'artist', data: randomArtist });
+      
+      // Fill remaining slots with albums
+      const randomAlbums = [...albums].sort(() => Math.random() - 0.5).slice(0, 2);
+      randomAlbums.forEach(album => {
+        items.push({ type: 'album', data: album });
+      });
+    } else {
+      // All albums
+      const randomAlbums = [...albums].sort(() => Math.random() - 0.5).slice(0, 3);
+      randomAlbums.forEach(album => {
+        items.push({ type: 'album', data: album });
+      });
+    }
+    
+    // Shuffle the final items array
+    return items.sort(() => Math.random() - 0.5);
+  };
+
+  const loadInitialItems = useCallback((albums: Album[], artists: Artist[]) => {
+    const selected = getRandomItems(albums, artists, 0);
+    setRandomItems(selected);
+    setIsLoading(false);
+  }, []);
+
   const loadCollection = useCallback(async () => {
     try {
       const response = await fetch('/collection.json');
@@ -78,7 +112,7 @@ export function RandomPage() {
       console.error('Error loading collection:', error);
       setIsLoading(false);
     }
-  }, []);
+  }, [loadInitialItems]);
 
   const processArtists = (albums: Album[]): Artist[] => {
     const artistMap = new Map<string, Artist>();
@@ -123,39 +157,7 @@ export function RandomPage() {
     return Array.from(artistMap.values()).filter(artist => artist.albumCount > 0);
   };
 
-  const getRandomItems = (albums: Album[], artists: Artist[], currentShuffleCount: number): RandomItem[] => {
-    const items: RandomItem[] = [];
-    
-    // Determine if we should include an artist (every 3-4 shuffles)
-    const shouldIncludeArtist = currentShuffleCount > 0 && currentShuffleCount % 3 === 0 && artists.length > 0;
-    
-    if (shouldIncludeArtist) {
-      // Add one random artist
-      const randomArtist = artists[Math.floor(Math.random() * artists.length)];
-      items.push({ type: 'artist', data: randomArtist });
-      
-      // Fill remaining slots with albums
-      const randomAlbums = [...albums].sort(() => Math.random() - 0.5).slice(0, 2);
-      randomAlbums.forEach(album => {
-        items.push({ type: 'album', data: album });
-      });
-    } else {
-      // All albums
-      const randomAlbums = [...albums].sort(() => Math.random() - 0.5).slice(0, 3);
-      randomAlbums.forEach(album => {
-        items.push({ type: 'album', data: album });
-      });
-    }
-    
-    // Shuffle the final items array
-    return items.sort(() => Math.random() - 0.5);
-  };
 
-  const loadInitialItems = (albums: Album[], artists: Artist[]) => {
-    const selected = getRandomItems(albums, artists, 0);
-    setRandomItems(selected);
-    setIsLoading(false);
-  };
 
   useEffect(() => {
     loadCollection();

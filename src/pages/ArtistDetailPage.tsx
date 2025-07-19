@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Music, Disc, Users, Play } from 'lucide-react';
 import { SiSpotify, SiApplemusic, SiLastdotfm, SiDiscogs, SiWikipedia } from 'react-icons/si';
@@ -133,11 +133,7 @@ export function ArtistDetailPage() {
   
   usePageTitle(pageTitle);
 
-  useEffect(() => {
-    loadArtistData();
-  }, [artistPath]);
-
-  const loadArtistData = async () => {
+  const loadArtistData = useCallback(async () => {
     try {
       // Load collection to find albums by this artist
       const collectionResponse = await fetch('/collection.json');
@@ -198,8 +194,11 @@ export function ArtistDetailPage() {
       console.error('Error loading artist data:', error);
       setLoading(false);
     }
-  };
+  }, [artistPath]);
 
+  useEffect(() => {
+    loadArtistData();
+  }, [artistPath, loadArtistData]);
 
   if (loading) {
     return (

@@ -58,37 +58,6 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
   const [loading, setLoading] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    loadCollection();
-  }, []);
-
-  useEffect(() => {
-    if (collection.length > 0 && searchTerm.trim() && isVisible) {
-      setLoading(true);
-      const timeoutId = setTimeout(() => {
-        performSearch(searchTerm);
-        setLoading(false);
-      }, 150);
-      return () => clearTimeout(timeoutId);
-    } else {
-      setResults([]);
-    }
-  }, [collection, searchTerm, isVisible]);
-
-  // Close overlay when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (overlayRef.current && !overlayRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    }
-
-    if (isVisible) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [isVisible, onClose]);
-
   const loadCollection = async () => {
     try {
       const response = await fetch('/collection.json');
@@ -198,6 +167,37 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
     const combined = [...sortedArtists, ...sortedAlbums].slice(0, 10);
     setResults(combined);
   }, [collection]);
+
+  useEffect(() => {
+    loadCollection();
+  }, []);
+
+  useEffect(() => {
+    if (collection.length > 0 && searchTerm.trim() && isVisible) {
+      setLoading(true);
+      const timeoutId = setTimeout(() => {
+        performSearch(searchTerm);
+        setLoading(false);
+      }, 150);
+      return () => clearTimeout(timeoutId);
+    } else {
+      setResults([]);
+    }
+  }, [collection, searchTerm, isVisible, performSearch]);
+
+  // Close overlay when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (overlayRef.current && !overlayRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    }
+
+    if (isVisible) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isVisible, onClose]);
 
   const handleResultClick = () => {
     onClose();
