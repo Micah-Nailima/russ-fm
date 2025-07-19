@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AvatarGroup } from '@/components/ui/avatar-group';
-import { Music } from 'lucide-react';
 
 interface Album {
   release_name: string;
@@ -36,7 +34,6 @@ interface ArtistCardProps {
 }
 
 export function ArtistCard({ artist, onClick }: ArtistCardProps) {
-  const displayGenres = artist.genres.slice(0, 2);
 
   const CardWrapper = ({ children }: { children: React.ReactNode }) => {
     if (onClick) {

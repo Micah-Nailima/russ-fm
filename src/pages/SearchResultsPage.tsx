@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePageTitle } from '@/hooks/usePageTitle';
@@ -43,7 +43,7 @@ interface SearchResultsPageProps {
 }
 
 export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPageProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
   const [collection, setCollection] = useState<Album[]>([]);
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -68,7 +68,7 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
     } else {
       setResults([]);
     }
-  }, [collection, query]);
+  }, [collection, query, performSearch]);
 
   const loadCollection = async () => {
     try {
@@ -82,7 +82,7 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
     }
   };
 
-  const performSearch = (searchTerm: string) => {
+  const performSearch = useCallback((searchTerm: string) => {
     const searchLower = searchTerm.toLowerCase().trim();
     if (!searchLower) {
       setResults([]);
@@ -138,7 +138,7 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
       .sort((a, b) => a.title.localeCompare(b.title));
 
     setResults([...sortedArtists, ...sortedAlbums]);
-  };
+  }, [collection]);
 
   if (loading) {
     return (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -63,7 +63,7 @@ export function RandomPage() {
 
   usePageTitle('Random Discovery | RussFM');
 
-  const loadCollection = async () => {
+  const loadCollection = useCallback(async () => {
     try {
       const response = await fetch('/collection.json');
       const albums: Album[] = await response.json();
@@ -78,7 +78,7 @@ export function RandomPage() {
       console.error('Error loading collection:', error);
       setIsLoading(false);
     }
-  };
+  }, []);
 
   const processArtists = (albums: Album[]): Artist[] => {
     const artistMap = new Map<string, Artist>();
@@ -159,7 +159,7 @@ export function RandomPage() {
 
   useEffect(() => {
     loadCollection();
-  }, []);
+  }, [loadCollection]);
 
   const handleShuffle = () => {
     if (allAlbums.length > 0) {

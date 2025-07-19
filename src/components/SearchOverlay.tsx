@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Search, Disc, User, Music, X } from 'lucide-react';
+import { Search, Disc, User, X } from 'lucide-react';
 import { filterGenres } from '@/lib/filterGenres';
 
 interface Album {
@@ -99,7 +99,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
     }
   };
 
-  const performSearch = (searchTermLocal: string) => {
+  const performSearch = useCallback((searchTermLocal: string) => {
     const searchLower = searchTermLocal.toLowerCase().trim();
     if (!searchLower) {
       setResults([]);
@@ -197,7 +197,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
 
     const combined = [...sortedArtists, ...sortedAlbums].slice(0, 10);
     setResults(combined);
-  };
+  }, [collection]);
 
   const handleResultClick = () => {
     onClose();

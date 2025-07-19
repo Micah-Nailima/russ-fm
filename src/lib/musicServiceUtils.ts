@@ -40,7 +40,7 @@ export function isValidSpotifyUrl(url: string): boolean {
 export function isValidAppleMusicUrl(url: string): boolean {
   if (!url || typeof url !== 'string') return false;
   
-  const appleMusicUrlPattern = /^https?:\/\/music\.apple\.com\/[a-z]{2}\/(album|song|playlist|artist)\/[^\/]+\/\d+(\?.*)?$/;
+  const appleMusicUrlPattern = /^https?:\/\/music\.apple\.com\/[a-z]{2}\/(album|song|playlist|artist)\/[^/]+\/\d+(\?.*)?$/;
   return appleMusicUrlPattern.test(url.trim());
 }
 

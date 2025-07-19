@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Music, Globe, Calendar, ExternalLink, Disc, Users, Play, Clock } from 'lucide-react';
+import { ArrowLeft, Music, Disc, Users, Play } from 'lucide-react';
 import { SiSpotify, SiApplemusic, SiLastdotfm, SiDiscogs, SiWikipedia } from 'react-icons/si';
-import { FcCalendar, FcPlus, FcGlobe } from 'react-icons/fc';
+import { FcCalendar, FcGlobe } from 'react-icons/fc';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -293,9 +293,6 @@ export function ArtistDetailPage() {
   
   const artistImages = getArtistImages();
   
-  console.log('DEBUG: Raw artistImages =', artistImages);
-  console.log('DEBUG: hi-res path =', artistImages['hi-res']);
-  console.log('DEBUG: artistData local_images =', artistData?.local_images);
   const allGenres = [...new Set(albums.flatMap(album => album.genre_names))];
 
   return (
@@ -355,7 +352,7 @@ export function ArtistDetailPage() {
               {(artistData?.services?.spotify?.followers?.total || artistData?.followers) && (
                 <div className="flex items-center gap-2">
                   <SiSpotify className="h-4 w-4 text-green-600" />
-                  <span>{((artistData.services?.spotify?.followers?.total || artistData.followers) || 0).toLocaleString()} followers</span>
+                  <span>{(artistData.services?.spotify?.followers?.total || artistData.followers || 0).toLocaleString()} followers</span>
                 </div>
               )}
 

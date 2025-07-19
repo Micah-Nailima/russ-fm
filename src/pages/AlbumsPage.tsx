@@ -23,6 +23,8 @@ interface Album {
     name: string;
     uri_artist: string;
     images_uri_artist: {
+      'hi-res': string;
+      medium: string;
     };
   }>;
   genre_names: string[];
@@ -238,7 +240,7 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
       
       // Calculate range around current page
       let start = Math.max(2, currentPage - Math.floor(showPages / 2));
-      let end = Math.min(totalPages - 1, start + showPages - 1);
+      const end = Math.min(totalPages - 1, start + showPages - 1);
       
       // Adjust start if we're near the end
       if (end === totalPages - 1) {

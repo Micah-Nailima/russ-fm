@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./theme-toggle";
 import { SearchOverlay } from "./SearchOverlay";
-import { Search, Menu, X, TrendingUp, Shuffle } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from 'react-router-dom';
 
 interface NavigationProps {

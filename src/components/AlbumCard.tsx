@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Link, useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -36,6 +36,7 @@ interface AlbumCardProps {
 }
 
 export function AlbumCard({ album, onClick }: AlbumCardProps) {
+  const navigate = useNavigate();
   const year = new Date(album.date_release_year).getFullYear();
   const cleanGenres = getCleanGenresFromArray(album.genre_names, album.release_artist);
   const displayGenres = cleanGenres.slice(0, 4);
@@ -58,7 +59,7 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
       return artist.images_uri_artist.avatar;
     }
     // Derive avatar URL from hi-res or medium image
-    const baseImage = (artist.images_uri_artist as any)['hi-res'] || artist.images_uri_artist.medium;
+    const baseImage = (artist.images_uri_artist as Record<string, string>)['hi-res'] || artist.images_uri_artist.medium;
     if (baseImage) {
       return baseImage.replace(/-hi-res\.jpg$/, '-avatar.jpg').replace(/-medium\.jpg$/, '-avatar.jpg');
     }
@@ -179,35 +180,35 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
           </div>
           <Separator className="mt-2 mb-2" />
           <div className="flex flex-wrap gap-1">
-            <Link 
-              to={`/albums/1?year=${year}`}
-              onClick={(e) => e.stopPropagation()}
+            <Badge 
+              variant="secondary"
+              size="xs"
+              className="text-xs px-1.5 py-0.5 transition-opacity hover:opacity-80 cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigate(`/albums/1?year=${year}`);
+              }}
             >
+              {year}
+            </Badge>
+            {displayGenres.map((genre, index) => (
               <Badge 
-                variant="secondary"
+                key={index}
                 size="xs"
                 className="text-xs px-1.5 py-0.5 transition-opacity hover:opacity-80 cursor-pointer"
+                style={{
+                  backgroundColor: getGenreColor(genre),
+                  color: getGenreTextColor(getGenreColor(genre))
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate(`/albums/1?genre=${encodeURIComponent(genre)}`);
+                }}
               >
-                {year}
+                {genre}
               </Badge>
-            </Link>
-            {displayGenres.map((genre, index) => (
-              <Link 
-                key={index}
-                to={`/albums/1?genre=${encodeURIComponent(genre)}`}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Badge 
-                  size="xs"
-                  className="text-xs px-1.5 py-0.5 transition-opacity hover:opacity-80 cursor-pointer"
-                  style={{
-                    backgroundColor: getGenreColor(genre),
-                    color: getGenreTextColor(getGenreColor(genre))
-                  }}
-                >
-                  {genre}
-                </Badge>
-              </Link>
             ))}
             {cleanGenres.length > 4 && (
               <Badge variant="outline" size="xs" className="text-xs px-1.5 py-0.5">

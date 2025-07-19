@@ -361,7 +361,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
       pages.push(1);
       
       let start = Math.max(2, currentPage - Math.floor(showPages / 2));
-      let end = Math.min(totalPages - 1, start + showPages - 1);
+      const end = Math.min(totalPages - 1, start + showPages - 1);
       
       if (end === totalPages - 1) {
         start = Math.max(2, end - showPages + 1);

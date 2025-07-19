@@ -16,9 +16,9 @@ function imageProcessingPlugin(): Plugin {
         // Only log image processing, not every request
         
         // Check if this is a request for a processed image (medium, small, avatar)
-        const imageMatch = req.url.match(/^\/(?:album|artist)\/([^\/]+)\/([^\/]+)-(medium|small|avatar)\.jpg$/)
+        const imageMatch = req.url.match(/^\/(?:album|artist)\/([^/]+)\/([^/]+)-(medium|small|avatar)\.jpg$/)
         if (imageMatch) {
-          const [fullMatch, folder, baseName, size] = imageMatch
+          const [, folder, baseName, size] = imageMatch
           const type = req.url.startsWith('/album') ? 'album' : 'artist'
           const hiResPath = path.join(process.cwd(), 'public', type, folder, `${baseName}-hi-res.jpg`)
           

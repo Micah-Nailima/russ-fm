@@ -77,7 +77,7 @@ export function GenrePage() {
 
     // Map to track genre -> artist -> album count
     const genreArtistCounts = new Map<string, Map<string, { count: number; artist: Album['artists'][0] }>>();
-    const globalArtistUsage = new Map<string, number>(); // Track how many times each artist is used
+    // globalArtistUsage variable removed - not used
 
     albums.forEach((album) => {
       const genres = getCleanGenresFromArray(album.genre_names || [], album.release_artist);
@@ -299,10 +299,10 @@ export function GenrePage() {
       });
 
       // Gentle force simulation to maintain clusters with no overlap
-      const simulation = d3.forceSimulation(nodes as any)
-        .force('link', d3.forceLink(links).id((d: any) => d.id).distance(120).strength(0.7))
+      const simulation = d3.forceSimulation<MindMapNode>(nodes)
+        .force('link', d3.forceLink<MindMapLink, MindMapNode>(links).id((d) => d.id).distance(120).strength(0.7))
         .force('charge', d3.forceManyBody().strength(-80)) // Gentle repulsion
-        .force('collision', d3.forceCollide().radius((d: any) => {
+        .force('collision', d3.forceCollide<MindMapNode>().radius((d) => {
           // Dynamic collision radius based on artist size and mobile
           if (d.type === 'artist') {
             const isMobile = width < 768;
@@ -317,7 +317,7 @@ export function GenrePage() {
         .force('boundary', () => {
           // Keep nodes within viewport bounds
           const margin = 100;
-          nodes.forEach((node: any) => {
+          nodes.forEach((node) => {
             node.x = Math.max(margin, Math.min(width - margin, node.x));
             node.y = Math.max(margin, Math.min(height - margin, node.y));
           });
@@ -332,9 +332,9 @@ export function GenrePage() {
         .enter().append('line')
         .attr('stroke', '#64748b')
         .attr('stroke-width', 1.5)
-        .attr('stroke-opacity', (d: any) => {
+        .attr('stroke-opacity', (d: MindMapLink) => {
           if (!focusedGenre) return 0.3;
-          const sourceNode = nodes.find(n => n.id === d.source);
+          const sourceNode = nodes.find(n => n.id === (d.source as any).id || d.source);
           return sourceNode?.genre === focusedGenre ? 0.6 : 0.1;
         });
 
@@ -382,11 +382,11 @@ export function GenrePage() {
         });
 
       // Add wrapped text for genre names
-      genreNodes.each(function(d: any) {
+      genreNodes.each(function(d: MindMapNode) {
         const node = d3.select(this);
         const words = d.name.split(/[\s,&]+/); // Split on spaces, commas, and ampersands
         const lineHeight = 12;
-        const maxWidth = 80; // Maximum width for text
+        // const maxWidth = 80; // Maximum width for text - not currently used
         
         if (words.length <= 2) {
           // Short names - single or two words
@@ -501,7 +501,7 @@ export function GenrePage() {
 
       // Artist avatar images - create circular clipping mask with dynamic size
       artistNodes.append('defs').append('clipPath')
-        .attr('id', (d, i) => `clip-${d.slug}`)
+        .attr('id', (d) => `clip-${d.slug}`)
         .append('circle')
         .attr('cx', 0)
         .attr('cy', 0)
@@ -583,7 +583,7 @@ export function GenrePage() {
           }
           return size * 2;
         })
-        .attr('clip-path', (d, i) => `url(#clip-${d.slug})`)
+        .attr('clip-path', (d) => `url(#clip-${d.slug})`)
         .attr('preserveAspectRatio', 'xMidYMid slice')
         .style('opacity', (d: any) => {
           if (!focusedGenre) return 1;
@@ -613,7 +613,7 @@ export function GenrePage() {
 
       // Simple hover effects - just scale the entire node
       artistNodes
-        .on('mouseenter', function(event, d: any) {
+        .on('mouseenter', function(event, d: MindMapNode) {
           d3.select(this).attr('data-hovered', 'true');
           // Move this node to the end of the group to bring to foreground
           if (this.parentNode) {
@@ -710,26 +710,26 @@ export function GenrePage() {
       simulation.on('tick', () => {
         // Update link positions with straight lines
         linkElements
-          .attr('x1', (d: any) => {
-            const source = nodes.find(n => n.id === d.source.id);
+          .attr('x1', (d: MindMapLink) => {
+            const source = nodes.find(n => n.id === (d.source as any).id);
             return source?.x || 0;
           })
-          .attr('y1', (d: any) => {
-            const source = nodes.find(n => n.id === d.source.id);
+          .attr('y1', (d: MindMapLink) => {
+            const source = nodes.find(n => n.id === (d.source as any).id);
             return source?.y || 0;
           })
-          .attr('x2', (d: any) => {
-            const target = nodes.find(n => n.id === d.target.id);
+          .attr('x2', (d: MindMapLink) => {
+            const target = nodes.find(n => n.id === (d.target as any).id);
             return target?.x || 0;
           })
-          .attr('y2', (d: any) => {
-            const target = nodes.find(n => n.id === d.target.id);
+          .attr('y2', (d: MindMapLink) => {
+            const target = nodes.find(n => n.id === (d.target as any).id);
             return target?.y || 0;
           });
 
         // Update node positions
         genreNodes.attr('transform', d => `translate(${d.x},${d.y})`);
-        artistNodes.attr('transform', function(d: any) {
+        artistNodes.attr('transform', function(d: MindMapNode) {
           const isHovered = d3.select(this).attr('data-hovered') === 'true';
           const scale = isHovered ? 'scale(1.15)' : 'scale(1)';
           return `translate(${d.x},${d.y}) ${scale}`;

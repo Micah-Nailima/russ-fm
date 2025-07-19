@@ -28,7 +28,7 @@ export function getGenreColor(genre: string): string {
  * Gets the text color (white or black) that has good contrast with the background color
  * For dark colors, this will typically return white
  */
-export function getGenreTextColor(backgroundColor: string): string {
+export function getGenreTextColor(): string {
   // For our dark color range (25-40% lightness), white text will always have good contrast
   return 'white';
 }

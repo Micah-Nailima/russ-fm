@@ -8,18 +8,15 @@ import {
   BarChart, 
   Bar, 
   PieChart, 
-  Pie, 
-  LineChart, 
-  Line,
+  Pie,
   XAxis, 
   YAxis, 
   CartesianGrid, 
-  Tooltip, 
-  Legend,
+  Tooltip,
   ResponsiveContainer,
   Cell
 } from 'recharts';
-import { Calendar, Disc, Music, TrendingUp, Users, Clock } from 'lucide-react';
+import { Disc, Music, TrendingUp, Users, Clock } from 'lucide-react';
 import { filterGenres } from '@/lib/filterGenres';
 
 interface Album {
@@ -30,12 +27,59 @@ interface Album {
   uri_artist: string;
   date_added: string;
   date_release_year: string;
+  images_uri_release?: {
+    'hi-res'?: string;
+    medium?: string;
+    avatar?: string;
+  };
+  images_uri_artist?: {
+    'hi-res'?: string;
+    medium?: string;
+    avatar?: string;
+  };
+}
+
+interface ArtistStat {
+  name: string;
+  count: number;
+  image: string;
+  uri: string;
+}
+
+interface GenreStat {
+  name: string;
+  value: number;
+}
+
+interface DecadeStat {
+  decade: string;
+  count: number;
+}
+
+interface AdditionStat {
+  month: string;
+  count: number;
+}
+
+interface CollectionStats {
+  totalAlbums: number;
+  uniqueArtists: number;
+  uniqueGenres: number;
+  avgAlbumsPerArtist: string;
+  topArtists: ArtistStat[];
+  topGenres: GenreStat[];
+  decadeData: DecadeStat[];
+  additionsData: AdditionStat[];
+  oldestAlbum: Album | null;
+  newestAlbum: Album | null;
+  recentAdditions: Album[];
+  oldestAdditions: Album[];
 }
 
 export function StatsPage() {
-  const [collection, setCollection] = useState<Album[]>([]);
+  const [, setCollection] = useState<Album[]>([]);
   const [loading, setLoading] = useState(true);
-  const [stats, setStats] = useState<any>({});
+  const [stats, setStats] = useState<CollectionStats>({} as CollectionStats);
 
   usePageTitle('Collection Statistics | Russ.fm');
 
@@ -57,7 +101,7 @@ export function StatsPage() {
   };
 
   // Generate avatar URL from existing artist images
-  const getAvatarUrl = (images_uri_artist: any) => {
+  const getAvatarUrl = (images_uri_artist: { avatar?: string; 'hi-res'?: string; medium?: string } | undefined) => {
     if (images_uri_artist?.avatar) {
       return images_uri_artist.avatar;
     }
@@ -79,7 +123,7 @@ export function StatsPage() {
     const uniqueGenres = new Set(allFilteredGenres).size;
 
     // Artists with most albums (excluding "Various")
-    const artistCounts = data.reduce((acc: any, album) => {
+    const artistCounts = data.reduce((acc: Record<string, number>, album) => {
       if (album.release_artist.toLowerCase() !== 'various') {
         acc[album.release_artist] = (acc[album.release_artist] || 0) + 1;
       }
@@ -100,7 +144,7 @@ export function StatsPage() {
       });
 
     // Genre distribution - filter out non-genre terms
-    const genreCounts = allFilteredGenres.reduce((acc: any, genre) => {
+    const genreCounts = allFilteredGenres.reduce((acc: Record<string, number>, genre) => {
       acc[genre] = (acc[genre] || 0) + 1;
       return acc;
     }, {});
@@ -110,7 +154,7 @@ export function StatsPage() {
       .map(([name, count]) => ({ name, value: count }));
 
     // Albums by decade
-    const decadeCounts = data.reduce((acc: any, album) => {
+    const decadeCounts = data.reduce((acc: Record<string, number>, album) => {
       const year = new Date(album.date_release_year).getFullYear();
       const decade = Math.floor(year / 10) * 10;
       const decadeLabel = `${decade}s`;
@@ -125,7 +169,7 @@ export function StatsPage() {
       .map(([decade, count]) => ({ decade, count }));
 
     // Additions per month
-    const additionsPerMonth = data.reduce((acc: any, album) => {
+    const additionsPerMonth = data.reduce((acc: Record<string, number>, album) => {
       const date = new Date(album.date_added);
       const monthYear = `${date.getMonth() + 1}/${date.getFullYear()}`;
       acc[monthYear] = (acc[monthYear] || 0) + 1;
@@ -278,7 +322,7 @@ export function StatsPage() {
                       stroke="white"
                       strokeWidth={2}
                     >
-                      {stats.topGenres?.map((entry: any, index: number) => (
+                      {stats.topGenres?.map((entry: GenreStat, index: number) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>
@@ -297,7 +341,7 @@ export function StatsPage() {
               
               {/* Compact Legend */}
               <div className="w-48 space-y-2 text-sm">
-                {stats.topGenres?.slice(0, 8).map((entry: any, index: number) => (
+                {stats.topGenres?.slice(0, 8).map((entry: GenreStat, index: number) => (
                   <div key={index} className="flex items-center gap-2">
                     <div 
                       className="w-3 h-3 rounded-full flex-shrink-0"
@@ -318,7 +362,7 @@ export function StatsPage() {
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Artists with Most Albums</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {stats.topArtists?.slice(0, 9).map((artist: any, index: number) => (
+          {stats.topArtists?.slice(0, 9).map((artist: ArtistStat, index: number) => (
             <Link
               key={index}
               to={artist.uri}
