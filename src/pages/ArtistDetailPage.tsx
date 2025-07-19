@@ -11,6 +11,7 @@ import { usePageTitle } from '@/hooks/usePageTitle';
 import { getCleanGenresFromArray } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { normalizeSigurRosArtistName } from '@/lib/sigurRosNormalizer';
+import { getArtistImageFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -308,14 +309,10 @@ export function ArtistDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
         <div className="lg:col-span-1">
           <img
-            src={artistImages['hi-res']}
+            src={getArtistImageFromData(`/artist/${decodeURIComponent(artistPath || '')}/`, 'hi-res')}
             alt={artistName}
             className="w-full rounded-lg shadow-lg"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              const fallbackSrc = artistImages['medium'] || '';
-              target.src = fallbackSrc;
-            }}
+            onError={handleImageError}
           />
         </div>
         

@@ -18,6 +18,7 @@ import {
 } from 'recharts';
 import { Disc, Music, TrendingUp, Users, Clock } from 'lucide-react';
 import { filterGenres } from '@/lib/filterGenres';
+import { getAlbumImageFromData, getArtistImageFromData } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -83,18 +84,6 @@ export function StatsPage() {
 
   usePageTitle('Collection Statistics | Russ.fm');
 
-  // Generate avatar URL from existing artist images
-  const getAvatarUrl = (images_uri_artist: { avatar?: string; 'hi-res'?: string; medium?: string } | undefined) => {
-    if (images_uri_artist?.avatar) {
-      return images_uri_artist.avatar;
-    }
-    // Derive avatar URL from hi-res or medium image
-    const baseImage = images_uri_artist?.['hi-res'] || images_uri_artist?.medium;
-    if (baseImage) {
-      return baseImage.replace(/-hi-res\.jpg$/, '-avatar.jpg').replace(/-medium\.jpg$/, '-avatar.jpg');
-    }
-    return '';
-  };
 
   const calculateStats = useCallback((data: Album[]) => {
     // Basic counts
@@ -121,7 +110,7 @@ export function StatsPage() {
         return { 
           name, 
           count, 
-          image: getAvatarUrl(artistAlbum?.images_uri_artist),
+          image: getArtistImageFromData(artistAlbum?.uri_artist || '', 'avatar'),
           uri: artistAlbum?.uri_artist || ''
         };
       });
@@ -406,13 +395,9 @@ export function StatsPage() {
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0">
                       <img
-                        src={album.images_uri_release?.avatar || album.images_uri_release?.medium || album.images_uri_release?.['hi-res']}
+                        src={getAlbumImageFromData(album.uri_release, 'avatar')}
                         alt={album.release_name}
                         className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = album.images_uri_release?.medium || album.images_uri_release?.['hi-res'] || '';
-                        }}
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -470,13 +455,9 @@ export function StatsPage() {
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0">
                       <img
-                        src={album.images_uri_release?.avatar || album.images_uri_release?.medium || album.images_uri_release?.['hi-res']}
+                        src={getAlbumImageFromData(album.uri_release, 'avatar')}
                         alt={album.release_name}
                         className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = album.images_uri_release?.medium || album.images_uri_release?.['hi-res'] || '';
-                        }}
                       />
                     </div>
                     <div className="flex-1 min-w-0">

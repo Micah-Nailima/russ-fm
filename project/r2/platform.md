@@ -51,7 +51,7 @@ Local Development:
   5. No R2 integration needed for development
 ```
 
-### Production Pipeline (R2 Only)
+### Production Pipeline (R2 Integration Complete)
 ```yaml
 Production Build:
   1. Python scrapes data → /public/
@@ -59,6 +59,8 @@ Production Build:
   3. npm run build:sync → Upload images to R2
   4. Deploy React app + JSON (images excluded)
   5. Images served from CDN (https://assets.russ.fm)
+  
+Status: ✅ All components updated for automatic R2 switching
 ```
 
 ## Security Configuration
@@ -112,11 +114,13 @@ Production Build:
 - **Incremental Uploads**: Only sync modified files
 - **Progress Tracking**: Real-time upload status
 
-### Frontend Performance
-- **Lazy Loading**: Images loaded on demand
-- **Responsive Images**: srcSet for optimal resolution
-- **Preloading**: Critical images prefetched
-- **Service Worker**: Optional offline caching
+### Frontend Performance ✅ IMPLEMENTED
+- **Environment Switching**: Automatic dev/prod URL switching implemented
+- **Centralized Error Handling**: Consistent fallback logic across all components  
+- **Type Safety**: Full TypeScript support for image operations
+- **Component Updates**: All 11 React components migrated to R2-aware utilities
+- **Development Preservation**: Local workflow unchanged (npm run dev uses local images)
+- **Production Optimization**: Automatic R2 CDN loading in production builds
 
 ## Cost Analysis
 

@@ -14,6 +14,13 @@ export const appConfig = {
     enableSorting: true,
   },
   
+  // Asset configuration for images
+  assets: {
+    baseUrl: import.meta.env.PROD ? 'https://assets.russ.fm' : '',
+    useR2: import.meta.env.PROD, // Only production uses R2
+    fallbackUrl: '/fallback-image.jpg'
+  },
+
   // API endpoints or external URLs
   external: {
     discogs: 'https://www.discogs.com',

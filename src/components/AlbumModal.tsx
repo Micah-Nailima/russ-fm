@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Clock, Disc } from 'lucide-react';
+import { getAlbumImageFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -83,7 +84,8 @@ export function AlbumModal({ album, isOpen, onClose }: AlbumModalProps) {
           {/* Album Cover */}
           <div className="lg:col-span-1">
             <img
-              src={album.images_uri_release['hi-res']}
+              src={getAlbumImageFromData(album.uri_release, 'hi-res')}
+              onError={handleImageError}
               alt={album.release_name}
               className="w-full rounded-lg shadow-lg"
             />

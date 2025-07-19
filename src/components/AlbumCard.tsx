@@ -8,6 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Calendar, MoreHorizontal, Music } from 'lucide-react';
 import { SiLastdotfm } from 'react-icons/si';
 import { getCleanGenresFromArray } from '@/lib/genreUtils';
+import { getAlbumImageFromData, getArtistAvatarFromData, handleImageError } from '@/lib/image-utils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { normalizeSigurRosTitle, normalizeSigurRosArtistName } from '@/lib/sigurRosNormalizer';
 
@@ -53,17 +54,9 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
     images_uri_artist: { avatar: '' }
   };
   
-  // Generate avatar URL from existing artist images
+  // Generate avatar URL using R2-aware utility
   const getAvatarUrl = (artist: typeof firstArtist) => {
-    if (artist.images_uri_artist.avatar) {
-      return artist.images_uri_artist.avatar;
-    }
-    // Derive avatar URL from hi-res or medium image
-    const baseImage = (artist.images_uri_artist as Record<string, string>)['hi-res'] || artist.images_uri_artist.medium;
-    if (baseImage) {
-      return baseImage.replace(/-hi-res\.jpg$/, '-avatar.jpg').replace(/-medium\.jpg$/, '-avatar.jpg');
-    }
-    return '';
+    return getArtistAvatarFromData(artist.uri_artist);
   };
   
   const getArtistInitials = (name: string) => {
@@ -105,6 +98,7 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
               src={getAvatarUrl(firstArtist)} 
               alt={firstArtist.name}
               className="object-cover"
+              onError={handleImageError}
             />
             <AvatarFallback className="text-xs">
               {getArtistInitials(firstArtist.name)}
@@ -168,10 +162,11 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
       <CardContent className="p-0 flex-1 flex flex-col">
         <div className="relative aspect-square bg-muted overflow-hidden">
           <img
-            src={album.images_uri_release.medium}
+            src={getAlbumImageFromData(album.uri_release, 'medium')}
             alt={album.release_name}
             className="w-full h-full object-cover"
             loading="lazy"
+            onError={handleImageError}
           />
         </div>
         <div className="pt-3 pb-4 px-4 flex-1 flex flex-col">

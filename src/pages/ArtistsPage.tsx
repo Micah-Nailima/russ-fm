@@ -15,6 +15,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import { appConfig } from '@/config/app.config';
+import { getArtistImageFromData } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -156,7 +157,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
               albums: [],
               albumCount: 0,
               genres: [],
-              image: artistInfo.images_uri_artist.medium,
+              image: getArtistImageFromData(artistInfo.uri_artist, 'medium'),
               latestAlbum: album.date_added,
               biography: artistInfo.biography || undefined
             });
@@ -193,7 +194,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
           // Update latest album if this one is newer
           if (album.date_added > artist.latestAlbum) {
             artist.latestAlbum = album.date_added;
-            artist.image = artistInfo.images_uri_artist.medium;
+            artist.image = getArtistImageFromData(artistInfo.uri_artist, 'medium');
           }
         });
       } else {
@@ -214,7 +215,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
             albums: [],
             albumCount: 0,
             genres: [],
-            image: album.images_uri_artist.medium,
+            image: getArtistImageFromData(album.uri_artist, 'medium'),
             latestAlbum: album.date_added,
             biography: undefined
           });
@@ -246,7 +247,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
         // Update latest album if this one is newer
         if (album.date_added > artist.latestAlbum) {
           artist.latestAlbum = album.date_added;
-          artist.image = album.images_uri_artist.medium;
+          artist.image = getArtistImageFromData(album.uri_artist, 'medium');
         }
       }
     });

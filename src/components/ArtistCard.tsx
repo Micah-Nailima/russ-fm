@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AvatarGroup } from '@/components/ui/avatar-group';
+import { getAlbumImageFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -76,7 +77,8 @@ export function ArtistCard({ artist, onClick }: ArtistCardProps) {
                 >
                   <Avatar className="h-8 w-8 cursor-pointer">
                     <AvatarImage 
-                      src={album.images_uri_release.avatar || album.images_uri_release.medium.replace('-medium.jpg', '-avatar.jpg')} 
+                      src={getAlbumImageFromData(album.uri_release, 'avatar')}
+                      onError={handleImageError} 
                       alt={album.release_name}
                       className="object-cover"
                     />

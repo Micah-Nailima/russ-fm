@@ -102,14 +102,17 @@ function removeImagesFromDirectory(dirPath) {
 }
 
 async function main() {
+  // Get dist directory from command line argument or default to 'dist'
+  const distDir = process.argv[2] || 'dist';
+  
   console.log(chalk.blue('🧹 Cloudflare Workers Cleanup Tool\n'));
-  console.log(chalk.blue('Removing images while preserving JSON files for Workers deployment...\n'));
+  console.log(chalk.blue(`Removing images while preserving JSON files from ${distDir} for Workers deployment...\n`));
 
-  const distPath = path.join(process.cwd(), 'dist');
+  const distPath = path.join(process.cwd(), distDir);
   
   // Check if dist directory exists
   if (!fs.existsSync(distPath)) {
-    console.error(chalk.red('❌ dist directory not found. Run "npm run build" first.'));
+    console.error(chalk.red(`❌ ${distDir} directory not found. Run the build first.`));
     process.exit(1);
   }
 
@@ -118,20 +121,27 @@ async function main() {
   console.log(chalk.blue(`📁 Initial dist size: ${formatBytes(initialSize.size)} (${initialSize.fileCount} files)`));
 
   // Define directories to remove
-  const dirsToRemove = [
+  const dirsToCheck = [
     path.join(distPath, 'album'),
     path.join(distPath, 'artist')
   ];
 
   let totalRemoved = { size: 0, fileCount: 0 };
 
-  // Remove images but keep JSON files
-  console.log(chalk.blue('\n🗑️  Removing images (keeping JSON files):'));
-  dirsToRemove.forEach(dir => {
-    const removed = removeImagesFromDirectory(dir);
-    totalRemoved.size += removed.size;
-    totalRemoved.fileCount += removed.fileCount;
-  });
+  // Check if image directories exist (they won't in worker build)
+  const existingDirs = dirsToCheck.filter(dir => fs.existsSync(dir));
+  
+  if (existingDirs.length === 0) {
+    console.log(chalk.blue('\n✅ No image directories found - worker build is already clean!'));
+  } else {
+    // Remove images but keep JSON files
+    console.log(chalk.blue('\n🗑️  Removing images (keeping JSON files):'));
+    existingDirs.forEach(dir => {
+      const removed = removeImagesFromDirectory(dir);
+      totalRemoved.size += removed.size;
+      totalRemoved.fileCount += removed.fileCount;
+    });
+  }
 
   // Calculate final size
   const finalSize = getDirectorySize(distPath);

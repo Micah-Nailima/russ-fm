@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { Search, Disc, User, Music } from 'lucide-react';
 import { filterGenres } from '@/lib/filterGenres';
+import { getAlbumImageFromData, getArtistImageFromData } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -105,7 +106,7 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
           id: album.uri_release,
           title: album.release_name,
           subtitle: album.release_artist,
-          image: album.images_uri_release.medium,
+          image: getAlbumImageFromData(album.uri_release, 'medium'),
           url: album.uri_release,
           year: new Date(album.date_release_year).getFullYear().toString(),
           genres: filterGenres(album.genre_names, album.release_artist).slice(0, 3)
@@ -122,7 +123,7 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
             id: album.uri_artist,
             title: album.release_artist,
             subtitle: `Artist in collection`,
-            image: album.images_uri_artist.medium,
+            image: getArtistImageFromData(album.uri_artist, 'medium'),
             url: album.uri_artist,
             albumCount: 1
           });

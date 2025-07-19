@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shuffle, RefreshCw, Music, User } from 'lucide-react';
 import { usePageTitle } from '@/hooks/usePageTitle';
+import { getAlbumImageFromData, getArtistImageFromData } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -268,7 +269,7 @@ export function RandomPage() {
                     <CardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden">
                         <img
-                          src={(item.data as Album).images_uri_release.medium}
+                          src={getAlbumImageFromData((item.data as Album).uri_release, 'medium')}
                           alt={(item.data as Album).release_name}
                           className="w-full h-full object-cover"
                         />
@@ -296,7 +297,7 @@ export function RandomPage() {
                     <CardContent className="p-0">
                       <div className="relative aspect-square overflow-hidden">
                         <img
-                          src={(item.data as Artist).images_uri_artist.medium}
+                          src={getArtistImageFromData((item.data as Artist).uri, 'medium')}
                           alt={(item.data as Artist).name}
                           className="w-full h-full object-cover"
                         />

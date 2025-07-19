@@ -118,39 +118,60 @@ export const appConfig = {
 
 **Status**: ✅ Automatic environment detection implemented. No manual configuration required.
 
-#### 2. Image URL Resolution
+#### 2. Image URL Resolution ✅ IMPLEMENTED
 ```typescript
 // src/lib/image-utils.ts
-export function getImageUrl(relativePath: string): string {
-  if (!appConfig.assets.useR2) {
-    // Development: use local images from /public/
-    return `/${relativePath}`;
-  }
-  // Production: use R2 CDN
-  return `${appConfig.assets.baseUrl}/${relativePath}`;
+export function getAlbumImageFromData(uriRelease: string, size: ImageSize = 'medium'): string {
+  const slug = getAlbumSlug(uriRelease);
+  return getAlbumImageUrl(slug, size);
 }
 
-export function getAlbumImageUrl(album: Album, size: 'hi-res' | 'medium' | 'small'): string {
-  const imagePath = `album/${album.slug}/${album.slug}-${size}.jpg`;
-  return getImageUrl(imagePath);
+export function getArtistImageFromData(uriArtist: string, size: ImageSize = 'medium'): string {
+  const slug = getArtistSlug(uriArtist);
+  return getArtistImageUrl(slug, size);
+}
+
+function getImageUrl(relativePath: string): string {
+  return appConfig.assets.useR2 
+    ? `${appConfig.assets.baseUrl}/${relativePath}`
+    : `/${relativePath}`;
 }
 ```
 
-#### 3. Component Updates
+**Status**: ✅ Complete image utilities with slug extraction, environment detection, and error handling.
+
+#### 3. Component Updates ✅ COMPLETED
+All 11 React components updated to use R2-aware utilities:
+
+**Core Components**:
+- ✅ `AlbumCard.tsx` - Album grid displays
+- ✅ `ArtistCard.tsx` - Artist grid displays  
+- ✅ `SearchOverlay.tsx` - Search result images
+- ✅ `AlbumModal.tsx` - Modal popup images
+
+**Page Components**:
+- ✅ `AlbumDetailPage.tsx` - Hero images and album art
+- ✅ `ArtistDetailPage.tsx` - Artist profiles and hi-res images
+- ✅ `GenrePage.tsx` - Mind map artist avatars
+- ✅ `StatsPage.tsx` - Statistics page image displays
+- ✅ `RandomPage.tsx` - Random album/artist images
+- ✅ `SearchResultsPage.tsx` - Search result construction  
+- ✅ `ArtistsPage.tsx` - Artist data processing
+
+**Implementation Pattern**:
 ```typescript
-// Example: AlbumCard.tsx
-import { getAlbumImageUrl } from '@/lib/image-utils';
+// Before (direct property access)
+src={album.images_uri_release.medium}
 
-// In component
-<img 
-  src={getAlbumImageUrl(album, 'medium')}
-  srcSet={`
-    ${getAlbumImageUrl(album, 'small')} 400w,
-    ${getAlbumImageUrl(album, 'medium')} 800w,
-    ${getAlbumImageUrl(album, 'hi-res')} 1400w
-  `}
-/>
+// After (R2-aware utility)
+src={getAlbumImageFromData(album.uri_release, 'medium')}
 ```
+
+**Benefits**:
+- ✅ **Automatic Environment Switching**: Development uses local images, production uses R2 CDN
+- ✅ **Consistent Error Handling**: Centralized fallback logic across all components
+- ✅ **Type Safety**: Full TypeScript support for all image operations
+- ✅ **No Breaking Changes**: Development workflow unchanged
 
 ### Build Pipeline Updates
 

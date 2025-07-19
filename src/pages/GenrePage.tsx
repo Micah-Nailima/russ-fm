@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as d3 from 'd3';
 import { getCleanGenresFromArray } from '@/lib/genreUtils';
+import { getArtistImageFromData } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -138,7 +139,7 @@ export function GenrePage() {
         name,
         slug: data.artist.uri_artist.replace('/artist/', '').replace('/', ''),
         albumCount: data.count,
-        avatar: data.artist.images_uri_artist?.avatar || `/artist/${data.artist.uri_artist.replace('/artist/', '').replace('/', '')}/${data.artist.uri_artist.replace('/artist/', '').replace('/', '')}-avatar.jpg`
+        avatar: getArtistImageFromData(data.artist.uri_artist, 'avatar')
       }));
 
       return {

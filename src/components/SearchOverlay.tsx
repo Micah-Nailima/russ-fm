@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Search, Disc, User, X } from 'lucide-react';
 import { filterGenres } from '@/lib/filterGenres';
+import { getAlbumImageFromData, getArtistImageFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -97,7 +98,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
           subtitle: album.artists && album.artists.length > 1 
             ? album.artists.map(artist => artist.name).join(' & ')
             : album.release_artist,
-          image: album.images_uri_release.medium,
+          image: getAlbumImageFromData(album.uri_release, 'medium'),
           url: album.uri_release,
           year: new Date(album.date_release_year).getFullYear().toString(),
           genres: filterGenres(album.genre_names, album.release_artist).slice(0, 3)
@@ -123,7 +124,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
                 id: artist.uri_artist,
                 title: artist.name,
                 subtitle: `Artist in collection`,
-                image: artist.images_uri_artist.medium,
+                image: getArtistImageFromData(artist.uri_artist, 'medium'),
                 url: artist.uri_artist,
                 albumCount: 1
               });
@@ -148,7 +149,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
               id: album.uri_artist,
               title: album.release_artist,
               subtitle: `Artist in collection`,
-              image: album.images_uri_artist.medium,
+              image: getArtistImageFromData(album.uri_artist, 'medium'),
               url: album.uri_artist,
               albumCount: 1
             });
@@ -273,7 +274,8 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
                               {result.type === 'artist' ? (
                                 <Avatar className="h-20 w-20">
                                   <AvatarImage 
-                                    src={result.title.toLowerCase() === 'various' ? '/images/various.png' : result.image} 
+                                    src={result.title.toLowerCase() === 'various' ? '/images/various.png' : result.image}
+                                    onError={handleImageError} 
                                     alt={result.title} 
                                   />
                                   <AvatarFallback className="text-lg">
@@ -284,6 +286,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
                                 <div className="h-20 w-20 rounded-md overflow-hidden">
                                   <img
                                     src={result.image}
+                                    onError={handleImageError}
                                     alt={result.title}
                                     className="w-full h-full object-cover"
                                   />
