@@ -37,6 +37,8 @@ interface MindMapNode {
   slug?: string;
   x?: number;
   y?: number;
+  fx?: number | null;
+  fy?: number | null;
 }
 
 interface MindMapLink {
@@ -334,7 +336,7 @@ export function GenrePage() {
         .attr('stroke-width', 1.5)
         .attr('stroke-opacity', (d: MindMapLink) => {
           if (!focusedGenre) return 0.3;
-          const sourceNode = nodes.find(n => n.id === (d.source as any).id || d.source);
+          const sourceNode = nodes.find(n => n.id === (typeof d.source === 'string' ? d.source : (d.source as MindMapNode).id));
           return sourceNode?.genre === focusedGenre ? 0.6 : 0.1;
         });
 
@@ -344,7 +346,7 @@ export function GenrePage() {
         .data(nodes.filter(n => n.type === 'genre'))
         .enter().append('g')
         .style('cursor', 'pointer')
-        .on('click', (event, d: any) => {
+        .on('click', (event, d: MindMapNode) => {
           event.stopPropagation();
           if (focusedGenre === d.name) {
             // If already focused, unfocus
@@ -354,17 +356,17 @@ export function GenrePage() {
             setFocusedGenre(d.name);
           }
         })
-        .call(d3.drag<any, any>()
-          .on('start', (event, d: any) => {
+        .call(d3.drag<SVGGElement, MindMapNode>()
+          .on('start', (event, d: MindMapNode) => {
             if (!event.active) simulation.alphaTarget(0.3).restart();
             d.fx = d.x;
             d.fy = d.y;
           })
-          .on('drag', (event, d: any) => {
+          .on('drag', (event, d: MindMapNode) => {
             d.fx = event.x;
             d.fy = event.y;
           })
-          .on('end', (event, d: any) => {
+          .on('end', (event, d: MindMapNode) => {
             if (!event.active) simulation.alphaTarget(0);
             d.fx = null;
             d.fy = null;
@@ -376,7 +378,7 @@ export function GenrePage() {
         .attr('stroke', '#fff')
         .attr('stroke-width', 3)
         .style('filter', 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))')
-        .style('opacity', (d: any) => {
+        .style('opacity', (d: MindMapNode) => {
           if (!focusedGenre) return 1;
           return focusedGenre === d.name ? 1 : 0.3;
         });
@@ -452,17 +454,17 @@ export function GenrePage() {
         .enter().append('g')
         .style('cursor', 'pointer')
         .attr('data-hovered', 'false')
-        .call(d3.drag<any, any>()
-          .on('start', (event, d: any) => {
+        .call(d3.drag<SVGGElement, MindMapNode>()
+          .on('start', (event, d: MindMapNode) => {
             if (!event.active) simulation.alphaTarget(0.3).restart();
             d.fx = d.x;
             d.fy = d.y;
           })
-          .on('drag', (event, d: any) => {
+          .on('drag', (event, d: MindMapNode) => {
             d.fx = event.x;
             d.fy = event.y;
           })
-          .on('end', (event, d: any) => {
+          .on('end', (event, d: MindMapNode) => {
             if (!event.active) simulation.alphaTarget(0);
             d.fx = null;
             d.fy = null;
@@ -475,7 +477,7 @@ export function GenrePage() {
 
       // Artist avatar border (no fill, just stroke for definition) - size based on album count
       artistNodes.append('circle')
-        .attr('r', (d: any) => {
+        .attr('r', (d: MindMapNode) => {
           const isMobile = width < 768;
           if (!focusedGenre) {
             const minSize = isMobile ? 12 : 16;
@@ -494,7 +496,7 @@ export function GenrePage() {
         .attr('stroke', '#64748b')
         .attr('stroke-width', 2)
         .style('filter', 'drop-shadow(1px 1px 3px rgba(0,0,0,0.3))')
-        .style('opacity', (d: any) => {
+        .style('opacity', (d: MindMapNode) => {
           if (!focusedGenre) return 1;
           return d.genre === focusedGenre ? 1 : 0.2;
         });
@@ -505,7 +507,7 @@ export function GenrePage() {
         .append('circle')
         .attr('cx', 0)
         .attr('cy', 0)
-        .attr('r', (d: any) => {
+        .attr('r', (d: MindMapNode) => {
           const isMobile = width < 768;
           if (!focusedGenre) {
             const minSize = isMobile ? 12 : 16;
@@ -523,7 +525,7 @@ export function GenrePage() {
 
       artistNodes.append('image')
         .attr('href', d => d.avatar || '')
-        .attr('x', (d: any) => {
+        .attr('x', (d: MindMapNode) => {
           const isMobile = width < 768;
           let size;
           if (!focusedGenre) {
@@ -538,7 +540,7 @@ export function GenrePage() {
           }
           return -size;
         })
-        .attr('y', (d: any) => {
+        .attr('y', (d: MindMapNode) => {
           const isMobile = width < 768;
           let size;
           if (!focusedGenre) {
@@ -553,7 +555,7 @@ export function GenrePage() {
           }
           return -size;
         })
-        .attr('width', (d: any) => {
+        .attr('width', (d: MindMapNode) => {
           const isMobile = width < 768;
           let size;
           if (!focusedGenre) {
@@ -568,7 +570,7 @@ export function GenrePage() {
           }
           return size * 2;
         })
-        .attr('height', (d: any) => {
+        .attr('height', (d: MindMapNode) => {
           const isMobile = width < 768;
           let size;
           if (!focusedGenre) {
@@ -585,7 +587,7 @@ export function GenrePage() {
         })
         .attr('clip-path', (d) => `url(#clip-${d.slug})`)
         .attr('preserveAspectRatio', 'xMidYMid slice')
-        .style('opacity', (d: any) => {
+        .style('opacity', (d: MindMapNode) => {
           if (!focusedGenre) return 1;
           return d.genre === focusedGenre ? 1 : 0.2;
         })
@@ -711,19 +713,19 @@ export function GenrePage() {
         // Update link positions with straight lines
         linkElements
           .attr('x1', (d: MindMapLink) => {
-            const source = nodes.find(n => n.id === (d.source as any).id);
+            const source = nodes.find(n => n.id === (typeof d.source === 'string' ? d.source : (d.source as MindMapNode).id));
             return source?.x || 0;
           })
           .attr('y1', (d: MindMapLink) => {
-            const source = nodes.find(n => n.id === (d.source as any).id);
+            const source = nodes.find(n => n.id === (typeof d.source === 'string' ? d.source : (d.source as MindMapNode).id));
             return source?.y || 0;
           })
           .attr('x2', (d: MindMapLink) => {
-            const target = nodes.find(n => n.id === (d.target as any).id);
+            const target = nodes.find(n => n.id === (typeof d.target === 'string' ? d.target : (d.target as MindMapNode).id));
             return target?.x || 0;
           })
           .attr('y2', (d: MindMapLink) => {
-            const target = nodes.find(n => n.id === (d.target as any).id);
+            const target = nodes.find(n => n.id === (typeof d.target === 'string' ? d.target : (d.target as MindMapNode).id));
             return target?.y || 0;
           });
 

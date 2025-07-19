@@ -296,12 +296,12 @@ export function AlbumDetailPage() {
       const firstTrack = detailedAlbum.tracklist[0];
       if (firstTrack && typeof firstTrack === 'object' && 'title' in firstTrack && 'artists' in firstTrack) {
         // This is a compilation format - convert to our standard format
-        return detailedAlbum.tracklist.map((track: Track & { title?: string; artists?: any[]; duration?: string }, index: number) => ({
+        return detailedAlbum.tracklist.map((track: Track & { title?: string; artists?: Array<{ name: string; discogs_id?: string; spotify_id?: string }>; duration?: string }, index: number) => ({
           track_number: index + 1,
           name: track.title,
           duration_ms: track.duration ? convertDurationToMs(track.duration) : undefined,
           position: track.position,
-          artists: (track as { artists?: any[] }).artists // Keep artist info for compilations
+          artists: track.artists // Keep artist info for compilations
         }));
       } else {
         // This is a regular tracklist format

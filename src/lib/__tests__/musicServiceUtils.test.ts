@@ -30,8 +30,8 @@ describe('musicServiceUtils', () => {
       expect(isValidSpotifyUrl('https://open.spotify.com/invalid/123')).toBe(false);
       expect(isValidSpotifyUrl('https://open.spotify.com/album/')).toBe(false);
       expect(isValidSpotifyUrl('https://open.spotify.com/album/invalid-id')).toBe(false);
-      expect(isValidSpotifyUrl(null as any)).toBe(false);
-      expect(isValidSpotifyUrl(undefined as any)).toBe(false);
+      expect(isValidSpotifyUrl(null as unknown as string)).toBe(false);
+      expect(isValidSpotifyUrl(undefined as unknown as string)).toBe(false);
     });
   });
 
@@ -53,8 +53,8 @@ describe('musicServiceUtils', () => {
       expect(isValidAppleMusicUrl('https://music.apple.com/us/album/test/')).toBe(false); // missing id
       expect(isValidAppleMusicUrl('https://music.apple.com/us/album/test/abc')).toBe(false); // non-numeric id
       expect(isValidAppleMusicUrl('https://music.apple.com/USA/album/test/123')).toBe(false); // invalid country code
-      expect(isValidAppleMusicUrl(null as any)).toBe(false);
-      expect(isValidAppleMusicUrl(undefined as any)).toBe(false);
+      expect(isValidAppleMusicUrl(null as unknown as string)).toBe(false);
+      expect(isValidAppleMusicUrl(undefined as unknown as string)).toBe(false);
     });
   });
 
@@ -97,7 +97,7 @@ describe('musicServiceUtils', () => {
       expect(() => parseSpotifyUrl('invalid-url')).toThrow(MusicServiceError);
       expect(() => parseSpotifyUrl('https://music.apple.com/us/album/test/123')).toThrow(MusicServiceError);
       expect(() => parseSpotifyUrl('https://open.spotify.com/album/invalid-id')).toThrow(MusicServiceError);
-      expect(() => parseSpotifyUrl(null as any)).toThrow(MusicServiceError);
+      expect(() => parseSpotifyUrl(null as unknown as string)).toThrow(MusicServiceError);
       
       // Test error properties
       try {
@@ -155,7 +155,7 @@ describe('musicServiceUtils', () => {
       expect(() => parseAppleMusicUrl('https://open.spotify.com/album/123')).toThrow(MusicServiceError);
       expect(() => parseAppleMusicUrl('https://music.apple.com/us/album/test/abc')).toThrow(MusicServiceError);
       expect(() => parseAppleMusicUrl('https://music.apple.com/USA/album/test/123')).toThrow(MusicServiceError);
-      expect(() => parseAppleMusicUrl(null as any)).toThrow(MusicServiceError);
+      expect(() => parseAppleMusicUrl(null as unknown as string)).toThrow(MusicServiceError);
 
       // Test error properties
       try {
@@ -192,7 +192,7 @@ describe('musicServiceUtils', () => {
       expect(() => extractSpotifyAlbumId('')).toThrow(MusicServiceError);
       expect(() => extractSpotifyAlbumId('invalid-id')).toThrow(MusicServiceError);
       expect(() => extractSpotifyAlbumId('https://music.apple.com/us/album/test/123')).toThrow(MusicServiceError);
-      expect(() => extractSpotifyAlbumId(null as any)).toThrow(MusicServiceError);
+      expect(() => extractSpotifyAlbumId(null as unknown as string)).toThrow(MusicServiceError);
     });
   });
 
@@ -220,7 +220,7 @@ describe('musicServiceUtils', () => {
       expect(() => extractAppleMusicAlbumId('')).toThrow(MusicServiceError);
       expect(() => extractAppleMusicAlbumId('invalid-id')).toThrow(MusicServiceError);
       expect(() => extractAppleMusicAlbumId('https://open.spotify.com/album/123')).toThrow(MusicServiceError);
-      expect(() => extractAppleMusicAlbumId(null as any)).toThrow(MusicServiceError);
+      expect(() => extractAppleMusicAlbumId(null as unknown as string)).toThrow(MusicServiceError);
     });
   });
 
@@ -246,7 +246,7 @@ describe('musicServiceUtils', () => {
     it('should throw error for invalid album IDs', () => {
       expect(() => buildSpotifyEmbedUrl('')).toThrow(MusicServiceError);
       expect(() => buildSpotifyEmbedUrl('invalid-id')).toThrow(MusicServiceError);
-      expect(() => buildSpotifyEmbedUrl(null as any)).toThrow(MusicServiceError);
+      expect(() => buildSpotifyEmbedUrl(null as unknown as string)).toThrow(MusicServiceError);
     });
   });
 
@@ -281,8 +281,8 @@ describe('musicServiceUtils', () => {
       expect(() => buildAppleMusicEmbedUrl('1234567890', '')).toThrow(MusicServiceError);
       expect(() => buildAppleMusicEmbedUrl('invalid-id', 'us')).toThrow(MusicServiceError);
       expect(() => buildAppleMusicEmbedUrl('1234567890', 'USA')).toThrow(MusicServiceError);
-      expect(() => buildAppleMusicEmbedUrl(null as any, 'us')).toThrow(MusicServiceError);
-      expect(() => buildAppleMusicEmbedUrl('1234567890', null as any)).toThrow(MusicServiceError);
+      expect(() => buildAppleMusicEmbedUrl(null as unknown as string, 'us')).toThrow(MusicServiceError);
+      expect(() => buildAppleMusicEmbedUrl('1234567890', null as unknown as string)).toThrow(MusicServiceError);
     });
   });
 
@@ -307,8 +307,8 @@ describe('musicServiceUtils', () => {
       expect(() => validateAndNormalizeUrl('invalid-url', 'spotify')).toThrow(MusicServiceError);
       expect(() => validateAndNormalizeUrl('https://music.apple.com/us/album/test/123', 'spotify')).toThrow(MusicServiceError);
       expect(() => validateAndNormalizeUrl('https://open.spotify.com/album/123', 'apple_music')).toThrow(MusicServiceError);
-      expect(() => validateAndNormalizeUrl('valid-url', 'unsupported' as any)).toThrow(MusicServiceError);
-      expect(() => validateAndNormalizeUrl(null as any, 'spotify')).toThrow(MusicServiceError);
+      expect(() => validateAndNormalizeUrl('valid-url', 'unsupported' as 'spotify' | 'apple_music')).toThrow(MusicServiceError);
+      expect(() => validateAndNormalizeUrl(null as unknown as string, 'spotify')).toThrow(MusicServiceError);
     });
   });
 
