@@ -28,7 +28,6 @@ export const appConfig = {
       about: {
         title: 'About',
         items: [
-          { label: 'About Russ.fm', href: '/about' },
           { label: 'Collection Stats', href: '/stats' },
           { label: 'Random Discovery', href: '/random' },
         ],
