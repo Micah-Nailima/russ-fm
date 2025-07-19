@@ -1,43 +1,28 @@
 name = "russ-fm"
-main = "dist-worker/index.js"
 compatibility_date = "2024-03-01"
-compatibility_flags = ["nodejs_compat"]
 
-# Build configuration
-[build]
-command = "npm run build:worker"
-cwd = "./"
-watch_dir = "src"
-
-# Static assets configuration
+# Workers Assets configuration - serves static files from dist-worker
 [assets]
 directory = "./dist-worker"
-binding = "ASSETS"
 
-# Environment variables (optional - configure as needed)
+# Environment variables
 [vars]
 ENVIRONMENT = "production"
-
-# KV namespaces (optional - if you plan to use KV storage)
-# [[kv_namespaces]]
-# binding = "CACHE"
-# id = "your-kv-namespace-id"
-# preview_id = "your-preview-kv-namespace-id"
 
 # R2 bucket binding (for your image storage)
 # [[r2_buckets]]
 # binding = "IMAGES"
 # bucket_name = "your-r2-bucket-name"
 
-# Routes (configure your custom domain here)
-# routes = [
-#   { pattern = "yourdomain.com/*", zone_name = "yourdomain.com" }
-# ]
+# Custom domain routing (when ready)
+[[routes]]
+pattern = "russ.fm/*"
+zone_name = "russ.fm"
 
-# Development configuration
-[env.development]
-vars = { ENVIRONMENT = "development" }
+# Preview environment configuration
+[env.preview]
+vars = { ENVIRONMENT = "preview" }
 
-# Production configuration  
+# Production environment configuration  
 [env.production]
 vars = { ENVIRONMENT = "production" }
