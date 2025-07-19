@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Routes, Route, Navigate, useParams } from 'react-router-dom';
-import { Navigation } from '@/components/Navigation';
-import { AlbumsPage } from '@/pages/AlbumsPage';
-import { ArtistsPage } from '@/pages/ArtistsPage';
-import { ArtistDetailPage } from '@/pages/ArtistDetailPage';
-import { AlbumDetailPage } from '@/pages/AlbumDetailPage';
-import { StatsPage } from '@/pages/StatsPage';
-import { SearchResultsPage } from '@/pages/SearchResultsPage';
-import { RandomPage } from '@/pages/RandomPage';
-import { GenrePage } from '@/pages/GenrePage';
+import { Navigation } from './components/Navigation';
+import { Footer } from './components/Footer';
+import { AlbumsPage } from './pages/AlbumsPage';
+import { ArtistsPage } from './pages/ArtistsPage';
+import { ArtistDetailPage } from './pages/ArtistDetailPage';
+import { AlbumDetailPage } from './pages/AlbumDetailPage';
+import { StatsPage } from './pages/StatsPage';
+import { SearchResultsPage } from './pages/SearchResultsPage';
+import { RandomPage } from './pages/RandomPage';
+import { GenrePage } from './pages/GenrePage';
 
 // Component to handle "Various" artist route interception
 function ArtistRouteHandler() {
@@ -44,15 +45,11 @@ function App() {
           <Route path="/stats" element={<StatsPage />} />
           <Route path="/genres" element={<GenrePage />} />
           <Route path="/random" element={<RandomPage />} />
-          <Route path="/search" element={<SearchResultsPage searchTerm={searchTerm} setSearchTerm={searchTerm} />} />
+          <Route path="/search" element={<SearchResultsPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
         </Routes>
       </main>
 
-      <footer className="bg-muted mt-16 py-8">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>&copy; 2025 Russ.fm. A personal record collection showcase.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
