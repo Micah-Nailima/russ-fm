@@ -147,11 +147,9 @@ export function useSearch(options: UseSearchOptions = {}): UseSearchReturn {
       if (debouncedQuery.trim()) {
         setIsLoading(true);
         
-        // Use requestAnimationFrame to avoid blocking UI
-        requestAnimationFrame(() => {
-          search(debouncedQuery);
-          setIsLoading(false);
-        });
+        // Perform search directly - requestAnimationFrame was causing focus issues
+        search(debouncedQuery);
+        setIsLoading(false);
       } else {
         setResults([]);
         setIsLoading(false);
@@ -208,6 +206,15 @@ export function useInstantSearch(initialQuery = '') {
   }, [initialQuery]);
 
   return search;
+}
+
+// Mobile-optimized search with minimal interference
+export function useMobileSearch() {
+  return useSearch({
+    debounceMs: 200, // Slightly longer to reduce interference
+    limit: 15,
+    autoSearch: true
+  });
 }
 
 export function useManualSearch() {

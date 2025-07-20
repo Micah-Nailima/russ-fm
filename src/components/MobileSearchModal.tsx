@@ -3,7 +3,7 @@ import { X, Search, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { useInstantSearch } from '@/hooks/useSearch';
+import { useMobileSearch } from '@/hooks/useSearch';
 import { SearchResults } from './SearchResults';
 
 interface MobileSearchModalProps {
@@ -31,7 +31,7 @@ export function MobileSearchModal({
     isLoading, 
     isIndexing, 
     error 
-  } = useInstantSearch();
+  } = useMobileSearch();
 
   // Sync search terms only when modal opens or searchTerm changes externally
   useEffect(() => {
@@ -58,24 +58,19 @@ export function MobileSearchModal({
     }
   }, [isOpen]);
 
-  // Only refocus if modal is still open and focus moves outside completely
+  // Minimal focus management - only for cases where focus is completely lost
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleFocusOut = (e: FocusEvent) => {
-      const target = e.relatedTarget as HTMLElement;
-      // Only refocus if no element in the modal has focus
-      if (!target && isOpen && document.activeElement === document.body) {
-        setTimeout(() => {
-          if (inputRef.current && isOpen) {
-            inputRef.current.focus();
-          }
-        }, 100);
+    const handleVisibilityChange = () => {
+      // Refocus when returning to the page
+      if (!document.hidden && isOpen && inputRef.current) {
+        setTimeout(() => inputRef.current?.focus(), 100);
       }
     };
 
-    document.addEventListener('focusout', handleFocusOut);
-    return () => document.removeEventListener('focusout', handleFocusOut);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, [isOpen]);
 
   // Handle swipe down to close
@@ -193,7 +188,6 @@ export function MobileSearchModal({
                 autoCapitalize="off"
                 spellCheck="false"
                 enterKeyHint="search"
-                // Let the focusout handler manage refocusing instead of onBlur
               />
               {searchTerm && (
                 <Button

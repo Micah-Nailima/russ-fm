@@ -202,14 +202,6 @@ class FuseSearchService {
         }
       });
 
-      // Debug logging
-      console.log('Search results breakdown:', {
-        query,
-        fuseResultsCount: fuseResults.length,
-        albumResultsCount: albumResults.length,
-        artistResultsCount: artistResults.size,
-        filterByType
-      });
 
       // Combine and sort results
       let combinedResults: SearchResult[] = [];
@@ -237,8 +229,6 @@ class FuseSearchService {
         combinedResults = albumResults
           .sort((a, b) => sortByScore ? (a.score || 0) - (b.score || 0) : a.title.localeCompare(b.title));
       }
-      
-      console.log('Final combined results:', combinedResults.slice(0, 5));
 
       return combinedResults.slice(0, limit);
     } catch (error) {
