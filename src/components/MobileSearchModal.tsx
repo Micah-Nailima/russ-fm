@@ -41,11 +41,38 @@ export function MobileSearchModal({
   // Focus input when modal opens
   useEffect(() => {
     if (isOpen && inputRef.current) {
-      // Small delay to ensure animation has started
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
+      // Delay to ensure modal animation completes (200ms) plus small buffer
+      const timeoutId = setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+          // On iOS, sometimes we need to trigger the keyboard explicitly
+          if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            inputRef.current.click();
+          }
+        }
+      }, 250);
+      
+      return () => clearTimeout(timeoutId);
     }
+  }, [isOpen]);
+
+  // Maintain focus if input loses focus unexpectedly (but only when modal is open)
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleFocusOut = (e: FocusEvent) => {
+      // If focus moves outside the modal and the modal is still open, refocus the input
+      if (modalRef.current && !modalRef.current.contains(e.relatedTarget as Node)) {
+        setTimeout(() => {
+          if (inputRef.current && isOpen) {
+            inputRef.current.focus();
+          }
+        }, 10);
+      }
+    };
+
+    document.addEventListener('focusout', handleFocusOut);
+    return () => document.removeEventListener('focusout', handleFocusOut);
   }, [isOpen]);
 
   // Handle swipe down to close
@@ -93,7 +120,7 @@ export function MobileSearchModal({
     <div
       className={cn(
         "fixed inset-0 z-50 md:hidden",
-        "transition-all duration-300 ease-out",
+        "transition-all duration-200 ease-out",
         isOpen ? "visible" : "invisible"
       )}
     >
@@ -101,7 +128,7 @@ export function MobileSearchModal({
       <div
         className={cn(
           "absolute inset-0 bg-black/20",
-          "transition-opacity duration-300",
+          "transition-opacity duration-200",
           isOpen ? "opacity-100" : "opacity-0"
         )}
         onClick={onClose}
@@ -113,7 +140,7 @@ export function MobileSearchModal({
         className={cn(
           "absolute inset-x-0 bottom-0 top-0",
           "bg-background",
-          "transform transition-transform duration-300 ease-out",
+          "transform transition-transform duration-200 ease-out",
           isOpen ? "translate-y-0" : "translate-y-full"
         )}
         onTouchStart={handleTouchStart}
@@ -142,12 +169,13 @@ export function MobileSearchModal({
               <Input
                 ref={inputRef}
                 type="search"
+                inputMode="search"
                 placeholder="Search albums or artists..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className={cn(
                   "h-11 pl-10 pr-11",
-                  "text-base", // Larger text for mobile
+                  "text-base", // Larger text for mobile to prevent zoom
                   "bg-muted/50",
                   "border-none",
                   "rounded-full",
@@ -156,7 +184,21 @@ export function MobileSearchModal({
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
+                spellCheck="false"
                 enterKeyHint="search"
+                // Prevent keyboard from closing when scrolling results
+                onBlur={(e) => {
+                  // Only allow blur if clicking on a result link or close button
+                  const target = e.relatedTarget as HTMLElement;
+                  if (!target || (!target.closest('a') && !target.closest('button'))) {
+                    e.preventDefault();
+                    setTimeout(() => {
+                      if (inputRef.current && isOpen) {
+                        inputRef.current.focus();
+                      }
+                    }, 10);
+                  }
+                }}
               />
               {searchTerm && (
                 <Button
