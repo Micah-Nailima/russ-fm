@@ -67,6 +67,27 @@ export function getArtistImageSrcSet(artistSlug: string): string {
  */
 export function handleImageError(event: React.SyntheticEvent<HTMLImageElement>): void {
   const img = event.currentTarget;
+  
+  // First fallback: try 'unknown-' prefix for album images
+  if (!img.dataset.unknownFallbackAttempted) {
+    const currentSrc = img.src;
+    
+    // Check if this is an album image path that could have an 'unknown-' fallback
+    const albumMatch = currentSrc.match(/\/album\/(\d+)\/(\d+)-(hi-res|medium|small)\.jpg$/);
+    if (albumMatch) {
+      const [, albumId, fileId, size] = albumMatch;
+      // Try the 'unknown-' prefixed version
+      const unknownPath = currentSrc.replace(
+        `/album/${albumId}/${fileId}-${size}.jpg`,
+        `/album/unknown-${albumId}/unknown-${albumId}-${size}.jpg`
+      );
+      img.dataset.unknownFallbackAttempted = 'true';
+      img.src = unknownPath;
+      return;
+    }
+  }
+  
+  // Final fallback: use generic fallback URL
   if (!img.dataset.fallbackAttempted) {
     img.dataset.fallbackAttempted = 'true';
     img.src = appConfig.assets.fallbackUrl;
