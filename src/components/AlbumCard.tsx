@@ -162,7 +162,7 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
       <CardContent className="p-0 flex-1 flex flex-col">
         <div className="relative aspect-square bg-muted overflow-hidden">
           <img
-            src={getAlbumImageFromData(album.uri_release, 'medium')}
+            src={getAlbumImageFromData(`/album/${albumPath}/`, 'medium')}
             alt={album.release_name}
             className="w-full h-full object-cover"
             loading="lazy"
