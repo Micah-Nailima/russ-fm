@@ -1,6 +1,6 @@
 {
-  "apple_music_id": "1688702511",
-  "apple_music_url": "https://music.apple.com/gb/album/%C3%A1tta/1688702511",
+  "apple_music_id": null,
+  "apple_music_url": null,
   "artists": [
     {
       "apple_music_id": "73720797",
@@ -22,7 +22,7 @@
     }
   },
   "country": "UK",
-  "created_at": "2025-07-10T07:36:45.362326",
+  "created_at": "2025-07-20T15:39:40.218620",
   "date_added": "2022-12-19T11:27:13-08:00",
   "discogs_id": "25472284",
   "discogs_url": "https://www.discogs.com/release/25472284-Sigur-Rós--",
@@ -132,13 +132,6 @@
       "type": "secondary",
       "url": "https://i.discogs.com/JvHoRYRHIzR74MMuacqjDxUc6Essy1yeYTG24gZXaxU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1NDcy/Mjg0LTE2NzExMjAy/NDctNzk4MS5qcGVn.jpeg",
       "width": 600
-    },
-    {
-      "height": 2000,
-      "resource_url": null,
-      "type": "apple_music_artwork",
-      "url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f0/ec/d2/f0ecd2d3-6dd0-dda8-2a16-0b74c0a5260f/4050538920437.jpg/2000x2000bb.jpg",
-      "width": 2000
     }
   ],
   "labels": [
@@ -147,131 +140,86 @@
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/Sigur+R%C3%B3s/(+)",
   "local_images": {
-    "hi-res": "../public/album/unknown-25472284/unknown-25472284-hi-res.jpg",
-    "medium": "../public/album/unknown-25472284/unknown-25472284-medium.jpg",
-    "small": "../public/album/unknown-25472284/unknown-25472284-small.jpg"
+    "hi-res": "../public/album/unknown-25472284/unknown-25472284-hi-res.jpg"
   },
   "processing_info": {
     "has_local_images": true,
-    "local_images_count": 3,
-    "processed_at": "2025-07-10T07:36:46.889143",
+    "local_images_count": 1,
+    "processed_at": "2025-07-20T15:39:57.421372",
     "services_used": [
       "discogs",
-      "apple_music",
       "spotify",
       "wikipedia"
     ]
   },
-  "release_name_apple_music": "ÁTTA",
+  "release_name_apple_music": null,
   "release_name_discogs": "( )",
-  "release_name_spotify": "( )",
+  "release_name_spotify": "( ) [2022 Remaster]",
   "released": "2022-12-16",
   "services": {
-    "apple_music": {
-      "artwork_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f0/ec/d2/f0ecd2d3-6dd0-dda8-2a16-0b74c0a5260f/4050538920437.jpg/2000x2000bb.jpg",
-      "content_rating": null,
-      "copyright": "℗ 2023 Von Dur Limited under exclusive license to BMG Rights Management (UK) Limited",
-      "editorial_notes": null,
-      "id": "1688702511",
-      "is_complete": true,
-      "preview_url": null,
-      "raw_attributes": {
-        "artistName": "Sigur Rós",
-        "artwork": {
-          "bgColor": "ffffff",
-          "height": 4000,
-          "textColor1": "0d0b10",
-          "textColor2": "281d1b",
-          "textColor3": "3d3c40",
-          "textColor4": "534a48",
-          "url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f0/ec/d2/f0ecd2d3-6dd0-dda8-2a16-0b74c0a5260f/4050538920437.jpg/{w}x{h}bb.jpg",
-          "width": 4000
-        },
-        "copyright": "℗ 2023 Von Dur Limited under exclusive license to BMG Rights Management (UK) Limited",
-        "genreNames": [
-          "Alternative",
-          "Music"
-        ],
-        "isCompilation": false,
-        "isComplete": true,
-        "isMasteredForItunes": false,
-        "isSingle": false,
-        "name": "ÁTTA",
-        "playParams": {
-          "id": "1688702511",
-          "kind": "album"
-        },
-        "recordLabel": "BMG Rights Management (UK) Ltd.",
-        "releaseDate": "2023-06-16",
-        "trackCount": 10,
-        "upc": "4050538920437",
-        "url": "https://music.apple.com/gb/album/%C3%A1tta/1688702511"
-      },
-      "url": "https://music.apple.com/gb/album/%C3%A1tta/1688702511"
-    },
     "lastfm": {
       "images": [
         {
           "size": "small",
-          "url": "https://lastfm.freetls.fastly.net/i/u/34s/80ab21fb59d5455e90ed7b345e635ad4.png"
+          "url": "https://lastfm.freetls.fastly.net/i/u/34s/f5c3645727914ef3d73cf1556b60077b.jpg"
         },
         {
           "size": "medium",
-          "url": "https://lastfm.freetls.fastly.net/i/u/64s/80ab21fb59d5455e90ed7b345e635ad4.png"
+          "url": "https://lastfm.freetls.fastly.net/i/u/64s/f5c3645727914ef3d73cf1556b60077b.jpg"
         },
         {
           "size": "large",
-          "url": "https://lastfm.freetls.fastly.net/i/u/174s/80ab21fb59d5455e90ed7b345e635ad4.png"
+          "url": "https://lastfm.freetls.fastly.net/i/u/174s/f5c3645727914ef3d73cf1556b60077b.jpg"
         },
         {
           "size": "extralarge",
-          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/80ab21fb59d5455e90ed7b345e635ad4.png"
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/f5c3645727914ef3d73cf1556b60077b.jpg"
         },
         {
           "size": "mega",
-          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/80ab21fb59d5455e90ed7b345e635ad4.png"
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/f5c3645727914ef3d73cf1556b60077b.jpg"
         },
         {
           "size": "",
-          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/80ab21fb59d5455e90ed7b345e635ad4.png"
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/f5c3645727914ef3d73cf1556b60077b.jpg"
         }
       ],
-      "listeners": 525175,
+      "listeners": 501120,
       "mbid": "013ba2a5-1549-4234-9de2-28d333f23ae5",
-      "playcount": 13970674,
+      "playcount": 14462555,
       "raw_data": {
         "album": {
           "artist": "Sigur Rós",
           "image": [
             {
-              "#text": "https://lastfm.freetls.fastly.net/i/u/34s/80ab21fb59d5455e90ed7b345e635ad4.png",
+              "#text": "https://lastfm.freetls.fastly.net/i/u/34s/f5c3645727914ef3d73cf1556b60077b.jpg",
               "size": "small"
             },
             {
-              "#text": "https://lastfm.freetls.fastly.net/i/u/64s/80ab21fb59d5455e90ed7b345e635ad4.png",
+              "#text": "https://lastfm.freetls.fastly.net/i/u/64s/f5c3645727914ef3d73cf1556b60077b.jpg",
               "size": "medium"
             },
             {
-              "#text": "https://lastfm.freetls.fastly.net/i/u/174s/80ab21fb59d5455e90ed7b345e635ad4.png",
+              "#text": "https://lastfm.freetls.fastly.net/i/u/174s/f5c3645727914ef3d73cf1556b60077b.jpg",
               "size": "large"
             },
             {
-              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/80ab21fb59d5455e90ed7b345e635ad4.png",
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/f5c3645727914ef3d73cf1556b60077b.jpg",
               "size": "extralarge"
             },
             {
-              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/80ab21fb59d5455e90ed7b345e635ad4.png",
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/f5c3645727914ef3d73cf1556b60077b.jpg",
               "size": "mega"
             },
             {
-              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/80ab21fb59d5455e90ed7b345e635ad4.png",
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/f5c3645727914ef3d73cf1556b60077b.jpg",
               "size": ""
             }
           ],
-          "listeners": "525175",
+          "listeners": "501120",
           "mbid": "013ba2a5-1549-4234-9de2-28d333f23ae5",
           "name": "( )",
-          "playcount": "13970674",
+          "playcount": "14462555",
           "tags": {
             "tag": [
               {
@@ -291,8 +239,8 @@
                 "url": "https://www.last.fm/tag/favourite+albums"
               },
               {
-                "name": "icelandic",
-                "url": "https://www.last.fm/tag/icelandic"
+                "name": "beautiful",
+                "url": "https://www.last.fm/tag/beautiful"
               }
             ]
           },
@@ -450,7 +398,7 @@
         "ambient",
         "2002",
         "favourite albums",
-        "icelandic"
+        "beautiful"
       ],
       "top_albums": [],
       "top_tracks": [],
@@ -463,38 +411,38 @@
       "available_markets": [],
       "copyrights": [
         {
-          "text": "© 2002 KRUNK",
+          "text": "© 2022 KRUNK",
           "type": "C"
         },
         {
-          "text": "℗ 2002 KRUNK",
+          "text": "℗ 2022 KRUNK",
           "type": "P"
         }
       ],
       "explicit": false,
       "external_ids": {
-        "upc": "190296913341"
+        "upc": "190296155963"
       },
-      "id": "3FR8CV7OSyZDnxneavnh8t",
+      "id": "7MwLBcJxdS3LjwX9y2H3jq",
       "images": [
         {
           "height": 640,
-          "url": "https://i.scdn.co/image/ab67616d0000b273b86f9276199af632c42a90cc",
+          "url": "https://i.scdn.co/image/ab67616d0000b2738c034d73834026d2040124e5",
           "width": 640
         },
         {
           "height": 300,
-          "url": "https://i.scdn.co/image/ab67616d00001e02b86f9276199af632c42a90cc",
+          "url": "https://i.scdn.co/image/ab67616d00001e028c034d73834026d2040124e5",
           "width": 300
         },
         {
           "height": 64,
-          "url": "https://i.scdn.co/image/ab67616d00004851b86f9276199af632c42a90cc",
+          "url": "https://i.scdn.co/image/ab67616d000048518c034d73834026d2040124e5",
           "width": 64
         }
       ],
       "label": "Krunk",
-      "popularity": 51,
+      "popularity": 49,
       "preview_url": null,
       "raw_data": {
         "album_type": "album",
@@ -512,49 +460,49 @@
         ],
         "copyrights": [
           {
-            "text": "© 2002 KRUNK",
+            "text": "© 2022 KRUNK",
             "type": "C"
           },
           {
-            "text": "℗ 2002 KRUNK",
+            "text": "℗ 2022 KRUNK",
             "type": "P"
           }
         ],
         "external_ids": {
-          "upc": "190296913341"
+          "upc": "190296155963"
         },
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/3FR8CV7OSyZDnxneavnh8t"
+          "spotify": "https://open.spotify.com/album/7MwLBcJxdS3LjwX9y2H3jq"
         },
         "genres": [],
-        "href": "https://api.spotify.com/v1/albums/3FR8CV7OSyZDnxneavnh8t?market=US",
-        "id": "3FR8CV7OSyZDnxneavnh8t",
+        "href": "https://api.spotify.com/v1/albums/7MwLBcJxdS3LjwX9y2H3jq?market=US",
+        "id": "7MwLBcJxdS3LjwX9y2H3jq",
         "images": [
           {
             "height": 640,
-            "url": "https://i.scdn.co/image/ab67616d0000b273b86f9276199af632c42a90cc",
+            "url": "https://i.scdn.co/image/ab67616d0000b2738c034d73834026d2040124e5",
             "width": 640
           },
           {
             "height": 300,
-            "url": "https://i.scdn.co/image/ab67616d00001e02b86f9276199af632c42a90cc",
+            "url": "https://i.scdn.co/image/ab67616d00001e028c034d73834026d2040124e5",
             "width": 300
           },
           {
             "height": 64,
-            "url": "https://i.scdn.co/image/ab67616d00004851b86f9276199af632c42a90cc",
+            "url": "https://i.scdn.co/image/ab67616d000048518c034d73834026d2040124e5",
             "width": 64
           }
         ],
         "is_playable": true,
         "label": "Krunk",
-        "name": "( )",
-        "popularity": 51,
-        "release_date": "2002",
-        "release_date_precision": "year",
-        "total_tracks": 8,
+        "name": "( ) [2022 Remaster]",
+        "popularity": 49,
+        "release_date": "2022-10-28",
+        "release_date_precision": "day",
+        "total_tracks": 14,
         "tracks": {
-          "href": "https://api.spotify.com/v1/albums/3FR8CV7OSyZDnxneavnh8t/tracks?offset=0&limit=50&market=US",
+          "href": "https://api.spotify.com/v1/albums/7MwLBcJxdS3LjwX9y2H3jq/tracks?offset=0&limit=50&market=US",
           "items": [
             {
               "artists": [
@@ -570,20 +518,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 398320,
+              "duration_ms": 395366,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/331TLlSwGbVcNKJMkylNbK"
+                "spotify": "https://open.spotify.com/track/4v71ynYgccYJjHvqrusW6u"
               },
-              "href": "https://api.spotify.com/v1/tracks/331TLlSwGbVcNKJMkylNbK",
-              "id": "331TLlSwGbVcNKJMkylNbK",
+              "href": "https://api.spotify.com/v1/tracks/4v71ynYgccYJjHvqrusW6u",
+              "id": "4v71ynYgccYJjHvqrusW6u",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #1 - Vaka",
+              "name": "Untitled #1 - 2022 Remaster",
               "preview_url": null,
               "track_number": 1,
               "type": "track",
-              "uri": "spotify:track:331TLlSwGbVcNKJMkylNbK"
+              "uri": "spotify:track:4v71ynYgccYJjHvqrusW6u"
             },
             {
               "artists": [
@@ -599,20 +547,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 453813,
+              "duration_ms": 453906,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/6HxrAuS38Ro5522bbSkw1t"
+                "spotify": "https://open.spotify.com/track/0BQm5zQR5OxQnGrrvYZdEr"
               },
-              "href": "https://api.spotify.com/v1/tracks/6HxrAuS38Ro5522bbSkw1t",
-              "id": "6HxrAuS38Ro5522bbSkw1t",
+              "href": "https://api.spotify.com/v1/tracks/0BQm5zQR5OxQnGrrvYZdEr",
+              "id": "0BQm5zQR5OxQnGrrvYZdEr",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #2 - Fyrsta",
+              "name": "Untitled #2 - 2022 Remaster",
               "preview_url": null,
               "track_number": 2,
               "type": "track",
-              "uri": "spotify:track:6HxrAuS38Ro5522bbSkw1t"
+              "uri": "spotify:track:0BQm5zQR5OxQnGrrvYZdEr"
             },
             {
               "artists": [
@@ -628,20 +576,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 393426,
+              "duration_ms": 393400,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/1QUiA9aecDOOnf32A9ZrtW"
+                "spotify": "https://open.spotify.com/track/0CQmPI6R42XY8RoRv3JRcb"
               },
-              "href": "https://api.spotify.com/v1/tracks/1QUiA9aecDOOnf32A9ZrtW",
-              "id": "1QUiA9aecDOOnf32A9ZrtW",
+              "href": "https://api.spotify.com/v1/tracks/0CQmPI6R42XY8RoRv3JRcb",
+              "id": "0CQmPI6R42XY8RoRv3JRcb",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #3 - Samskeyti",
+              "name": "Untitled #3 - 2022 Remaster",
               "preview_url": null,
               "track_number": 3,
               "type": "track",
-              "uri": "spotify:track:1QUiA9aecDOOnf32A9ZrtW"
+              "uri": "spotify:track:0CQmPI6R42XY8RoRv3JRcb"
             },
             {
               "artists": [
@@ -657,20 +605,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 417080,
+              "duration_ms": 453040,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/3fjoFeVDK2ifrZ4yOCwFYC"
+                "spotify": "https://open.spotify.com/track/4wDe4YCAViS7x2Z3Rbft14"
               },
-              "href": "https://api.spotify.com/v1/tracks/3fjoFeVDK2ifrZ4yOCwFYC",
-              "id": "3fjoFeVDK2ifrZ4yOCwFYC",
+              "href": "https://api.spotify.com/v1/tracks/4wDe4YCAViS7x2Z3Rbft14",
+              "id": "4wDe4YCAViS7x2Z3Rbft14",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #4 - Njósnavélin",
+              "name": "Untitled #4 - 2022 Remaster",
               "preview_url": null,
               "track_number": 4,
               "type": "track",
-              "uri": "spotify:track:3fjoFeVDK2ifrZ4yOCwFYC"
+              "uri": "spotify:track:4wDe4YCAViS7x2Z3Rbft14"
             },
             {
               "artists": [
@@ -686,20 +634,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 597026,
+              "duration_ms": 597146,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/3sqyTvMpQeKfGfwmtsheF3"
+                "spotify": "https://open.spotify.com/track/5HLn8GuWZYtzVcBRhQkDGs"
               },
-              "href": "https://api.spotify.com/v1/tracks/3sqyTvMpQeKfGfwmtsheF3",
-              "id": "3sqyTvMpQeKfGfwmtsheF3",
+              "href": "https://api.spotify.com/v1/tracks/5HLn8GuWZYtzVcBRhQkDGs",
+              "id": "5HLn8GuWZYtzVcBRhQkDGs",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #5 - Álafoss",
+              "name": "Untitled #5 - 2022 Remaster",
               "preview_url": null,
               "track_number": 5,
               "type": "track",
-              "uri": "spotify:track:3sqyTvMpQeKfGfwmtsheF3"
+              "uri": "spotify:track:5HLn8GuWZYtzVcBRhQkDGs"
             },
             {
               "artists": [
@@ -715,20 +663,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 528520,
+              "duration_ms": 528280,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/3YlDXImO0ztdF7aW0Y24xR"
+                "spotify": "https://open.spotify.com/track/2gxIJiUkGHIG7XwgOFH92E"
               },
-              "href": "https://api.spotify.com/v1/tracks/3YlDXImO0ztdF7aW0Y24xR",
-              "id": "3YlDXImO0ztdF7aW0Y24xR",
+              "href": "https://api.spotify.com/v1/tracks/2gxIJiUkGHIG7XwgOFH92E",
+              "id": "2gxIJiUkGHIG7XwgOFH92E",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #6 - E-Bow",
+              "name": "Untitled #6 - 2022 Remaster",
               "preview_url": null,
               "track_number": 6,
               "type": "track",
-              "uri": "spotify:track:3YlDXImO0ztdF7aW0Y24xR"
+              "uri": "spotify:track:2gxIJiUkGHIG7XwgOFH92E"
             },
             {
               "artists": [
@@ -744,20 +692,20 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 779920,
+              "duration_ms": 780000,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/03IQMevyxkOz822LcxbSPN"
+                "spotify": "https://open.spotify.com/track/15f7V0nI1oDN8utyPSLCuw"
               },
-              "href": "https://api.spotify.com/v1/tracks/03IQMevyxkOz822LcxbSPN",
-              "id": "03IQMevyxkOz822LcxbSPN",
+              "href": "https://api.spotify.com/v1/tracks/15f7V0nI1oDN8utyPSLCuw",
+              "id": "15f7V0nI1oDN8utyPSLCuw",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #7 - Dauðalagið",
+              "name": "Untitled #7 - 2022 Remaster",
               "preview_url": null,
               "track_number": 7,
               "type": "track",
-              "uri": "spotify:track:03IQMevyxkOz822LcxbSPN"
+              "uri": "spotify:track:15f7V0nI1oDN8utyPSLCuw"
             },
             {
               "artists": [
@@ -773,34 +721,208 @@
                 }
               ],
               "disc_number": 1,
-              "duration_ms": 705093,
+              "duration_ms": 712534,
               "explicit": false,
               "external_urls": {
-                "spotify": "https://open.spotify.com/track/0juwzpu354078dcKpR5p0w"
+                "spotify": "https://open.spotify.com/track/2zyXyei2jNC0BeaekYUbJx"
               },
-              "href": "https://api.spotify.com/v1/tracks/0juwzpu354078dcKpR5p0w",
-              "id": "0juwzpu354078dcKpR5p0w",
+              "href": "https://api.spotify.com/v1/tracks/2zyXyei2jNC0BeaekYUbJx",
+              "id": "2zyXyei2jNC0BeaekYUbJx",
               "is_local": false,
               "is_playable": true,
-              "name": "Untitled #8 - Popplagið",
+              "name": "Untitled #8 - 2022 Remaster",
               "preview_url": null,
               "track_number": 8,
               "type": "track",
-              "uri": "spotify:track:0juwzpu354078dcKpR5p0w"
+              "uri": "spotify:track:2zyXyei2jNC0BeaekYUbJx"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+                  "id": "6UUrUCIZtQeOf8tC0WuzRy",
+                  "name": "Sigur Rós",
+                  "type": "artist",
+                  "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+                }
+              ],
+              "disc_number": 2,
+              "duration_ms": 278040,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/2HwjsEb0xaxURY5gN8X6q5"
+              },
+              "href": "https://api.spotify.com/v1/tracks/2HwjsEb0xaxURY5gN8X6q5",
+              "id": "2HwjsEb0xaxURY5gN8X6q5",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Untitled #9 - Smáskifa 1",
+              "preview_url": null,
+              "track_number": 1,
+              "type": "track",
+              "uri": "spotify:track:2HwjsEb0xaxURY5gN8X6q5"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+                  "id": "6UUrUCIZtQeOf8tC0WuzRy",
+                  "name": "Sigur Rós",
+                  "type": "artist",
+                  "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+                }
+              ],
+              "disc_number": 2,
+              "duration_ms": 167813,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/3Bs5AaeHahWkGFENBxaCIM"
+              },
+              "href": "https://api.spotify.com/v1/tracks/3Bs5AaeHahWkGFENBxaCIM",
+              "id": "3Bs5AaeHahWkGFENBxaCIM",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Untitled #9 - Smáskifa 2",
+              "preview_url": null,
+              "track_number": 2,
+              "type": "track",
+              "uri": "spotify:track:3Bs5AaeHahWkGFENBxaCIM"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+                  "id": "6UUrUCIZtQeOf8tC0WuzRy",
+                  "name": "Sigur Rós",
+                  "type": "artist",
+                  "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+                }
+              ],
+              "disc_number": 2,
+              "duration_ms": 262453,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/66d0TOpAm6PSzPgoyFRN99"
+              },
+              "href": "https://api.spotify.com/v1/tracks/66d0TOpAm6PSzPgoyFRN99",
+              "id": "66d0TOpAm6PSzPgoyFRN99",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Untitled #9 - Smáskifa 3",
+              "preview_url": null,
+              "track_number": 3,
+              "type": "track",
+              "uri": "spotify:track:66d0TOpAm6PSzPgoyFRN99"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+                  "id": "6UUrUCIZtQeOf8tC0WuzRy",
+                  "name": "Sigur Rós",
+                  "type": "artist",
+                  "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+                }
+              ],
+              "disc_number": 2,
+              "duration_ms": 669030,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6sZ33XmzmEZZoPjSHr8bDi"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6sZ33XmzmEZZoPjSHr8bDi",
+              "id": "6sZ33XmzmEZZoPjSHr8bDi",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Untitled #7 - Jacobs Studio Sessions",
+              "preview_url": null,
+              "track_number": 4,
+              "type": "track",
+              "uri": "spotify:track:6sZ33XmzmEZZoPjSHr8bDi"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+                  "id": "6UUrUCIZtQeOf8tC0WuzRy",
+                  "name": "Sigur Rós",
+                  "type": "artist",
+                  "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+                }
+              ],
+              "disc_number": 2,
+              "duration_ms": 794038,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/4TL9mbCt6FqrBp1OnvqDYi"
+              },
+              "href": "https://api.spotify.com/v1/tracks/4TL9mbCt6FqrBp1OnvqDYi",
+              "id": "4TL9mbCt6FqrBp1OnvqDYi",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Untitled #8 - Jacobs Studio Sessions",
+              "preview_url": null,
+              "track_number": 5,
+              "type": "track",
+              "uri": "spotify:track:4TL9mbCt6FqrBp1OnvqDYi"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6UUrUCIZtQeOf8tC0WuzRy"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6UUrUCIZtQeOf8tC0WuzRy",
+                  "id": "6UUrUCIZtQeOf8tC0WuzRy",
+                  "name": "Sigur Rós",
+                  "type": "artist",
+                  "uri": "spotify:artist:6UUrUCIZtQeOf8tC0WuzRy"
+                }
+              ],
+              "disc_number": 2,
+              "duration_ms": 482325,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/3EL0FapnEWla3oS7sNpER9"
+              },
+              "href": "https://api.spotify.com/v1/tracks/3EL0FapnEWla3oS7sNpER9",
+              "id": "3EL0FapnEWla3oS7sNpER9",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Untitled #6 - Jacobs Studio Sessions",
+              "preview_url": null,
+              "track_number": 6,
+              "type": "track",
+              "uri": "spotify:track:3EL0FapnEWla3oS7sNpER9"
             }
           ],
           "limit": 50,
           "next": null,
           "offset": 0,
           "previous": null,
-          "total": 8
+          "total": 14
         },
         "type": "album",
-        "uri": "spotify:album:3FR8CV7OSyZDnxneavnh8t"
+        "uri": "spotify:album:7MwLBcJxdS3LjwX9y2H3jq"
       },
-      "release_date": "2002",
-      "release_date_precision": "year",
-      "total_tracks": 8,
+      "release_date": "2022-10-28",
+      "release_date_precision": "day",
+      "total_tracks": 14,
       "tracks": [
         {
           "artists": [
@@ -809,10 +931,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 398320,
+          "duration_ms": 395366,
           "explicit": false,
-          "id": "331TLlSwGbVcNKJMkylNbK",
-          "name": "Untitled #1 - Vaka",
+          "id": "4v71ynYgccYJjHvqrusW6u",
+          "name": "Untitled #1 - 2022 Remaster",
           "preview_url": null,
           "track_number": 1
         },
@@ -823,10 +945,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 453813,
+          "duration_ms": 453906,
           "explicit": false,
-          "id": "6HxrAuS38Ro5522bbSkw1t",
-          "name": "Untitled #2 - Fyrsta",
+          "id": "0BQm5zQR5OxQnGrrvYZdEr",
+          "name": "Untitled #2 - 2022 Remaster",
           "preview_url": null,
           "track_number": 2
         },
@@ -837,10 +959,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 393426,
+          "duration_ms": 393400,
           "explicit": false,
-          "id": "1QUiA9aecDOOnf32A9ZrtW",
-          "name": "Untitled #3 - Samskeyti",
+          "id": "0CQmPI6R42XY8RoRv3JRcb",
+          "name": "Untitled #3 - 2022 Remaster",
           "preview_url": null,
           "track_number": 3
         },
@@ -851,10 +973,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 417080,
+          "duration_ms": 453040,
           "explicit": false,
-          "id": "3fjoFeVDK2ifrZ4yOCwFYC",
-          "name": "Untitled #4 - Njósnavélin",
+          "id": "4wDe4YCAViS7x2Z3Rbft14",
+          "name": "Untitled #4 - 2022 Remaster",
           "preview_url": null,
           "track_number": 4
         },
@@ -865,10 +987,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 597026,
+          "duration_ms": 597146,
           "explicit": false,
-          "id": "3sqyTvMpQeKfGfwmtsheF3",
-          "name": "Untitled #5 - Álafoss",
+          "id": "5HLn8GuWZYtzVcBRhQkDGs",
+          "name": "Untitled #5 - 2022 Remaster",
           "preview_url": null,
           "track_number": 5
         },
@@ -879,10 +1001,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 528520,
+          "duration_ms": 528280,
           "explicit": false,
-          "id": "3YlDXImO0ztdF7aW0Y24xR",
-          "name": "Untitled #6 - E-Bow",
+          "id": "2gxIJiUkGHIG7XwgOFH92E",
+          "name": "Untitled #6 - 2022 Remaster",
           "preview_url": null,
           "track_number": 6
         },
@@ -893,10 +1015,10 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 779920,
+          "duration_ms": 780000,
           "explicit": false,
-          "id": "03IQMevyxkOz822LcxbSPN",
-          "name": "Untitled #7 - Dauðalagið",
+          "id": "15f7V0nI1oDN8utyPSLCuw",
+          "name": "Untitled #7 - 2022 Remaster",
           "preview_url": null,
           "track_number": 7
         },
@@ -907,19 +1029,103 @@
               "name": "Sigur Rós"
             }
           ],
-          "duration_ms": 705093,
+          "duration_ms": 712534,
           "explicit": false,
-          "id": "0juwzpu354078dcKpR5p0w",
-          "name": "Untitled #8 - Popplagið",
+          "id": "2zyXyei2jNC0BeaekYUbJx",
+          "name": "Untitled #8 - 2022 Remaster",
           "preview_url": null,
           "track_number": 8
+        },
+        {
+          "artists": [
+            {
+              "id": "6UUrUCIZtQeOf8tC0WuzRy",
+              "name": "Sigur Rós"
+            }
+          ],
+          "duration_ms": 278040,
+          "explicit": false,
+          "id": "2HwjsEb0xaxURY5gN8X6q5",
+          "name": "Untitled #9 - Smáskifa 1",
+          "preview_url": null,
+          "track_number": 1
+        },
+        {
+          "artists": [
+            {
+              "id": "6UUrUCIZtQeOf8tC0WuzRy",
+              "name": "Sigur Rós"
+            }
+          ],
+          "duration_ms": 167813,
+          "explicit": false,
+          "id": "3Bs5AaeHahWkGFENBxaCIM",
+          "name": "Untitled #9 - Smáskifa 2",
+          "preview_url": null,
+          "track_number": 2
+        },
+        {
+          "artists": [
+            {
+              "id": "6UUrUCIZtQeOf8tC0WuzRy",
+              "name": "Sigur Rós"
+            }
+          ],
+          "duration_ms": 262453,
+          "explicit": false,
+          "id": "66d0TOpAm6PSzPgoyFRN99",
+          "name": "Untitled #9 - Smáskifa 3",
+          "preview_url": null,
+          "track_number": 3
+        },
+        {
+          "artists": [
+            {
+              "id": "6UUrUCIZtQeOf8tC0WuzRy",
+              "name": "Sigur Rós"
+            }
+          ],
+          "duration_ms": 669030,
+          "explicit": false,
+          "id": "6sZ33XmzmEZZoPjSHr8bDi",
+          "name": "Untitled #7 - Jacobs Studio Sessions",
+          "preview_url": null,
+          "track_number": 4
+        },
+        {
+          "artists": [
+            {
+              "id": "6UUrUCIZtQeOf8tC0WuzRy",
+              "name": "Sigur Rós"
+            }
+          ],
+          "duration_ms": 794038,
+          "explicit": false,
+          "id": "4TL9mbCt6FqrBp1OnvqDYi",
+          "name": "Untitled #8 - Jacobs Studio Sessions",
+          "preview_url": null,
+          "track_number": 5
+        },
+        {
+          "artists": [
+            {
+              "id": "6UUrUCIZtQeOf8tC0WuzRy",
+              "name": "Sigur Rós"
+            }
+          ],
+          "duration_ms": 482325,
+          "explicit": false,
+          "id": "3EL0FapnEWla3oS7sNpER9",
+          "name": "Untitled #6 - Jacobs Studio Sessions",
+          "preview_url": null,
+          "track_number": 6
         }
       ],
-      "url": "https://open.spotify.com/album/3FR8CV7OSyZDnxneavnh8t"
+      "url": "https://open.spotify.com/album/7MwLBcJxdS3LjwX9y2H3jq"
     }
   },
-  "spotify_id": "3FR8CV7OSyZDnxneavnh8t",
-  "spotify_url": "https://open.spotify.com/album/3FR8CV7OSyZDnxneavnh8t",
+  "spotify_id": "7MwLBcJxdS3LjwX9y2H3jq",
+  "spotify_url": "https://open.spotify.com/album/7MwLBcJxdS3LjwX9y2H3jq",
   "styles": [
     "Abstract",
     "Post Rock",
@@ -976,6 +1182,6 @@
       "title": "Untitled #8"
     }
   ],
-  "updated_at": "2025-07-10T07:36:46.550842",
+  "updated_at": "2025-07-20T15:39:57.367884",
   "year": 2022
 }
