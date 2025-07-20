@@ -19,6 +19,7 @@ from ..services.theaudiodb import TheAudioDBService
 from .image_manager import ImageManager
 from .database import DatabaseManager
 from .serializers import ArtistSerializer
+from .folder_sanitizer import sanitize_folder_name
 
 
 @dataclass
@@ -1418,7 +1419,7 @@ class ArtistImageManager(ImageManager):
     
     def create_artist_folder(self, artist_name: str) -> Path:
         """Create folder for artist with URL-safe name."""
-        sanitized_name = self.sanitize_filename(artist_name)
+        sanitized_name = sanitize_folder_name(artist_name)
         folder_path = self.base_path / sanitized_name
         folder_path.mkdir(exist_ok=True)
         return folder_path
@@ -1440,7 +1441,7 @@ class ArtistImageManager(ImageManager):
             sized_url = self.get_artwork_url_with_size(artwork_url, size_pixels)
             
             # Create filename with artist name
-            sanitized_name = self.sanitize_filename(artist_name)
+            sanitized_name = sanitize_folder_name(artist_name)
             filename = f"{sanitized_name}-{size_name}.jpg"
             file_path = artist_folder / filename
             
@@ -1518,7 +1519,7 @@ class ArtistImageManager(ImageManager):
                     continue
                 
                 # Create filename with artist name
-                sanitized_name = self.sanitize_filename(artist_name)
+                sanitized_name = sanitize_folder_name(artist_name)
                 filename = f"{sanitized_name}-{size_name}.jpg"
                 file_path = artist_folder / filename
                 
@@ -1629,7 +1630,7 @@ class ArtistImageManager(ImageManager):
     def save_artist_json(self, artist: Artist) -> Optional[Path]:
         """Save artist data as JSON in the artist folder."""
         artist_folder = self.create_artist_folder(artist.name)
-        sanitized_name = self.sanitize_filename(artist.name)
+        sanitized_name = sanitize_folder_name(artist.name)
         json_path = artist_folder / f"{sanitized_name}.json"
         
         try:

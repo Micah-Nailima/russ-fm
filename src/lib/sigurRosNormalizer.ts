@@ -1,7 +1,120 @@
 /**
- * Sigur Rós Normalizer
- * Handles the unique Icelandic characters and symbols used by Sigur Rós
+ * Path Sanitization and Normalization
+ * Handles sanitization matching for the backend folder_sanitizer.py logic
+ * This ensures frontend URL matching works with backend-generated folder names
  */
+
+/**
+ * Helper function to escape special regex characters
+ */
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Sanitize folder name using the same logic as backend folder_sanitizer.py
+ * This function replicates the sanitize_folder_name() Python function
+ */
+export function sanitizeFolderName(name: string): string {
+  // 1. Handle empty or whitespace-only names
+  if (!name || !name.trim()) {
+    return "unknown";
+  }
+  
+  // 2. Handle special case of empty parentheses or similar
+  if (['( )', '()', '[ ]', '[]', '{ }', '{}'].includes(name.trim())) {
+    return "unknown";
+  }
+  
+  // 3. Convert to lowercase and replace ALL types of spaces with dashes
+  // Handle Unicode spaces: regular space, en space, em space, thin space, hair space, etc.
+  let sanitized = name.toLowerCase();
+  sanitized = sanitized.replace(/\s+/g, '-'); // Replace any Unicode whitespace
+  
+  // 4. Handle underscores carefully
+  // Remove underscore between single letters (G_d → gd)
+  // Replace remaining underscores with dashes (The_Puzzle → the-puzzle)
+  sanitized = sanitized.replace(/([a-z])_([a-z])(?![a-z])/g, '$1$2');
+  sanitized = sanitized.replace(/_/g, '-');
+  
+  // 5. Handle brackets - remove them but preserve content
+  sanitized = sanitized.replace(/[\[\]{}]/g, '');
+  
+  // 6. Remove common characters that should just be deleted
+  sanitized = sanitized.replace(/[&'".!?;:]/g, '');
+  
+  // 7. Handle Latin accented characters
+  const accentMap: Record<string, string> = {
+    'á': 'a', 'à': 'a', 'ä': 'a', 'â': 'a', 'ã': 'a', 'å': 'a',
+    'é': 'e', 'è': 'e', 'ë': 'e', 'ê': 'e',
+    'í': 'i', 'ì': 'i', 'ï': 'i', 'î': 'i',
+    'ó': 'o', 'ò': 'o', 'ö': 'o', 'ô': 'o', 'õ': 'o', 'ø': 'o',
+    'ú': 'u', 'ù': 'u', 'ü': 'u', 'û': 'u',
+    'ý': 'y', 'ÿ': 'y', 'ñ': 'n', 'ç': 'c', 'ß': 'ss',
+    'æ': 'ae', 'œ': 'oe', 'ð': 'd', 'þ': 'th'
+  };
+  
+  // 8. Handle special symbols that need replacement
+  const symbolMap: Record<string, string> = {
+    '½': 'half', '⅓': 'third', '¼': 'quarter', '¾': 'three-quarters',
+    '⅛': 'eighth', '⅜': 'three-eighths', '⅝': 'five-eighths', '⅞': 'seven-eighths',
+    '²': '2', '³': '3', '¹': '1',
+    '–': '-', '—': '-', '−': '-'  // en dash, em dash, minus sign
+  };
+  
+  // 9. Handle characters that should be removed (for backward compatibility)
+  const removeChars = ['°', '©', '®', '™', '\u2018', '\u2019', '\u201C', '\u201D', '«', '»', '‹', '›', '„', '‚',
+                      '(', ')', '+', '=', '%', '@', '#', '$', '€', '£', '…'];
+  
+  // 10. Handle Greek characters
+  const greekMap: Record<string, string> = {
+    'Α': 'a', 'α': 'a', 'ά': 'a', 'Ά': 'a',
+    'Β': 'b', 'β': 'b', 'Γ': 'g', 'γ': 'g',
+    'Δ': 'd', 'δ': 'd', 'Ε': 'e', 'ε': 'e', 'έ': 'e', 'Έ': 'e',
+    'Ζ': 'z', 'ζ': 'z', 'Η': 'e', 'η': 'e', 'ή': 'e', 'Ή': 'e',
+    'Θ': 'th', 'θ': 'th', 'Ι': 'i', 'ι': 'i', 'ί': 'i', 'ϊ': 'i',
+    'Κ': 'k', 'κ': 'k', 'Λ': 'l', 'λ': 'l', 'Μ': 'm', 'μ': 'm',
+    'Ν': 'n', 'ν': 'n', 'Ξ': 'x', 'ξ': 'x', 'Ο': 'o', 'ο': 'o',
+    'Π': 'p', 'π': 'p', 'Ρ': 'r', 'ρ': 'r', 'Σ': 's', 'σ': 's', 'ς': 's',
+    'Τ': 't', 'τ': 't', 'Υ': 'u', 'υ': 'u', 'Φ': 'f', 'φ': 'f',
+    'Χ': 'ch', 'χ': 'ch', 'Ψ': 'ps', 'ψ': 'ps', 'Ω': 'o', 'ω': 'o'
+  };
+  
+  // 11. Apply transliterations in order
+  for (const [accented, ascii] of Object.entries(accentMap)) {
+    sanitized = sanitized.replace(new RegExp(accented, 'g'), ascii);
+  }
+  for (const [symbol, replacement] of Object.entries(symbolMap)) {
+    // Add dashes around fraction words
+    if (['half', 'third', 'quarter', 'three-quarters', 'eighth', 'three-eighths', 'five-eighths', 'seven-eighths'].includes(replacement)) {
+      sanitized = sanitized.replace(new RegExp(escapeRegExp(symbol), 'g'), `-${replacement}`);
+    } else {
+      sanitized = sanitized.replace(new RegExp(escapeRegExp(symbol), 'g'), replacement);
+    }
+  }
+  for (const char of removeChars) {
+    sanitized = sanitized.replace(new RegExp(escapeRegExp(char), 'g'), '');
+  }
+  for (const [greekChar, latin] of Object.entries(greekMap)) {
+    sanitized = sanitized.replace(new RegExp(greekChar, 'g'), latin);
+  }
+  
+  // 12. Remove any remaining special characters except dashes
+  sanitized = sanitized.replace(/[^a-z0-9-]/g, '');
+  
+  // 13. Clean up multiple dashes and strip edges
+  while (sanitized.includes('--')) {
+    sanitized = sanitized.replace(/--/g, '-');
+  }
+  sanitized = sanitized.replace(/^-+|-+$/g, '');
+  
+  // 14. Final check - if result is empty, return "unknown"
+  if (!sanitized) {
+    return "unknown";
+  }
+  
+  return sanitized;
+}
 
 // Map of Sigur Rós special characters to their normalized equivalents
 const SIGUR_ROS_CHARACTER_MAP: Record<string, string> = {
@@ -162,13 +275,6 @@ export function normalizeSigurRosForPath(text: string): string {
   }
   
   return normalized;
-}
-
-/**
- * Escape special regex characters
- */
-function escapeRegExp(string: string): string {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 /**

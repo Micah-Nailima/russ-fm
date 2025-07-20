@@ -7,6 +7,7 @@ import logging
 
 from .text_cleaner import TextCleaner, clean_for_filename
 from .serializers import ReleaseSerializer
+from .folder_sanitizer import sanitize_folder_name
 
 
 logger = logging.getLogger(__name__)
@@ -44,7 +45,7 @@ class ImageManager:
 
     def create_release_folder(self, release_title: str, discogs_id: str) -> Path:
         """Create folder for release with URL-safe name."""
-        sanitized_title = self.sanitize_filename(release_title)
+        sanitized_title = sanitize_folder_name(release_title)
         folder_name = f"{sanitized_title}-{discogs_id}"
         folder_path = self.base_path / folder_name
         folder_path.mkdir(exist_ok=True)
@@ -121,7 +122,7 @@ class ImageManager:
         sized_url = self.get_artwork_url_with_size(artwork_url, size_pixels)
 
         # Create filename with release name and ID
-        sanitized_title = self.sanitize_filename(release_title)
+        sanitized_title = sanitize_folder_name(release_title)
         filename = f"{sanitized_title}-{discogs_id}-{size_name}.jpg"
         file_path = release_folder / filename
 
@@ -189,7 +190,7 @@ class ImageManager:
                 sized_url = self.get_artwork_url_with_size(url, size_pixels)
 
             # Create filename with release name and ID
-            sanitized_title = self.sanitize_filename(release_title)
+            sanitized_title = sanitize_folder_name(release_title)
             filename = f"{sanitized_title}-{discogs_id}-{size_name}.jpg"
             file_path = release_folder / filename
 
@@ -341,7 +342,7 @@ class ImageManager:
         self, release_title: str, discogs_id: str
     ) -> Dict[str, Optional[Path]]:
         """Get paths to existing release images."""
-        sanitized_title = self.sanitize_filename(release_title)
+        sanitized_title = sanitize_folder_name(release_title)
         folder_name = f"{sanitized_title}-{discogs_id}"
         release_folder = self.base_path / folder_name
 
@@ -370,7 +371,7 @@ class ImageManager:
 
     def cleanup_failed_downloads(self, release_title: str, discogs_id: str) -> None:
         """Remove empty or corrupted image files."""
-        sanitized_title = self.sanitize_filename(release_title)
+        sanitized_title = sanitize_folder_name(release_title)
         folder_name = f"{sanitized_title}-{discogs_id}"
         release_folder = self.base_path / folder_name
 
@@ -418,7 +419,7 @@ class ImageManager:
     ) -> Optional[Path]:
         """Save release data as JSON in the release folder using centralized serializer."""
         release_folder = self.create_release_folder(release_title, discogs_id)
-        sanitized_title = self.sanitize_filename(release_title)
+        sanitized_title = sanitize_folder_name(release_title)
         json_path = release_folder / f"{sanitized_title}-{discogs_id}.json"
 
         try:

@@ -7,13 +7,19 @@ Usage:
 """
 
 import logging
+import sys
 from pathlib import Path
+
+# Add the parent directory to Python path so we can import the module
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from music_collection_manager.config import ConfigManager
 from music_collection_manager.utils.database import DatabaseManager
 from music_collection_manager.utils.collection_generator import CollectionGenerator
 from music_collection_manager.utils.image_manager import ImageManager
 from music_collection_manager.utils.serializers import ArtistSerializer
 from music_collection_manager.utils.text_cleaner import clean_for_json
+from music_collection_manager.utils.folder_sanitizer import sanitize_folder_name
 
 # Setup logging
 logging.basicConfig(
@@ -71,7 +77,7 @@ def main():
     for i, artist in enumerate(artists, 1):
         try:
             # Create artist folder
-            artist_folder = image_manager.sanitize_filename(artist.name)
+            artist_folder = sanitize_folder_name(artist.name)
             artist_path = Path(data_path) / artists_path / artist_folder
             artist_path.mkdir(parents=True, exist_ok=True)
             

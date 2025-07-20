@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Clock, Disc } from 'lucide-react';
 import { SiSpotify, SiApplemusic, SiLastdotfm, SiDiscogs } from 'react-icons/si';
 import { FcCalendar, FcPlus, FcGlobe } from 'react-icons/fc';
@@ -12,7 +12,8 @@ import { filterGenres } from '@/lib/filterGenres';
 import { getCleanGenres } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { MusicPlayerSection } from '@/components/MusicPlayerSection';
-import { getAlbumImageFromData, getArtistImageFromData, handleImageError } from '@/lib/image-utils';
+import { getAlbumImageFromData, getArtistImageFromData, handleImageError, sanitizeJsonPath } from '@/lib/image-utils';
+import { sanitizeFolderName, normalizeSigurRosTitle } from '@/lib/sigurRosNormalizer';
 
 interface Album {
   release_name: string;
@@ -149,6 +150,7 @@ interface DetailedAlbum {
 
 export function AlbumDetailPage() {
   const { albumPath } = useParams<{ albumPath: string }>();
+  const navigate = useNavigate();
   const [album, setAlbum] = useState<Album | null>(null);
   const [detailedAlbum, setDetailedAlbum] = useState<DetailedAlbum | null>(null);
   const [loading, setLoading] = useState(true);
@@ -156,9 +158,28 @@ export function AlbumDetailPage() {
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const [showDescriptionButton, setShowDescriptionButton] = useState(false);
 
+  // Check if URL needs sanitization and redirect if necessary
+  useEffect(() => {
+    if (albumPath) {
+      // Extract album name and discogs ID from the path (format: "album-name-discogsid")
+      const pathMatch = albumPath.match(/^(.+)-(\d+)$/);
+      if (pathMatch) {
+        const [, albumNamePart, discogsId] = pathMatch;
+        const sanitizedAlbumName = sanitizeFolderName(albumNamePart);
+        const expectedPath = `${sanitizedAlbumName}-${discogsId}`;
+        
+        // If the current path doesn't match the sanitized path, redirect
+        if (albumPath !== expectedPath) {
+          navigate(`/album/${expectedPath}`, { replace: true });
+          return;
+        }
+      }
+    }
+  }, [albumPath, navigate]);
+
   // Set page title based on album data
   const pageTitle = detailedAlbum 
-    ? `${detailedAlbum.title} by ${
+    ? `${normalizeSigurRosTitle(detailedAlbum.title, album?.release_artist)} by ${
         album?.artists && album.artists.length > 1 
           ? album.artists.map(artist => artist.name).join(' & ')
           : album?.release_artist || 'Unknown Artist'
@@ -174,16 +195,34 @@ export function AlbumDetailPage() {
       const collection = await collectionResponse.json();
       
       // Find the album by its URI
-      const foundAlbum = collection.find((item: Album) => 
-        item.uri_release === `/album/${albumPath}/`
-      );
+      const foundAlbum = collection.find((item: Album) => {
+        // First try exact URI match
+        if (item.uri_release === `/album/${albumPath}/`) {
+          return true;
+        }
+        
+        // Fallback: try sanitized name matching for URL consistency
+        // Extract album name and discogs ID from the path (format: "album-name-discogsid")
+        const pathMatch = albumPath?.match(/^(.+)-(\d+)$/);
+        if (pathMatch) {
+          const [, albumNamePart, discogsId] = pathMatch;
+          const sanitizedAlbumName = sanitizeFolderName(item.release_name);
+          const expectedPath = `${sanitizedAlbumName}-${discogsId}`;
+          if (albumPath === expectedPath) {
+            return true;
+          }
+        }
+        
+        return false;
+      });
       
       if (foundAlbum) {
         setAlbum(foundAlbum);
 
         // Load detailed album information
         try {
-          const albumDetailResponse = await fetch(`${foundAlbum.json_detailed_release}`);
+          const sanitizedJsonPath = sanitizeJsonPath(foundAlbum.json_detailed_release);
+          const albumDetailResponse = await fetch(sanitizedJsonPath);
           const albumDetail = await albumDetailResponse.json();
           // Add artist property for MusicPlayerSection compatibility
           albumDetail.artist = foundAlbum.release_artist;
@@ -423,7 +462,7 @@ export function AlbumDetailPage() {
               )
             )}
             <div className="flex-1 min-w-0">
-              <h1 className="text-4xl font-bold mb-2">{album.release_name}</h1>
+              <h1 className="text-4xl font-bold mb-2">{normalizeSigurRosTitle(album.release_name, album.release_artist)}</h1>
               <div className="text-2xl text-muted-foreground">
                 {album.artists && album.artists.length > 1 ? (
                   <div className="flex flex-wrap items-center gap-1">

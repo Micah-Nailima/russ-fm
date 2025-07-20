@@ -420,6 +420,126 @@ music_collection_manager/
 - **Logging**: Comprehensive logging with configurable levels
 - **Testing**: Built-in service testing and validation
 
+## Database Management Tools
+
+The `tools/` directory contains utilities for managing and analyzing your music collection database:
+
+### Database Manager (`tools/db_manager.py`)
+
+A comprehensive tool for searching, listing, and managing database content:
+
+```bash
+# Search for releases or artists
+python -m tools.db_manager search release "Pink Floyd"
+python -m tools.db_manager search artist "Beatles"
+
+# List recent releases or artists
+python -m tools.db_manager list releases --limit 20
+python -m tools.db_manager list artists --sort name
+
+# Show database statistics
+python -m tools.db_manager stats
+
+# Create database backup
+python -m tools.db_manager backup
+
+# Delete releases or artists (with automatic backup)
+python -m tools.db_manager delete release 123456
+python -m tools.db_manager delete artist "artist-id" --force
+```
+
+### Artist Folder Analysis Tools
+
+Two specialized tools for analyzing and managing artist folders in your website's `public/artist` directory:
+
+#### Find Missing Artists (`tools/find_missing_artists.py`)
+
+Identifies artists in your database that don't have corresponding folders in `public/artist`:
+
+```bash
+# Show summary and missing artists
+python -m tools.find_missing_artists
+
+# Show only first 10 missing artists
+python -m tools.find_missing_artists --limit 10
+
+# Show artists that have folders
+python -m tools.find_missing_artists --show-present
+
+# Find orphaned folders (exist but no matching database artist)
+python -m tools.find_missing_artists --show-orphaned
+
+# Export missing artists to JSON
+python -m tools.find_missing_artists --export missing_artists.json
+
+# Use custom paths
+python -m tools.find_missing_artists --db-path custom.db --public-path /path/to/public/artist
+```
+
+#### Artist Folder Reconciler (`tools/artist_folder_reconciler.py`)
+
+Advanced tool that provides intelligent matching between database artists and existing folders:
+
+```bash
+# Enhanced analysis with alternative slug matching
+python -m tools.artist_folder_reconciler --detailed-analysis
+
+# Find potential matches between orphaned folders and missing artists
+python -m tools.artist_folder_reconciler --find-matches --threshold 0.8
+
+# Generate shell script to create missing folders
+python -m tools.artist_folder_reconciler --generate-script create_missing_folders.sh
+
+# Lower similarity threshold for more potential matches
+python -m tools.artist_folder_reconciler --find-matches --threshold 0.7
+```
+
+**Key Features:**
+- **Smart Slugification**: Handles special characters, ampersands, and accented letters
+- **Alternative Matching**: Tries multiple slug formats (e.g., "&" vs "and", with/without "the")
+- **Similarity Scoring**: Finds potential matches between orphaned folders and missing artists
+- **Coverage Analysis**: Shows exact vs alternative matches for better insights
+- **Script Generation**: Creates executable shell scripts to create missing folders
+
+**Example Output:**
+```
+============================================================
+ENHANCED ARTIST FOLDER ANALYSIS
+============================================================
+Total artists in database: 1240
+Total folders in public/artist: 1181
+Exact slug matches: 1185
+Alternative slug matches: 29
+Total matched artists: 1214
+Missing artists: 26
+Orphaned folders: 16
+Coverage: 97.9%
+```
+
+### Tool Usage Tips
+
+1. **Start with the reconciler** for the most accurate analysis:
+   ```bash
+   python -m tools.artist_folder_reconciler --detailed-analysis
+   ```
+
+2. **Generate missing folders** in bulk:
+   ```bash
+   python -m tools.artist_folder_reconciler --generate-script create_folders.sh
+   chmod +x create_folders.sh
+   ./create_folders.sh
+   ```
+
+3. **Find naming inconsistencies**:
+   ```bash
+   python -m tools.artist_folder_reconciler --find-matches --threshold 0.7
+   ```
+
+4. **Export data for external processing**:
+   ```bash
+   python -m tools.find_missing_artists --export analysis.json
+   ```
+
 ## Database Schema
 
 The SQLite database includes tables for:

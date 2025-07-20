@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Music, Disc, Users, Play } from 'lucide-react';
 import { SiSpotify, SiApplemusic, SiLastdotfm, SiDiscogs, SiWikipedia } from 'react-icons/si';
 import { FcCalendar, FcGlobe } from 'react-icons/fc';
@@ -10,8 +10,8 @@ import { AlbumCard } from '@/components/AlbumCard';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { getCleanGenresFromArray } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
-import { normalizeSigurRosArtistName } from '@/lib/sigurRosNormalizer';
-import { getArtistImageFromData, handleImageError } from '@/lib/image-utils';
+import { normalizeSigurRosArtistName, sanitizeFolderName } from '@/lib/sigurRosNormalizer';
+import { getArtistImageFromData, handleImageError, sanitizeJsonPath } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -122,10 +122,24 @@ interface ArtistData {
 
 export function ArtistDetailPage() {
   const { artistPath } = useParams<{ artistPath: string }>();
+  const navigate = useNavigate();
   const [albums, setAlbums] = useState<Album[]>([]);
   const [artistData, setArtistData] = useState<ArtistData | null>(null);
   const [loading, setLoading] = useState(true);
   const [biographyExpanded, setBiographyExpanded] = useState(false);
+
+  // Check if URL needs sanitization and redirect if necessary
+  useEffect(() => {
+    if (artistPath) {
+      const sanitizedArtistName = sanitizeFolderName(artistPath);
+      
+      // If the current path doesn't match the sanitized path, redirect
+      if (artistPath !== sanitizedArtistName) {
+        navigate(`/artist/${sanitizedArtistName}`, { replace: true });
+        return;
+      }
+    }
+  }, [artistPath, navigate]);
 
   // Set page title based on artist data
   const pageTitle = artistData 
@@ -155,6 +169,20 @@ export function ArtistDetailPage() {
           return album.artists.some(artist => artist.uri_artist === targetUri);
         }
         
+        // Fallback: try sanitized name matching for URL consistency
+        const sanitizedArtistName = sanitizeFolderName(album.release_artist);
+        if (decodedArtistPath === sanitizedArtistName) {
+          return true;
+        }
+        
+        // Check against individual artists with sanitization
+        if (album.artists) {
+          return album.artists.some(artist => {
+            const sanitizedIndividualName = sanitizeFolderName(artist.name);
+            return decodedArtistPath === sanitizedIndividualName;
+          });
+        }
+        
         return false;
       });
       
@@ -182,7 +210,8 @@ export function ArtistDetailPage() {
             artistJsonUrl = artistAlbums[0].json_detailed_artist;
           }
           
-          const artistDetailResponse = await fetch(artistJsonUrl);
+          const sanitizedJsonPath = sanitizeJsonPath(artistJsonUrl);
+          const artistDetailResponse = await fetch(sanitizedJsonPath);
           const artistDetail = await artistDetailResponse.json();
           setArtistData(artistDetail);
         } catch (error) {

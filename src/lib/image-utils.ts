@@ -1,5 +1,6 @@
 import { appConfig } from '@/config/app.config';
 import type { ImageSize } from '@/types/assets';
+import { sanitizeFolderName } from '@/lib/sigurRosNormalizer';
 
 /**
  * Get the appropriate image URL based on environment
@@ -73,17 +74,29 @@ export function handleImageError(event: React.SyntheticEvent<HTMLImageElement>):
 }
 
 /**
- * Extract album slug from uri_release
+ * Extract album slug from uri_release and sanitize it to match backend file names
  */
 export function getAlbumSlug(uriRelease: string): string {
-  return uriRelease.replace('/album/', '').replace('/', '');
+  const rawSlug = uriRelease.replace('/album/', '').replace('/', '');
+  
+  // Extract album name and discogs ID (format: "album-name-discogsid")
+  const pathMatch = rawSlug.match(/^(.+)-(\d+)$/);
+  if (pathMatch) {
+    const [, albumNamePart, discogsId] = pathMatch;
+    const sanitizedAlbumName = sanitizeFolderName(albumNamePart);
+    return `${sanitizedAlbumName}-${discogsId}`;
+  }
+  
+  // Fallback: just sanitize the whole slug
+  return sanitizeFolderName(rawSlug);
 }
 
 /**
- * Extract artist slug from uri_artist
+ * Extract artist slug from uri_artist and sanitize it to match backend file names
  */
 export function getArtistSlug(uriArtist: string): string {
-  return uriArtist.replace('/artist/', '').replace('/', '');
+  const rawSlug = uriArtist.replace('/artist/', '').replace('/', '');
+  return sanitizeFolderName(rawSlug);
 }
 
 /**
@@ -122,4 +135,43 @@ export function migrateImageUri(currentUri: string): string {
   
   // Convert local path to use our new utility
   return getImageUrl(currentUri.startsWith('/') ? currentUri.slice(1) : currentUri);
+}
+
+/**
+ * Sanitize JSON file path to match backend-generated file names
+ */
+export function sanitizeJsonPath(jsonPath: string): string {
+  // Handle album JSON paths like: /album/κεφαληξθ-3490956/κεφαληξθ-3490956.json
+  if (jsonPath.includes('/album/')) {
+    const match = jsonPath.match(/\/album\/(.+?)\/(.+?)\.json$/);
+    if (match) {
+      const [, folderName, fileName] = match;
+      
+      // Extract album name and discogs ID from folder/file name
+      const pathMatch = folderName.match(/^(.+)-(\d+)$/);
+      if (pathMatch) {
+        const [, albumNamePart, discogsId] = pathMatch;
+        const sanitizedAlbumName = sanitizeFolderName(albumNamePart);
+        const sanitizedPath = `${sanitizedAlbumName}-${discogsId}`;
+        return `/album/${sanitizedPath}/${sanitizedPath}.json`;
+      }
+      
+      // Fallback: sanitize the whole folder/file name
+      const sanitizedName = sanitizeFolderName(folderName);
+      return `/album/${sanitizedName}/${sanitizedName}.json`;
+    }
+  }
+  
+  // Handle artist JSON paths like: /artist/κεφαληξθ/κεφαληξθ.json
+  if (jsonPath.includes('/artist/')) {
+    const match = jsonPath.match(/\/artist\/(.+?)\/(.+?)\.json$/);
+    if (match) {
+      const [, folderName] = match;
+      const sanitizedName = sanitizeFolderName(folderName);
+      return `/artist/${sanitizedName}/${sanitizedName}.json`;
+    }
+  }
+  
+  // Return original path if no pattern matches
+  return jsonPath;
 }

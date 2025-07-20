@@ -8,6 +8,7 @@ from typing import Dict, List, Any, Optional
 from urllib.parse import quote
 
 from .database import DatabaseManager
+from .folder_sanitizer import sanitize_folder_name
 
 
 class CollectionGenerator:
@@ -379,20 +380,7 @@ class CollectionGenerator:
     
     def _sanitize_filename(self, name: str) -> str:
         """Sanitize filename to match existing artist folder structure."""
-        # Convert to lowercase and replace spaces with dashes
-        sanitized = name.lower().replace(" ", "-")
-        
-        # Remove special characters except dashes
-        sanitized = "".join(c for c in sanitized if c.isalnum() or c in "-")
-        
-        # Remove multiple consecutive dashes
-        while "--" in sanitized:
-            sanitized = sanitized.replace("--", "-")
-            
-        # Remove leading/trailing dashes
-        sanitized = sanitized.strip("-")
-        
-        return sanitized
+        return sanitize_folder_name(name)
     
     def _validate_entry_files(self, entry: Dict[str, Any]) -> bool:
         """Validate that all referenced files exist."""
