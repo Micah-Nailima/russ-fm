@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./theme-toggle";
 import { SearchOverlay } from "./SearchOverlay";
+import { SearchFAB } from "./SearchFAB";
+import { MobileSearchModal } from "./MobileSearchModal";
 import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from 'react-router-dom';
 
@@ -16,6 +18,19 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOverlayOpen, setSearchOverlayOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Check if we're on a page where search overlay should be disabled
   const isSearchOverlayDisabled = () => {
@@ -25,20 +40,27 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
   };
 
   const handleSearchFocus = () => {
-    if (!isSearchOverlayDisabled()) {
+    if (isMobile) {
+      setMobileSearchOpen(true);
+    } else if (!isSearchOverlayDisabled()) {
       setSearchOverlayOpen(true);
     }
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
-    if (e.target.value.trim() && !isSearchOverlayDisabled()) {
+    if (!isMobile && e.target.value.trim() && !isSearchOverlayDisabled()) {
       setSearchOverlayOpen(true);
     }
   };
 
   const closeSearchOverlay = () => {
     setSearchOverlayOpen(false);
+  };
+
+  const closeMobileSearch = () => {
+    setMobileSearchOpen(false);
+    setMobileMenuOpen(false); // Also close mobile menu if open
   };
 
   const clearSearch = () => {
@@ -142,10 +164,10 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
                     <Button
                       size="icon"
                       variant="ghost"
-                      className="h-5 w-5 absolute inset-y-0 my-auto right-2.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700"
+                      className="h-11 w-11 absolute inset-y-0 my-auto right-0.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700"
                       onClick={clearSearch}
                     >
-                      <X className="h-3 w-3" />
+                      <X className="h-5 w-5" />
                     </Button>
                   )}
                 </div>
@@ -172,27 +194,15 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
           {mobileMenuOpen && (
             <div className="md:hidden mt-2 bg-background border dark:border-slate-700/70 rounded-lg shadow-lg">
               <div className="p-4 space-y-4">
-                {/* Mobile Search */}
-                <div className="relative">
-                  <Search className="h-5 w-5 absolute inset-y-0 my-auto left-2.5" />
-                  <Input
-                    className="pl-10 pr-10 w-full bg-slate-100/70 dark:bg-slate-800 border-none shadow-none rounded-full"
-                    placeholder="Search albums or artists..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    onFocus={handleSearchFocus}
-                  />
-                  {searchTerm && (
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      className="h-5 w-5 absolute inset-y-0 my-auto right-2.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700"
-                      onClick={clearSearch}
-                    >
-                      <X className="h-3 w-3" />
-                    </Button>
-                  )}
-                </div>
+                {/* Mobile Search Button */}
+                <Button
+                  onClick={() => setMobileSearchOpen(true)}
+                  variant="outline"
+                  className="w-full h-11 justify-start gap-3 text-muted-foreground"
+                >
+                  <Search className="h-5 w-5" />
+                  Search albums or artists...
+                </Button>
 
                 {/* Mobile Navigation Links */}
                 <div className="space-y-2">
@@ -264,12 +274,23 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
         </div>
       </div>
 
-      {/* Search Overlay */}
+      {/* Search Overlay for Desktop */}
       <SearchOverlay 
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        isVisible={searchOverlayOpen && !isSearchOverlayDisabled()}
+        isVisible={searchOverlayOpen && !isSearchOverlayDisabled() && !isMobile}
         onClose={closeSearchOverlay}
+      />
+
+      {/* Mobile Search FAB */}
+      <SearchFAB onClick={() => setMobileSearchOpen(true)} />
+
+      {/* Mobile Search Modal */}
+      <MobileSearchModal
+        isOpen={mobileSearchOpen}
+        onClose={closeMobileSearch}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
       />
     </div>
   );

@@ -234,9 +234,10 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
               </div>
               <button
                 onClick={onClose}
-                className="p-1 hover:bg-muted rounded-full transition-colors"
+                className="p-2 hover:bg-muted rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                aria-label="Close search"
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" />
               </button>
             </div>
           </div>
@@ -259,17 +260,17 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
 
             {!loading && results.length > 0 && (
               <div className="p-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {results.map((result, index) => (
                     <Link 
                       key={`${result.type}-${result.id}-${index}`} 
                       to={result.url}
                       onClick={handleResultClick}
-                      className="block"
+                      className="block min-h-[44px]"
                     >
                       <Card className="hover:shadow-md hover:scale-[1.02] transition-all duration-200 h-full">
-                        <CardContent className="p-3">
-                          <div className="flex items-start gap-3">
+                        <CardContent className="p-4">
+                          <div className="flex items-start gap-4">
                             <div className="relative flex-shrink-0">
                               {result.type === 'artist' ? (
                                 <Avatar className="h-20 w-20">
