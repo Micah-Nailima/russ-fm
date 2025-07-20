@@ -1,9 +1,11 @@
 name = "russ-fm"
 compatibility_date = "2024-03-01"
+main = "./_worker.js"
 
 # Workers Assets configuration - serves static files from dist-worker
 [assets]
 directory = "./dist-worker"
+binding = "ASSETS"
 
 # Environment variables
 [vars]
