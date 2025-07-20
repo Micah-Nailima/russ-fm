@@ -1,42 +1,12 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePageTitle } from '@/hooks/usePageTitle';
-import { Search, Disc, User, Music } from 'lucide-react';
-import { filterGenres } from '@/lib/filterGenres';
-import { getAlbumImageFromData, getArtistImageFromData } from '@/lib/image-utils';
+import { Search, Disc, User, Music, AlertCircle } from 'lucide-react';
+import { useManualSearch } from '@/hooks/useSearch';
 
-interface Album {
-  release_name: string;
-  release_artist: string;
-  genre_names: string[];
-  uri_release: string;
-  uri_artist: string;
-  date_added: string;
-  date_release_year: string;
-  images_uri_release: {
-    'hi-res': string;
-    medium: string;
-  };
-  images_uri_artist: {
-    'hi-res': string;
-    medium: string;
-  };
-}
-
-interface SearchResult {
-  type: 'album' | 'artist';
-  id: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  url: string;
-  year?: string;
-  genres?: string[];
-  albumCount?: number;
-}
 
 interface SearchResultsPageProps {
   searchTerm: string;
@@ -46,107 +16,48 @@ interface SearchResultsPageProps {
 export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPageProps) {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
-  const [collection, setCollection] = useState<Album[]>([]);
-  const [results, setResults] = useState<SearchResult[]>([]);
-  const [loading, setLoading] = useState(true);
 
   usePageTitle(query ? `Search: "${query}" | Russ.fm` : 'Search | Russ.fm');
 
-  // Sync URL query with search term
+  // Use manual search hook for full page search
+  const { 
+    query: searchQuery,
+    setQuery,
+    results, 
+    isLoading, 
+    isIndexing, 
+    error,
+    isReady,
+    search
+  } = useManualSearch();
+
+  // Sync URL query with search term and perform search
   useEffect(() => {
     if (query && query !== searchTerm) {
       setSearchTerm(query);
     }
-  }, [query, searchTerm, setSearchTerm]);
-
-  useEffect(() => {
-    loadCollection();
-  }, []);
-
-  useEffect(() => {
-    if (collection.length > 0 && query) {
-      performSearch(query);
-    } else {
-      setResults([]);
-    }
-  }, [collection, query, performSearch]);
-
-  const loadCollection = async () => {
-    try {
-      const response = await fetch('/collection.json');
-      const data = await response.json();
-      setCollection(data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error loading collection:', error);
-      setLoading(false);
-    }
-  };
-
-  const performSearch = useCallback((searchTerm: string) => {
-    const searchLower = searchTerm.toLowerCase().trim();
-    if (!searchLower) {
-      setResults([]);
-      return;
-    }
-
-    const albumResults: SearchResult[] = [];
-    const artistResults: Map<string, SearchResult> = new Map();
-
-    collection.forEach(album => {
-      const albumMatches = 
-        album.release_name.toLowerCase().includes(searchLower) ||
-        album.release_artist.toLowerCase().includes(searchLower) ||
-        album.genre_names.some(genre => genre.toLowerCase().includes(searchLower));
-
-      if (albumMatches) {
-        // Add album result
-        albumResults.push({
-          type: 'album',
-          id: album.uri_release,
-          title: album.release_name,
-          subtitle: album.release_artist,
-          image: getAlbumImageFromData(album.uri_release, 'medium'),
-          url: album.uri_release,
-          year: new Date(album.date_release_year).getFullYear().toString(),
-          genres: filterGenres(album.genre_names, album.release_artist).slice(0, 3)
-        });
-
-        // Add/update artist result
-        const artistKey = album.release_artist.toLowerCase();
-        if (artistResults.has(artistKey)) {
-          const existing = artistResults.get(artistKey)!;
-          existing.albumCount = (existing.albumCount || 0) + 1;
-        } else {
-          artistResults.set(artistKey, {
-            type: 'artist',
-            id: album.uri_artist,
-            title: album.release_artist,
-            subtitle: `Artist in collection`,
-            image: getArtistImageFromData(album.uri_artist, 'medium'),
-            url: album.uri_artist,
-            albumCount: 1
-          });
-        }
+    if (query && query !== searchQuery) {
+      setQuery(query);
+      if (isReady) {
+        search(query, { limit: 100 }); // More results for full page
       }
-    });
+    }
+  }, [query, searchTerm, setSearchTerm, searchQuery, setQuery, isReady, search]);
 
-    // Combine and sort results: artists first, then albums
-    const sortedArtists = Array.from(artistResults.values())
-      .sort((a, b) => a.title.localeCompare(b.title));
-    
-    const sortedAlbums = albumResults
-      .sort((a, b) => a.title.localeCompare(b.title));
+  // Perform search when service becomes ready
+  useEffect(() => {
+    if (isReady && query && !isLoading) {
+      search(query, { limit: 100 });
+    }
+  }, [isReady, query, search, isLoading]);
 
-    setResults([...sortedArtists, ...sortedAlbums]);
-  }, [collection]);
-
-  if (loading) {
+  if (isIndexing) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading collection...</p>
+          <p className="text-muted-foreground">Preparing search index...</p>
+          <p className="text-xs text-muted-foreground/70 mt-2">This will only take a moment</p>
         </div>
       </div>
     );
@@ -162,7 +73,17 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
         
         {query && (
           <div className="text-lg text-muted-foreground mb-4">
-            {results.length > 0 ? (
+            {error ? (
+              <div className="flex items-center gap-2 text-red-500">
+                <AlertCircle className="h-5 w-5" />
+                Search error: {error}
+              </div>
+            ) : isLoading ? (
+              <div className="flex items-center gap-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                Searching for "<strong>{query}</strong>"...
+              </div>
+            ) : results.length > 0 ? (
               <>
                 Found <strong>{results.length}</strong> result{results.length !== 1 ? 's' : ''} for "<strong>{query}</strong>"
               </>
@@ -173,13 +94,33 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
         )}
       </div>
 
-      {!query && (
+      {!query && !error && (
         <Card className="p-8 text-center">
           <CardContent>
             <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">Start Searching</h3>
             <p className="text-muted-foreground">
               Use the search bar above to find albums, artists, or genres in the collection
+            </p>
+            {!isReady && (
+              <p className="text-xs text-muted-foreground/70 mt-2">
+                Search index is being prepared...
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      {error && !query && (
+        <Card className="p-8 text-center">
+          <CardContent>
+            <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold mb-2 text-red-500">Search Error</h3>
+            <p className="text-muted-foreground">
+              {error}
+            </p>
+            <p className="text-xs text-muted-foreground/70 mt-2">
+              Please try refreshing the page
             </p>
           </CardContent>
         </Card>

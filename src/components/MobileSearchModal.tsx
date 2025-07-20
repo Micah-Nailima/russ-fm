@@ -3,25 +3,40 @@ import { X, Search, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
+import { useInstantSearch } from '@/hooks/useSearch';
+import { SearchResults } from './SearchResults';
 
 interface MobileSearchModalProps {
   isOpen: boolean;
   onClose: () => void;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  children?: React.ReactNode; // For search results
 }
 
 export function MobileSearchModal({ 
   isOpen, 
   onClose, 
   searchTerm, 
-  setSearchTerm,
-  children 
+  setSearchTerm
 }: MobileSearchModalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [touchStart, setTouchStart] = useState(0);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  // Use search hook for Fuse.js powered search
+  const { 
+    query, 
+    setQuery, 
+    results, 
+    isLoading, 
+    isIndexing, 
+    error 
+  } = useInstantSearch();
+
+  // Sync search terms
+  useEffect(() => {
+    setQuery(searchTerm);
+  }, [searchTerm, setQuery]);
 
   // Focus input when modal opens
   useEffect(() => {
@@ -160,17 +175,21 @@ export function MobileSearchModal({
 
         {/* Search results */}
         <div className="flex-1 overflow-y-auto overscroll-contain px-4 pb-safe">
-          {children || (
-            <div className="flex flex-col items-center justify-center py-20 text-center">
-              <Search className="h-12 w-12 text-muted-foreground/30 mb-4" />
-              <p className="text-lg font-medium text-muted-foreground">
-                {searchTerm ? 'Searching...' : 'Start typing to search'}
-              </p>
-              <p className="text-sm text-muted-foreground/70 mt-1">
-                Find albums, artists, and genres
-              </p>
-            </div>
-          )}
+          <SearchResults
+            results={results}
+            isLoading={isLoading}
+            isIndexing={isIndexing}
+            error={error}
+            searchTerm={searchTerm}
+            onResultClick={() => {
+              onClose();
+              setSearchTerm('');
+            }}
+            layout="list" // Use list layout for mobile
+            showLimitMessage={true}
+            showViewAllLink={true}
+            className="py-4"
+          />
         </div>
       </div>
     </div>
