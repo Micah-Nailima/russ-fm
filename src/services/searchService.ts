@@ -165,8 +165,11 @@ class FuseSearchService {
         });
       }
 
-      // Perform search
-      const fuseResults = this.albumFuse.search(query, { limit: limit * 2 }); // Get more results for processing
+      // Perform search - always include matches for artist filtering
+      const fuseResults = this.albumFuse.search(query, { 
+        limit: limit * 2,
+        includeMatches: true 
+      }); // Get more results for processing
 
       // Process results
       const albumResults: SearchResult[] = [];
@@ -198,7 +201,23 @@ class FuseSearchService {
 
         // Process artists for artist results (unless specifically filtered out)
         if (!filterByType || filterByType === 'artist') {
-          this.processArtistResults(album, artistResults, result.score);
+          // Only process artists if the match was on an artist-related field
+          const hasArtistMatch = result.matches?.some(match => 
+            match.key === 'release_artist' || 
+            match.key === 'artists.name'
+          );
+          
+          if (hasArtistMatch || !includeMatches) {
+            // If we're not tracking matches, check if the query matches any artist name
+            const queryLower = query.toLowerCase();
+            const matchesArtist = album.artists?.some(artist => 
+              artist.name.toLowerCase().includes(queryLower)
+            ) || album.release_artist.toLowerCase().includes(queryLower);
+            
+            if (hasArtistMatch || matchesArtist) {
+              this.processArtistResults(album, artistResults, result.score);
+            }
+          }
         }
       });
 
@@ -207,27 +226,76 @@ class FuseSearchService {
       let combinedResults: SearchResult[] = [];
       
       if (!filterByType) {
-        // Interleave artists and albums for better UX
+        // Custom scoring to prioritize exact and prefix matches
+        const queryLower = query.toLowerCase();
+        
+        const scoreResult = (result: SearchResult) => {
+          const titleLower = result.title.toLowerCase();
+          
+          // Exact match gets highest priority
+          if (titleLower === queryLower) {
+            return -1000;
+          }
+          
+          // Starts with query gets second priority
+          if (titleLower.startsWith(queryLower)) {
+            return -500;
+          }
+          
+          // Word boundary match (e.g., "Tori Amos" for query "amos")
+          const words = titleLower.split(/\s+/);
+          if (words.some(word => word.startsWith(queryLower))) {
+            return -250;
+          }
+          
+          // Otherwise use Fuse score
+          return result.score || 0;
+        };
+        
         const sortedArtists = Array.from(artistResults.values())
-          .sort((a, b) => sortByScore ? (a.score || 0) - (b.score || 0) : a.title.localeCompare(b.title));
+          .map(result => ({ ...result, customScore: scoreResult(result) }))
+          .sort((a, b) => sortByScore ? a.customScore - b.customScore : a.title.localeCompare(b.title));
         
         const sortedAlbums = albumResults
-          .sort((a, b) => sortByScore ? (a.score || 0) - (b.score || 0) : a.title.localeCompare(b.title));
+          .map(result => ({ ...result, customScore: scoreResult(result) }))
+          .sort((a, b) => sortByScore ? a.customScore - b.customScore : a.title.localeCompare(b.title));
 
-        // Instead of artists first, let's mix them based on relevance score
+        // Mix results based on custom score
         const allResults = [...sortedArtists, ...sortedAlbums];
         combinedResults = allResults.sort((a, b) => {
-          if (sortByScore && a.score !== undefined && b.score !== undefined) {
-            return a.score - b.score; // Lower score = better match in Fuse.js
+          if (sortByScore) {
+            return a.customScore - b.customScore;
           }
           return a.title.localeCompare(b.title);
         });
       } else if (filterByType === 'artist') {
+        const queryLower = query.toLowerCase();
+        const scoreResult = (result: SearchResult) => {
+          const titleLower = result.title.toLowerCase();
+          if (titleLower === queryLower) return -1000;
+          if (titleLower.startsWith(queryLower)) return -500;
+          const words = titleLower.split(/\s+/);
+          if (words.some(word => word.startsWith(queryLower))) return -250;
+          return result.score || 0;
+        };
+        
         combinedResults = Array.from(artistResults.values())
-          .sort((a, b) => sortByScore ? (a.score || 0) - (b.score || 0) : a.title.localeCompare(b.title));
+          .map(result => ({ ...result, customScore: scoreResult(result) }))
+          .sort((a, b) => sortByScore ? a.customScore - b.customScore : a.title.localeCompare(b.title));
       } else {
+        const queryLower = query.toLowerCase();
+        const scoreResult = (result: SearchResult) => {
+          const titleLower = result.title.toLowerCase();
+          if (titleLower === queryLower) return -1000;
+          if (titleLower.startsWith(queryLower)) return -500;
+          const words = titleLower.split(/\s+/);
+          if (words.some(word => word.startsWith(queryLower))) return -250;
+          return result.score || 0;
+        };
+        
         combinedResults = albumResults
-          .sort((a, b) => sortByScore ? (a.score || 0) - (b.score || 0) : a.title.localeCompare(b.title));
+          .map(result => ({ ...result, customScore: scoreResult(result) }))
+          .sort((a, b) => sortByScore ? a.customScore - b.customScore : a.title.localeCompare(b.title));
       }
 
       return combinedResults.slice(0, limit);
