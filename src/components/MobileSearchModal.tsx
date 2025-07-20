@@ -33,10 +33,12 @@ export function MobileSearchModal({
     error 
   } = useInstantSearch();
 
-  // Sync search terms
+  // Sync search terms only when modal opens or searchTerm changes externally
   useEffect(() => {
-    setQuery(searchTerm);
-  }, [searchTerm, setQuery]);
+    if (isOpen) {
+      setQuery(searchTerm);
+    }
+  }, [isOpen, setQuery]); // Removed searchTerm from dependencies to prevent re-sync on every keystroke
 
   // Focus input when modal opens
   useEffect(() => {
@@ -56,18 +58,19 @@ export function MobileSearchModal({
     }
   }, [isOpen]);
 
-  // Maintain focus if input loses focus unexpectedly (but only when modal is open)
+  // Only refocus if modal is still open and focus moves outside completely
   useEffect(() => {
     if (!isOpen) return;
 
     const handleFocusOut = (e: FocusEvent) => {
-      // If focus moves outside the modal and the modal is still open, refocus the input
-      if (modalRef.current && !modalRef.current.contains(e.relatedTarget as Node)) {
+      const target = e.relatedTarget as HTMLElement;
+      // Only refocus if no element in the modal has focus
+      if (!target && isOpen && document.activeElement === document.body) {
         setTimeout(() => {
           if (inputRef.current && isOpen) {
             inputRef.current.focus();
           }
-        }, 10);
+        }, 100);
       }
     };
 
@@ -172,7 +175,11 @@ export function MobileSearchModal({
                 inputMode="search"
                 placeholder="Search albums or artists..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  setSearchTerm(newValue);
+                  setQuery(newValue); // Update search query directly to avoid sync issues
+                }}
                 className={cn(
                   "h-11 pl-10 pr-11",
                   "text-base", // Larger text for mobile to prevent zoom
@@ -186,19 +193,7 @@ export function MobileSearchModal({
                 autoCapitalize="off"
                 spellCheck="false"
                 enterKeyHint="search"
-                // Prevent keyboard from closing when scrolling results
-                onBlur={(e) => {
-                  // Only allow blur if clicking on a result link or close button
-                  const target = e.relatedTarget as HTMLElement;
-                  if (!target || (!target.closest('a') && !target.closest('button'))) {
-                    e.preventDefault();
-                    setTimeout(() => {
-                      if (inputRef.current && isOpen) {
-                        inputRef.current.focus();
-                      }
-                    }, 10);
-                  }
-                }}
+                // Let the focusout handler manage refocusing instead of onBlur
               />
               {searchTerm && (
                 <Button
