@@ -160,21 +160,63 @@ export function AlbumDetailPage() {
 
   // Check if URL needs sanitization and redirect if necessary
   useEffect(() => {
-    if (albumPath) {
-      // Extract album name and discogs ID from the path (format: "album-name-discogsid")
-      const pathMatch = albumPath.match(/^(.+)-(\d+)$/);
-      if (pathMatch) {
-        const [, albumNamePart, discogsId] = pathMatch;
-        const sanitizedAlbumName = sanitizeFolderName(albumNamePart);
-        const expectedPath = `${sanitizedAlbumName}-${discogsId}`;
+    const checkAndRedirectAlbumPath = async () => {
+      if (albumPath) {
+        // Case 1: Pure Discogs ID (like "25472284")
+        if (/^\d+$/.test(albumPath)) {
+          try {
+            // Load collection to find the album with this Discogs ID
+            const collectionResponse = await fetch('/collection.json');
+            const collection = await collectionResponse.json();
+            
+            // Find album by Discogs ID
+            const foundAlbum = collection.find((album: any) => {
+              const albumDiscogsId = album.uri_release.match(/\/(\d+)\//)?.[1];
+              return albumDiscogsId === albumPath;
+            });
+            
+            if (foundAlbum) {
+              // Use the hi-res image path to get the actual folder structure
+              // The hi-res image path contains the correct sanitized folder name
+              const hiResPath = foundAlbum.images_uri_release['hi-res'];
+              if (hiResPath) {
+                // Extract album path from: "/album/unknown-25472284/unknown-25472284-hi-res.jpg"
+                const albumPathMatch = hiResPath.match(/\/album\/([^\/]+)\//);
+                if (albumPathMatch) {
+                  const correctPath = albumPathMatch[1];
+                  navigate(`/album/${correctPath}`, { replace: true });
+                  return;
+                }
+              }
+              
+              // Fallback: try to construct from release name + ID
+              const albumNamePart = sanitizeFolderName(foundAlbum.release_name);
+              const correctPath = `${albumNamePart}-${albumPath}`;
+              navigate(`/album/${correctPath}`, { replace: true });
+              return;
+            }
+          } catch (error) {
+            console.error('Error loading collection for album redirect:', error);
+          }
+        }
         
-        // If the current path doesn't match the sanitized path, redirect
-        if (albumPath !== expectedPath) {
-          navigate(`/album/${expectedPath}`, { replace: true });
-          return;
+        // Case 2: Album name with Discogs ID (format: "album-name-discogsid")
+        const pathMatch = albumPath.match(/^(.+)-(\d+)$/);
+        if (pathMatch) {
+          const [, albumNamePart, discogsId] = pathMatch;
+          const sanitizedAlbumName = sanitizeFolderName(albumNamePart);
+          const expectedPath = `${sanitizedAlbumName}-${discogsId}`;
+          
+          // If the current path doesn't match the sanitized path, redirect
+          if (albumPath !== expectedPath) {
+            navigate(`/album/${expectedPath}`, { replace: true });
+            return;
+          }
         }
       }
-    }
+    };
+    
+    checkAndRedirectAlbumPath();
   }, [albumPath, navigate]);
 
   // Set page title based on album data
@@ -221,8 +263,9 @@ export function AlbumDetailPage() {
 
         // Load detailed album information
         try {
-          const sanitizedJsonPath = sanitizeJsonPath(foundAlbum.json_detailed_release);
-          const albumDetailResponse = await fetch(sanitizedJsonPath);
+          // Construct JSON path using the current album path (which is already sanitized)
+          const jsonPath = `/album/${albumPath}/${albumPath}.json`;
+          const albumDetailResponse = await fetch(jsonPath);
           const albumDetail = await albumDetailResponse.json();
           // Add artist property for MusicPlayerSection compatibility
           albumDetail.artist = foundAlbum.release_artist;
@@ -405,7 +448,7 @@ export function AlbumDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8">
         <div className="lg:col-span-2">
           <img
-            src={getAlbumImageFromData(album.uri_release, 'hi-res')}
+            src={getAlbumImageFromData(`/album/${albumPath}/`, 'hi-res')}
             onError={handleImageError}
             alt={album.release_name}
             className="w-full rounded-lg shadow-lg"

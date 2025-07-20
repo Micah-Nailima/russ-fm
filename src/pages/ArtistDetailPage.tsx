@@ -159,28 +159,41 @@ export function ArtistDetailPage() {
       const targetUri = `/artist/${decodedArtistPath}/`;
       
       const artistAlbums = collection.filter((album: Album) => {
-        // Check if this album has the artist as the primary artist
+        // Check direct URI match first
         if (album.uri_artist === targetUri) {
+          return true;
+        }
+        
+        // Check if the sanitized version of the album's artist URI matches
+        const albumArtistPath = album.uri_artist.replace('/artist/', '').replace('/', '');
+        const sanitizedAlbumArtistPath = sanitizeFolderName(albumArtistPath);
+        if (decodedArtistPath === sanitizedAlbumArtistPath) {
           return true;
         }
         
         // Check if this album has the artist in the artists array
         if (album.artists) {
-          return album.artists.some(artist => artist.uri_artist === targetUri);
+          const foundInArtists = album.artists.some(artist => {
+            // Direct URI match
+            if (artist.uri_artist === targetUri) {
+              return true;
+            }
+            
+            // Sanitized URI match
+            const individualArtistPath = artist.uri_artist.replace('/artist/', '').replace('/', '');
+            const sanitizedIndividualPath = sanitizeFolderName(individualArtistPath);
+            return decodedArtistPath === sanitizedIndividualPath;
+          });
+          
+          if (foundInArtists) {
+            return true;
+          }
         }
         
         // Fallback: try sanitized name matching for URL consistency
         const sanitizedArtistName = sanitizeFolderName(album.release_artist);
         if (decodedArtistPath === sanitizedArtistName) {
           return true;
-        }
-        
-        // Check against individual artists with sanitization
-        if (album.artists) {
-          return album.artists.some(artist => {
-            const sanitizedIndividualName = sanitizeFolderName(artist.name);
-            return decodedArtistPath === sanitizedIndividualName;
-          });
         }
         
         return false;
@@ -197,9 +210,32 @@ export function ArtistDetailPage() {
           // Look for this specific artist in the artists array of any album
           for (const album of artistAlbums) {
             if (album.artists) {
-              const foundArtist = album.artists.find(artist => artist.uri_artist === targetUri);
+              const foundArtist = album.artists.find(artist => {
+                // Direct URI match
+                if (artist.uri_artist === targetUri) {
+                  return true;
+                }
+                
+                // Sanitized URI match
+                const individualArtistPath = artist.uri_artist.replace('/artist/', '').replace('/', '');
+                const sanitizedIndividualPath = sanitizeFolderName(individualArtistPath);
+                return decodedArtistPath === sanitizedIndividualPath;
+              });
+              
               if (foundArtist) {
                 artistJsonUrl = foundArtist.json_detailed_artist;
+                break;
+              }
+            }
+          }
+          
+          // Also check the main artist URI with sanitization fallback
+          if (!artistJsonUrl) {
+            for (const album of artistAlbums) {
+              const albumArtistPath = album.uri_artist.replace('/artist/', '').replace('/', '');
+              const sanitizedAlbumArtistPath = sanitizeFolderName(albumArtistPath);
+              if (decodedArtistPath === sanitizedAlbumArtistPath) {
+                artistJsonUrl = album.json_detailed_artist;
                 break;
               }
             }
