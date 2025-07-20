@@ -22,6 +22,7 @@ export function MobileSearchModal({
   const inputRef = useRef<HTMLInputElement>(null);
   const [touchStart, setTouchStart] = useState(0);
   const modalRef = useRef<HTMLDivElement>(null);
+  const [localSearchTerm, setLocalSearchTerm] = useState('');
 
   // Use search hook for Fuse.js powered search
   const { 
@@ -33,12 +34,13 @@ export function MobileSearchModal({
     error 
   } = useMobileSearch();
 
-  // Sync search terms only when modal opens or searchTerm changes externally
+  // Initialize local search term when modal opens
   useEffect(() => {
     if (isOpen) {
+      setLocalSearchTerm(searchTerm);
       setQuery(searchTerm);
     }
-  }, [isOpen, setQuery]); // Removed searchTerm from dependencies to prevent re-sync on every keystroke
+  }, [isOpen, searchTerm, setQuery]);
 
   // Focus input when modal opens
   useEffect(() => {
@@ -110,7 +112,8 @@ export function MobileSearchModal({
   }, [isOpen, onClose]);
 
   const handleClear = () => {
-    setSearchTerm('');
+    setLocalSearchTerm('');
+    setQuery('');
     inputRef.current?.focus();
   };
 
@@ -169,11 +172,11 @@ export function MobileSearchModal({
                 type="search"
                 inputMode="search"
                 placeholder="Search albums or artists..."
-                value={searchTerm}
+                value={localSearchTerm}
                 onChange={(e) => {
                   const newValue = e.target.value;
-                  setSearchTerm(newValue);
-                  setQuery(newValue); // Update search query directly to avoid sync issues
+                  setLocalSearchTerm(newValue); // Update local state only
+                  setQuery(newValue); // Update search query for results
                 }}
                 className={cn(
                   "h-11 pl-10 pr-11",
@@ -189,7 +192,7 @@ export function MobileSearchModal({
                 spellCheck="false"
                 enterKeyHint="search"
               />
-              {searchTerm && (
+              {localSearchTerm && (
                 <Button
                   size="icon"
                   variant="ghost"
@@ -211,10 +214,11 @@ export function MobileSearchModal({
             isLoading={isLoading}
             isIndexing={isIndexing}
             error={error}
-            searchTerm={searchTerm}
+            searchTerm={localSearchTerm}
             onResultClick={() => {
               onClose();
-              setSearchTerm('');
+              setLocalSearchTerm('');
+              setQuery('');
             }}
             layout="list" // Use list layout for mobile
             showLimitMessage={true}

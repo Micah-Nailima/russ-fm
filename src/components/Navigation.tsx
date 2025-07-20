@@ -34,9 +34,8 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
 
   // Check if we're on a page where search overlay should be disabled
   const isSearchOverlayDisabled = () => {
-    return location.pathname === '/' || 
-           location.pathname.startsWith('/albums') || 
-           location.pathname.startsWith('/artists');
+    // Only disable on the exact home page, allow search everywhere else
+    return location.pathname === '/';
   };
 
   const handleSearchFocus = () => {
@@ -48,8 +47,10 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    if (!isMobile && e.target.value.trim() && !isSearchOverlayDisabled()) {
+    const newValue = e.target.value;
+    setSearchTerm(newValue);
+    // Open search overlay when typing (for desktop search input) 
+    if (newValue.trim() && !isSearchOverlayDisabled()) {
       setSearchOverlayOpen(true);
     }
   };
@@ -194,16 +195,6 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
           {mobileMenuOpen && (
             <div className="md:hidden mt-2 bg-background border dark:border-slate-700/70 rounded-lg shadow-lg">
               <div className="p-4 space-y-4">
-                {/* Mobile Search Button */}
-                <Button
-                  onClick={() => setMobileSearchOpen(true)}
-                  variant="outline"
-                  className="w-full h-11 justify-start gap-3 text-muted-foreground"
-                >
-                  <Search className="h-5 w-5" />
-                  Search albums or artists...
-                </Button>
-
                 {/* Mobile Navigation Links */}
                 <div className="space-y-2">
                   <Link
@@ -278,15 +269,17 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
       <SearchOverlay 
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        isVisible={searchOverlayOpen && !isSearchOverlayDisabled() && !isMobile}
+        isVisible={searchOverlayOpen && !isSearchOverlayDisabled()}
         onClose={closeSearchOverlay}
       />
+      
 
       {/* Mobile Search FAB */}
       <SearchFAB onClick={() => setMobileSearchOpen(true)} />
 
       {/* Mobile Search Modal */}
       <MobileSearchModal
+        key="mobile-search-modal"
         isOpen={mobileSearchOpen}
         onClose={closeMobileSearch}
         searchTerm={searchTerm}

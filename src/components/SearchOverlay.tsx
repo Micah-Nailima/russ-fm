@@ -26,6 +26,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
     isReady 
   } = useInstantSearch();
 
+
   // Sync search term with the hook
   useEffect(() => {
     setQuery(searchTerm);
