@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Users } from 'lucide-react';
+import { Users, Search, X } from 'lucide-react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
 import { ArtistCard } from '@/components/ArtistCard';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import {
@@ -54,11 +55,7 @@ interface Artist {
   biography?: string;
 }
 
-interface ArtistsPageProps {
-  searchTerm: string;
-}
-
-export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
+export function ArtistsPage() {
   const { page } = useParams<{ page?: string }>();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -68,7 +65,7 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState(searchParams.get('sort') || 'name');
   const [selectedLetter, setSelectedLetter] = useState(searchParams.get('letter') || 'all');
-  const [prevSearchTerm, setPrevSearchTerm] = useState(searchTerm);
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
   
   const itemsPerPage = appConfig.pagination.itemsPerPage.artists;
   const currentPage = page ? parseInt(page, 10) : 1;
@@ -304,7 +301,9 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
   const updateURLParams = (newParams: Record<string, string>) => {
     const params = new URLSearchParams(searchParams);
     Object.entries(newParams).forEach(([key, value]) => {
-      if (value === 'all' || value === 'name') {
+      if ((key === 'letter' && value === 'all') || (key === 'sort' && value === 'name')) {
+        params.delete(key);
+      } else if (key === 'search' && value === '') {
         params.delete(key);
       } else {
         params.set(key, value);
@@ -315,15 +314,18 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
 
   useEffect(() => {
     filterAndSortArtists();
+  }, [artists, searchTerm, sortBy, selectedLetter, filterAndSortArtists]);
+
+  // Listen for URL parameter changes
+  useEffect(() => {
+    const sort = searchParams.get('sort') || 'name';
+    const letter = searchParams.get('letter') || 'all';
+    const search = searchParams.get('search') || '';
     
-    // Only navigate to page 1 if search term actually changed
-    if (searchTerm !== prevSearchTerm) {
-      setPrevSearchTerm(searchTerm);
-      if (currentPage !== 1) {
-        navigate('/artists/1');
-      }
-    }
-  }, [artists, searchTerm, sortBy, selectedLetter, currentPage, filterAndSortArtists, navigate, prevSearchTerm]);
+    setSortBy(sort);
+    setSelectedLetter(letter);
+    setSearchTerm(search);
+  }, [searchParams]);
 
   // Get available letters from artist names
   const getAvailableLetters = () => {
@@ -396,6 +398,34 @@ export function ArtistsPage({ searchTerm }: ArtistsPageProps) {
     <div className="container mx-auto px-4 py-8">
       {/* Filter Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6 p-4 bg-background/50 backdrop-blur-sm border rounded-lg">
+        {/* Search Input */}
+        <div className="relative flex-1 min-w-[200px] max-w-sm">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+          <Input
+            type="text"
+            placeholder="Search artists..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              updateURLParams({ search: e.target.value });
+              if (currentPage !== 1) navigate('/artists/1');
+            }}
+            className="pl-9 pr-9 h-8"
+          />
+          {searchTerm && (
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                updateURLParams({ search: '' });
+                if (currentPage !== 1) navigate('/artists/1');
+              }}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+
         <div className="flex items-center gap-2">
           <span className="text-sm text-muted-foreground whitespace-nowrap">Sort:</span>
           <Select value={sortBy} onValueChange={(value) => {

@@ -44,11 +44,7 @@ interface Album {
   };
 }
 
-interface AlbumsPageProps {
-  searchTerm: string;
-}
-
-export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
+export function AlbumsPage() {
   const { page } = useParams<{ page?: string }>();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -67,7 +63,7 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
   const [selectedGenre, setSelectedGenre] = useState(searchParams.get('genre') || 'all');
   const [selectedYear, setSelectedYear] = useState(searchParams.get('year') || 'all');
   const [sortBy, setSortBy] = useState(searchParams.get('sort') || 'date_added');
-  const [prevSearchTerm, setPrevSearchTerm] = useState(searchTerm);
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
   
   const itemsPerPage = appConfig.pagination.itemsPerPage.albums;
   const currentPage = page ? parseInt(page, 10) : 1;
@@ -119,17 +115,23 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
     const genre = searchParams.get('genre') || 'all';
     const year = searchParams.get('year') || 'all';
     const sort = searchParams.get('sort') || 'date_added';
+    const search = searchParams.get('search') || '';
     
     setSelectedGenre(genre);
     setSelectedYear(year);
     setSortBy(sort);
+    setSearchTerm(search);
   }, [searchParams]);
 
   // Update URL params when filters change
   const updateURLParams = (newParams: Record<string, string>) => {
     const params = new URLSearchParams(searchParams);
     Object.entries(newParams).forEach(([key, value]) => {
-      if (value === 'all' || value === 'date_added') {
+      if ((key === 'genre' || key === 'year') && value === 'all') {
+        params.delete(key);
+      } else if (key === 'sort' && value === 'date_added') {
+        params.delete(key);
+      } else if (key === 'search' && value === '') {
         params.delete(key);
       } else {
         params.set(key, value);
@@ -187,15 +189,7 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
 
   useEffect(() => {
     filterAndSortCollection();
-    
-    // Only navigate to page 1 if search term actually changed
-    if (searchTerm !== prevSearchTerm) {
-      setPrevSearchTerm(searchTerm);
-      if (currentPage !== 1) {
-        navigate('/albums/1');
-      }
-    }
-  }, [collection, searchTerm, selectedGenre, selectedYear, sortBy, currentPage, filterAndSortCollection, navigate, prevSearchTerm]);
+  }, [collection, searchTerm, selectedGenre, selectedYear, sortBy, filterAndSortCollection]);
 
 
 
@@ -302,6 +296,13 @@ export function AlbumsPage({ searchTerm }: AlbumsPageProps) {
         }}
         genres={getAllGenres()}
         years={getAllYears()}
+        searchValue={searchTerm}
+        onSearchChange={(value) => {
+          setSearchTerm(value);
+          updateURLParams({ search: value });
+          if (currentPage !== 1) navigate('/albums/1');
+        }}
+        searchPlaceholder="Search albums..."
       />
 
 

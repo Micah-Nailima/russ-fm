@@ -9,12 +9,7 @@ import { MobileSearchModal } from "./MobileSearchModal";
 import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from 'react-router-dom';
 
-interface NavigationProps {
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
-}
-
-export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
+export function Navigation() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOverlayOpen, setSearchOverlayOpen] = useState(false);
@@ -41,16 +36,7 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
   const handleSearchFocus = () => {
     if (isMobile) {
       setMobileSearchOpen(true);
-    } else if (!isSearchOverlayDisabled()) {
-      setSearchOverlayOpen(true);
-    }
-  };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    setSearchTerm(newValue);
-    // Open search overlay when typing (for desktop search input) 
-    if (newValue.trim() && !isSearchOverlayDisabled()) {
+    } else {
       setSearchOverlayOpen(true);
     }
   };
@@ -62,11 +48,6 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
   const closeMobileSearch = () => {
     setMobileSearchOpen(false);
     setMobileMenuOpen(false); // Also close mobile menu if open
-  };
-
-  const clearSearch = () => {
-    setSearchTerm('');
-    setSearchOverlayOpen(false);
   };
 
   return (
@@ -151,27 +132,15 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
               </div>
 
               <div className="flex items-center gap-4">
-                {/* Desktop Search bar */}
-                <div className="relative hidden md:block">
-                  <Search className="h-5 w-5 absolute inset-y-0 my-auto left-2.5" />
-                  <Input
-                    className="pl-10 pr-10 flex-1 bg-slate-100/70 dark:bg-slate-800 border-none shadow-none w-[280px] rounded-full"
-                    placeholder="Search albums or artists..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    onFocus={handleSearchFocus}
-                  />
-                  {searchTerm && (
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      className="h-11 w-11 absolute inset-y-0 my-auto right-0.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700"
-                      onClick={clearSearch}
-                    >
-                      <X className="h-5 w-5" />
-                    </Button>
-                  )}
-                </div>
+                {/* Desktop Search Button */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hidden md:flex rounded-full"
+                  onClick={handleSearchFocus}
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
 
                 {/* Desktop Theme Toggle */}
                 <div className="hidden md:block">
@@ -267,9 +236,7 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
 
       {/* Search Overlay for Desktop */}
       <SearchOverlay 
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        isVisible={searchOverlayOpen && !isSearchOverlayDisabled()}
+        isVisible={searchOverlayOpen}
         onClose={closeSearchOverlay}
       />
       
@@ -282,8 +249,6 @@ export function Navigation({ searchTerm, setSearchTerm }: NavigationProps) {
         key="mobile-search-modal"
         isOpen={mobileSearchOpen}
         onClose={closeMobileSearch}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
       />
     </div>
   );

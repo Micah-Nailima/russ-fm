@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
@@ -27,25 +26,23 @@ function ArtistRouteHandler() {
 
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-
   return (
     <div className="min-h-screen bg-background">
-      <Navigation searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Navigation />
       
       <main className="pt-28">
         <Routes>
-          <Route path="/" element={<AlbumsPage searchTerm={searchTerm} />} />
-          <Route path="/albums" element={<AlbumsPage searchTerm={searchTerm} />} />
-          <Route path="/albums/:page" element={<AlbumsPage searchTerm={searchTerm} />} />
-          <Route path="/artists" element={<ArtistsPage searchTerm={searchTerm} />} />
-          <Route path="/artists/:page" element={<ArtistsPage searchTerm={searchTerm} />} />
+          <Route path="/" element={<AlbumsPage />} />
+          <Route path="/albums" element={<AlbumsPage />} />
+          <Route path="/albums/:page" element={<AlbumsPage />} />
+          <Route path="/artists" element={<ArtistsPage />} />
+          <Route path="/artists/:page" element={<ArtistsPage />} />
           <Route path="/artist/:artistPath" element={<ArtistRouteHandler />} />
           <Route path="/album/:albumPath" element={<AlbumDetailPage />} />
           <Route path="/stats" element={<StatsPage />} />
           <Route path="/genres" element={<GenrePage />} />
           <Route path="/random" element={<RandomPage />} />
-          <Route path="/search" element={<SearchResultsPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
+          <Route path="/search" element={<SearchResultsPage />} />
         </Routes>
       </main>
 

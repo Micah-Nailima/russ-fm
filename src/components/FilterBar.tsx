@@ -1,6 +1,7 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { X, Search } from 'lucide-react';
 
 interface FilterBarProps {
   sortBy: string;
@@ -11,6 +12,9 @@ interface FilterBarProps {
   setSelectedYear: (value: string) => void;
   genres: string[];
   years: string[];
+  searchValue?: string;
+  onSearchChange?: (value: string) => void;
+  searchPlaceholder?: string;
 }
 
 export function FilterBar({
@@ -21,19 +25,47 @@ export function FilterBar({
   selectedYear,
   setSelectedYear,
   genres,
-  years
+  years,
+  searchValue = '',
+  onSearchChange,
+  searchPlaceholder = 'Search albums...'
 }: FilterBarProps) {
   // Check if any filters are active (not at their default values)
-  const hasActiveFilters = sortBy !== 'date_added' || selectedGenre !== 'all' || selectedYear !== 'all';
+  const hasActiveFilters = sortBy !== 'date_added' || selectedGenre !== 'all' || selectedYear !== 'all' || searchValue !== '';
   
   const clearFilters = () => {
     setSortBy('date_added');
     setSelectedGenre('all');
     setSelectedYear('all');
+    if (onSearchChange) {
+      onSearchChange('');
+    }
   };
 
   return (
     <div className="flex flex-wrap gap-3 mb-6 p-4 bg-background/50 backdrop-blur-sm border rounded-lg">
+      {/* Search Input */}
+      {onSearchChange && (
+        <div className="relative flex-1 min-w-[200px] max-w-sm">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+          <Input
+            type="text"
+            placeholder={searchPlaceholder}
+            value={searchValue}
+            onChange={(e) => onSearchChange(e.target.value)}
+            className="pl-9 pr-9 h-8"
+          />
+          {searchValue && (
+            <button
+              onClick={() => onSearchChange('')}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+      )}
+
       <div className="flex items-center gap-2">
         <span className="text-sm text-muted-foreground whitespace-nowrap">Sort:</span>
         <Select value={sortBy} onValueChange={setSortBy}>

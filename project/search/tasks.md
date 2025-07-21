@@ -1,5 +1,62 @@
 # Search Implementation Tasks
 
+## Architecture Update: Separating Global Search from Page Filters
+
+### Rationale
+- **Current Issue**: Global search has mixed functionality for different contexts
+- **Solution**: Split into simplified global search + dedicated page filters
+- **Benefits**: Cleaner code, better UX, improved performance
+
+## Phase 0: Add Search Boxes to Existing Pages (COMPLETED ✅)
+**Goal**: Add search input boxes to Albums and Artists pages (they already have filtering)
+**Timeline**: 1-2 days
+**Status**: COMPLETED
+
+### 0.1 Add Search Box to FilterBar Component (Albums Page) ✅
+- [x] Updated `FilterBar.tsx` to include optional search input field
+- [x] Added search icon (Search from lucide-react) and clear button (X icon)
+- [x] Added searchValue, onSearchChange, and searchPlaceholder props
+- [x] Updated styling with flex-1 min-w-[200px] max-w-sm for responsive layout
+- [x] Clear button appears conditionally when search has value
+
+### 0.2 Add Search Component to Artists Page ✅
+- [x] Added search input directly in Artists page filter bar
+- [x] Used Input component from shadcn/ui with consistent styling
+- [x] Matched height (h-8) with other filter controls
+- [x] Included Search icon and clear (X) functionality
+- [x] Positioned as first item in filter bar with flex-1 for responsive width
+
+### 0.3 Update Albums Page ✅
+- [x] Removed `searchTerm` prop from AlbumsPage component signature
+- [x] Added local searchTerm state with URL parameter sync
+- [x] Updated FilterBar usage with searchValue and onSearchChange props
+- [x] URL parameter 'search' syncs with local state
+- [x] Navigation to page 1 when search changes
+- [x] Existing filter logic continues to work with local search
+
+### 0.4 Update Artists Page ✅
+- [x] Removed `searchTerm` prop from ArtistsPage component signature
+- [x] Added local searchTerm state initialized from URL params
+- [x] Added search input as first element in filter section
+- [x] URL parameter 'search' syncs bidirectionally
+- [x] Navigation to page 1 when search changes
+- [x] Search integrates seamlessly with letter filter and sort
+
+### 0.5 Simplify Global Search ✅
+- [x] SearchOverlay now manages its own search state
+- [x] Added search input directly in SearchOverlay component
+- [x] Removed dependency on Navigation's searchTerm
+- [x] Results show navigation links to albums/artists
+- [x] MobileSearchModal updated to be self-contained
+- [x] Search clears when overlay/modal closes
+
+### 0.6 Clean Up Navigation ✅
+- [x] Removed searchTerm and setSearchTerm state from Navigation
+- [x] Removed all prop drilling through App.tsx
+- [x] SearchOverlay receives only isVisible and onClose props
+- [x] Desktop search changed from input to button that opens overlay
+- [x] Global search now focuses purely on discovery/navigation
+
 ## Phase 1: Mobile Search Accessibility (Priority: Critical)
 **Goal**: Make search easily accessible on mobile devices
 **Timeline**: 1-2 days
@@ -185,15 +242,44 @@
 - [ ] Add inline code comments
 - [ ] Update README with search features
 
-## Implementation Order
+## Implementation Order (UPDATED)
 
-1. **✅ COMPLETED**: Phase 1 (Mobile Accessibility) - SearchFAB, MobileSearchModal, Navigation updates, Touch targets
-2. **🔄 NEXT**: Phase 2.1-2.2 (Fuse.js Integration) - Search service, hooks, component updates
-3. **Week 2**: Phase 2.3-2.5 (Performance Optimization) + Phase 3.1-3.2 (Enhanced UI)
-4. **Week 3**: Phase 3.3-3.4 (Advanced UI Features) + Testing
-5. **Week 4**: Phase 4 (Advanced Features) + Documentation + Polish
+1. **✅ COMPLETED**: Phase 0 (Page-Specific Search) - Added search to Albums/Artists pages
+2. **✅ COMPLETED**: Phase 1 (Mobile Accessibility) - SearchFAB, MobileSearchModal, Navigation updates, Touch targets
+3. **✅ COMPLETED**: Phase 2.1-2.3 (Fuse.js Integration) - Search service, hooks, component updates
+4. **🔄 NEXT**: Phase 2.4-2.5 (Performance Optimization) + Phase 3.1-3.2 (Enhanced UI)
+5. **Week 2**: Phase 3.3-3.4 (Advanced UI Features) + Testing
+6. **Week 3**: Phase 4 (Advanced Features) + Documentation + Polish
 
-## Current Status: Phase 1 & 2 Complete ✅
+## Benefits of New Architecture
+
+### User Experience
+- **Clearer Mental Model**: Users understand what they're searching
+- **Faster Results**: Page filters work on already-loaded data
+- **Better Discovery**: Dedicated filters for deep exploration
+- **Consistent Behavior**: Same filter patterns across pages
+
+### Technical Benefits
+- **Simplified Codebase**: No mixed search contexts
+- **Better Performance**: No need to load all data for filtering
+- **Easier Testing**: Isolated components with clear responsibilities
+- **Reusable Components**: Filter bar works across different pages
+
+### Migration Path
+1. Implement new filter components without removing existing search
+2. Add filters to Albums and Artists pages
+3. Gradually simplify global search
+4. Remove redundant code once filters are stable
+
+## Current Status: Phase 0, 1 & 2 Complete ✅
+
+**Phase 0 Completed Features (NEW):**
+- Local search inputs on Albums and Artists pages
+- Integration with existing FilterBar component on Albums page
+- Dedicated search input on Artists page matching filter styling
+- URL parameter synchronization for bookmarkable searches
+- Complete removal of global search prop drilling
+- Self-contained SearchOverlay and MobileSearchModal components
 
 **Phase 1 Completed Features:**
 - Mobile floating search button with scroll behavior
@@ -209,6 +295,12 @@
 - Shared SearchResults component for consistency
 - Proper error handling and loading states
 - Performance optimizations with requestIdleCallback
+
+**Architecture Improvements:**
+- Eliminated search term prop drilling through App.tsx
+- Each page manages its own search state independently
+- Global search simplified to navigation discovery only
+- Clear separation between global and local search contexts
 
 **Ready for Phase 3:** Enhanced UI features and advanced functionality
 

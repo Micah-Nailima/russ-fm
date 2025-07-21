@@ -8,12 +8,7 @@ import { Search, Disc, User, Music, AlertCircle } from 'lucide-react';
 import { useManualSearch } from '@/hooks/useSearch';
 
 
-interface SearchResultsPageProps {
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
-}
-
-export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPageProps) {
+export function SearchResultsPage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
 
@@ -31,18 +26,15 @@ export function SearchResultsPage({ searchTerm, setSearchTerm }: SearchResultsPa
     search
   } = useManualSearch();
 
-  // Sync URL query with search term and perform search
+  // Sync URL query with search and perform search
   useEffect(() => {
-    if (query && query !== searchTerm) {
-      setSearchTerm(query);
-    }
     if (query && query !== searchQuery) {
       setQuery(query);
       if (isReady) {
         search(query, { limit: 100 }); // More results for full page
       }
     }
-  }, [query, searchTerm, setSearchTerm, searchQuery, setQuery, isReady, search]);
+  }, [query, searchQuery, setQuery, isReady, search]);
 
   // Perform search when service becomes ready
   useEffect(() => {

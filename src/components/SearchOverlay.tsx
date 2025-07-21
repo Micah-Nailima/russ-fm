@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import { useInstantSearch } from '@/hooks/useSearch';
@@ -6,14 +6,13 @@ import { SearchResults } from './SearchResults';
 
 
 interface SearchOverlayProps {
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
   isVisible: boolean;
   onClose: () => void;
 }
 
-export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }: SearchOverlayProps) {
+export function SearchOverlay({ isVisible, onClose }: SearchOverlayProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [localSearchTerm, setLocalSearchTerm] = useState('');
   
   // Use the search hook for Fuse.js powered search
   const { 
@@ -26,11 +25,10 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
     isReady 
   } = useInstantSearch();
 
-
-  // Sync search term with the hook
+  // Update search query when local term changes
   useEffect(() => {
-    setQuery(searchTerm);
-  }, [searchTerm, setQuery]);
+    setQuery(localSearchTerm);
+  }, [localSearchTerm, setQuery]);
 
   // Close overlay when clicking outside
   useEffect(() => {
@@ -47,9 +45,16 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
   }, [isVisible, onClose]);
 
   const handleResultClick = () => {
+    setLocalSearchTerm('');
     onClose();
-    setSearchTerm('');
   };
+
+  // Clear search when closing
+  useEffect(() => {
+    if (!isVisible) {
+      setLocalSearchTerm('');
+    }
+  }, [isVisible]);
 
   if (!isVisible) return null;
 
@@ -57,24 +62,46 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
     <div className="fixed inset-0 z-40 bg-black/20" style={{ top: '112px' }}>
       <div className="container mx-auto px-4">
         <div ref={overlayRef} className="bg-background border rounded-lg shadow-2xl max-h-[calc(100vh-140px)] overflow-hidden">
+          {/* Search Input */}
+          <div className="p-4 border-b">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <input
+                type="text"
+                value={localSearchTerm}
+                onChange={(e) => setLocalSearchTerm(e.target.value)}
+                placeholder="Search albums and artists..."
+                className="w-full pl-10 pr-10 py-2 bg-background border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                autoFocus
+              />
+              {localSearchTerm && (
+                <button
+                  onClick={() => setLocalSearchTerm('')}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Header */}
-          <div className="p-4 border-b bg-muted/30">
+          <div className="px-4 py-2 bg-muted/30">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Search className="h-5 w-5 text-muted-foreground" />
-                <span className="text-lg font-semibold">
-                  {searchTerm.trim() ? (
+                <span className="text-sm font-medium text-muted-foreground">
+                  {localSearchTerm.trim() ? (
                     <>
                       {isIndexing ? (
                         <>Indexing collection...</>
                       ) : error ? (
                         <>Search error: {error}</>
                       ) : results.length > 0 ? (
-                        <>Found <strong>{results.length}</strong> result{results.length !== 1 ? 's' : ''} for "<strong>{searchTerm}</strong>"</>
+                        <>Found <strong>{results.length}</strong> result{results.length !== 1 ? 's' : ''} for "<strong>{localSearchTerm}</strong>"</>
                       ) : isLoading ? (
-                        <>Searching for "<strong>{searchTerm}</strong>"...</>
+                        <>Searching for "<strong>{localSearchTerm}</strong>"...</>
                       ) : (
-                        <>No results for "<strong>{searchTerm}</strong>"</>
+                        <>No results for "<strong>{localSearchTerm}</strong>"</>
                       )}
                     </>
                   ) : isIndexing ? (
@@ -101,7 +128,7 @@ export function SearchOverlay({ searchTerm, setSearchTerm, isVisible, onClose }:
               isLoading={isLoading}
               isIndexing={isIndexing}
               error={error}
-              searchTerm={searchTerm}
+              searchTerm={localSearchTerm}
               onResultClick={handleResultClick}
               layout="grid"
               showLimitMessage={true}

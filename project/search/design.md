@@ -1,5 +1,39 @@
 # Search Design Improvements
 
+## Updated Architecture (Page-Specific Filters)
+
+### Design Philosophy
+Split search functionality into two distinct systems:
+1. **Global Search**: Quick discovery across entire collection
+2. **Page Filters**: Deep exploration within Albums/Artists pages
+
+### Global Search (Simplified)
+- **Purpose**: Fast navigation to specific albums or artists
+- **Scope**: Basic text search only, no complex filters
+- **UI**: Overlay/modal for quick access
+- **Results**: Direct links to album/artist detail pages
+
+### Page Search Integration
+Add search input boxes to existing filter implementations:
+
+#### Albums Page Search Box
+- **Add to FilterBar**: Include search input in existing FilterBar component
+- **Local State**: Manage search within AlbumsPage component
+- **URL Sync**: Add search parameter to URL for bookmarking
+- **Existing Filters**: Keep genre, year, and sort dropdowns as-is
+
+#### Artists Page Search Box
+- **Add to Filter Section**: Include search input alongside existing filters
+- **Consistent Styling**: Match height and style of sort dropdown
+- **Local State**: Manage search within ArtistsPage component
+- **Existing Filters**: Keep letter filter and sort dropdown as-is
+
+### Implementation Benefits
+1. **Cleaner Global Search**: No complex logic mixing different contexts
+2. **Better UX**: Users know exactly what they're searching/filtering
+3. **Performance**: Filters work on already-loaded page data
+4. **Consistency**: Same filter patterns across pages
+
 ## Current Issues
 
 ### Mobile Experience Problems
@@ -101,6 +135,88 @@ Add power-user features:
 - **Search History**: Recent searches with quick access
 - **Saved Searches**: Bookmark frequent searches
 - **Voice Search**: On supported devices
+
+## Implementation Examples
+
+### Updated FilterBar Props
+```typescript
+interface FilterBarProps {
+  // Existing props
+  sortBy: string;
+  setSortBy: (value: string) => void;
+  selectedGenre: string;
+  setSelectedGenre: (value: string) => void;
+  selectedYear: string;
+  setSelectedYear: (value: string) => void;
+  genres: string[];
+  years: string[];
+  
+  // New search props
+  searchValue?: string;
+  onSearchChange?: (value: string) => void;
+  searchPlaceholder?: string;
+}
+```
+
+### Albums Page Search State
+```typescript
+// In AlbumsPage component
+const [localSearchTerm, setLocalSearchTerm] = useState(
+  searchParams.get('search') || ''
+);
+
+// Update URL when search changes
+const handleSearchChange = (value: string) => {
+  setLocalSearchTerm(value);
+  updateURLParams({ search: value });
+  if (currentPage !== 1) navigate('/albums/1');
+};
+```
+
+### Visual Design Updates
+
+#### Albums Page with Search Box
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ Albums                                                              │
+├────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────┐  Sort: [Recently Added ▼]                    │
+│ │ 🔍 Search albums  │  Genre: [All ▼]                              │
+│ └───────────────────┘  Year: [All ▼]           [× Clear Filters]   │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+#### Artists Page with Search Box
+```
+┌────────────────────────────────────────────────────────────────────┐
+│ Artists                                                             │
+├────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────┐  Sort: [Artist Name ▼]                       │
+│ │ 🔍 Search artists │  Filter: [All] [A] [B] [C] ... [Z]           │
+│ └───────────────────┘                                              │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+### Filter Implementation Patterns
+
+#### usePageFilters Hook
+```typescript
+const usePageFilters = (items: Album[] | Artist[]) => {
+  const [filters, setFilters] = useState<ActiveFilters>({});
+  
+  const filteredItems = useMemo(() => {
+    return items.filter(item => {
+      // Apply all active filters
+      if (filters.search && !matchesSearch(item, filters.search)) return false;
+      if (filters.genres?.length && !matchesGenres(item, filters.genres)) return false;
+      if (filters.year && !matchesYearRange(item, filters.year)) return false;
+      return true;
+    });
+  }, [items, filters]);
+  
+  return { filteredItems, filters, setFilters };
+};
+```
 
 ## Visual Design Mockups
 

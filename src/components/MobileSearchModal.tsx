@@ -9,15 +9,11 @@ import { SearchResults } from './SearchResults';
 interface MobileSearchModalProps {
   isOpen: boolean;
   onClose: () => void;
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
 }
 
 export function MobileSearchModal({ 
   isOpen, 
-  onClose, 
-  searchTerm, 
-  setSearchTerm
+  onClose
 }: MobileSearchModalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [touchStart, setTouchStart] = useState(0);
@@ -34,13 +30,13 @@ export function MobileSearchModal({
     error 
   } = useMobileSearch();
 
-  // Initialize local search term when modal opens
+  // Clear search when modal closes
   useEffect(() => {
-    if (isOpen) {
-      setLocalSearchTerm(searchTerm);
-      setQuery(searchTerm);
+    if (!isOpen) {
+      setLocalSearchTerm('');
+      setQuery('');
     }
-  }, [isOpen, searchTerm, setQuery]);
+  }, [isOpen, setQuery]);
 
   // Focus input when modal opens
   useEffect(() => {
