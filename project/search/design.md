@@ -143,7 +143,9 @@ Add power-user features:
 
 ## Implementation Examples
 
-### Updated FilterBar Props
+## Implementation Details
+
+### Updated FilterBar Props ✅ IMPLEMENTED
 ```typescript
 interface FilterBarProps {
   // Existing props
@@ -156,51 +158,105 @@ interface FilterBarProps {
   genres: string[];
   years: string[];
   
-  // New search props
+  // New search props (IMPLEMENTED)
   searchValue?: string;
   onSearchChange?: (value: string) => void;
   searchPlaceholder?: string;
 }
 ```
 
-### Albums Page Search State
+### Albums Page Implementation ✅
 ```typescript
-// In AlbumsPage component
-const [localSearchTerm, setLocalSearchTerm] = useState(
+// Local search state with URL sync
+const [searchTerm, setSearchTerm] = useState(
   searchParams.get('search') || ''
 );
 
-// Update URL when search changes
-const handleSearchChange = (value: string) => {
-  setLocalSearchTerm(value);
-  updateURLParams({ search: value });
-  if (currentPage !== 1) navigate('/albums/1');
-};
+// FilterBar integration
+<FilterBar
+  // ...existing props
+  searchValue={searchTerm}
+  onSearchChange={(value) => {
+    setSearchTerm(value);
+    updateURLParams({ search: value });
+    if (currentPage !== 1) navigate('/albums/1');
+  }}
+  searchPlaceholder="Search albums..."
+/>
 ```
 
-### Visual Design Updates
+### Artists Page Implementation ✅
+```typescript
+// Direct search input in filter section
+<div className="relative flex-1 min-w-[200px] max-w-sm">
+  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+  <Input
+    type="text"
+    placeholder="Search artists..."
+    value={searchTerm}
+    onChange={(e) => {
+      setSearchTerm(e.target.value);
+      updateURLParams({ search: e.target.value });
+      if (currentPage !== 1) navigate('/artists/1');
+    }}
+    className="pl-9 pr-9 h-8"
+  />
+  {searchTerm && (
+    <button onClick={() => clearSearch()}>
+      <X className="h-4 w-4" />
+    </button>
+  )}
+</div>
+```
 
-#### Albums Page with Search Box
+### Global Search Simplification ✅
+```typescript
+// SearchOverlay now self-contained
+const [localSearchTerm, setLocalSearchTerm] = useState('');
+
+// No more prop drilling from Navigation
+export function SearchOverlay({ isVisible, onClose }: SearchOverlayProps) {
+  // Manages its own search state
+}
+```
+
+## Results Summary ✅
+
+### What Was Implemented
+1. **Local Search on Albums Page**: Search input integrated into existing FilterBar
+2. **Local Search on Artists Page**: Dedicated search input in filter section
+3. **Global Search Simplification**: Removed prop drilling, self-contained components
+4. **URL Parameter Support**: All searches are bookmarkable with 'search' parameter
+5. **Responsive Design**: Search inputs adapt to mobile and desktop layouts
+
+### Visual Results
+
+#### Albums Page (IMPLEMENTED)
 ```
 ┌────────────────────────────────────────────────────────────────────┐
 │ Albums                                                              │
 ├────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────┐  Sort: [Recently Added ▼]                    │
-│ │ 🔍 Search albums  │  Genre: [All ▼]                              │
-│ └───────────────────┘  Year: [All ▼]           [× Clear Filters]   │
+│ ┌─────────────────────────┐ Sort: [Recently Added ▼]               │
+│ │ 🔍 Search albums...   ×│ Genre: [All ▼]                         │
+│ └─────────────────────────┘ Year: [All ▼]      [× Clear Filters]  │
 └────────────────────────────────────────────────────────────────────┘
 ```
 
-#### Artists Page with Search Box
+#### Artists Page (IMPLEMENTED)
 ```
 ┌────────────────────────────────────────────────────────────────────┐
 │ Artists                                                             │
 ├────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────┐  Sort: [Artist Name ▼]                       │
-│ │ 🔍 Search artists │  Filter: [All] [A] [B] [C] ... [Z]           │
-│ └───────────────────┘                                              │
+│ ┌─────────────────────────┐ Sort: [Artist Name ▼]                  │
+│ │ 🔍 Search artists... ×│ Filter: [All] [A] [B] [C] ... [Z]      │
+│ └─────────────────────────┘                                        │
 └────────────────────────────────────────────────────────────────────┘
 ```
+
+#### Global Search (SIMPLIFIED)
+- **Desktop**: Search icon button opens overlay with its own input
+- **Mobile**: FAB button opens full-screen modal with search input
+- **Results**: Shows navigation links to albums/artists (not filtered content)
 
 ### Filter Implementation Patterns
 
