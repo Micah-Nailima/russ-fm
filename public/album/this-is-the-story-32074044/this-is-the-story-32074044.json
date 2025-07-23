@@ -1,0 +1,1205 @@
+{
+  "apple_music_id": "697465287",
+  "apple_music_url": "https://music.apple.com/gb/album/this-is-the-story/697465287",
+  "artists": [
+    {
+      "apple_music_id": "396562",
+      "biography": "The Proclaimers are a Scottish duo composed of identical twin brothers Charlie and Craig Reid. They are best known for the songs \"I'm Gonna Be (500 Miles)\", \"I'm On My Way\" and \"Letter from America\". The band tours extensively throughout the world. They have released nine studio albums from 1987 until the present, as well as two compilation albums and a DVD.\nIn 2011, the band had a notable achievement in Scotland when two of their tracks, \"Sunshine on Leith\" and \"I'm Gonna Be (500 Miles)\", were featured on Scotland's Greatest Album (2011).",
+      "discogs_id": "274034",
+      "discogs_original_name": "The Proclaimers",
+      "id": null,
+      "lastfm_mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+      "name": "The Proclaimers",
+      "role": "",
+      "spotify_id": "1A92IAcd7A6npCA33oGM5i",
+      "wikipedia_url": null
+    }
+  ],
+  "artists_wikipedia": {
+    "The Proclaimers": {
+      "biography": "The Proclaimers are a Scottish duo composed of identical twin brothers Charlie and Craig Reid. They are best known for the songs \"I'm Gonna Be (500 Miles)\", \"I'm On My Way\" and \"Letter from America\". The band tours extensively throughout the world. They have released nine studio albums from 1987 until the present, as well as two compilation albums and a DVD.\nIn 2011, the band had a notable achievement in Scotland when two of their tracks, \"Sunshine on Leith\" and \"I'm Gonna Be (500 Miles)\", were featured on Scotland's Greatest Album (2011).",
+      "wikipedia_url": null
+    }
+  },
+  "country": "UK",
+  "created_at": "2025-07-23T18:36:25.137706",
+  "date_added": "2025-07-23T10:34:45-07:00",
+  "discogs_id": "32074044",
+  "discogs_url": "https://www.discogs.com/release/32074044-The-Proclaimers-This-Is-The-Story",
+  "formats": [
+    "Vinyl"
+  ],
+  "genres": [
+    "Rock",
+    "Folk, World, & Country"
+  ],
+  "id": "32074044",
+  "images": [
+    {
+      "height": 588,
+      "resource_url": "https://i.discogs.com/zKBNZuHGvUVif8L9nkhSE1roVyA3bt2FaH8i5fFwh44/rs:fit/g:sm/q:90/h:588/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMDc0/MDQ0LTE3Mjk1OTM3/NjEtNTg0Mi5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/zKBNZuHGvUVif8L9nkhSE1roVyA3bt2FaH8i5fFwh44/rs:fit/g:sm/q:90/h:588/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMDc0/MDQ0LTE3Mjk1OTM3/NjEtNTg0Mi5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 2000,
+      "resource_url": null,
+      "type": "apple_music_artwork",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/97/79/d1/9779d1ce-0a1d-98d7-8962-facf9f5e7988/0094632160256_3000x3000_300dpi.jpg/2000x2000bb.jpg",
+      "width": 2000
+    }
+  ],
+  "labels": [
+    "Parlophone"
+  ],
+  "lastfm_mbid": null,
+  "lastfm_url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story",
+  "local_images": {
+    "hi-res": "../public/album/this-is-the-story-32074044/this-is-the-story-32074044-hi-res.jpg"
+  },
+  "processing_info": {
+    "has_local_images": true,
+    "local_images_count": 1,
+    "processed_at": "2025-07-23T18:36:51.572176",
+    "services_used": [
+      "discogs",
+      "apple_music",
+      "spotify",
+      "wikipedia"
+    ]
+  },
+  "release_name_apple_music": "This Is the Story",
+  "release_name_discogs": "This Is The Story",
+  "release_name_spotify": "This Is the Story",
+  "released": "2024-10-19",
+  "services": {
+    "apple_music": {
+      "artwork_url": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/97/79/d1/9779d1ce-0a1d-98d7-8962-facf9f5e7988/0094632160256_3000x3000_300dpi.jpg/2000x2000bb.jpg",
+      "content_rating": null,
+      "copyright": "℗ 1987 Parlophone Records Ltd, a Warner Music Group Company",
+      "editorial_notes": null,
+      "id": "697465287",
+      "is_complete": true,
+      "preview_url": null,
+      "raw_attributes": {
+        "artistName": "The Proclaimers",
+        "artwork": {
+          "bgColor": "bcdae9",
+          "height": 3000,
+          "textColor1": "150203",
+          "textColor2": "3d0f16",
+          "textColor3": "362d31",
+          "textColor4": "563840",
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/97/79/d1/9779d1ce-0a1d-98d7-8962-facf9f5e7988/0094632160256_3000x3000_300dpi.jpg/{w}x{h}bb.jpg",
+          "width": 3000
+        },
+        "copyright": "℗ 1987 Parlophone Records Ltd, a Warner Music Group Company",
+        "genreNames": [
+          "Rock",
+          "Music",
+          "Pop",
+          "Pop/Rock"
+        ],
+        "isCompilation": false,
+        "isComplete": true,
+        "isMasteredForItunes": false,
+        "isSingle": false,
+        "name": "This Is the Story",
+        "playParams": {
+          "id": "697465287",
+          "kind": "album"
+        },
+        "recordLabel": "Parlophone UK",
+        "releaseDate": "1987",
+        "trackCount": 13,
+        "upc": "0094632160256",
+        "url": "https://music.apple.com/gb/album/this-is-the-story/697465287"
+      },
+      "url": "https://music.apple.com/gb/album/this-is-the-story/697465287"
+    },
+    "lastfm": {
+      "images": [
+        {
+          "size": "small",
+          "url": "https://lastfm.freetls.fastly.net/i/u/34s/a643619fd790409289ee6e08e28afde2.jpg"
+        },
+        {
+          "size": "medium",
+          "url": "https://lastfm.freetls.fastly.net/i/u/64s/a643619fd790409289ee6e08e28afde2.jpg"
+        },
+        {
+          "size": "large",
+          "url": "https://lastfm.freetls.fastly.net/i/u/174s/a643619fd790409289ee6e08e28afde2.jpg"
+        },
+        {
+          "size": "extralarge",
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/a643619fd790409289ee6e08e28afde2.jpg"
+        },
+        {
+          "size": "mega",
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/a643619fd790409289ee6e08e28afde2.jpg"
+        },
+        {
+          "size": "",
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/a643619fd790409289ee6e08e28afde2.jpg"
+        }
+      ],
+      "listeners": 58912,
+      "mbid": "221f0d51-7bc5-341c-a27f-28cd834c320a",
+      "playcount": 451678,
+      "raw_data": {
+        "album": {
+          "artist": "The Proclaimers",
+          "image": [
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/34s/a643619fd790409289ee6e08e28afde2.jpg",
+              "size": "small"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/64s/a643619fd790409289ee6e08e28afde2.jpg",
+              "size": "medium"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/174s/a643619fd790409289ee6e08e28afde2.jpg",
+              "size": "large"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/a643619fd790409289ee6e08e28afde2.jpg",
+              "size": "extralarge"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/a643619fd790409289ee6e08e28afde2.jpg",
+              "size": "mega"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/a643619fd790409289ee6e08e28afde2.jpg",
+              "size": ""
+            }
+          ],
+          "listeners": "58912",
+          "mbid": "221f0d51-7bc5-341c-a27f-28cd834c320a",
+          "name": "This Is The Story",
+          "playcount": "451678",
+          "tags": {
+            "tag": [
+              {
+                "name": "scottish",
+                "url": "https://www.last.fm/tag/scottish"
+              },
+              {
+                "name": "british",
+                "url": "https://www.last.fm/tag/british"
+              },
+              {
+                "name": "scotland",
+                "url": "https://www.last.fm/tag/scotland"
+              },
+              {
+                "name": "1980s",
+                "url": "https://www.last.fm/tag/1980s"
+              },
+              {
+                "name": "rock",
+                "url": "https://www.last.fm/tag/rock"
+              }
+            ]
+          },
+          "tracks": {
+            "track": [
+              {
+                "@attr": {
+                  "rank": 1
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 164,
+                "name": "Throw The 'R' Away",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Throw+The+%27R%27+Away"
+              },
+              {
+                "@attr": {
+                  "rank": 2
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 167,
+                "name": "Over And Done With",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Over+And+Done+With"
+              },
+              {
+                "@attr": {
+                  "rank": 3
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 214,
+                "name": "Misty Blue",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Misty+Blue"
+              },
+              {
+                "@attr": {
+                  "rank": 4
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 164,
+                "name": "The Part That Really Matters",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/The+Part+That+Really+Matters"
+              },
+              {
+                "@attr": {
+                  "rank": 5
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": null,
+                "name": "(I'm Gonna) Burn Your Playhouse Down",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/(I%27m+Gonna)+Burn+Your+Playhouse+Down"
+              },
+              {
+                "@attr": {
+                  "rank": 6
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 242,
+                "name": "Letter From America (Acoustic Version)",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Letter+From+America+(Acoustic+Version)"
+              },
+              {
+                "@attr": {
+                  "rank": 7
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 142,
+                "name": "Sky Takes The Soul",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Sky+Takes+The+Soul"
+              },
+              {
+                "@attr": {
+                  "rank": 8
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 146,
+                "name": "It Broke My Heart",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/It+Broke+My+Heart"
+              },
+              {
+                "@attr": {
+                  "rank": 9
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 238,
+                "name": "The First Attack",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/The+First+Attack"
+              },
+              {
+                "@attr": {
+                  "rank": 10
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 148,
+                "name": "Make My Heart Fly",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Make+My+Heart+Fly"
+              },
+              {
+                "@attr": {
+                  "rank": 11
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 268,
+                "name": "Beautiful Truth",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Beautiful+Truth"
+              },
+              {
+                "@attr": {
+                  "rank": 12
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 183,
+                "name": "The Joyful Kilmarnock Blues",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/The+Joyful+Kilmarnock+Blues"
+              },
+              {
+                "@attr": {
+                  "rank": 13
+                },
+                "artist": {
+                  "mbid": "1303b976-b862-4f04-94fd-a8d444e06714",
+                  "name": "The Proclaimers",
+                  "url": "https://www.last.fm/music/The+Proclaimers"
+                },
+                "duration": 242,
+                "name": "Letter from America",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story/Letter+from+America"
+              }
+            ]
+          },
+          "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story"
+        }
+      },
+      "similar_artists": [],
+      "tags": [
+        "scottish",
+        "british",
+        "scotland",
+        "1980s",
+        "rock"
+      ],
+      "top_albums": [],
+      "top_tracks": [],
+      "url": "https://www.last.fm/music/The+Proclaimers/This+Is+The+Story",
+      "wiki_content": "",
+      "wiki_summary": ""
+    },
+    "spotify": {
+      "album_type": "album",
+      "available_markets": [],
+      "copyrights": [
+        {
+          "text": "© 1987 Parlophone Records Ltd, a Warner Music Group Company",
+          "type": "C"
+        },
+        {
+          "text": "℗ 1987 Parlophone Records Ltd, a Warner Music Group Company",
+          "type": "P"
+        }
+      ],
+      "explicit": false,
+      "external_ids": {
+        "upc": "0094632160256"
+      },
+      "id": "1CqsUozozqdQG3J4SOwDya",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b2737e42ab8a9a3c53d887f36b8a",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e027e42ab8a9a3c53d887f36b8a",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d000048517e42ab8a9a3c53d887f36b8a",
+          "width": 64
+        }
+      ],
+      "label": "Parlophone UK",
+      "popularity": 42,
+      "preview_url": null,
+      "raw_data": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+            },
+            "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+            "id": "1A92IAcd7A6npCA33oGM5i",
+            "name": "The Proclaimers",
+            "type": "artist",
+            "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+          }
+        ],
+        "copyrights": [
+          {
+            "text": "© 1987 Parlophone Records Ltd, a Warner Music Group Company",
+            "type": "C"
+          },
+          {
+            "text": "℗ 1987 Parlophone Records Ltd, a Warner Music Group Company",
+            "type": "P"
+          }
+        ],
+        "external_ids": {
+          "upc": "0094632160256"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/1CqsUozozqdQG3J4SOwDya"
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/albums/1CqsUozozqdQG3J4SOwDya?market=US",
+        "id": "1CqsUozozqdQG3J4SOwDya",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737e42ab8a9a3c53d887f36b8a",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027e42ab8a9a3c53d887f36b8a",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517e42ab8a9a3c53d887f36b8a",
+            "width": 64
+          }
+        ],
+        "is_playable": true,
+        "label": "Parlophone UK",
+        "name": "This Is the Story",
+        "popularity": 42,
+        "release_date": "1987",
+        "release_date_precision": "year",
+        "total_tracks": 13,
+        "tracks": {
+          "href": "https://api.spotify.com/v1/albums/1CqsUozozqdQG3J4SOwDya/tracks?offset=0&limit=50&market=US",
+          "items": [
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 165200,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/1zyKa1DrinEM8Prr99tm77"
+              },
+              "href": "https://api.spotify.com/v1/tracks/1zyKa1DrinEM8Prr99tm77",
+              "id": "1zyKa1DrinEM8Prr99tm77",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Throw the 'R' Away",
+              "preview_url": null,
+              "track_number": 1,
+              "type": "track",
+              "uri": "spotify:track:1zyKa1DrinEM8Prr99tm77"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 167960,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6cdVptYJt7MtMCMOtCWyOl"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6cdVptYJt7MtMCMOtCWyOl",
+              "id": "6cdVptYJt7MtMCMOtCWyOl",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Over and Done With",
+              "preview_url": null,
+              "track_number": 2,
+              "type": "track",
+              "uri": "spotify:track:6cdVptYJt7MtMCMOtCWyOl"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 215600,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6zJBcyPGap72iXgWDXc75a"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6zJBcyPGap72iXgWDXc75a",
+              "id": "6zJBcyPGap72iXgWDXc75a",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Misty Blue",
+              "preview_url": null,
+              "track_number": 3,
+              "type": "track",
+              "uri": "spotify:track:6zJBcyPGap72iXgWDXc75a"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 162173,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6jtOLJVwOElriUW0bpagPc"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6jtOLJVwOElriUW0bpagPc",
+              "id": "6jtOLJVwOElriUW0bpagPc",
+              "is_local": false,
+              "is_playable": true,
+              "name": "The Part That Really Matters",
+              "preview_url": null,
+              "track_number": 4,
+              "type": "track",
+              "uri": "spotify:track:6jtOLJVwOElriUW0bpagPc"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 119893,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/4sUQsmtT44NXXWhb4qlKYj"
+              },
+              "href": "https://api.spotify.com/v1/tracks/4sUQsmtT44NXXWhb4qlKYj",
+              "id": "4sUQsmtT44NXXWhb4qlKYj",
+              "is_local": false,
+              "is_playable": true,
+              "name": "(I'm Gonna) Burn Your Playhouse Down",
+              "preview_url": null,
+              "track_number": 5,
+              "type": "track",
+              "uri": "spotify:track:4sUQsmtT44NXXWhb4qlKYj"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 242480,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/74SJIliPLG4SAUyrwnLCwZ"
+              },
+              "href": "https://api.spotify.com/v1/tracks/74SJIliPLG4SAUyrwnLCwZ",
+              "id": "74SJIliPLG4SAUyrwnLCwZ",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Letter from America - Acoustic Version",
+              "preview_url": null,
+              "track_number": 6,
+              "type": "track",
+              "uri": "spotify:track:74SJIliPLG4SAUyrwnLCwZ"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 142333,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/1ojApjOv4WRt7W7mvFc6Tg"
+              },
+              "href": "https://api.spotify.com/v1/tracks/1ojApjOv4WRt7W7mvFc6Tg",
+              "id": "1ojApjOv4WRt7W7mvFc6Tg",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Sky Takes the Soul",
+              "preview_url": null,
+              "track_number": 7,
+              "type": "track",
+              "uri": "spotify:track:1ojApjOv4WRt7W7mvFc6Tg"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 145760,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/0vbUweqH9FnbDEaIMEYpUF"
+              },
+              "href": "https://api.spotify.com/v1/tracks/0vbUweqH9FnbDEaIMEYpUF",
+              "id": "0vbUweqH9FnbDEaIMEYpUF",
+              "is_local": false,
+              "is_playable": true,
+              "name": "It Broke My Heart",
+              "preview_url": null,
+              "track_number": 8,
+              "type": "track",
+              "uri": "spotify:track:0vbUweqH9FnbDEaIMEYpUF"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 238733,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/257rwII8I1bgOt4awMg57m"
+              },
+              "href": "https://api.spotify.com/v1/tracks/257rwII8I1bgOt4awMg57m",
+              "id": "257rwII8I1bgOt4awMg57m",
+              "is_local": false,
+              "is_playable": true,
+              "name": "The First Attack",
+              "preview_url": null,
+              "track_number": 9,
+              "type": "track",
+              "uri": "spotify:track:257rwII8I1bgOt4awMg57m"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 148173,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/5czZOqiriNXdOtkIDOUnTh"
+              },
+              "href": "https://api.spotify.com/v1/tracks/5czZOqiriNXdOtkIDOUnTh",
+              "id": "5czZOqiriNXdOtkIDOUnTh",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Make My Heart Fly",
+              "preview_url": null,
+              "track_number": 10,
+              "type": "track",
+              "uri": "spotify:track:5czZOqiriNXdOtkIDOUnTh"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 266893,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/7xk4vcdboqWKc90FG8BdNx"
+              },
+              "href": "https://api.spotify.com/v1/tracks/7xk4vcdboqWKc90FG8BdNx",
+              "id": "7xk4vcdboqWKc90FG8BdNx",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Beautiful Truth",
+              "preview_url": null,
+              "track_number": 11,
+              "type": "track",
+              "uri": "spotify:track:7xk4vcdboqWKc90FG8BdNx"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 184773,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/7hP4e4UyIaS7jYBVthlrDS"
+              },
+              "href": "https://api.spotify.com/v1/tracks/7hP4e4UyIaS7jYBVthlrDS",
+              "id": "7hP4e4UyIaS7jYBVthlrDS",
+              "is_local": false,
+              "is_playable": true,
+              "name": "The Joyful Kilmarnock Blues",
+              "preview_url": null,
+              "track_number": 12,
+              "type": "track",
+              "uri": "spotify:track:7hP4e4UyIaS7jYBVthlrDS"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1A92IAcd7A6npCA33oGM5i"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1A92IAcd7A6npCA33oGM5i",
+                  "id": "1A92IAcd7A6npCA33oGM5i",
+                  "name": "The Proclaimers",
+                  "type": "artist",
+                  "uri": "spotify:artist:1A92IAcd7A6npCA33oGM5i"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 242666,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/2AQZ89Q1ZZWsJNWwXZpLtY"
+              },
+              "href": "https://api.spotify.com/v1/tracks/2AQZ89Q1ZZWsJNWwXZpLtY",
+              "id": "2AQZ89Q1ZZWsJNWwXZpLtY",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Letter from America - Band Version",
+              "preview_url": null,
+              "track_number": 13,
+              "type": "track",
+              "uri": "spotify:track:2AQZ89Q1ZZWsJNWwXZpLtY"
+            }
+          ],
+          "limit": 50,
+          "next": null,
+          "offset": 0,
+          "previous": null,
+          "total": 13
+        },
+        "type": "album",
+        "uri": "spotify:album:1CqsUozozqdQG3J4SOwDya"
+      },
+      "release_date": "1987",
+      "release_date_precision": "year",
+      "total_tracks": 13,
+      "tracks": [
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 165200,
+          "explicit": false,
+          "id": "1zyKa1DrinEM8Prr99tm77",
+          "name": "Throw the 'R' Away",
+          "preview_url": null,
+          "track_number": 1
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 167960,
+          "explicit": false,
+          "id": "6cdVptYJt7MtMCMOtCWyOl",
+          "name": "Over and Done With",
+          "preview_url": null,
+          "track_number": 2
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 215600,
+          "explicit": false,
+          "id": "6zJBcyPGap72iXgWDXc75a",
+          "name": "Misty Blue",
+          "preview_url": null,
+          "track_number": 3
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 162173,
+          "explicit": false,
+          "id": "6jtOLJVwOElriUW0bpagPc",
+          "name": "The Part That Really Matters",
+          "preview_url": null,
+          "track_number": 4
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 119893,
+          "explicit": false,
+          "id": "4sUQsmtT44NXXWhb4qlKYj",
+          "name": "(I'm Gonna) Burn Your Playhouse Down",
+          "preview_url": null,
+          "track_number": 5
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 242480,
+          "explicit": false,
+          "id": "74SJIliPLG4SAUyrwnLCwZ",
+          "name": "Letter from America - Acoustic Version",
+          "preview_url": null,
+          "track_number": 6
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 142333,
+          "explicit": false,
+          "id": "1ojApjOv4WRt7W7mvFc6Tg",
+          "name": "Sky Takes the Soul",
+          "preview_url": null,
+          "track_number": 7
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 145760,
+          "explicit": false,
+          "id": "0vbUweqH9FnbDEaIMEYpUF",
+          "name": "It Broke My Heart",
+          "preview_url": null,
+          "track_number": 8
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 238733,
+          "explicit": false,
+          "id": "257rwII8I1bgOt4awMg57m",
+          "name": "The First Attack",
+          "preview_url": null,
+          "track_number": 9
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 148173,
+          "explicit": false,
+          "id": "5czZOqiriNXdOtkIDOUnTh",
+          "name": "Make My Heart Fly",
+          "preview_url": null,
+          "track_number": 10
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 266893,
+          "explicit": false,
+          "id": "7xk4vcdboqWKc90FG8BdNx",
+          "name": "Beautiful Truth",
+          "preview_url": null,
+          "track_number": 11
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 184773,
+          "explicit": false,
+          "id": "7hP4e4UyIaS7jYBVthlrDS",
+          "name": "The Joyful Kilmarnock Blues",
+          "preview_url": null,
+          "track_number": 12
+        },
+        {
+          "artists": [
+            {
+              "id": "1A92IAcd7A6npCA33oGM5i",
+              "name": "The Proclaimers"
+            }
+          ],
+          "duration_ms": 242666,
+          "explicit": false,
+          "id": "2AQZ89Q1ZZWsJNWwXZpLtY",
+          "name": "Letter from America - Band Version",
+          "preview_url": null,
+          "track_number": 13
+        }
+      ],
+      "url": "https://open.spotify.com/album/1CqsUozozqdQG3J4SOwDya"
+    }
+  },
+  "spotify_id": "1CqsUozozqdQG3J4SOwDya",
+  "spotify_url": "https://open.spotify.com/album/1CqsUozozqdQG3J4SOwDya",
+  "styles": [],
+  "title": "This Is The Story",
+  "tracklist": [
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A1",
+      "title": "Throw The 'R' Away"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A2",
+      "title": "Over And Done With"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A3",
+      "title": "Misty Blue"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A4",
+      "title": "The Part That Really Matters"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A5",
+      "title": "(I'm Gonna) Burn Your Playhouse Down"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A6",
+      "title": "Letter From America"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B1",
+      "title": "Sky Takes The Soul"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B2",
+      "title": "It Broke My Heart"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B3",
+      "title": "The First Attack"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B4",
+      "title": "Make My Heart Fly"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B5",
+      "title": "Beautiful Truth"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B6",
+      "title": "The Joyful Kilmarnock Blues"
+    }
+  ],
+  "updated_at": "2025-07-23T18:36:49.940614",
+  "year": 2024
+}
