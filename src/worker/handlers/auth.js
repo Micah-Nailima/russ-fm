@@ -68,36 +68,39 @@ async function handleLogin(request, env) {
     }
     
     const sessionId = generateSessionId();
+    const authStateId = generateSessionId(); // Separate ID for auth state
     
     // Get the current origin and determine callback URL
     const url = new URL(request.url);
     const referer = request.headers.get('Referer');
     
-    // Determine callback URL - use the origin from the referer (development) or request (production)
-    let callbackOrigin = url.origin;
+    // Store the original referer origin for post-auth redirect
+    let redirectOrigin = url.origin;
     if (referer) {
       const refererUrl = new URL(referer);
-      callbackOrigin = refererUrl.origin;
+      redirectOrigin = refererUrl.origin;
     }
     
-    // Always use the API callback endpoint
-    let callbackUrl = `${callbackOrigin}/api/auth/callback`;
-    
-    // Check if this is an embed request by looking at the referer
-    if (referer && referer.includes('/embed/')) {
-      // For embeds, we still use the API callback but store embed context
-      callbackUrl = `${callbackOrigin}/api/auth/callback`;
-    }
+    // Use production callback URL with auth state ID
+    let callbackUrl = `https://russ.fm/api/auth/callback?state=${authStateId}`;
     
     console.log('Creating auth URL with callback:', callbackUrl);
     const authUrl = createAuthUrl(env.LASTFM_API_KEY, callbackUrl);
     console.log('Generated auth URL:', authUrl);
     
-    // Store temporary session for callback verification
+    // Store auth state separately (accessible by state ID, not cookie)
+    await env.SESSIONS.put(`auth_state_${authStateId}`, JSON.stringify({
+      type: 'auth_pending',
+      sessionId: sessionId,
+      created: Date.now(),
+      redirectOrigin: redirectOrigin,
+      isEmbed: referer && referer.includes('/embed/')
+    }), { expirationTtl: 600 }); // 10 minutes
+    
+    // Store user session (for the final authenticated session)
     await env.SESSIONS.put(sessionId, JSON.stringify({
       type: 'pending',
-      created: Date.now(),
-      isEmbed: referer && referer.includes('/embed/') // Track if this is an embed session
+      created: Date.now()
     }), { expirationTtl: 600 }); // 10 minutes
     
     const response = Response.json({ authUrl });
@@ -120,14 +123,33 @@ async function handleLogin(request, env) {
 async function handleCallback(request, env, url) {
   try {
     const token = url.searchParams.get('token');
-    const sessionId = getSessionFromRequest(request);
+    const state = url.searchParams.get('state');
     
-    if (!token || !sessionId) {
+    console.log('Callback debug:', { 
+      hasToken: !!token, 
+      token: token?.substring(0, 10) + '...',
+      hasState: !!state,
+      state: state?.substring(0, 10) + '...'
+    });
+    
+    if (!token || !state) {
       return Response.json({ 
         success: false, 
-        error: 'Missing token or session' 
+        error: `Missing token or state. Token: ${!!token}, State: ${!!state}` 
       }, { status: 400 });
     }
+    
+    // Get auth state from KV
+    const authStateData = await env.SESSIONS.get(`auth_state_${state}`);
+    if (!authStateData) {
+      return Response.json({ 
+        success: false, 
+        error: 'Invalid or expired auth state' 
+      }, { status: 400 });
+    }
+    
+    const authState = JSON.parse(authStateData);
+    const sessionId = authState.sessionId;
     
     // Get session key from LastFM
     const sessionKey = await getSessionKey(token, env.LASTFM_API_KEY, env.LASTFM_SECRET);
@@ -178,26 +200,15 @@ async function handleCallback(request, env, url) {
       created: Date.now()
     }), { expirationTtl: 86400 }); // 24 hours
     
-    // Get the session data to check origin
-    const sessionData = await env.SESSIONS.get(sessionId);
-    const session = sessionData ? JSON.parse(sessionData) : {};
+    // Get the original session data to determine where to redirect
+    const originalSessionData = await env.SESSIONS.get(sessionId);
+    let redirectUrl = 'https://russ.fm/'; // Default fallback
     
-    // Determine redirect URL based on request origin or default to production
-    const requestUrl = new URL(request.url);
-    const allowedOrigins = env.ALLOWED_ORIGINS_STRING?.split(',').map(o => o.trim()) || [];
-    
-    // Check if the request is from localhost (development)
-    let redirectUrl = 'https://russ.fm/';
-    for (const origin of allowedOrigins) {
-      if (origin.includes('localhost')) {
-        redirectUrl = origin + '/';
-        break;
+    if (originalSessionData) {
+      const originalSession = JSON.parse(originalSessionData);
+      if (originalSession.redirectOrigin) {
+        redirectUrl = originalSession.redirectOrigin + '/';
       }
-    }
-    
-    // If the request is from production, use production URL
-    if (requestUrl.origin === 'https://russ.fm') {
-      redirectUrl = 'https://russ.fm/';
     }
     
     return Response.redirect(redirectUrl, 302);
