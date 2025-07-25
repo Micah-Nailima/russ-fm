@@ -6,6 +6,7 @@ export interface LastFmUser {
     registered: { unixtime: string };
     url: string;
   };
+  userAvatar: string | null;
   lastAlbumArt: string | null;
 }
 

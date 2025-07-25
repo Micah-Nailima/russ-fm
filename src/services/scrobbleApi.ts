@@ -15,15 +15,34 @@ class ScrobbleApiService {
   }
 
   async getAuthStatus(): Promise<AuthStatus> {
-    const response = await fetch(`${this.baseUrl}/api/auth/status`, {
-      credentials: 'include'
-    });
+    // Check if we have a session token (for cross-domain scenarios)
+    const sessionToken = localStorage.getItem('lastfm_session_token');
     
-    if (!response.ok) {
-      throw new Error('Failed to get auth status');
+    if (sessionToken) {
+      // Use token exchange endpoint
+      const response = await fetch(`${this.baseUrl}/api/auth/exchange?session=${encodeURIComponent(sessionToken)}`, {
+        credentials: 'include'
+      });
+      
+      if (!response.ok) {
+        // Token might be invalid, remove it and fall back to cookie-based auth
+        localStorage.removeItem('lastfm_session_token');
+        throw new Error('Failed to exchange session token');
+      }
+      
+      return response.json();
+    } else {
+      // Use cookie-based auth
+      const response = await fetch(`${this.baseUrl}/api/auth/status`, {
+        credentials: 'include'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to get auth status');
+      }
+      
+      return response.json();
     }
-    
-    return response.json();
   }
 
   async login(): Promise<AuthResponse> {

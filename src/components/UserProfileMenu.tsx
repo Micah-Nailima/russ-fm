@@ -40,8 +40,8 @@ export function UserProfileMenu() {
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
             <AvatarImage 
-              src={user.lastAlbumArt || undefined} 
-              alt={`${user.username}'s latest album`} 
+              src={user.userAvatar || user.lastAlbumArt || undefined} 
+              alt={`${user.username}'s avatar`} 
             />
             <AvatarFallback>
               <User className="h-4 w-4" />

@@ -48,6 +48,7 @@ async function handleAuthStatus(request, env) {
         username: session.username,
         sessionKey: session.sessionKey,
         userInfo: session.userInfo || null, // Include full user info if available
+        userAvatar: session.userAvatar || null, // Include user profile avatar
         lastAlbumArt: session.lastAlbumArt || null // Include latest album artwork
       }
     });
@@ -173,6 +174,20 @@ async function handleCallback(request, env, url) {
       }, { status: 400 });
     }
     
+    // Get user avatar from profile
+    let userAvatar = null;
+    if (userInfo && userInfo.image && userInfo.image.length > 0) {
+      // Find the largest available user avatar
+      const largeAvatar = userInfo.image.find(img => img.size === 'extralarge') ||
+                         userInfo.image.find(img => img.size === 'large') ||
+                         userInfo.image.find(img => img.size === 'medium') ||
+                         userInfo.image[0];
+      
+      if (largeAvatar && largeAvatar['#text']) {
+        userAvatar = largeAvatar['#text'];
+      }
+    }
+    
     // Get user's recent tracks for album artwork
     const recentTracks = await getUserRecentTracks(sessionKey, env.LASTFM_API_KEY, env.LASTFM_SECRET, 1);
     let lastAlbumArt = null;
@@ -197,6 +212,7 @@ async function handleCallback(request, env, url) {
       type: 'authenticated',
       username: userInfo.name,
       userInfo: userInfo, // Store full user info from Last.fm
+      userAvatar: userAvatar, // Store user's profile avatar
       lastAlbumArt: lastAlbumArt, // Store latest album artwork
       sessionKey: sessionKey,
       created: Date.now()
@@ -264,6 +280,7 @@ async function handleTokenExchange(request, env, url) {
         username: session.username,
         sessionKey: session.sessionKey,
         userInfo: session.userInfo || null,
+        userAvatar: session.userAvatar || null,
         lastAlbumArt: session.lastAlbumArt || null
       }
     });
