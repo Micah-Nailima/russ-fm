@@ -8,9 +8,22 @@ export function useLastFmAuth() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Check authentication status on mount
+  // Check authentication status on mount and when URL changes (for OAuth return)
   useEffect(() => {
-    checkAuthStatus();
+    const urlParams = new URLSearchParams(window.location.search);
+    const authSession = urlParams.get('auth_session');
+    
+    if (authSession) {
+      // We have an auth session token from OAuth callback
+      localStorage.setItem('lastfm_session_token', authSession);
+      // Clean up URL parameter
+      window.history.replaceState({}, document.title, window.location.pathname);
+      // Check auth status with the new token
+      checkAuthStatus();
+    } else {
+      // Normal auth check
+      checkAuthStatus();
+    }
   }, []);
 
   const checkAuthStatus = async () => {

@@ -14,7 +14,17 @@ export function buildCorsHeaders(request, allowedOrigins) {
 }
 
 export function applyCorsHeaders(response, corsHeaders) {
+  // Skip CORS headers for redirect responses (they have immutable headers)
+  if (response.status >= 300 && response.status < 400) {
+    return;
+  }
+  
   Object.entries(corsHeaders).forEach(([key, value]) => {
-    response.headers.set(key, value);
+    try {
+      response.headers.set(key, value);
+    } catch (error) {
+      // Headers might be immutable, skip silently
+      console.warn('Could not set CORS header:', key, error.message);
+    }
   });
 }

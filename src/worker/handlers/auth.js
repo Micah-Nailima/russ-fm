@@ -9,6 +9,8 @@ export async function handleAuth(request, env, path) {
     return handleLogin(request, env);
   } else if (path === '/api/auth/callback') {
     return handleCallback(request, env, url);
+  } else if (path === '/api/auth/exchange') {
+    return handleTokenExchange(request, env, url);
   } else if (path === '/api/auth/logout') {
     return handleLogout(request, env);
   } else if (path === '/api/auth/refresh-artwork') {
@@ -203,15 +205,73 @@ async function handleCallback(request, env, url) {
     // Clean up auth state
     await env.SESSIONS.delete(`auth_state_${state}`);
     
-    // Redirect to the original origin
+    // For cross-domain scenarios (like localhost development),
+    // include the sessionId in the redirect URL so the frontend can use it
     const redirectUrl = authState.redirectOrigin + '/';
+    const isLocalhost = authState.redirectOrigin.includes('localhost');
     
-    return Response.redirect(redirectUrl, 302);
+    if (isLocalhost) {
+      // For localhost, include sessionId as URL parameter
+      const redirectWithToken = new URL(redirectUrl);
+      redirectWithToken.searchParams.set('auth_session', sessionId);
+      return Response.redirect(redirectWithToken.toString(), 302);
+    } else {
+      // For same-domain, cookies work fine
+      return Response.redirect(redirectUrl, 302);
+    }
   } catch (error) {
     console.error('Callback error:', error);
     return Response.json({ 
       success: false, 
       error: 'Authentication failed' 
+    }, { status: 500 });
+  }
+}
+
+async function handleTokenExchange(request, env, url) {
+  try {
+    const sessionToken = url.searchParams.get('session');
+    
+    if (!sessionToken) {
+      return Response.json({ 
+        success: false, 
+        error: 'Missing session token' 
+      }, { status: 400 });
+    }
+    
+    // Get session data from KV
+    const sessionData = await env.SESSIONS.get(sessionToken);
+    
+    if (!sessionData) {
+      return Response.json({ 
+        authenticated: false 
+      });
+    }
+    
+    const session = JSON.parse(sessionData);
+    
+    // Check if session is expired (24 hours)
+    if (Date.now() - session.created > 24 * 60 * 60 * 1000) {
+      await env.SESSIONS.delete(sessionToken);
+      return Response.json({ 
+        authenticated: false 
+      });
+    }
+    
+    return Response.json({
+      authenticated: true,
+      user: {
+        username: session.username,
+        sessionKey: session.sessionKey,
+        userInfo: session.userInfo || null,
+        lastAlbumArt: session.lastAlbumArt || null
+      }
+    });
+  } catch (error) {
+    console.error('Token exchange error:', error);
+    return Response.json({ 
+      success: false, 
+      error: 'Token exchange failed' 
     }, { status: 500 });
   }
 }
