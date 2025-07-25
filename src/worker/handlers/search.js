@@ -78,7 +78,7 @@ async function handleReleaseDetails(releaseId, env) {
       {
         headers: {
           'User-Agent': 'RussFMScrobbler/1.0',
-          'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET || ''}`
+          'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET}`
         }
       }
     );
@@ -129,10 +129,10 @@ async function handleReleaseDetails(releaseId, env) {
 async function searchByArtistAlbum(artist, album, page, env) {
   try {
     const perPage = 20;
-    const query = `artist:"${artist}" release_title:"${album}"`;
     
     const searchUrl = new URL('https://api.discogs.com/database/search');
-    searchUrl.searchParams.set('q', query);
+    searchUrl.searchParams.set('artist', artist);
+    searchUrl.searchParams.set('release_title', album);
     searchUrl.searchParams.set('type', 'release');
     searchUrl.searchParams.set('page', page.toString());
     searchUrl.searchParams.set('per_page', perPage.toString());
@@ -140,18 +140,20 @@ async function searchByArtistAlbum(artist, album, page, env) {
     const response = await fetch(searchUrl.toString(), {
       headers: {
         'User-Agent': 'RussFMScrobbler/1.0',
-        'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET || ''}`
+        'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET}`
       }
     });
     
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Discogs search error:', response.status, errorText);
       if (response.status === 429) {
         return Response.json({ 
           error: 'Rate limit exceeded. Please try again later.' 
         }, { status: 429 });
       } else {
         return Response.json({ 
-          error: 'Search failed' 
+          error: `Search failed: ${response.status} - ${errorText}` 
         }, { status: response.status });
       }
     }
@@ -188,7 +190,7 @@ async function searchByArtistAlbum(artist, album, page, env) {
   } catch (error) {
     console.error('Artist/album search error:', error);
     return Response.json({ 
-      error: 'Search failed' 
+      error: `Search failed: ${error.message}` 
     }, { status: 500 });
   }
 }
