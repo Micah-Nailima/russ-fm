@@ -200,16 +200,11 @@ async function handleCallback(request, env, url) {
       created: Date.now()
     }), { expirationTtl: 86400 }); // 24 hours
     
-    // Get the original session data to determine where to redirect
-    const originalSessionData = await env.SESSIONS.get(sessionId);
-    let redirectUrl = 'https://russ.fm/'; // Default fallback
+    // Clean up auth state
+    await env.SESSIONS.delete(`auth_state_${state}`);
     
-    if (originalSessionData) {
-      const originalSession = JSON.parse(originalSessionData);
-      if (originalSession.redirectOrigin) {
-        redirectUrl = originalSession.redirectOrigin + '/';
-      }
-    }
+    // Redirect to the original origin
+    const redirectUrl = authState.redirectOrigin + '/';
     
     return Response.redirect(redirectUrl, 302);
   } catch (error) {
