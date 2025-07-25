@@ -73,14 +73,20 @@ async function handleLogin(request, env) {
     const url = new URL(request.url);
     const referer = request.headers.get('Referer');
     
+    // Determine callback URL - use the origin from the referer (development) or request (production)
+    let callbackOrigin = url.origin;
+    if (referer) {
+      const refererUrl = new URL(referer);
+      callbackOrigin = refererUrl.origin;
+    }
+    
+    // Always use the API callback endpoint
+    let callbackUrl = `${callbackOrigin}/api/auth/callback`;
+    
     // Check if this is an embed request by looking at the referer
-    let callbackUrl = `${url.origin}/`;
     if (referer && referer.includes('/embed/')) {
-      // Extract the embed path from referer for callback
-      const embedMatch = referer.match(/\/embed\/(\d+)\/?/);
-      if (embedMatch) {
-        callbackUrl = `${url.origin}/embed/${embedMatch[1]}/`;
-      }
+      // For embeds, we still use the API callback but store embed context
+      callbackUrl = `${callbackOrigin}/api/auth/callback`;
     }
     
     console.log('Creating auth URL with callback:', callbackUrl);
@@ -172,7 +178,29 @@ async function handleCallback(request, env, url) {
       created: Date.now()
     }), { expirationTtl: 86400 }); // 24 hours
     
-    return Response.json({ success: true });
+    // Get the session data to check origin
+    const sessionData = await env.SESSIONS.get(sessionId);
+    const session = sessionData ? JSON.parse(sessionData) : {};
+    
+    // Determine redirect URL based on request origin or default to production
+    const requestUrl = new URL(request.url);
+    const allowedOrigins = env.ALLOWED_ORIGINS_STRING?.split(',').map(o => o.trim()) || [];
+    
+    // Check if the request is from localhost (development)
+    let redirectUrl = 'https://russ.fm/';
+    for (const origin of allowedOrigins) {
+      if (origin.includes('localhost')) {
+        redirectUrl = origin + '/';
+        break;
+      }
+    }
+    
+    // If the request is from production, use production URL
+    if (requestUrl.origin === 'https://russ.fm') {
+      redirectUrl = 'https://russ.fm/';
+    }
+    
+    return Response.redirect(redirectUrl, 302);
   } catch (error) {
     console.error('Callback error:', error);
     return Response.json({ 

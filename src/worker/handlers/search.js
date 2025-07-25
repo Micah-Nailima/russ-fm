@@ -78,7 +78,8 @@ async function handleReleaseDetails(releaseId, env) {
       {
         headers: {
           'User-Agent': 'RussFMScrobbler/1.0',
-          'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET}`
+          'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET}`,
+          'Accept': 'application/vnd.discogs.v2.discogs+json'
         }
       }
     );
@@ -128,6 +129,17 @@ async function handleReleaseDetails(releaseId, env) {
 
 async function searchByArtistAlbum(artist, album, page, env) {
   try {
+    // Debug: Check if we have the required secrets
+    if (!env.DISCOGS_API_KEY || !env.DISCOGS_SECRET) {
+      console.error('Missing Discogs credentials:', {
+        hasApiKey: !!env.DISCOGS_API_KEY,
+        hasSecret: !!env.DISCOGS_SECRET
+      });
+      return Response.json({ 
+        error: 'Discogs API credentials not configured' 
+      }, { status: 500 });
+    }
+    
     const perPage = 20;
     
     const searchUrl = new URL('https://api.discogs.com/database/search');
@@ -140,7 +152,8 @@ async function searchByArtistAlbum(artist, album, page, env) {
     const response = await fetch(searchUrl.toString(), {
       headers: {
         'User-Agent': 'RussFMScrobbler/1.0',
-        'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET}`
+        'Authorization': `Discogs key=${env.DISCOGS_API_KEY}, secret=${env.DISCOGS_SECRET}`,
+        'Accept': 'application/vnd.discogs.v2.discogs+json'
       }
     });
     

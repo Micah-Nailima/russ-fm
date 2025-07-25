@@ -10,11 +10,12 @@ class ScrobbleApiService {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = '';
+    // In development, use production API; in production, use relative URLs
+    this.baseUrl = import.meta.env.DEV ? 'https://russ.fm' : '';
   }
 
   async getAuthStatus(): Promise<AuthStatus> {
-    const response = await fetch('/api/auth/status', {
+    const response = await fetch(`${this.baseUrl}/api/auth/status`, {
       credentials: 'include'
     });
     
@@ -26,7 +27,7 @@ class ScrobbleApiService {
   }
 
   async login(): Promise<AuthResponse> {
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch(`${this.baseUrl}/api/auth/login`, {
       method: 'POST',
       credentials: 'include'
     });
@@ -39,7 +40,7 @@ class ScrobbleApiService {
   }
 
   async logout(): Promise<AuthResponse> {
-    const response = await fetch('/api/auth/logout', {
+    const response = await fetch(`${this.baseUrl}/api/auth/logout`, {
       method: 'POST',
       credentials: 'include'
     });
@@ -52,7 +53,7 @@ class ScrobbleApiService {
   }
 
   async refreshArtwork(): Promise<{ success: boolean; lastAlbumArt: string | null }> {
-    const response = await fetch('/api/auth/refresh-artwork', {
+    const response = await fetch(`${this.baseUrl}/api/auth/refresh-artwork`, {
       method: 'POST',
       credentials: 'include'
     });
@@ -65,7 +66,7 @@ class ScrobbleApiService {
   }
 
   async scrobbleTrack(request: ScrobbleRequest): Promise<{ success: boolean; message?: string; error?: string }> {
-    const response = await fetch('/api/scrobble/track', {
+    const response = await fetch(`${this.baseUrl}/api/scrobble/track`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -84,7 +85,7 @@ class ScrobbleApiService {
   }
 
   async scrobbleAlbum(request: AlbumScrobbleRequest): Promise<AlbumScrobbleResponse> {
-    const response = await fetch('/api/scrobble/album', {
+    const response = await fetch(`${this.baseUrl}/api/scrobble/album`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

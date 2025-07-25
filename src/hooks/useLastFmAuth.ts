@@ -35,41 +35,8 @@ export function useLastFmAuth() {
       const response = await scrobbleApi.login();
       
       if (response.authUrl) {
-        // Open Last.fm auth in a new window
-        const authWindow = window.open(
-          response.authUrl,
-          'lastfm-auth',
-          'width=600,height=700,scrollbars=yes,resizable=yes'
-        );
-
-        // Poll for auth completion
-        const pollForAuth = () => {
-          const checkAuth = async () => {
-            try {
-              const status = await scrobbleApi.getAuthStatus();
-              if (status.authenticated) {
-                setIsAuthenticated(true);
-                setUser(status.user || null);
-                authWindow?.close();
-                return;
-              }
-            } catch (err) {
-              // Continue polling
-            }
-            
-            // Continue polling if window is still open
-            if (authWindow && !authWindow.closed) {
-              setTimeout(checkAuth, 2000);
-            } else {
-              // User closed the window
-              checkAuthStatus();
-            }
-          };
-          
-          checkAuth();
-        };
-
-        pollForAuth();
+        // Direct redirect to Last.fm (standard OAuth flow)
+        window.location.href = response.authUrl;
       } else {
         throw new Error(response.error || 'Failed to get auth URL');
       }
