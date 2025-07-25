@@ -12,6 +12,7 @@
     "build:sync": "node scripts/sync-to-r2.js",
     "build:sync:dry": "node scripts/sync-to-r2.js --dry-run",
     "build:worker": "npm run build:fast && node scripts/build-worker.js",
+    "build:worker-cloudflare": "node scripts/build-worker-cloudflare.js",
     "deploy": "npm run build:worker && wrangler deploy",
     "deploy:preview": "npm run build:worker && wrangler deploy --env preview",
     "process-images": "tsx scripts/process-images.js",
