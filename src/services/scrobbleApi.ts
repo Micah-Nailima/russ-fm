@@ -64,6 +64,9 @@ class ScrobbleApiService {
       credentials: 'include'
     });
     
+    // Clear session token from localStorage regardless of response
+    localStorage.removeItem('lastfm_session_token');
+    
     if (!response.ok) {
       throw new Error('Failed to logout');
     }
@@ -71,18 +74,6 @@ class ScrobbleApiService {
     return response.json();
   }
 
-  async refreshArtwork(): Promise<{ success: boolean; lastAlbumArt: string | null }> {
-    const response = await fetch(`${this.baseUrl}/api/auth/refresh-artwork`, {
-      method: 'POST',
-      credentials: 'include'
-    });
-    
-    if (!response.ok) {
-      throw new Error('Failed to refresh artwork');
-    }
-    
-    return response.json();
-  }
 
   async scrobbleTrack(request: ScrobbleRequest): Promise<{ success: boolean; message?: string; error?: string }> {
     const response = await fetch(`${this.baseUrl}/api/scrobble/track`, {

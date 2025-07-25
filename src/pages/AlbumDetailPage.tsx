@@ -12,6 +12,7 @@ import { filterGenres } from '@/lib/filterGenres';
 import { getCleanGenres } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { MusicPlayerSection } from '@/components/MusicPlayerSection';
+import { AlbumScrobbleButton } from '@/components/AlbumScrobbleButton';
 import { getAlbumImageFromData, getArtistImageFromData, handleImageError, sanitizeJsonPath } from '@/lib/image-utils';
 import { sanitizeFolderName, normalizeSigurRosTitle } from '@/lib/sigurRosNormalizer';
 

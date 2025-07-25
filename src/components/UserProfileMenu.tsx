@@ -10,10 +10,11 @@ import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { useLastFmAuth } from '../hooks/useLastFmAuth';
 import { LastFmAuthDialog } from './LastFmAuthDialog';
-import { Music, User, ExternalLink, RefreshCw } from 'lucide-react';
+import { User, ExternalLink, LogOut } from 'lucide-react';
+import { SiLastdotfm } from 'react-icons/si';
 
 export function UserProfileMenu() {
-  const { isAuthenticated, user, isLoading, refreshArtwork } = useLastFmAuth();
+  const { isAuthenticated, user, isLoading, logout } = useLastFmAuth();
 
   if (isLoading) {
     return (
@@ -26,9 +27,12 @@ export function UserProfileMenu() {
   if (!isAuthenticated || !user) {
     return (
       <LastFmAuthDialog>
-        <Button variant="ghost" size="sm" className="flex items-center gap-2">
-          <Music className="h-4 w-4" />
-          <span className="hidden sm:inline">Connect Last.fm</span>
+        <Button 
+          variant="ghost" 
+          className="relative h-8 w-8 rounded-full bg-[#d51007] hover:bg-[#d51007]/90 border-[#d51007]"
+          title="Connect to Last.fm"
+        >
+          <SiLastdotfm className="h-4 w-4 text-white" />
         </Button>
       </LastFmAuthDialog>
     );
@@ -74,19 +78,10 @@ export function UserProfileMenu() {
           </a>
         </DropdownMenuItem>
         
-        <DropdownMenuItem onClick={refreshArtwork}>
-          <RefreshCw className="mr-2 h-4 w-4" />
-          <span>Refresh Artwork</span>
+        <DropdownMenuItem onClick={logout} className="cursor-pointer text-red-600">
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Sign Out</span>
         </DropdownMenuItem>
-        
-        <DropdownMenuSeparator />
-        
-        <LastFmAuthDialog>
-          <DropdownMenuItem className="cursor-pointer">
-            <Music className="mr-2 h-4 w-4" />
-            <span>Manage Connection</span>
-          </DropdownMenuItem>
-        </LastFmAuthDialog>
       </DropdownMenuContent>
     </DropdownMenu>
   );

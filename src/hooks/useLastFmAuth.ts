@@ -69,21 +69,6 @@ export function useLastFmAuth() {
     }
   };
 
-  const refreshArtwork = async () => {
-    if (!isAuthenticated || !user) return;
-    
-    try {
-      const response = await scrobbleApi.refreshArtwork();
-      if (response.success) {
-        setUser({
-          ...user,
-          lastAlbumArt: response.lastAlbumArt
-        });
-      }
-    } catch (err) {
-      console.error('Failed to refresh artwork:', err);
-    }
-  };
 
   return {
     isAuthenticated,
@@ -92,7 +77,6 @@ export function useLastFmAuth() {
     error,
     login,
     logout,
-    refreshArtwork,
     checkAuthStatus
   };
 }

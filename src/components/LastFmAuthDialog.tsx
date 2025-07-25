@@ -3,7 +3,8 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { useLastFmAuth } from '../hooks/useLastFmAuth';
-import { ExternalLink, Music, User, LogOut } from 'lucide-react';
+import { ExternalLink, User, LogOut } from 'lucide-react';
+import { SiLastdotfm } from 'react-icons/si';
 
 interface LastFmAuthDialogProps {
   children: React.ReactNode;
@@ -52,7 +53,7 @@ export function LastFmAuthDialog({ children }: LastFmAuthDialogProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Music className="h-5 w-5" />
+            <SiLastdotfm className="h-5 w-5 text-[#d51007]" />
             Last.fm Authentication
           </DialogTitle>
           <DialogDescription>
@@ -75,8 +76,8 @@ export function LastFmAuthDialog({ children }: LastFmAuthDialogProps) {
               <div className="flex items-center gap-3 p-4 border rounded-lg">
                 <Avatar className="h-12 w-12">
                   <AvatarImage 
-                    src={user.lastAlbumArt || undefined} 
-                    alt={`${user.username}'s latest album`} 
+                    src={user.userAvatar || user.lastAlbumArt || undefined} 
+                    alt={`${user.username}'s avatar`} 
                   />
                   <AvatarFallback>
                     <User className="h-6 w-6" />
@@ -128,7 +129,7 @@ export function LastFmAuthDialog({ children }: LastFmAuthDialogProps) {
           ) : (
             <div className="space-y-4">
               <div className="text-center py-6">
-                <Music className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+                <SiLastdotfm className="h-12 w-12 mx-auto text-[#d51007] mb-3" />
                 <h3 className="font-medium mb-2">Connect to Last.fm</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Authenticate with Last.fm to enable scrobbling from your music collection.
@@ -138,9 +139,9 @@ export function LastFmAuthDialog({ children }: LastFmAuthDialogProps) {
               <div className="flex gap-2">
                 <Button 
                   onClick={handleLogin}
-                  className="flex-1 flex items-center gap-2"
+                  className="flex-1 flex items-center gap-2 bg-[#d51007] hover:bg-[#d51007]/90 border-[#d51007]"
                 >
-                  <Music className="h-4 w-4" />
+                  <SiLastdotfm className="h-4 w-4" />
                   Connect Last.fm
                 </Button>
                 <Button

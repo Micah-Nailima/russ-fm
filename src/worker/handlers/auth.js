@@ -13,8 +13,6 @@ export async function handleAuth(request, env, path) {
     return handleTokenExchange(request, env, url);
   } else if (path === '/api/auth/logout') {
     return handleLogout(request, env);
-  } else if (path === '/api/auth/refresh-artwork') {
-    return handleRefreshArtwork(request, env);
   }
   
   return new Response('Auth endpoint not found', { status: 404 });
@@ -36,8 +34,8 @@ async function handleAuthStatus(request, env) {
     
     const session = JSON.parse(sessionData);
     
-    // Check if session is expired (24 hours)
-    if (Date.now() - session.created > 24 * 60 * 60 * 1000) {
+    // Check if session is expired (30 days)
+    if (Date.now() - session.created > 30 * 24 * 60 * 60 * 1000) {
       await env.SESSIONS.delete(sessionId);
       return Response.json({ authenticated: false });
     }
@@ -48,7 +46,7 @@ async function handleAuthStatus(request, env) {
         username: session.username,
         sessionKey: session.sessionKey,
         userInfo: session.userInfo || null, // Include full user info if available
-        userAvatar: session.userAvatar || null, // Include user profile avatar
+        userAvatar: session.userAvatar || null, // Include proxied user avatar
         lastAlbumArt: session.lastAlbumArt || null // Include latest album artwork
       }
     });
@@ -176,15 +174,21 @@ async function handleCallback(request, env, url) {
     
     // Get user avatar from profile
     let userAvatar = null;
-    if (userInfo && userInfo.image && userInfo.image.length > 0) {
-      // Find the largest available user avatar
-      const largeAvatar = userInfo.image.find(img => img.size === 'extralarge') ||
-                         userInfo.image.find(img => img.size === 'large') ||
-                         userInfo.image.find(img => img.size === 'medium') ||
-                         userInfo.image[0];
-      
-      if (largeAvatar && largeAvatar['#text']) {
-        userAvatar = largeAvatar['#text'];
+    if (userInfo && userInfo.image) {
+      // According to Last.fm docs, image is a single URL string
+      if (Array.isArray(userInfo.image) && userInfo.image.length > 0) {
+        // Handle array format (multiple sizes)
+        const largeAvatar = userInfo.image.find(img => img.size === 'extralarge') ||
+                           userInfo.image.find(img => img.size === 'large') ||
+                           userInfo.image.find(img => img.size === 'medium') ||
+                           userInfo.image[0];
+        
+        if (largeAvatar && largeAvatar['#text']) {
+          userAvatar = largeAvatar['#text'];
+        }
+      } else if (typeof userInfo.image === 'string') {
+        // Handle string format (single URL)
+        userAvatar = userInfo.image;
       }
     }
     
@@ -212,11 +216,11 @@ async function handleCallback(request, env, url) {
       type: 'authenticated',
       username: userInfo.name,
       userInfo: userInfo, // Store full user info from Last.fm
-      userAvatar: userAvatar, // Store user's profile avatar
+      userAvatar: userAvatar, // Store proxied user avatar URL
       lastAlbumArt: lastAlbumArt, // Store latest album artwork
       sessionKey: sessionKey,
       created: Date.now()
-    }), { expirationTtl: 86400 }); // 24 hours
+    }), { expirationTtl: 2592000 }); // 30 days
     
     // Clean up auth state
     await env.SESSIONS.delete(`auth_state_${state}`);
@@ -266,8 +270,8 @@ async function handleTokenExchange(request, env, url) {
     
     const session = JSON.parse(sessionData);
     
-    // Check if session is expired (24 hours)
-    if (Date.now() - session.created > 24 * 60 * 60 * 1000) {
+    // Check if session is expired (30 days)
+    if (Date.now() - session.created > 30 * 24 * 60 * 60 * 1000) {
       await env.SESSIONS.delete(sessionToken);
       return Response.json({ 
         authenticated: false 
@@ -315,69 +319,6 @@ async function handleLogout(request, env) {
   }
 }
 
-async function handleRefreshArtwork(request, env) {
-  try {
-    const sessionId = getSessionFromRequest(request);
-    
-    if (!sessionId) {
-      return Response.json({ 
-        error: 'Not authenticated' 
-      }, { status: 401 });
-    }
-    
-    const sessionData = await env.SESSIONS.get(sessionId);
-    
-    if (!sessionData) {
-      return Response.json({ 
-        error: 'Session not found' 
-      }, { status: 401 });
-    }
-    
-    const session = JSON.parse(sessionData);
-    
-    if (session.type !== 'authenticated') {
-      return Response.json({ 
-        error: 'Not authenticated' 
-      }, { status: 401 });
-    }
-    
-    // Get user's recent tracks for updated album artwork
-    const recentTracks = await getUserRecentTracks(session.sessionKey, env.LASTFM_API_KEY, env.LASTFM_SECRET, 1);
-    let lastAlbumArt = null;
-    
-    if (recentTracks && recentTracks.length > 0) {
-      const latestTrack = Array.isArray(recentTracks) ? recentTracks[0] : recentTracks;
-      if (latestTrack.image && latestTrack.image.length > 0) {
-        // Find the largest available image
-        const largeImage = latestTrack.image.find(img => img.size === 'extralarge') ||
-                          latestTrack.image.find(img => img.size === 'large') ||
-                          latestTrack.image.find(img => img.size === 'medium') ||
-                          latestTrack.image[0];
-        
-        if (largeImage && largeImage['#text']) {
-          lastAlbumArt = largeImage['#text'];
-        }
-      }
-    }
-    
-    // Update session with new album artwork
-    session.lastAlbumArt = lastAlbumArt;
-    
-    await env.SESSIONS.put(sessionId, JSON.stringify(session), { 
-      expirationTtl: 86400 
-    });
-    
-    return Response.json({ 
-      success: true, 
-      lastAlbumArt: lastAlbumArt 
-    });
-  } catch (error) {
-    console.error('Refresh artwork error:', error);
-    return Response.json({ 
-      error: 'Failed to refresh artwork' 
-    }, { status: 500 });
-  }
-}
 
 function getSessionFromRequest(request) {
   const cookieHeader = request.headers.get('Cookie');
