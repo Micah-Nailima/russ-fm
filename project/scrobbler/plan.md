@@ -7,67 +7,124 @@ This plan outlines integrating Last.fm scrobbling into the existing Russ FM Clou
 ## Phase 1: Worker Enhancement & Authentication (Week 1-2)
 
 ### Objectives
-- Extend existing Cloudflare Worker with scrobbling API endpoints
-- Implement Last.fm OAuth authentication flow
-- Configure Cloudflare KV for session management
+- Integrate proven scrobbler handlers into existing Russ FM worker
+- Adapt authentication flow for React integration
+- Configure CORS for cross-origin requests
 
-### Worker Backend Tasks
+### Worker Backend Tasks - Using Proven Code
 
-#### 1.1 Enhanced Worker Structure
+#### 1.1 Integration Strategy
+**Copy and adapt working handlers from oldcode/:**
 ```bash
-# Files to create/modify:
-_worker.js                          # Enhanced main worker with API routing
-src/worker/                         # New worker modules directory
-├── handlers/
-│   ├── auth.js                     # Last.fm OAuth implementation  
-│   ├── scrobble.js                 # Track/album scrobbling logic
-│   └── search.js                   # Optional: Last.fm search enhancement
-├── utils/
-│   ├── lastfm.js                   # Last.fm API utilities and signatures
-│   ├── sessions.js                 # KV session management
-│   └── cors.js                     # CORS handling utilities
-└── config/
-    └── constants.js                # Rate limits, endpoints, defaults
+# Files to integrate from oldcode/:
+project/scrobbler/oldcode/handlers/auth.js      → src/worker/handlers/auth.js
+project/scrobbler/oldcode/handlers/scrobble.js  → src/worker/handlers/scrobble.js  
+project/scrobbler/oldcode/handlers/search.js    → src/worker/handlers/search.js
+project/scrobbler/oldcode/utils/lastfm.js       → src/worker/utils/lastfm.js
+project/scrobbler/oldcode/utils/static.js       → src/worker/utils/static.js
 ```
 
-**Implementation Steps:**
-1. Extend `_worker.js` to route `/api/auth/` and `/api/scrobble/` requests
-2. Create Last.fm API utility functions with MD5 signature generation
-3. Implement KV-based session management with TTL
-4. Add CORS handling for authentication redirects
-5. Create secure cookie utilities
-
-#### 1.2 Cloudflare Configuration Updates
-```toml
-# Add to wrangler.toml
-[[kv_namespaces]]
-binding = "SESSIONS"
-id = "sessions-namespace-id"
-preview_id = "preview-sessions-namespace-id"
-```
-
-**Setup Commands:**
-```bash
-# Create KV namespace
-wrangler kv:namespace create "SESSIONS"
-
-# Set API secrets
-wrangler secret put LASTFM_API_KEY
-wrangler secret put LASTFM_SECRET
-```
-
-#### 1.3 Authentication API Implementation
+#### 1.2 Enhanced _worker.js Integration
+**Extend current `_worker.js` with proven routing pattern:**
 ```javascript
-// API endpoints to implement
+// Enhanced _worker.js based on working implementation
+import { handleAuth } from './src/worker/handlers/auth.js';
+import { handleScrobble } from './src/worker/handlers/scrobble.js';
+import { handleSearch } from './src/worker/handlers/search.js';
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+
+    // Parse CORS origins (from working code)
+    const allowedOriginsString = env.ALLOWED_ORIGINS_STRING || '';
+    const parsedAllowedOrigins = allowedOriginsString
+      .split(',').map(origin => origin.trim()).filter(origin => origin.length > 0);
+
+    // Apply proven CORS handling
+    const responseCorsHeaders = buildCorsHeaders(request, parsedAllowedOrigins);
+
+    // Handle preflight requests
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { headers: responseCorsHeaders });
+    }
+
+    // Route scrobbling API requests (proven pattern)
+    if (path.startsWith('/api/auth/')) {
+      const response = await handleAuth(request, env, path);
+      applyCorsHeaders(response, responseCorsHeaders);
+      return response;
+    }
+    
+    if (path.startsWith('/api/scrobble/')) {
+      const response = await handleScrobble(request, env, path);
+      applyCorsHeaders(response, responseCorsHeaders);
+      return response;
+    }
+    
+    if (path.startsWith('/api/search/')) {
+      const response = await handleSearch(request, env, path);
+      applyCorsHeaders(response, responseCorsHeaders);
+      return response;
+    }
+
+    // Existing static asset serving (unchanged)
+    return handleStaticAssets(request, env);
+  }
+};
+```
+
+#### 1.3 Key Advantages of Working Code
+**Proven implementations we can reuse:**
+1. **Complete OAuth Flow**: Login → callback → session management with KV storage
+2. **MD5 Signature Generation**: Working Last.fm API authentication with crypto-js
+3. **Session Management**: 24-hour TTL, cookie handling, session validation
+4. **CORS Handling**: Dynamic origin validation with proper preflight support
+5. **Error Handling**: Comprehensive error responses and logging
+
+#### 1.4 Working API Endpoints (Proven)
+**The oldcode already provides these fully working endpoints:**
+```javascript
+// Authentication (fully implemented)
 POST /api/auth/login              # Initiate Last.fm OAuth
-GET  /api/auth/callback           # Handle OAuth callback
+GET  /api/auth/callback           # Handle OAuth callback  
 GET  /api/auth/status             # Check session status
 POST /api/auth/logout             # Clear session
+POST /api/auth/refresh-artwork    # Update user's latest album artwork
+
+// Scrobbling (fully working)
+POST /api/scrobble/track          # Scrobble individual track
+POST /api/scrobble/album          # Scrobble entire album with 3-min intervals
+
+// Search (complete implementation)
+GET  /api/search/discogs          # Search Discogs by artist/album or release ID
+GET  /api/search/discogs/release/{id} # Get detailed release info
+GET  /api/search/lastfm           # Search Last.fm albums
+GET  /api/search/lastfm/album     # Get Last.fm album details
+```
+
+#### 1.5 Required Dependencies
+**Add crypto-js dependency (used in working code):**
+```bash
+npm install crypto-js
+```
+
+#### 1.6 Configuration Setup
+```bash
+# Create KV namespace (same as working code)
+wrangler kv:namespace create "SESSIONS"
+
+# Set required secrets (proven working)
+wrangler secret put LASTFM_API_KEY
+wrangler secret put LASTFM_SECRET  
+wrangler secret put DISCOGS_API_KEY
+wrangler secret put ALLOWED_ORIGINS_STRING
 ```
 
 ### React Frontend Tasks
 
-#### 1.4 Authentication Components
+#### 1.7 Authentication Components
 ```bash
 # Files to create:
 src/components/LastFmAuthDialog.tsx        # Authentication modal (shadcn Dialog)
@@ -84,8 +141,11 @@ src/types/scrobble.ts                      # TypeScript interfaces
 4. Create TypeScript interfaces for scrobbling data
 5. Set up API service layer with proper error handling
 
-#### 1.5 Development Setup
+#### 1.8 Development Setup  
 ```bash
+# Install crypto-js dependency for Last.fm signatures
+npm install crypto-js
+
 # Update package.json scripts
 npm run dev:worker               # Local development with wrangler
 npm run build:worker             # Build worker for deployment
@@ -95,171 +155,182 @@ echo "VITE_SCROBBLING_ENABLED=true" >> .env.local
 ```
 
 ### Deliverables
-- ✅ Working Last.fm OAuth flow in Cloudflare Workers
-- ✅ KV-based session management with TTL
-- ✅ React authentication UI integrated with existing design
-- ✅ Foundation for scrobbling API endpoints
+- ✅ Proven Last.fm OAuth flow integrated into Russ FM worker
+- ✅ Working KV-based session management (24-hour TTL)
+- ✅ Complete scrobbling API endpoints (track & album)
+- ✅ React authentication UI with shadcn/ui integration
+- ✅ CORS handling for cross-origin requests
 
-### Testing Checklist
-- [ ] Last.fm OAuth redirects work correctly
-- [ ] Sessions persist in Cloudflare KV with proper expiration
-- [ ] Authentication status displays in React UI
-- [ ] Logout clears both cookies and KV sessions
-
----
-
-## Phase 2: Core Scrobbling Features (Week 3-4)
-
-### Objectives
-- Implement track and album scrobbling in Worker
-- Add scrobbling UI components to React frontend
-- Create progress tracking for bulk operations
-
-### Worker API Tasks
-
-#### 2.1 Scrobbling Implementation
-```bash
-# Files to create/extend:
-src/worker/handlers/scrobble.js            # Core scrobbling logic
-src/worker/utils/rateLimit.js              # Last.fm rate limiting
-src/worker/utils/batch.js                  # Bulk scrobbling utilities
-```
-
-**Implementation Steps:**
-1. Implement single track scrobbling with Last.fm API
-2. Create album scrobbling with realistic 3-minute intervals
-3. Add progress tracking using KV for bulk operations
-4. Implement exponential backoff for API failures
-5. Add scrobble validation and error handling
-
-#### 2.2 Scrobbling API Endpoints
-```javascript
-// New endpoints to implement
-POST /api/scrobble/track          # Scrobble individual track
-POST /api/scrobble/album          # Scrobble full album with progress
-GET  /api/scrobble/status/{jobId} # Check bulk scrobbling progress
-POST /api/scrobble/cancel/{jobId} # Cancel bulk operation
-```
-
-### React Frontend Tasks
-
-#### 2.3 Scrobbling UI Components
-```bash
-# Files to create:
-src/components/ScrobbleButton.tsx          # Button with loading states (shadcn)
-src/components/ScrobbleProgress.tsx        # Progress indicator for bulk ops
-src/components/ScrobbleToast.tsx           # Success/error notifications
-src/hooks/useScrobble.ts                   # Scrobbling operations hook
-src/hooks/useScrobbleStatus.ts             # Real-time progress tracking
-```
-
-**Implementation Steps:**
-1. Create scrobble button using shadcn/ui Button with loading spinner
-2. Implement progress tracking with polling for bulk operations
-3. Add toast notifications using existing toast system
-4. Create React Query mutations for scrobbling operations
-5. Handle authentication requirements with redirects
-
-#### 2.4 Album Page Integration
-```bash
-# Files to modify:
-src/pages/AlbumDetailPage.tsx              # Add track-level scrobbling
-src/components/AlbumCard.tsx               # Add quick-scrobble action
-src/pages/ArtistDetailPage.tsx             # Optional: artist-level actions
-```
-
-**Integration Points:**
-1. Add scrobble buttons to individual tracks in album view
-2. Add "Scrobble Album" button to album headers
-3. Display real-time progress during bulk scrobbling
-4. Show authentication prompts for unauthenticated users
-
-### Deliverables
-- ✅ Working track and album scrobbling via Worker API
-- ✅ Real-time progress feedback for bulk operations
-- ✅ Seamless integration with existing album pages
-- ✅ Comprehensive error handling and retry logic
-
-### Testing Checklist
-- [ ] Individual tracks scrobble successfully to Last.fm
-- [ ] Album scrobbling completes with 3-minute intervals
-- [ ] Progress indicators update correctly during bulk operations
-- [ ] Error states display appropriate user messages
-- [ ] Authentication flow works from scrobbling actions
+### Testing Checklist  
+- [ ] Copy oldcode handlers into src/worker/ directory structure
+- [ ] Update _worker.js with proven routing and CORS handling
+- [ ] Test Last.fm OAuth flow end-to-end
+- [ ] Verify session persistence and 24-hour TTL
+- [ ] Test track and album scrobbling endpoints
+- [ ] Verify authentication status displays in React UI
 
 ---
 
-## Phase 3: Enhanced User Experience (Week 5-6)
+## Phase 2: React Integration & UI Components (Week 3-4)
 
 ### Objectives
-- Polish scrobbling integration across all interfaces
-- Add user preferences and customization options
-- Implement scrobble history and user statistics
+- Create React components that use the proven API endpoints
+- Integrate scrobbling UI into existing album pages
+- Add real-time feedback for scrobbling operations
 
-### React Frontend Enhancements
+### Frontend Integration Tasks
 
-#### 3.1 Enhanced Album Cards
-```bash
-# Files to modify:
-src/components/AlbumCard.tsx               # Add quick-scrobble integration
-src/components/FilterBar.tsx               # Optional: scrobbling filters
-src/components/Navigation.tsx              # Enhanced user menu
-```
-
-**Enhancements:**
-1. Add subtle scrobble buttons to all album cards
-2. Show Last.fm play counts when available
-3. Add scrobbling status indicators (recently scrobbled)
-4. Implement hover states and smooth animations
-
-#### 3.2 User Profile & History
+#### 2.1 Core React Components (Using Working APIs)
 ```bash
 # Files to create:
-src/components/ScrobbleHistory.tsx         # Recent scrobbling activity
-src/components/UserStats.tsx              # Last.fm user statistics
-src/hooks/useScrobbleHistory.ts            # History data management
+src/components/ScrobbleButton.tsx          # Button using proven /api/scrobble/track endpoint
+src/components/ScrobbleProgress.tsx        # Progress for /api/scrobble/album operations  
+src/components/LastFmAuthDialog.tsx        # Dialog using proven /api/auth/* endpoints
+src/hooks/useLastFmAuth.ts                 # Hook wrapping proven auth status API
+src/hooks/useScrobble.ts                   # Hook wrapping proven scrobble APIs
+src/services/scrobbleApi.ts                # API client for proven endpoints
 ```
 
-**Features:**
-1. Display Last.fm username and total play count
-2. Show recent scrobbling activity (last 10 scrobbles)
-3. Add user statistics and listening trends
-4. Create compact history view in user dropdown
-
-#### 3.3 Search & Discovery Enhancement
-```bash
-# Files to modify:
-src/pages/SearchPage.tsx                   # Add Last.fm search integration
-src/hooks/useSearch.ts                     # Enhanced search with Last.fm
-src/components/SearchResults.tsx           # Show scrobbling options
+#### 2.2 API Integration Advantages
+**Since we have working endpoints, React integration is straightforward:**
+```typescript
+// Example: useScrobble hook using proven API
+const useScrobble = () => {
+  const scrobbleTrack = useMutation({
+    mutationFn: async ({ artist, album, track }: ScrobbleRequest) => {
+      // Call proven /api/scrobble/track endpoint
+      return fetch('/api/scrobble/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ artist, album, track }),
+        credentials: 'include' // Include session cookies
+      }).then(res => res.json());
+    }
+  });
+  
+  return { scrobbleTrack, isScrobbling: scrobbleTrack.isPending };
+};
 ```
 
-**Improvements:**
-1. Optionally integrate Last.fm album search alongside static data
-2. Enable one-click scrobbling from search results
-3. Show Last.fm popularity metrics (play counts, listeners)
-4. Add "quick scrobble" actions for authenticated users
-
-### Optional Worker Enhancements
-
-#### 3.4 Enhanced Search API (Optional)
-```javascript
-// Optional: Add Last.fm search to complement static data
-GET /api/search/lastfm                     # Search Last.fm albums
-GET /api/search/lastfm/album               # Get album details from Last.fm
+#### 2.3 Album Page Integration (Proven Data Flow)
+**The working scrobble handler expects this exact format:**
+```typescript
+// Album scrobbling using proven API format
+const scrobbleAlbum = async (album: Album) => {
+  const payload = {
+    artist: album.artists[0].name,
+    album: album.title, 
+    tracks: album.tracklist.map(track => ({
+      title: track.title
+    }))
+  };
+  
+  // Call proven /api/scrobble/album endpoint
+  return fetch('/api/scrobble/album', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    credentials: 'include'
+  });
+};
 ```
 
-### Deliverables
-- ✅ Polished scrobbling integration across all album interfaces
-- ✅ User profile with Last.fm statistics and recent activity
-- ✅ Enhanced search with optional Last.fm integration
-- ✅ Smooth animations and micro-interactions
+### Deliverables  
+- ✅ React components using proven API endpoints
+- ✅ Real-time progress feedback for album scrobbling
+- ✅ Seamless integration with existing shadcn/ui design
+- ✅ Error handling using proven API error responses
 
 ### Testing Checklist
-- [ ] Scrobble buttons integrate seamlessly with existing design
-- [ ] User statistics display correctly in navigation
-- [ ] Search results optionally show Last.fm data
-- [ ] All interactions feel smooth and responsive
+- [ ] Individual tracks scrobble using proven /api/scrobble/track
+- [ ] Album scrobbling works with proven 3-minute interval logic
+- [ ] Progress indicators show real-time feedback  
+- [ ] Authentication dialogs use proven OAuth flow
+- [ ] Error messages match proven API error responses
+
+---
+
+## Phase 3: Enhanced Features Using Proven APIs (Week 5-6)
+
+### Objectives  
+- Leverage proven search APIs to enhance static data
+- Add user statistics using proven auth APIs
+- Polish UI integration across all components
+
+### Enhanced Features Using Working Code
+
+#### 3.1 Search Integration (Using Proven APIs)
+**The oldcode already provides complete search functionality:**
+```bash
+# Working search endpoints we can integrate:
+GET /api/search/discogs          # Already working: search by artist/album or release ID
+GET /api/search/lastfm           # Already working: Last.fm album search  
+GET /api/search/lastfm/album     # Already working: detailed album info
+```
+
+**React Integration Strategy:**
+```typescript
+// Enhance existing search with proven API
+const useEnhancedSearch = () => {
+  // Use proven Last.fm search to complement static data
+  const searchLastFm = useQuery({
+    queryKey: ['lastfm-search', query],
+    queryFn: async () => {
+      return fetch(`/api/search/lastfm?album=${encodeURIComponent(query)}`)
+        .then(res => res.json());
+    },
+    enabled: !!query
+  });
+  
+  // Combine static data with Last.fm results
+  return {
+    staticResults: existingStaticSearch,
+    lastfmResults: searchLastFm.data?.results || [],
+    loading: searchLastFm.isLoading
+  };
+};
+```
+
+#### 3.2 User Profile Enhancement (Using Proven Auth)
+**The proven auth system already provides rich user data:**
+```typescript
+// Use proven /api/auth/status endpoint data
+interface LastFmUser {
+  username: string;
+  sessionKey: string;
+  userInfo: {
+    playcount: string;      // Total plays
+    registered: { unixtime: string };
+    url: string;           // Last.fm profile URL
+  };
+  lastAlbumArt: string;    // Latest scrobbled album artwork
+}
+```
+
+#### 3.3 Enhanced Navigation (Using Proven Data)
+```bash
+# Files to enhance:
+src/components/Navigation.tsx              # Show rich Last.fm user data
+src/components/UserProfileMenu.tsx         # Display proven user stats
+```
+
+**Features using proven APIs:**
+1. Display username and total play count from proven userInfo
+2. Show latest album artwork from proven lastAlbumArt
+3. Use proven /api/auth/refresh-artwork to update user background
+4. Link to Last.fm profile using proven userInfo.url
+
+### Deliverables
+- ✅ Enhanced search using proven Discogs/Last.fm APIs
+- ✅ Rich user profile with proven authentication data
+- ✅ Polished navigation showing Last.fm statistics
+- ✅ Seamless integration with existing design system
+
+### Testing Checklist
+- [ ] Search enhancement uses proven /api/search/* endpoints
+- [ ] User profile displays proven userInfo data correctly
+- [ ] Latest album artwork updates using proven refresh-artwork API
+- [ ] All proven API integrations work seamlessly
 
 ---
 
