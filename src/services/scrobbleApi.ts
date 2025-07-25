@@ -76,11 +76,20 @@ class ScrobbleApiService {
 
 
   async scrobbleTrack(request: ScrobbleRequest): Promise<{ success: boolean; message?: string; error?: string }> {
+    // Check if we have a session token (for cross-domain scenarios)
+    const sessionToken = localStorage.getItem('lastfm_session_token');
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json'
+    };
+    
+    // Add session token header if available
+    if (sessionToken) {
+      headers['Authorization'] = `Bearer ${sessionToken}`;
+    }
+    
     const response = await fetch(`${this.baseUrl}/api/scrobble/track`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers,
       credentials: 'include',
       body: JSON.stringify(request)
     });
@@ -95,11 +104,20 @@ class ScrobbleApiService {
   }
 
   async scrobbleAlbum(request: AlbumScrobbleRequest): Promise<AlbumScrobbleResponse> {
+    // Check if we have a session token (for cross-domain scenarios)
+    const sessionToken = localStorage.getItem('lastfm_session_token');
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json'
+    };
+    
+    // Add session token header if available
+    if (sessionToken) {
+      headers['Authorization'] = `Bearer ${sessionToken}`;
+    }
+    
     const response = await fetch(`${this.baseUrl}/api/scrobble/album`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers,
       credentials: 'include',
       body: JSON.stringify(request)
     });

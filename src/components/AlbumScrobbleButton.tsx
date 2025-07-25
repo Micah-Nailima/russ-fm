@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from './ui/tooltip';
 import { useLastFmAuth } from '../hooks/useLastFmAuth';
 import { useScrobble } from '../hooks/useScrobble';
 import { LastFmAuthDialog } from './LastFmAuthDialog';
@@ -33,11 +33,26 @@ export function AlbumScrobbleButton({
 
     try {
       setProgress({ current: 0, total: album.tracks.length });
+      
+      // Simulate progress updates during scrobbling
+      const progressInterval = setInterval(() => {
+        setProgress(prev => {
+          if (!prev) return null;
+          const newCurrent = Math.min(prev.current + 1, prev.total);
+          return { current: newCurrent, total: prev.total };
+        });
+      }, 3000); // Update every 3 seconds (Last.fm scrobbling interval)
+      
       const response = await scrobbleAlbum(album);
       
+      clearInterval(progressInterval);
+      
       if (response.success) {
-        setScrobbled(true);
-        setProgress(null);
+        setProgress({ current: album.tracks.length, total: album.tracks.length });
+        setTimeout(() => {
+          setScrobbled(true);
+          setProgress(null);
+        }, 500);
         
         // Reset scrobbled state after 5 seconds
         setTimeout(() => setScrobbled(false), 5000);
@@ -49,19 +64,29 @@ export function AlbumScrobbleButton({
   };
 
   const getIcon = () => {
-    if (isScrobbling) return <Loader2 className="h-4 w-4 animate-spin" />;
-    if (scrobbled) return <Check className="h-4 w-4 text-green-500" />;
+    if (progress || isScrobbling) return <Loader2 className="h-4 w-4 animate-spin" />;
+    if (scrobbled) return <Check className="h-4 w-4" />;
     if (error) return <AlertCircle className="h-4 w-4 text-destructive" />;
     return <SiLastdotfm className="h-4 w-4" />;
   };
 
   const getButtonText = () => {
-    if (isScrobbling && progress) {
+    if (progress) {
       return `Scrobbling ${progress.current}/${progress.total}...`;
     }
     if (isScrobbling) return 'Scrobbling...';
-    if (scrobbled) return 'Scrobbled!';
+    if (scrobbled) return 'Album Scrobbled!';
     return 'Scrobble to Last.fm';
+  };
+
+  const getButtonStyle = () => {
+    if (scrobbled) {
+      return 'bg-green-600 hover:bg-green-700 border-green-600 text-white';
+    }
+    if (progress || isScrobbling) {
+      return 'bg-blue-600 hover:bg-blue-700 border-blue-600 text-white';
+    }
+    return !isAuthenticated || error ? '' : 'btn-lastfm';
   };
 
   const getTooltipContent = () => {
@@ -75,47 +100,65 @@ export function AlbumScrobbleButton({
   const buttonClassName = `
     ${fullWidth ? 'w-full' : ''} 
     ${className}
-    ${!isAuthenticated || scrobbled ? '' : 'btn-lastfm'}
+    ${getButtonStyle()}
   `.trim();
 
   const button = (
-    <Button
-      variant={variant}
-      size={size}
-      onClick={handleScrobble}
-      disabled={isScrobbling || scrobbled}
-      className={buttonClassName}
-    >
-      {getIcon()}
-      <span className="service-text">
-        {getButtonText()}
-      </span>
-    </Button>
+    <div className="space-y-2">
+      <Button
+        variant={variant}
+        size={size}
+        onClick={handleScrobble}
+        disabled={isScrobbling || scrobbled || !!progress}
+        className={buttonClassName}
+      >
+        {getIcon()}
+        <span className="service-text">
+          {getButtonText()}
+        </span>
+      </Button>
+      
+      {/* Progress bar */}
+      {progress && (
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div 
+            className="bg-blue-600 h-2 rounded-full transition-all duration-300 ease-out"
+            style={{ 
+              width: `${(progress.current / progress.total) * 100}%` 
+            }}
+          ></div>
+        </div>
+      )}
+    </div>
   );
 
   if (!isAuthenticated) {
     return (
       <LastFmAuthDialog>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            {button}
-          </TooltipTrigger>
-          <TooltipContent>
-            {getTooltipContent()}
-          </TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              {button}
+            </TooltipTrigger>
+            <TooltipContent>
+              {getTooltipContent()}
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </LastFmAuthDialog>
     );
   }
 
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        {button}
-      </TooltipTrigger>
-      <TooltipContent>
-        {getTooltipContent()}
-      </TooltipContent>
-    </Tooltip>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          {button}
+        </TooltipTrigger>
+        <TooltipContent>
+          {getTooltipContent()}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }

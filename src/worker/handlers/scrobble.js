@@ -129,16 +129,27 @@ async function handleAlbumScrobble(request, env) {
 
 async function getSessionFromRequest(request, env) {
   try {
-    const cookieHeader = request.headers.get('Cookie');
-    if (!cookieHeader) return null;
+    let sessionId = null;
     
-    const cookies = cookieHeader.split(';').reduce((acc, cookie) => {
-      const [key, value] = cookie.trim().split('=');
-      acc[key] = value;
-      return acc;
-    }, {});
+    // First try to get session ID from Authorization header (for cross-domain scenarios)
+    const authHeader = request.headers.get('Authorization');
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      sessionId = authHeader.substring(7); // Remove "Bearer " prefix
+    }
     
-    const sessionId = cookies.session_id;
+    // If no Authorization header, try cookies
+    if (!sessionId) {
+      const cookieHeader = request.headers.get('Cookie');
+      if (cookieHeader) {
+        const cookies = cookieHeader.split(';').reduce((acc, cookie) => {
+          const [key, value] = cookie.trim().split('=');
+          acc[key] = value;
+          return acc;
+        }, {});
+        sessionId = cookies.session_id;
+      }
+    }
+    
     if (!sessionId) return null;
     
     const sessionData = await env.SESSIONS.get(sessionId);
@@ -146,8 +157,8 @@ async function getSessionFromRequest(request, env) {
     
     const session = JSON.parse(sessionData);
     
-    // Check if session is expired
-    if (Date.now() - session.created > 24 * 60 * 60 * 1000) {
+    // Check if session is expired (30 days)
+    if (Date.now() - session.created > 30 * 24 * 60 * 60 * 1000) {
       await env.SESSIONS.delete(sessionId);
       return null;
     }
