@@ -8,6 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Calendar, MoreHorizontal, Music } from 'lucide-react';
 import { SiLastdotfm } from 'react-icons/si';
 import { getCleanGenresFromArray } from '@/lib/genreUtils';
+import { AlbumScrobbleButton } from './AlbumScrobbleButton';
 import { getAlbumImageFromData, getArtistAvatarFromData, handleImageError } from '@/lib/image-utils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { normalizeSigurRosTitle, normalizeSigurRosArtistName } from '@/lib/sigurRosNormalizer';
@@ -131,14 +132,7 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                const discogsId = album.uri_release.match(/\/(\d+)\//)?.[1];
-                if (discogsId) {
-                  window.open(
-                    `https://scrobbler.russ.fm/embed/${discogsId}/`,
-                    'lastfm-scrobbler',
-                    'width=400,height=600,scrollbars=no,resizable=no'
-                  );
-                }
+                navigate(`/album/${albumPath}`);
               }}
             >
               <SiLastdotfm className="mr-2 h-4 w-4" />

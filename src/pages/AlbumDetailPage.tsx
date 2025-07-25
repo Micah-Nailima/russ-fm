@@ -12,6 +12,7 @@ import { filterGenres } from '@/lib/filterGenres';
 import { getCleanGenres } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { MusicPlayerSection } from '@/components/MusicPlayerSection';
+import { AlbumScrobbleButton } from '@/components/AlbumScrobbleButton';
 import { getAlbumImageFromData, getArtistImageFromData, handleImageError, sanitizeJsonPath } from '@/lib/image-utils';
 import { sanitizeFolderName, normalizeSigurRosTitle } from '@/lib/sigurRosNormalizer';
 
@@ -629,23 +630,16 @@ export function AlbumDetailPage() {
             {/* Service Buttons */}
             <div className="space-y-3 mt-6">
               {/* Last.fm Scrobble Button - Always spans full width */}
-              <Button 
-                onClick={() => {
-                  const discogsId = detailedAlbum?.discogs_id || detailedAlbum?.id || album.uri_release.match(/\/(\d+)\//)?.[1];
-                  if (discogsId) {
-                    window.open(
-                      `https://scrobbler.russ.fm/embed/${discogsId}/`,
-                      'lastfm-scrobbler',
-                      'width=400,height=600,scrollbars=no,resizable=no'
-                    );
-                  }
+              <AlbumScrobbleButton
+                album={{
+                  artist: album.release_artist,
+                  album: album.release_name,
+                  tracks: tracks.map(track => ({ title: track.name }))
                 }}
-                className="w-full btn-service btn-lastfm h-12"
-                variant="outline"
-              >
-                <SiLastdotfm className="service-icon" />
-                <span className="service-text">Scrobble to Last.fm</span>
-              </Button>
+                fullWidth={true}
+                size="lg"
+                className="h-12"
+              />
 
               {/* View on Discogs - Always spans full width */}
               {(detailedAlbum?.discogs_url || detailedAlbum?.discogs_id || detailedAlbum?.services?.discogs?.url || detailedAlbum?.services?.discogs?.id) && (

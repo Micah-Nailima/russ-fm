@@ -6,6 +6,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { SearchOverlay } from "./SearchOverlay";
 import { SearchFAB } from "./SearchFAB";
 import { MobileSearchModal } from "./MobileSearchModal";
+import { UserProfileMenu } from "./UserProfileMenu";
 import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from 'react-router-dom';
 
@@ -142,6 +143,11 @@ export function Navigation() {
                   <Search className="h-5 w-5" />
                 </Button>
 
+                {/* Desktop Last.fm Profile */}
+                <div className="hidden md:block">
+                  <UserProfileMenu />
+                </div>
+
                 {/* Desktop Theme Toggle */}
                 <div className="hidden md:block">
                   <ThemeToggle />
@@ -221,6 +227,11 @@ export function Navigation() {
                   >
                     Random
                   </Link>
+                </div>
+
+                {/* Mobile Last.fm Profile */}
+                <div className="px-4 py-2">
+                  <UserProfileMenu />
                 </div>
 
                 {/* Mobile Theme Toggle */}
