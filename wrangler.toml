@@ -7,9 +7,16 @@ main = "./_worker.js"
 directory = "./dist-worker"
 binding = "ASSETS"
 
+# KV storage for Last.fm sessions
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "826248011b2e42daa3052edb12763522"
+preview_id = "b791af7209cd437f9ecef0155597f7bd"
+
 # Environment variables
 [vars]
 ENVIRONMENT = "production"
+ALLOWED_ORIGINS_STRING = "https://russ.fm,https://preview.russ.fm"
 
 # R2 bucket binding (for your image storage)
 # [[r2_buckets]]
@@ -23,8 +30,8 @@ zone_name = "russ.fm"
 
 # Preview environment configuration
 [env.preview]
-vars = { ENVIRONMENT = "preview" }
+vars = { ENVIRONMENT = "preview", ALLOWED_ORIGINS_STRING = "http://localhost:5173,https://preview.russ.fm" }
 
 # Production environment configuration  
 [env.production]
-vars = { ENVIRONMENT = "production" }
+vars = { ENVIRONMENT = "production", ALLOWED_ORIGINS_STRING = "https://russ.fm" }

@@ -162,9 +162,14 @@ echo "VITE_SCROBBLING_ENABLED=true" >> .env.local
 - ✅ CORS handling for cross-origin requests
 
 ### Testing Checklist  
-- [ ] Copy oldcode handlers into src/worker/ directory structure
-- [ ] Update _worker.js with proven routing and CORS handling
+- [x] Copy oldcode handlers into src/worker/ directory structure
+- [x] Update _worker.js with proven routing and CORS handling
+- [x] Install crypto-js dependency and @radix-ui/react-progress
+- [x] Create React authentication components (LastFmAuthDialog, ScrobbleButton, etc.)
+- [x] Set up KV namespace configuration and secrets documentation
+- [x] Update package.json with enhanced worker build scripts
 - [ ] Test Last.fm OAuth flow end-to-end
+- [ ] Test Discogs search endpoint with curl
 - [ ] Verify session persistence and 24-hour TTL
 - [ ] Test track and album scrobbling endpoints
 - [ ] Verify authentication status displays in React UI
@@ -242,9 +247,13 @@ const scrobbleAlbum = async (album: Album) => {
 - ✅ Error handling using proven API error responses
 
 ### Testing Checklist
+- [x] React components created using proven API endpoints (ScrobbleButton, ScrobbleProgress)
+- [x] Real-time progress feedback implemented for album scrobbling
+- [x] Seamless integration with existing shadcn/ui design system
+- [x] Error handling implemented using proven API error responses
 - [ ] Individual tracks scrobble using proven /api/scrobble/track
 - [ ] Album scrobbling works with proven 3-minute interval logic
-- [ ] Progress indicators show real-time feedback  
+- [ ] Progress indicators show real-time feedback in deployed environment
 - [ ] Authentication dialogs use proven OAuth flow
 - [ ] Error messages match proven API error responses
 
@@ -327,10 +336,14 @@ src/components/UserProfileMenu.tsx         # Display proven user stats
 - ✅ Seamless integration with existing design system
 
 ### Testing Checklist
-- [ ] Search enhancement uses proven /api/search/* endpoints
-- [ ] User profile displays proven userInfo data correctly
+- [x] Enhanced search APIs integrated (Discogs and Last.fm endpoints)
+- [x] Rich user profile components created with authentication data
+- [x] Polished navigation showing Last.fm statistics (UserProfileMenu)
+- [x] Seamless integration with existing design system maintained
+- [ ] Search enhancement tested with proven /api/search/* endpoints
+- [ ] User profile displays proven userInfo data correctly in deployed environment
 - [ ] Latest album artwork updates using proven refresh-artwork API
-- [ ] All proven API integrations work seamlessly
+- [ ] All proven API integrations work seamlessly end-to-end
 
 ---
 
@@ -465,33 +478,39 @@ binding = "ASSETS"
 # KV storage for sessions
 [[kv_namespaces]]
 binding = "SESSIONS"
-id = "<your-production-namespace-id>"
-preview_id = "<your-preview-namespace-id>"
+id = "826248011b2e42daa3052edb12763522"
+preview_id = "b791af7209cd437f9ecef0155597f7bd"
 
 # Environment variables
 [vars]
 ENVIRONMENT = "production"
-ALLOWED_ORIGINS = "https://russ.fm,https://preview.russ.fm"
+ALLOWED_ORIGINS_STRING = "https://russ.fm,https://preview.russ.fm"
 
 # Preview environment
 [env.preview]
-vars = { ENVIRONMENT = "preview" }
+vars = { ENVIRONMENT = "preview", ALLOWED_ORIGINS_STRING = "http://localhost:5173,https://preview.russ.fm" }
+
+# Production environment  
+[env.production]
+vars = { ENVIRONMENT = "production", ALLOWED_ORIGINS_STRING = "https://russ.fm" }
 ```
 
 ### Development Workflow
 
 #### Enhanced Build Scripts
 ```json
-// package.json scripts
+// package.json scripts (✅ IMPLEMENTED)
 {
   "scripts": {
     "dev": "vite",
     "dev:worker": "wrangler dev",
-    "build": "vite build --outDir dist-worker",
-    "build:worker": "npm run build && node scripts/build-worker.js",
+    "build": "tsc --noEmit && vite build && npm run process-images",
+    "build:fast": "tsc --noEmit && vite build",
+    "build:worker": "npm run build:fast && node scripts/build-worker.js",
     "deploy": "npm run build:worker && wrangler deploy",
-    "test": "vitest",
-    "test:worker": "vitest run src/worker/**/*.test.js"
+    "deploy:preview": "npm run build:worker && wrangler deploy --env preview",
+    "lint": "eslint .",
+    "preview": "vite preview --outDir dist-worker"
   }
 }
 ```
