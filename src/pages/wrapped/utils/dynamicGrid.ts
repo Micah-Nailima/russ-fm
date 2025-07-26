@@ -66,7 +66,7 @@ function getOptimalImageSize(size: GridSize, type: GridItemType): ImageSize {
 }
 
 // Weighted random size selection with artist release count consideration
-function getWeightedRandomSize(rng: SeededRandom, type: GridItemType, index: number, data?: any): GridSize {
+function getWeightedRandomSize(rng: SeededRandom, type: GridItemType, index: number, data?: WrappedRelease | WrappedArtist | StatCardData): GridSize {
   // Hero content strategy: first 3 releases get guaranteed medium
   if (type === 'release' && index < 3) {
     return rng.next() < 0.7 ? 'medium' : 'small';

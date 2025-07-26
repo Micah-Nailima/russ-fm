@@ -126,9 +126,9 @@ export function DynamicStatCard({ stat, size }: DynamicStatCardProps) {
               {getIcon()}
             </div>
             <div className="flex-1 flex items-end justify-end gap-2 min-h-0">
-              {stat.data && Array.isArray(stat.data) ? stat.data.map((month: any, index: number) => {
-                const timelineData = stat.data as any[];
-                const maxCount = Math.max(...timelineData.map((m: any) => m.count));
+              {stat.data && Array.isArray(stat.data) ? stat.data.map((month: { month: string; count: number; releases: any[] }, index: number) => {
+                const timelineData = stat.data as Array<{ month: string; count: number; releases: any[] }>;
+                const maxCount = Math.max(...timelineData.map((m) => m.count));
                 const height = (month.count / maxCount) * 100;
                 return (
                   <div key={index} className="flex flex-col items-center gap-1 flex-1 h-full min-h-0">
