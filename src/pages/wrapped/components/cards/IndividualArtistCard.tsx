@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import { ImageSize } from '@/types/wrapped';
 
 interface Artist {
   name: string;
@@ -14,15 +15,33 @@ interface Artist {
 
 interface IndividualArtistCardProps {
   artist: Artist;
-  size: 'small' | 'medium' | 'wide';
+  size: 'small' | 'medium' | 'large' | 'wide';
+  imageSize?: ImageSize;
 }
 
-export function IndividualArtistCard({ artist, size }: IndividualArtistCardProps) {
-  // Use hi-res artist image first, then hi-res album image as fallback
-  const artistImage = artist.images?.['hi-res'] || artist.topAlbum?.images?.['hi-res'];
+export function IndividualArtistCard({ artist, size, imageSize = 'hi-res' }: IndividualArtistCardProps) {
+  // Select appropriate image size based on card size
+  const getArtistImage = () => {
+    const images = artist.images;
+    const albumImages = artist.topAlbum?.images;
+    
+    switch (imageSize) {
+      case 'avatar':
+        return images?.avatar || images?.medium || albumImages?.medium || albumImages?.['hi-res'];
+      case 'medium':
+        return images?.medium || images?.['hi-res'] || albumImages?.medium || albumImages?.['hi-res'];
+      case 'hi-res':
+      default:
+        return images?.['hi-res'] || images?.medium || albumImages?.['hi-res'] || albumImages?.medium;
+    }
+  };
+  
+  const artistImage = getArtistImage();
   
   return (
-    <div className="relative aspect-square w-full group overflow-hidden rounded-lg bg-gray-900">
+    <div className="relative aspect-square w-full group overflow-hidden rounded-lg bg-gray-900 transition-all duration-300 hover:shadow-lg"
+         style={{ transform: 'translateZ(0)' }}
+    >
       {/* Full background image */}
       {artistImage ? (
         <img 
@@ -43,12 +62,12 @@ export function IndividualArtistCard({ artist, size }: IndividualArtistCardProps
       <div className="absolute inset-0 p-3 flex flex-col justify-end">
         <div className="text-white">
           <h3 className={`font-bold leading-tight line-clamp-2 drop-shadow-lg ${
-            size === 'medium' ? 'text-lg' : size === 'wide' ? 'text-base' : 'text-sm'
+            size === 'large' ? 'text-xl' : size === 'medium' ? 'text-lg' : size === 'wide' ? 'text-base' : 'text-sm'
           }`}>
             {artist.name}
           </h3>
           <p className={`text-white/90 font-medium mt-1 drop-shadow-lg ${
-            size === 'medium' ? 'text-sm' : 'text-xs'
+            size === 'large' ? 'text-base' : size === 'medium' ? 'text-sm' : 'text-xs'
           }`}>
             {artist.count} release{artist.count !== 1 ? 's' : ''}
           </p>

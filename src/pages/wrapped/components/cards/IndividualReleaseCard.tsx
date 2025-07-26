@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import { ImageSize } from '@/types/wrapped';
 
 interface Release {
   slug: string;
@@ -11,19 +12,34 @@ interface Release {
 interface IndividualReleaseCardProps {
   release: Release;
   size: 'small' | 'medium' | 'large' | 'wide';
+  imageSize?: ImageSize;
 }
 
-export function IndividualReleaseCard({ release, size }: IndividualReleaseCardProps) {
-  // Use hi-res images for better quality
-  const imageUrl = release.images['hi-res'];
+export function IndividualReleaseCard({ release, size, imageSize = 'hi-res' }: IndividualReleaseCardProps) {
+  // Select appropriate image size based on card size
+  const getImageUrl = () => {
+    switch (imageSize) {
+      case 'avatar':
+        return release.images.small || release.images.medium;
+      case 'medium':
+        return release.images.medium;
+      case 'hi-res':
+      default:
+        return release.images['hi-res'];
+    }
+  };
+  
+  const imageUrl = getImageUrl();
   
   return (
-    <div className="relative aspect-square w-full group overflow-hidden rounded-lg bg-gray-900 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-black/25">
+    <div className="relative aspect-square w-full group overflow-hidden rounded-lg bg-gray-900 transition-all duration-300 hover:shadow-lg"
+         style={{ transform: 'translateZ(0)' }} // Force hardware acceleration and prevent overflow
+    >
       {/* Full background image */}
       <img 
         src={imageUrl}
         alt={`${release.title} by ${release.artist_name}`}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         loading="lazy"
       />
       

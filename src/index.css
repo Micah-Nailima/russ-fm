@@ -155,6 +155,72 @@
     grid-column: 1 / -1;
   }
   
+  /* Dynamic Bento Grid System - Square Cards Only */
+  .dynamic-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 8px;
+    grid-auto-flow: dense; /* Key: fills gaps automatically */
+    overflow: hidden; /* Prevent animation overflow */
+  }
+
+  /* Square size classes for dynamic grid */
+  .col-span-1 { grid-column: span 1; }
+  .col-span-2 { grid-column: span 2; }
+  .col-span-3 { grid-column: span 3; }
+  .row-span-1 { grid-row: span 1; }
+  .row-span-2 { grid-row: span 2; }
+  .row-span-3 { grid-row: span 3; }
+
+  /* Grid item containers - prevent overflow */
+  .dynamic-bento-grid > * {
+    overflow: hidden;
+    min-height: 0;
+    min-width: 0;
+  }
+
+  /* Responsive breakpoints for dynamic grid */
+  @media (max-width: 640px) {
+    .dynamic-bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(80px, auto);
+      gap: 6px;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    .dynamic-bento-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(90px, auto);
+      gap: 6px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .dynamic-bento-grid {
+      grid-template-columns: repeat(5, 1fr);
+      grid-auto-rows: minmax(100px, auto);
+      gap: 8px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .dynamic-bento-grid {
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: minmax(110px, auto);
+      gap: 8px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .dynamic-bento-grid {
+      grid-template-columns: repeat(8, 1fr);
+      grid-auto-rows: minmax(120px, auto);
+      gap: 10px;
+    }
+  }
+
   /* Responsive Bento Grid */
   @media (min-width: 768px) {
     .bento-grid {

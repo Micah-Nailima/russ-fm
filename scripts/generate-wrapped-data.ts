@@ -30,6 +30,7 @@ interface OriginalRelease {
   images_uri_release: {
     'hi-res': string;
     medium: string;
+    avatar?: string;
   };
   images_uri_artist: {
     'hi-res': string;
@@ -49,7 +50,7 @@ interface Release {
   images: {
     'hi-res': string;
     medium: string;
-    small?: string;
+    avatar?: string;
   };
   artists: Array<{ 
     name: string; 
@@ -97,7 +98,7 @@ interface WrappedData {
       slug: string;
       title: string;
       artist_name: string;
-      images: { 'hi-res': string; medium: string; small?: string };
+      images: { 'hi-res': string; medium: string; avatar?: string };
       date_added: string;
     }>;
     topArtists: Array<{
@@ -108,7 +109,7 @@ interface WrappedData {
       topAlbum?: {
         slug: string;
         title: string;
-        images: { 'hi-res': string; medium: string; small?: string };
+        images: { 'hi-res': string; medium: string; avatar?: string };
       };
     }>;
   };
@@ -260,7 +261,7 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
         images: {
           'hi-res': release.images_uri_release['hi-res'],
           medium: release.images_uri_release.medium,
-          small: release.images_uri_release.small // Include small if available
+          avatar: release.images_uri_release['hi-res'].replace('-hi-res.jpg', '-avatar.jpg') // Generate avatar path
         },
         // Include ALL artist image sizes
         artists: release.artists.map(artist => ({

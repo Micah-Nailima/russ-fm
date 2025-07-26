@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { WrappedData } from '@/types/wrapped';
-import { BentoGrid } from './components/BentoGrid';
+import { DynamicBentoGrid } from './components/DynamicBentoGrid';
 import { SkeletonBentoGrid } from './components/SkeletonBentoGrid';
 import { YearSelector } from './components/YearSelector';
 import { YearPagination } from './components/YearPagination';
@@ -149,8 +149,8 @@ export function WrappedYear() {
             )}
           </div>
 
-          {/* Main Bento Grid */}
-          <BentoGrid data={data} />
+          {/* Main Dynamic Bento Grid */}
+          <DynamicBentoGrid data={data} />
 
           {/* Navigation */}
           <YearPagination

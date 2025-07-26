@@ -19,15 +19,15 @@ export function AnimatedCard({
 
   const animationClasses = {
     slideUp: {
-      initial: 'translate-y-8 opacity-0',
+      initial: 'translate-y-4 opacity-0',
       animate: 'translate-y-0 opacity-100'
     },
     slideLeft: {
-      initial: 'translate-x-8 opacity-0',
+      initial: 'translate-x-4 opacity-0',
       animate: 'translate-x-0 opacity-100'
     },
     slideRight: {
-      initial: '-translate-x-8 opacity-0',
+      initial: '-translate-x-4 opacity-0',
       animate: 'translate-x-0 opacity-100'
     },
     fadeIn: {
@@ -35,7 +35,7 @@ export function AnimatedCard({
       animate: 'opacity-100'
     },
     scaleUp: {
-      initial: 'scale-95 opacity-0',
+      initial: 'scale-98 opacity-0',
       animate: 'scale-100 opacity-100'
     }
   };
@@ -46,7 +46,7 @@ export function AnimatedCard({
     <div
       ref={elementRef}
       className={cn(
-        'transform transition-all duration-700 ease-out',
+        'transform transition-all duration-500 ease-out overflow-hidden',
         isVisible ? animate : initial,
         className
       )}
