@@ -159,18 +159,22 @@
   .dynamic-bento-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: 120px;
     gap: 8px;
     grid-auto-flow: dense; /* Key: fills gaps automatically */
     overflow: hidden; /* Prevent animation overflow */
   }
 
-  /* Square size classes for dynamic grid */
+  /* Size classes for dynamic grid */
   .col-span-1 { grid-column: span 1; }
   .col-span-2 { grid-column: span 2; }
   .col-span-3 { grid-column: span 3; }
+  .col-span-4 { grid-column: span 4; }
+  .col-span-6 { grid-column: span 6; }
   .row-span-1 { grid-row: span 1; }
-  .row-span-2 { grid-row: span 2; }
+  .row-span-2 { 
+    grid-row: span 2;
+  }
   .row-span-3 { grid-row: span 3; }
 
   /* Grid item containers - prevent overflow */

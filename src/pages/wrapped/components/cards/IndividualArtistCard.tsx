@@ -15,7 +15,7 @@ interface Artist {
 
 interface IndividualArtistCardProps {
   artist: Artist;
-  size: 'small' | 'medium' | 'large' | 'wide';
+  size: 'small' | 'medium' | 'large' | 'wide' | 'extra-wide';
   imageSize?: ImageSize;
 }
 
@@ -62,14 +62,21 @@ export function IndividualArtistCard({ artist, size, imageSize = 'hi-res' }: Ind
       <div className="absolute inset-0 p-3 flex flex-col justify-end">
         <div className="text-white">
           <h3 className={`font-bold leading-tight line-clamp-2 drop-shadow-lg ${
-            size === 'large' ? 'text-xl' : size === 'medium' ? 'text-lg' : size === 'wide' ? 'text-base' : 'text-sm'
+            size === 'extra-wide' ? 'text-2xl' : size === 'large' ? 'text-xl' : size === 'medium' ? 'text-lg' : size === 'wide' ? 'text-base' : 'text-sm'
           }`}>
             {artist.name}
           </h3>
-          <p className={`text-white/90 font-medium mt-1 drop-shadow-lg ${
-            size === 'large' ? 'text-base' : size === 'medium' ? 'text-sm' : 'text-xs'
+          <p className={`font-medium mt-1 drop-shadow-lg ${
+            size === 'extra-wide' ? 'text-lg' : size === 'large' ? 'text-base' : size === 'medium' ? 'text-sm' : 'text-xs'
+          } ${
+            artist.count >= 10 ? 'text-yellow-300' : 
+            artist.count >= 5 ? 'text-blue-300' : 
+            artist.count >= 3 ? 'text-green-300' : 'text-white/90'
           }`}>
             {artist.count} release{artist.count !== 1 ? 's' : ''}
+            {artist.count >= 10 && size === 'large' && (
+              <span className="ml-2 text-yellow-400 font-bold">★</span>
+            )}
           </p>
         </div>
       </div>

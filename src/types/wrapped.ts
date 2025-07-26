@@ -28,7 +28,7 @@ export interface WrappedAlbumDetail {
 }
 
 // Dynamic Bento Grid Types
-export type GridSize = 'small' | 'medium' | 'large';
+export type GridSize = 'small' | 'medium' | 'large' | 'wide' | 'extra-wide';
 export type GridItemType = 'release' | 'artist' | 'stat';
 export type ImageSize = 'avatar' | 'medium' | 'hi-res';
 
@@ -60,7 +60,7 @@ export interface WrappedArtist {
 }
 
 export interface StatCardData {
-  type: 'total' | 'peak' | 'average' | 'unique' | 'first' | 'last' | 'decades' | 'timeline' | 'genres';
+  type: 'total' | 'peak' | 'average' | 'unique' | 'first' | 'last' | 'decades' | 'timeline' | 'genre';
   title: string;
   value: string | number;
   subtitle?: string;

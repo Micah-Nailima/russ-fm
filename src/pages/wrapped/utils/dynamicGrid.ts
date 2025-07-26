@@ -27,17 +27,22 @@ class SeededRandom {
   }
 }
 
-// Size weights for weighted random selection
+// Size weights for weighted random selection (releases only get small/medium)
 const SIZE_WEIGHTS = {
-  small: 60,   // 60% - Most common (1x1)
-  medium: 25,  // 25% - Medium frequency (2x2) 
-  large: 15    // 15% - Rare, hero content (3x3)
+  small: 70,   // 70% - Most common (1x1)
+  medium: 30,  // 30% - Medium frequency (2x2) 
 };
 
-// Get square grid span for a size
+// Get grid span for a size (includes wide and extra-wide options)
 function getSquareSpan(size: GridSize): GridSpan {
+  if (size === 'wide') {
+    return { cols: 2, rows: 1 }; // 2x1 for wide cards
+  }
+  if (size === 'extra-wide') {
+    return { cols: 4, rows: 2 }; // 4x2 for timeline cards
+  }
   const spans = { small: 1, medium: 2, large: 3 };
-  const span = spans[size];
+  const span = spans[size as 'small' | 'medium' | 'large'];
   return { cols: span, rows: span };
 }
 
@@ -60,30 +65,61 @@ function getOptimalImageSize(size: GridSize, type: GridItemType): ImageSize {
   }
 }
 
-// Weighted random size selection
-function getWeightedRandomSize(rng: SeededRandom, type: GridItemType, index: number): GridSize {
-  // Hero content strategy: first 3 releases get guaranteed large/medium
+// Weighted random size selection with artist release count consideration
+function getWeightedRandomSize(rng: SeededRandom, type: GridItemType, index: number, data?: any): GridSize {
+  // Hero content strategy: first 3 releases get guaranteed medium
   if (type === 'release' && index < 3) {
-    return rng.next() < 0.6 ? 'large' : 'medium';
+    return rng.next() < 0.7 ? 'medium' : 'small';
   }
 
-  // Stat cards prefer small/medium sizes
-  if (type === 'stat') {
-    return rng.next() < 0.7 ? 'small' : 'medium';
+  // Stat cards sizing based on type
+  if (type === 'stat' && data) {
+    const statType = data.type;
+    // Timeline gets extra-wide (6x3) layout for better visualization
+    if (statType === 'timeline') {
+      return 'extra-wide';
+    }
+    // Individual genre cards get small (1x1) layout
+    if (statType === 'genre') {
+      return 'small';
+    }
+    // All other stats get small (1x1) layout
+    return 'small';
   }
 
-  // Weighted random selection
-  const totalWeight = SIZE_WEIGHTS.small + SIZE_WEIGHTS.medium + SIZE_WEIGHTS.large;
+  // Artist size based on release count
+  if (type === 'artist' && data) {
+    const releaseCount = data.count || 0;
+    
+    // Artists with 10+ releases get large size
+    if (releaseCount >= 10) {
+      return rng.next() < 0.8 ? 'large' : 'medium';
+    }
+    // Artists with 5+ releases get medium size  
+    else if (releaseCount >= 5) {
+      return rng.next() < 0.7 ? 'medium' : 'large';
+    }
+    // Artists with 3+ releases get medium/small
+    else if (releaseCount >= 3) {
+      return rng.next() < 0.6 ? 'medium' : 'small';
+    }
+    // Artists with 1-2 releases get small/medium
+    else {
+      return rng.next() < 0.8 ? 'small' : 'medium';
+    }
+  }
+
+  // Default weighted random selection for releases (only small/medium)
+  const totalWeight = SIZE_WEIGHTS.small + SIZE_WEIGHTS.medium;
   const random = rng.next() * totalWeight;
 
   if (random < SIZE_WEIGHTS.small) return 'small';
-  if (random < SIZE_WEIGHTS.small + SIZE_WEIGHTS.medium) return 'medium';
-  return 'large';
+  return 'medium';
 }
 
 // Create stat cards data
 function createStatCards(data: WrappedData): StatCardData[] {
-  return [
+  const baseStats = [
     {
       type: 'total',
       title: 'Total Releases',
@@ -128,17 +164,21 @@ function createStatCards(data: WrappedData): StatCardData[] {
       title: 'Monthly Timeline',
       value: 'Timeline',
       data: data.insights.timeline
-    },
-    {
-      type: 'genres',
-      title: 'Top Genres',
-      value: data.insights.genres.length,
-      data: data.insights.genres.slice(0, 5)
     }
   ];
+
+  // Add individual genre cards (top 6 genres)
+  const genreCards = data.insights.genres.slice(0, 6).map(genre => ({
+    type: 'genre' as const,
+    title: genre.name,
+    value: genre.count,
+    data: genre
+  }));
+
+  return [...baseStats, ...genreCards];
 }
 
-// Shuffle and mix content types
+// Shuffle and mix content types with artist ordering
 function shuffleAndMix(
   releases: WrappedRelease[],
   artists: WrappedArtist[],
@@ -147,36 +187,62 @@ function shuffleAndMix(
 ): Array<{ type: GridItemType; data: WrappedRelease | WrappedArtist | StatCardData; originalIndex?: number }> {
   const content: Array<{ type: GridItemType; data: WrappedRelease | WrappedArtist | StatCardData; originalIndex?: number }> = [];
 
-  // Add all releases
+  // Add all releases (shuffled)
   releases.forEach((release, index) => {
     content.push({ type: 'release', data: release, originalIndex: index });
   });
 
-  // Add all unique artists
-  artists.forEach(artist => {
+  // Sort artists by release count (descending) for proper prominence
+  const sortedArtists = [...artists].sort((a, b) => (b.count || 0) - (a.count || 0));
+  
+  // Add top artists first (they'll get better positioning)
+  sortedArtists.slice(0, Math.ceil(sortedArtists.length * 0.3)).forEach(artist => {
     content.push({ type: 'artist', data: artist });
   });
 
-  // Shuffle the content
-  const shuffledContent = rng.shuffle(content);
+  // Shuffle releases with top artists for better distribution
+  const topContent = rng.shuffle(content);
 
-  // Insert stat cards at strategic intervals (every 8-12 items)
+  // Add remaining artists
+  sortedArtists.slice(Math.ceil(sortedArtists.length * 0.3)).forEach(artist => {
+    topContent.push({ type: 'artist', data: artist });
+  });
+
+  // Final shuffle but keep top artists near the beginning
+  const shuffledContent = rng.shuffle(topContent);
+
+  // Find timeline card and insert it early, then handle other stat cards
   const result: Array<{ type: GridItemType; data: WrappedRelease | WrappedArtist | StatCardData; originalIndex?: number }> = [];
   let statCardIndex = 0;
+  
+  // Find and insert timeline card first (at position 3-5)
+  const timelineCardIndex = statCards.findIndex(card => card.type === 'timeline');
+  let timelineInserted = false;
 
   shuffledContent.forEach((item, index) => {
     result.push(item);
 
-    // Insert stat card every 8-12 items
+    // Insert timeline card early (between positions 3-5)
+    if (!timelineInserted && index >= 2 && index <= 4 && timelineCardIndex !== -1) {
+      result.push({ type: 'stat', data: statCards[timelineCardIndex] });
+      timelineInserted = true;
+    }
+
+    // Insert other stat cards every 8-12 items
     if ((index + 1) % rng.nextInt(8, 12) === 0 && statCardIndex < statCards.length) {
-      result.push({ type: 'stat', data: statCards[statCardIndex] });
+      // Skip timeline card since we already inserted it
+      if (statCards[statCardIndex].type !== 'timeline') {
+        result.push({ type: 'stat', data: statCards[statCardIndex] });
+      }
       statCardIndex++;
     }
   });
 
-  // Add remaining stat cards at the end
+  // Add remaining stat cards at the end (except timeline if already inserted)
   while (statCardIndex < statCards.length) {
-    result.push({ type: 'stat', data: statCards[statCardIndex] });
+    if (statCards[statCardIndex].type !== 'timeline' || !timelineInserted) {
+      result.push({ type: 'stat', data: statCards[statCardIndex] });
+    }
     statCardIndex++;
   }
 
@@ -197,7 +263,7 @@ export function generateDynamicGrid(data: WrappedData): GridItem[] {
 
   // Generate grid items with sizes and optimizations
   const gridItems: GridItem[] = mixedContent.map((item, index) => {
-    const size = getWeightedRandomSize(rng, item.type, item.originalIndex || index);
+    const size = getWeightedRandomSize(rng, item.type, item.originalIndex || index, item.data);
     const gridSpan = getSquareSpan(size);
     const imageSize = getOptimalImageSize(size, item.type);
     
@@ -218,7 +284,14 @@ export function generateDynamicGrid(data: WrappedData): GridItem[] {
 // CSS class utilities for grid items
 export function getGridClasses(item: GridItem): string {
   const { cols, rows } = item.gridSpan;
-  return `col-span-${cols} row-span-${rows}`;
+  const classes = `col-span-${cols} row-span-${rows}`;
+  
+  // Debug: Log timeline cards
+  if (item.type === 'stat' && (item.data as StatCardData).type === 'timeline') {
+    console.log('TIMELINE CARD:', { cols, rows, classes });
+  }
+  
+  return classes;
 }
 
 // Animation utilities
