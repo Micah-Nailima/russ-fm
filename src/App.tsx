@@ -9,6 +9,8 @@ import { StatsPage } from './pages/StatsPage';
 import { SearchResultsPage } from './pages/SearchResultsPage';
 import { RandomPage } from './pages/RandomPage';
 import { GenrePage } from './pages/GenrePage';
+import { WrappedYear } from './pages/wrapped/WrappedYear';
+import { WrappedYTD } from './pages/wrapped/WrappedYTD';
 
 // Component to handle "Various" artist route interception
 function ArtistRouteHandler() {
@@ -43,6 +45,9 @@ function App() {
           <Route path="/genres" element={<GenrePage />} />
           <Route path="/random" element={<RandomPage />} />
           <Route path="/search" element={<SearchResultsPage />} />
+          <Route path="/wrapped" element={<Navigate to={`/wrapped/${new Date().getFullYear() - 1}`} replace />} />
+          <Route path="/wrapped/ytd" element={<WrappedYTD />} />
+          <Route path="/wrapped/:year" element={<WrappedYear />} />
         </Routes>
       </main>
 
