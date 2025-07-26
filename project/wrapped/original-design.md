@@ -45,17 +45,6 @@ The home page features a minimalist design with a dynamic background and central
 
 #### Visual Elements
 
-**Background Animation**
-- Full-screen Three.js canvas rendering animated wave patterns
-- Multiple horizontal lines creating a mountain-like wave effect
-- Continuous smooth animation with subtle color gradients
-- Green-to-blue color scheme matching the Spotify aesthetic
-
-**Header**
-- Large centered title "Vinyl Unwrapped" 
-- Gradient text effect transitioning from Spotify green to blue
-- Subtitle: "Select a Year to View My Vinyl Journey"
-
 **Timeline Interface**
 - Vertical timeline with a glowing gradient line as the spine
 - Years displayed in reverse chronological order (newest to oldest)
