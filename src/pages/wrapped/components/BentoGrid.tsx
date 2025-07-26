@@ -5,7 +5,7 @@ import { GenreDistributionCard } from './cards/GenreDistributionCard';
 import { TotalCountCard } from './cards/TotalCountCard';
 import { PeakMonthCard } from './cards/PeakMonthCard';
 import { AveragePerMonthCard } from './cards/AveragePerMonthCard';
-import { FormatTypesCard } from './cards/FormatTypesCard';
+import { ReleaseDecadesCard } from './cards/FormatTypesCard';
 import { UniqueArtistsCard } from './cards/UniqueArtistsCard';
 import { FirstAdditionCard } from './cards/FirstAdditionCard';
 import { LastAdditionCard } from './cards/LastAdditionCard';
@@ -76,9 +76,9 @@ export function BentoGrid({ data }: BentoGridProps) {
         </div>
       )}
 
-      {/* Format Types - Small */}
+      {/* Release Decades - Small */}
       <div className="col-span-1">
-        <FormatTypesCard formats={data.insights.formats} />
+        <ReleaseDecadesCard decades={data.insights.decades} />
       </div>
 
       {/* Monthly Timeline - Medium (2x1) */}

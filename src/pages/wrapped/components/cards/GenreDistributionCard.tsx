@@ -12,16 +12,23 @@ interface GenreDistributionCardProps {
 
 export function GenreDistributionCard({ genres }: GenreDistributionCardProps) {
   const maxCount = Math.max(...genres.map(g => g.count));
+  const totalAlbums = genres.reduce((sum, genre) => sum + genre.count, 0);
 
   return (
     <BaseCard>
-      <h3 className="text-lg font-semibold mb-4">Genre Distribution</h3>
+      <h3 className="text-lg font-semibold mb-4">Top Genres</h3>
+      <p className="text-xs text-muted-foreground mb-3">
+        Across {totalAlbums} releases
+      </p>
       <div className="space-y-3">
-        {genres.map((genre, index) => (
+        {genres.slice(0, 5).map((genre, index) => (
           <div key={genre.name} className="space-y-1">
             <div className="flex items-center justify-between text-sm">
               <span className="font-medium">{genre.name}</span>
-              <span className="text-muted-foreground">{genre.percentage}%</span>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <span className="text-xs">{genre.count} albums</span>
+                <span className="text-xs">({genre.percentage}%)</span>
+              </div>
             </div>
             <div className="relative h-2 bg-muted rounded-full overflow-hidden">
               <div

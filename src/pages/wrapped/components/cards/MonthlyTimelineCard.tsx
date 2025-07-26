@@ -19,16 +19,17 @@ export function MonthlyTimelineCard({ timeline }: MonthlyTimelineCardProps) {
       <h3 className="text-lg font-semibold mb-4">Monthly Activity</h3>
       <div className="flex items-end justify-between gap-1 h-24">
         {timeline.map((month) => (
-          <div key={month.month} className="flex flex-col items-center gap-1 flex-1">
-            <div
-              className="bg-primary rounded-t w-full transition-all duration-500 hover:bg-primary/80"
-              style={{
-                height: `${maxCount > 0 ? (month.count / maxCount) * 100 : 0}%`,
-                minHeight: month.count > 0 ? '4px' : '2px'
-              }}
-              title={`${month.month}: ${month.count} releases`}
-            />
-            <span className="text-xs text-muted-foreground transform -rotate-45 origin-center">
+          <div key={month.month} className="flex flex-col items-center gap-1 flex-1 h-full">
+            <div className="flex flex-col justify-end h-full w-full">
+              <div
+                className="bg-primary rounded-t w-full transition-all duration-500 hover:bg-primary/80"
+                style={{
+                  height: `${maxCount > 0 ? Math.max((month.count / maxCount) * 80, month.count > 0 ? 4 : 2) : 2}px`
+                }}
+                title={`${month.month}: ${month.count} releases`}
+              />
+            </div>
+            <span className="text-xs text-muted-foreground transform -rotate-45 origin-center mt-1">
               {month.month.slice(0, 3)}
             </span>
           </div>

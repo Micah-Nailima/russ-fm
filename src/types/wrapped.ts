@@ -5,11 +5,18 @@ export interface WrappedRelease {
   date_release_year: string;
   genre_names: string[];
   slug: string;
-  image: string;
+  images: {
+    'hi-res': string;
+    medium: string;
+  };
   artists: Array<{ 
     name: string; 
     slug: string;
-    avatar?: string;
+    images: {
+      'hi-res'?: string;
+      medium?: string;
+      avatar?: string;
+    };
   }>;
 }
 
@@ -41,7 +48,7 @@ export interface WrappedData {
   insights: {
     genres: Array<{ name: string; count: number; percentage: number }>;
     artists: Array<{ name: string; slug: string; count: number; image?: string }>;
-    formats: Array<{ name: string; count: number }>;
+    decades: Array<{ name: string; count: number }>;
     timeline: Array<{ month: string; count: number; releases: WrappedRelease[] }>;
     topAlbums: Array<{
       slug: string;
