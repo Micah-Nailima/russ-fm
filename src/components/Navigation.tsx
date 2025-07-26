@@ -129,6 +129,19 @@ export function Navigation() {
                       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
                     )}
                   </Link>
+                  <Link 
+                    to="/wrapped" 
+                    className={`text-sm font-medium transition-all duration-200 hover:text-foreground relative py-2 ${
+                      location.pathname.startsWith('/wrapped') 
+                        ? 'text-primary font-semibold' 
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Wrapped
+                    {location.pathname.startsWith('/wrapped') && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                    )}
+                  </Link>
                 </div>
               </div>
 
@@ -226,6 +239,17 @@ export function Navigation() {
                     }`}
                   >
                     Random
+                  </Link>
+                  <Link
+                    to="/wrapped"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted ${
+                      location.pathname.startsWith('/wrapped')
+                        ? 'text-foreground bg-muted'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Wrapped
                   </Link>
                 </div>
 
