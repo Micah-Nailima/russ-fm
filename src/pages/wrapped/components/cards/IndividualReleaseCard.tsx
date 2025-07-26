@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { ImageSize } from '@/types/wrapped';
+import { getAlbumImageUrl } from '@/lib/image-utils';
 
 interface Release {
   slug: string;
@@ -17,19 +18,21 @@ interface IndividualReleaseCardProps {
 
 export function IndividualReleaseCard({ release, size, imageSize = 'hi-res' }: IndividualReleaseCardProps) {
   // Select appropriate image size based on card size
-  const getImageUrl = () => {
+  const getImageUrlForRelease = () => {
+    const albumSlug = release.slug;
+    
     switch (imageSize) {
       case 'avatar':
-        return release.images.small || release.images.medium;
+        return getAlbumImageUrl(albumSlug, 'small');
       case 'medium':
-        return release.images.medium;
+        return getAlbumImageUrl(albumSlug, 'medium');
       case 'hi-res':
       default:
-        return release.images['hi-res'];
+        return getAlbumImageUrl(albumSlug, 'hi-res');
     }
   };
   
-  const imageUrl = getImageUrl();
+  const imageUrl = getImageUrlForRelease();
   
   return (
     <div className="relative aspect-square w-full group overflow-hidden rounded-lg bg-gray-900 transition-all duration-300 hover:shadow-lg"

@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { ImageSize } from '@/types/wrapped';
+import { getAlbumImageUrl, getArtistImageUrl, getArtistAvatarUrl } from '@/lib/image-utils';
 
 interface Artist {
   name: string;
@@ -22,17 +23,25 @@ interface IndividualArtistCardProps {
 export function IndividualArtistCard({ artist, size, imageSize = 'hi-res' }: IndividualArtistCardProps) {
   // Select appropriate image size based on card size
   const getArtistImage = () => {
-    const images = artist.images;
-    const albumImages = artist.topAlbum?.images;
+    const artistSlug = artist.slug;
+    const albumSlug = artist.topAlbum?.slug;
     
     switch (imageSize) {
       case 'avatar':
-        return images?.avatar || images?.medium || albumImages?.medium || albumImages?.['hi-res'];
+        // Try artist avatar first, then fall back to artist medium, then album medium
+        try {
+          return getArtistAvatarUrl(artistSlug);
+        } catch {
+          if (albumSlug) {
+            return getAlbumImageUrl(albumSlug, 'medium');
+          }
+          return getArtistImageUrl(artistSlug, 'medium');
+        }
       case 'medium':
-        return images?.medium || images?.['hi-res'] || albumImages?.medium || albumImages?.['hi-res'];
+        return getArtistImageUrl(artistSlug, 'medium');
       case 'hi-res':
       default:
-        return images?.['hi-res'] || images?.medium || albumImages?.['hi-res'] || albumImages?.medium;
+        return getArtistImageUrl(artistSlug, 'hi-res');
     }
   };
   

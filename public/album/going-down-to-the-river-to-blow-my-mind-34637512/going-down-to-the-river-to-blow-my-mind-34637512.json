@@ -1,0 +1,1127 @@
+{
+  "apple_music_id": "1811382502",
+  "apple_music_url": "https://music.apple.com/gb/album/going-down-to-the-river-to-blow-my-mind/1811382502",
+  "artists": [
+    {
+      "apple_music_id": "17605567",
+      "biography": "Luke Michael Haines (born 7 October 1967) is an English musician, songwriter and author, who has recorded music under various names and with various bands, including The Auteurs, Baader Meinhof and Black Box Recorder.",
+      "discogs_id": "225396",
+      "discogs_original_name": "Luke Haines",
+      "id": null,
+      "lastfm_mbid": "08bca401-88d5-4de7-b9c3-560a2e4c1abc",
+      "name": "Luke Haines",
+      "role": "",
+      "spotify_id": "6ktzu3KxlqOqd3eKnqTCyb",
+      "wikipedia_url": null
+    },
+    {
+      "apple_music_id": "1464756",
+      "biography": "Peter Lawrence Buck (born December 6, 1956) is an American musician and songwriter. He was a co-founder and the lead guitarist of the alternative rock band R.E.M.",
+      "discogs_id": "268477",
+      "discogs_original_name": "Peter Buck",
+      "id": null,
+      "lastfm_mbid": "2bab20bf-8dab-4af8-b7b0-ba8e30860261",
+      "name": "Peter Buck",
+      "role": "",
+      "spotify_id": "0sqfioVq0W7KyfszjuiDMu",
+      "wikipedia_url": null
+    }
+  ],
+  "artists_wikipedia": {
+    "Luke Haines": {
+      "biography": "Luke Michael Haines (born 7 October 1967) is an English musician, songwriter and author, who has recorded music under various names and with various bands, including The Auteurs, Baader Meinhof and Black Box Recorder.",
+      "wikipedia_url": null
+    },
+    "Peter Buck": {
+      "biography": "Peter Lawrence Buck (born December 6, 1956) is an American musician and songwriter. He was a co-founder and the lead guitarist of the alternative rock band R.E.M.",
+      "wikipedia_url": null
+    }
+  },
+  "country": "UK",
+  "created_at": "2025-07-26T13:26:46.725243",
+  "date_added": "2025-07-25T11:58:29-07:00",
+  "discogs_id": "34637512",
+  "discogs_url": "https://www.discogs.com/release/34637512-Luke-Haines-Peter-Buck-Going-Down-To-The-River-To-Blow-My-Mind",
+  "formats": [
+    "Vinyl"
+  ],
+  "genres": [
+    "Rock"
+  ],
+  "id": "34637512",
+  "images": [
+    {
+      "height": 599,
+      "resource_url": "https://i.discogs.com/bXw3N_tBS7nlp5BFkpF4zvRHm4bp7CbbZQ78g9o4I9g/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtMjkzMC5qcGVn.jpeg",
+      "type": "primary",
+      "url": "https://i.discogs.com/bXw3N_tBS7nlp5BFkpF4zvRHm4bp7CbbZQ78g9o4I9g/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtMjkzMC5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/KLSv5_hlOuycGVWaYU0fJJ2Vo3PdXgkVj8EBCCR7HbI/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtOTUyNS5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/KLSv5_hlOuycGVWaYU0fJJ2Vo3PdXgkVj8EBCCR7HbI/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtOTUyNS5qcGVn.jpeg",
+      "width": 594
+    },
+    {
+      "height": 596,
+      "resource_url": "https://i.discogs.com/7cfy2EDgNt9QLsEIrX1CFfwBAakEEl6b9HkSucenBWo/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/MzktNTYwMi5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/7cfy2EDgNt9QLsEIrX1CFfwBAakEEl6b9HkSucenBWo/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/MzktNTYwMi5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 597,
+      "resource_url": "https://i.discogs.com/Hjmv7PQjIirjFHtY0SeBluFTuHGpcPVkskIxIeqTseI/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDItMzgwMi5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/Hjmv7PQjIirjFHtY0SeBluFTuHGpcPVkskIxIeqTseI/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDItMzgwMi5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/rzuoMx6lqCqdyHfUdzNfkeR1Yf1IkUFn7kk1yHErO90/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtOTk3OS5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/rzuoMx6lqCqdyHfUdzNfkeR1Yf1IkUFn7kk1yHErO90/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtOTk3OS5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/GnaubxgpDq52jSEbBwP9mfuTkZnC0l653dyUSzTzz0k/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtNDg1Ny5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/GnaubxgpDq52jSEbBwP9mfuTkZnC0l653dyUSzTzz0k/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NjM3/NTEyLTE3NTM0NTQ5/NDEtNDg1Ny5qcGVn.jpeg",
+      "width": 597
+    },
+    {
+      "height": 2000,
+      "resource_url": null,
+      "type": "apple_music_artwork",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/9f/72/1d9f72b9-7e15-86be-b48e-7ac531401840/885890732305.jpg/2000x2000bb.jpg",
+      "width": 2000
+    }
+  ],
+  "labels": [
+    "Cherry Red"
+  ],
+  "lastfm_mbid": null,
+  "lastfm_url": null,
+  "local_images": {
+    "hi-res": "../public/album/going-down-to-the-river-to-blow-my-mind-34637512/going-down-to-the-river-to-blow-my-mind-34637512-hi-res.jpg"
+  },
+  "processing_info": {
+    "has_local_images": true,
+    "local_images_count": 1,
+    "processed_at": "2025-07-26T13:26:59.193626",
+    "services_used": [
+      "discogs",
+      "apple_music",
+      "spotify",
+      "wikipedia"
+    ]
+  },
+  "release_name_apple_music": "Going Down To The River... To Blow My Mind",
+  "release_name_discogs": "Going Down To The River To Blow My Mind",
+  "release_name_spotify": "Going Down To The River... To Blow My Mind",
+  "released": "2025-07-25",
+  "services": {
+    "apple_music": {
+      "artwork_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/9f/72/1d9f72b9-7e15-86be-b48e-7ac531401840/885890732305.jpg/2000x2000bb.jpg",
+      "content_rating": null,
+      "copyright": "℗ 2025 Luke Haines / Peter Buck",
+      "editorial_notes": null,
+      "id": "1811382502",
+      "is_complete": true,
+      "preview_url": null,
+      "raw_attributes": {
+        "artistName": "Luke Haines & Peter Buck",
+        "artwork": {
+          "bgColor": "112025",
+          "height": 3000,
+          "textColor1": "f66152",
+          "textColor2": "ea5e3c",
+          "textColor3": "c85449",
+          "textColor4": "be5137",
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/9f/72/1d9f72b9-7e15-86be-b48e-7ac531401840/885890732305.jpg/{w}x{h}bb.jpg",
+          "width": 3000
+        },
+        "copyright": "℗ 2025 Luke Haines / Peter Buck",
+        "genreNames": [
+          "Rock",
+          "Music",
+          "Alternative",
+          "Indie Rock"
+        ],
+        "isCompilation": false,
+        "isComplete": true,
+        "isMasteredForItunes": false,
+        "isSingle": false,
+        "name": "Going Down To The River... To Blow My Mind",
+        "playParams": {
+          "id": "1811382502",
+          "kind": "album"
+        },
+        "recordLabel": "Cherry Red Records",
+        "releaseDate": "2025-07-25",
+        "trackCount": 13,
+        "upc": "885890732305",
+        "url": "https://music.apple.com/gb/album/going-down-to-the-river-to-blow-my-mind/1811382502"
+      },
+      "url": "https://music.apple.com/gb/album/going-down-to-the-river-to-blow-my-mind/1811382502"
+    },
+    "spotify": {
+      "album_type": "album",
+      "available_markets": [],
+      "copyrights": [
+        {
+          "text": "© 2025 Cherry Red Records Ltd",
+          "type": "C"
+        },
+        {
+          "text": "℗ 2025 Luke Haines / Peter Buck",
+          "type": "P"
+        }
+      ],
+      "explicit": false,
+      "external_ids": {
+        "upc": "885890732305"
+      },
+      "id": "6ZmjQgD2G5EsoYnNZWhrje",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b27321d2c4aff1845fd27bca2089",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e0221d2c4aff1845fd27bca2089",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d0000485121d2c4aff1845fd27bca2089",
+          "width": 64
+        }
+      ],
+      "label": "Cherry Red Records",
+      "popularity": 1,
+      "preview_url": null,
+      "raw_data": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+            },
+            "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+            "id": "6ktzu3KxlqOqd3eKnqTCyb",
+            "name": "Luke Haines",
+            "type": "artist",
+            "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+          },
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+            },
+            "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+            "id": "0sqfioVq0W7KyfszjuiDMu",
+            "name": "Peter Buck",
+            "type": "artist",
+            "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+          }
+        ],
+        "copyrights": [
+          {
+            "text": "© 2025 Cherry Red Records Ltd",
+            "type": "C"
+          },
+          {
+            "text": "℗ 2025 Luke Haines / Peter Buck",
+            "type": "P"
+          }
+        ],
+        "external_ids": {
+          "upc": "885890732305"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6ZmjQgD2G5EsoYnNZWhrje"
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/albums/6ZmjQgD2G5EsoYnNZWhrje?market=US",
+        "id": "6ZmjQgD2G5EsoYnNZWhrje",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27321d2c4aff1845fd27bca2089",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0221d2c4aff1845fd27bca2089",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485121d2c4aff1845fd27bca2089",
+            "width": 64
+          }
+        ],
+        "is_playable": true,
+        "label": "Cherry Red Records",
+        "name": "Going Down To The River... To Blow My Mind",
+        "popularity": 1,
+        "release_date": "2025-07-25",
+        "release_date_precision": "day",
+        "total_tracks": 13,
+        "tracks": {
+          "href": "https://api.spotify.com/v1/albums/6ZmjQgD2G5EsoYnNZWhrje/tracks?offset=0&limit=50&market=US",
+          "items": [
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 249388,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/1AGzzQ4xfpmQiNPkqy2Zf5"
+              },
+              "href": "https://api.spotify.com/v1/tracks/1AGzzQ4xfpmQiNPkqy2Zf5",
+              "id": "1AGzzQ4xfpmQiNPkqy2Zf5",
+              "is_local": false,
+              "is_playable": true,
+              "name": "The Pink Floyd Research Group",
+              "preview_url": null,
+              "track_number": 1,
+              "type": "track",
+              "uri": "spotify:track:1AGzzQ4xfpmQiNPkqy2Zf5"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 160848,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/60dnuPoxQNMfe8TiKfqBqy"
+              },
+              "href": "https://api.spotify.com/v1/tracks/60dnuPoxQNMfe8TiKfqBqy",
+              "id": "60dnuPoxQNMfe8TiKfqBqy",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Going Down To The River To Blow My Mind",
+              "preview_url": null,
+              "track_number": 2,
+              "type": "track",
+              "uri": "spotify:track:60dnuPoxQNMfe8TiKfqBqy"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 202712,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/7F9ll7kMKMylF2c3Cj11PM"
+              },
+              "href": "https://api.spotify.com/v1/tracks/7F9ll7kMKMylF2c3Cj11PM",
+              "id": "7F9ll7kMKMylF2c3Cj11PM",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Hot Artists",
+              "preview_url": null,
+              "track_number": 3,
+              "type": "track",
+              "uri": "spotify:track:7F9ll7kMKMylF2c3Cj11PM"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 178091,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/1r3JSEN3SgNHSJV7opv5oo"
+              },
+              "href": "https://api.spotify.com/v1/tracks/1r3JSEN3SgNHSJV7opv5oo",
+              "id": "1r3JSEN3SgNHSJV7opv5oo",
+              "is_local": false,
+              "is_playable": true,
+              "name": "56 Nervous Breakdowns",
+              "preview_url": null,
+              "track_number": 4,
+              "type": "track",
+              "uri": "spotify:track:1r3JSEN3SgNHSJV7opv5oo"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 198745,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/5t3xmgtW6iSqxRIvMp8z8W"
+              },
+              "href": "https://api.spotify.com/v1/tracks/5t3xmgtW6iSqxRIvMp8z8W",
+              "id": "5t3xmgtW6iSqxRIvMp8z8W",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Sufi Devotional",
+              "preview_url": null,
+              "track_number": 5,
+              "type": "track",
+              "uri": "spotify:track:5t3xmgtW6iSqxRIvMp8z8W"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 232988,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/1pTyDgUY3AUdEZlq4bceH2"
+              },
+              "href": "https://api.spotify.com/v1/tracks/1pTyDgUY3AUdEZlq4bceH2",
+              "id": "1pTyDgUY3AUdEZlq4bceH2",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Children Of The Air",
+              "preview_url": null,
+              "track_number": 6,
+              "type": "track",
+              "uri": "spotify:track:1pTyDgUY3AUdEZlq4bceH2"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 190905,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6euYFV9Sdtw5FCOJobQBNH"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6euYFV9Sdtw5FCOJobQBNH",
+              "id": "6euYFV9Sdtw5FCOJobQBNH",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Nuclear War",
+              "preview_url": null,
+              "track_number": 7,
+              "type": "track",
+              "uri": "spotify:track:6euYFV9Sdtw5FCOJobQBNH"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 133137,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/2zb9EF9K9kJsNDg84uOfPx"
+              },
+              "href": "https://api.spotify.com/v1/tracks/2zb9EF9K9kJsNDg84uOfPx",
+              "id": "2zb9EF9K9kJsNDg84uOfPx",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Me And The Octopus",
+              "preview_url": null,
+              "track_number": 8,
+              "type": "track",
+              "uri": "spotify:track:2zb9EF9K9kJsNDg84uOfPx"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 186383,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/0ccLFUL3NxdpP9EEvH6Fc5"
+              },
+              "href": "https://api.spotify.com/v1/tracks/0ccLFUL3NxdpP9EEvH6Fc5",
+              "id": "0ccLFUL3NxdpP9EEvH6Fc5",
+              "is_local": false,
+              "is_playable": true,
+              "name": "In Rock",
+              "preview_url": null,
+              "track_number": 9,
+              "type": "track",
+              "uri": "spotify:track:0ccLFUL3NxdpP9EEvH6Fc5"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 189842,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/7K1oOkp4C79kWKBqaQwAMP"
+              },
+              "href": "https://api.spotify.com/v1/tracks/7K1oOkp4C79kWKBqaQwAMP",
+              "id": "7K1oOkp4C79kWKBqaQwAMP",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Judy Chicago",
+              "preview_url": null,
+              "track_number": 10,
+              "type": "track",
+              "uri": "spotify:track:7K1oOkp4C79kWKBqaQwAMP"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 199446,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/7nUpjE5K7poOu7pOZazGQx"
+              },
+              "href": "https://api.spotify.com/v1/tracks/7nUpjE5K7poOu7pOZazGQx",
+              "id": "7nUpjE5K7poOu7pOZazGQx",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Papa John",
+              "preview_url": null,
+              "track_number": 11,
+              "type": "track",
+              "uri": "spotify:track:7nUpjE5K7poOu7pOZazGQx"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 177021,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/3gISMIGwF2myRB4c8aMgNq"
+              },
+              "href": "https://api.spotify.com/v1/tracks/3gISMIGwF2myRB4c8aMgNq",
+              "id": "3gISMIGwF2myRB4c8aMgNq",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Radical Bookshop Now",
+              "preview_url": null,
+              "track_number": 12,
+              "type": "track",
+              "uri": "spotify:track:3gISMIGwF2myRB4c8aMgNq"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/6ktzu3KxlqOqd3eKnqTCyb"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/6ktzu3KxlqOqd3eKnqTCyb",
+                  "id": "6ktzu3KxlqOqd3eKnqTCyb",
+                  "name": "Luke Haines",
+                  "type": "artist",
+                  "uri": "spotify:artist:6ktzu3KxlqOqd3eKnqTCyb"
+                },
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0sqfioVq0W7KyfszjuiDMu"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/0sqfioVq0W7KyfszjuiDMu",
+                  "id": "0sqfioVq0W7KyfszjuiDMu",
+                  "name": "Peter Buck",
+                  "type": "artist",
+                  "uri": "spotify:artist:0sqfioVq0W7KyfszjuiDMu"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 149154,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/5AmCASCFQmpKGFK9zk9PsS"
+              },
+              "href": "https://api.spotify.com/v1/tracks/5AmCASCFQmpKGFK9zk9PsS",
+              "id": "5AmCASCFQmpKGFK9zk9PsS",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Special Guest Appearance",
+              "preview_url": null,
+              "track_number": 13,
+              "type": "track",
+              "uri": "spotify:track:5AmCASCFQmpKGFK9zk9PsS"
+            }
+          ],
+          "limit": 50,
+          "next": null,
+          "offset": 0,
+          "previous": null,
+          "total": 13
+        },
+        "type": "album",
+        "uri": "spotify:album:6ZmjQgD2G5EsoYnNZWhrje"
+      },
+      "release_date": "2025-07-25",
+      "release_date_precision": "day",
+      "total_tracks": 13,
+      "tracks": [
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 249388,
+          "explicit": false,
+          "id": "1AGzzQ4xfpmQiNPkqy2Zf5",
+          "name": "The Pink Floyd Research Group",
+          "preview_url": null,
+          "track_number": 1
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 160848,
+          "explicit": false,
+          "id": "60dnuPoxQNMfe8TiKfqBqy",
+          "name": "Going Down To The River To Blow My Mind",
+          "preview_url": null,
+          "track_number": 2
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 202712,
+          "explicit": false,
+          "id": "7F9ll7kMKMylF2c3Cj11PM",
+          "name": "Hot Artists",
+          "preview_url": null,
+          "track_number": 3
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 178091,
+          "explicit": false,
+          "id": "1r3JSEN3SgNHSJV7opv5oo",
+          "name": "56 Nervous Breakdowns",
+          "preview_url": null,
+          "track_number": 4
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 198745,
+          "explicit": false,
+          "id": "5t3xmgtW6iSqxRIvMp8z8W",
+          "name": "Sufi Devotional",
+          "preview_url": null,
+          "track_number": 5
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 232988,
+          "explicit": false,
+          "id": "1pTyDgUY3AUdEZlq4bceH2",
+          "name": "Children Of The Air",
+          "preview_url": null,
+          "track_number": 6
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 190905,
+          "explicit": false,
+          "id": "6euYFV9Sdtw5FCOJobQBNH",
+          "name": "Nuclear War",
+          "preview_url": null,
+          "track_number": 7
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 133137,
+          "explicit": false,
+          "id": "2zb9EF9K9kJsNDg84uOfPx",
+          "name": "Me And The Octopus",
+          "preview_url": null,
+          "track_number": 8
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 186383,
+          "explicit": false,
+          "id": "0ccLFUL3NxdpP9EEvH6Fc5",
+          "name": "In Rock",
+          "preview_url": null,
+          "track_number": 9
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 189842,
+          "explicit": false,
+          "id": "7K1oOkp4C79kWKBqaQwAMP",
+          "name": "Judy Chicago",
+          "preview_url": null,
+          "track_number": 10
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 199446,
+          "explicit": false,
+          "id": "7nUpjE5K7poOu7pOZazGQx",
+          "name": "Papa John",
+          "preview_url": null,
+          "track_number": 11
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 177021,
+          "explicit": false,
+          "id": "3gISMIGwF2myRB4c8aMgNq",
+          "name": "Radical Bookshop Now",
+          "preview_url": null,
+          "track_number": 12
+        },
+        {
+          "artists": [
+            {
+              "id": "6ktzu3KxlqOqd3eKnqTCyb",
+              "name": "Luke Haines"
+            },
+            {
+              "id": "0sqfioVq0W7KyfszjuiDMu",
+              "name": "Peter Buck"
+            }
+          ],
+          "duration_ms": 149154,
+          "explicit": false,
+          "id": "5AmCASCFQmpKGFK9zk9PsS",
+          "name": "Special Guest Appearance",
+          "preview_url": null,
+          "track_number": 13
+        }
+      ],
+      "url": "https://open.spotify.com/album/6ZmjQgD2G5EsoYnNZWhrje"
+    }
+  },
+  "spotify_id": "6ZmjQgD2G5EsoYnNZWhrje",
+  "spotify_url": "https://open.spotify.com/album/6ZmjQgD2G5EsoYnNZWhrje",
+  "styles": [
+    "Alternative Rock",
+    "Psychedelic Rock"
+  ],
+  "title": "Going Down To The River To Blow My Mind",
+  "tracklist": [
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A1",
+      "title": "The Pink Floyd Research Group"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A2",
+      "title": "Going Down To The River To Blow My Mind"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A3",
+      "title": "Hot Artists"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A4",
+      "title": "56 Nervous Breakdowns"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A5",
+      "title": "Sufi Devotional"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "A6",
+      "title": "Children Of The Air"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B1",
+      "title": "Nuclear War"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B2",
+      "title": "Me And The Octopus"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B3",
+      "title": "In Rock"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B4",
+      "title": "Judy Chicago"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B5",
+      "title": "Papa John"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B6",
+      "title": "Radical Bookshop Now"
+    },
+    {
+      "artists": [],
+      "duration": "",
+      "position": "B7",
+      "title": "Special Guest Appearance"
+    }
+  ],
+  "updated_at": "2025-07-26T13:26:57.261543",
+  "year": 2025
+}
