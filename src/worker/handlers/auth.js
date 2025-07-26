@@ -109,8 +109,8 @@ async function handleLogin(request, env) {
     // Set session cookie (adjust for localhost)
     const isLocalhost = url.hostname === 'localhost' || url.hostname === '127.0.0.1';
     const cookieOptions = isLocalhost 
-      ? `session_id=${sessionId}; Path=/; HttpOnly; SameSite=Strict; Max-Age=86400`
-      : `session_id=${sessionId}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400`;
+      ? `session_id=${sessionId}; Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000`
+      : `session_id=${sessionId}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=2592000`;
     
     response.headers.set('Set-Cookie', cookieOptions);
     
