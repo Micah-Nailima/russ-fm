@@ -1,7 +1,7 @@
 {
   "year": 2024,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:22.454Z",
+  "lastUpdated": "2025-07-26T09:03:58.633Z",
   "summary": {
     "totalReleases": 213,
     "uniqueArtists": 173,
@@ -8829,121 +8829,201 @@
         "name": "Genesis",
         "slug": "genesis",
         "count": 11,
-        "image": "/artist/genesis/genesis-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/genesis/genesis-hi-res.jpg",
+          "medium": "/artist/genesis/genesis-medium.jpg",
+          "avatar": "/artist/genesis/genesis-avatar.jpg"
+        }
       },
       {
         "name": "AC/DC",
         "slug": "acdc",
         "count": 9,
-        "image": "/artist/acdc/acdc-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/acdc/acdc-hi-res.jpg",
+          "medium": "/artist/acdc/acdc-medium.jpg",
+          "avatar": "/artist/acdc/acdc-avatar.jpg"
+        }
       },
       {
         "name": "Metallica",
         "slug": "metallica",
         "count": 7,
-        "image": "/artist/metallica/metallica-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/metallica/metallica-hi-res.jpg",
+          "medium": "/artist/metallica/metallica-medium.jpg",
+          "avatar": "/artist/metallica/metallica-avatar.jpg"
+        }
       },
       {
         "name": "Orbital",
         "slug": "orbital",
         "count": 3,
-        "image": "/artist/orbital/orbital-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/orbital/orbital-hi-res.jpg",
+          "medium": "/artist/orbital/orbital-medium.jpg",
+          "avatar": "/artist/orbital/orbital-avatar.jpg"
+        }
       },
       {
         "name": "Carter The Unstoppable Sex Machine",
         "slug": "carter-the-unstoppable-sex-machine",
         "count": 2,
-        "image": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-hi-res.jpg",
+          "medium": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-medium.jpg",
+          "avatar": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-avatar.jpg"
+        }
       },
       {
         "name": "Spiritualized",
         "slug": "spiritualized",
         "count": 2,
-        "image": "/artist/spiritualized/spiritualized-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/spiritualized/spiritualized-hi-res.jpg",
+          "medium": "/artist/spiritualized/spiritualized-medium.jpg",
+          "avatar": "/artist/spiritualized/spiritualized-avatar.jpg"
+        }
       },
       {
         "name": "No-Man",
         "slug": "no-man",
         "count": 2,
-        "image": "/artist/no-man/no-man-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/no-man/no-man-hi-res.jpg",
+          "medium": "/artist/no-man/no-man-medium.jpg",
+          "avatar": "/artist/no-man/no-man-avatar.jpg"
+        }
       },
       {
         "name": "The Smile",
         "slug": "the-smile",
         "count": 2,
-        "image": "/artist/the-smile/the-smile-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-smile/the-smile-hi-res.jpg",
+          "medium": "/artist/the-smile/the-smile-medium.jpg",
+          "avatar": "/artist/the-smile/the-smile-avatar.jpg"
+        }
       },
       {
         "name": "Days Of The New",
         "slug": "days-of-the-new",
         "count": 2,
-        "image": "/artist/days-of-the-new/days-of-the-new-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/days-of-the-new/days-of-the-new-hi-res.jpg",
+          "medium": "/artist/days-of-the-new/days-of-the-new-medium.jpg",
+          "avatar": "/artist/days-of-the-new/days-of-the-new-avatar.jpg"
+        }
       },
       {
         "name": "The Pretenders",
         "slug": "the-pretenders",
         "count": 2,
-        "image": "/artist/the-pretenders/the-pretenders-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-pretenders/the-pretenders-hi-res.jpg",
+          "medium": "/artist/the-pretenders/the-pretenders-medium.jpg",
+          "avatar": "/artist/the-pretenders/the-pretenders-avatar.jpg"
+        }
       },
       {
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 2,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        }
       },
       {
         "name": "Del Amitri",
         "slug": "del-amitri",
         "count": 2,
-        "image": "/artist/del-amitri/del-amitri-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/del-amitri/del-amitri-hi-res.jpg",
+          "medium": "/artist/del-amitri/del-amitri-medium.jpg",
+          "avatar": "/artist/del-amitri/del-amitri-avatar.jpg"
+        }
       },
       {
         "name": "Bruce Springsteen",
         "slug": "bruce-springsteen",
         "count": 2,
-        "image": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/bruce-springsteen/bruce-springsteen-hi-res.jpg",
+          "medium": "/artist/bruce-springsteen/bruce-springsteen-medium.jpg",
+          "avatar": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        }
       },
       {
         "name": "Oceansize",
         "slug": "oceansize",
         "count": 2,
-        "image": "/artist/oceansize/oceansize-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/oceansize/oceansize-hi-res.jpg",
+          "medium": "/artist/oceansize/oceansize-medium.jpg",
+          "avatar": "/artist/oceansize/oceansize-avatar.jpg"
+        }
       },
       {
         "name": "Tennis",
         "slug": "tennis",
         "count": 2,
-        "image": "/artist/tennis/tennis-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/tennis/tennis-hi-res.jpg",
+          "medium": "/artist/tennis/tennis-medium.jpg",
+          "avatar": "/artist/tennis/tennis-avatar.jpg"
+        }
       },
       {
         "name": "Ned's Atomic Dustbin",
         "slug": "neds-atomic-dustbin",
         "count": 2,
-        "image": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-hi-res.jpg",
+          "medium": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-medium.jpg",
+          "avatar": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-avatar.jpg"
+        }
       },
       {
         "name": "Hifi Sean",
         "slug": "hifi-sean",
         "count": 2,
-        "image": "/artist/hifi-sean/hifi-sean-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/hifi-sean/hifi-sean-hi-res.jpg",
+          "medium": "/artist/hifi-sean/hifi-sean-medium.jpg",
+          "avatar": "/artist/hifi-sean/hifi-sean-avatar.jpg"
+        }
       },
       {
         "name": "David McAlmont",
         "slug": "david-mcalmont",
         "count": 2,
-        "image": "/artist/david-mcalmont/david-mcalmont-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/david-mcalmont/david-mcalmont-hi-res.jpg",
+          "medium": "/artist/david-mcalmont/david-mcalmont-medium.jpg",
+          "avatar": "/artist/david-mcalmont/david-mcalmont-avatar.jpg"
+        }
       },
       {
         "name": "The Smashing Pumpkins",
         "slug": "the-smashing-pumpkins",
         "count": 2,
-        "image": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-hi-res.jpg",
+          "medium": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-medium.jpg",
+          "avatar": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-avatar.jpg"
+        }
       },
       {
         "name": "The Cure",
         "slug": "the-cure",
         "count": 2,
-        "image": "/artist/the-cure/the-cure-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-cure/the-cure-hi-res.jpg",
+          "medium": "/artist/the-cure/the-cure-medium.jpg",
+          "avatar": "/artist/the-cure/the-cure-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -15420,42 +15500,60 @@
         "slug": "master-of-puppets-29347279",
         "title": "Master Of Puppets",
         "artist_name": "Metallica",
-        "image": "/album/master-of-puppets-29347279/master-of-puppets-29347279-medium.jpg",
+        "images": {
+          "hi-res": "/album/master-of-puppets-29347279/master-of-puppets-29347279-hi-res.jpg",
+          "medium": "/album/master-of-puppets-29347279/master-of-puppets-29347279-medium.jpg"
+        },
         "date_added": "2024-01-11"
       },
       {
         "slug": "16-different-flavours-of-hell-1873913",
         "title": "16 Different Flavours Of Hell",
         "artist_name": "Pop Will Eat Itself",
-        "image": "/album/16-different-flavours-of-hell-1873913/16-different-flavours-of-hell-1873913-medium.jpg",
+        "images": {
+          "hi-res": "/album/16-different-flavours-of-hell-1873913/16-different-flavours-of-hell-1873913-hi-res.jpg",
+          "medium": "/album/16-different-flavours-of-hell-1873913/16-different-flavours-of-hell-1873913-medium.jpg"
+        },
         "date_added": "2024-01-19"
       },
       {
         "slug": "1992-the-love-album-29528317",
         "title": "1992 The Love Album",
         "artist_name": "Carter The Unstoppable Sex Machine",
-        "image": "/album/1992-the-love-album-29528317/1992-the-love-album-29528317-medium.jpg",
+        "images": {
+          "hi-res": "/album/1992-the-love-album-29528317/1992-the-love-album-29528317-hi-res.jpg",
+          "medium": "/album/1992-the-love-album-29528317/1992-the-love-album-29528317-medium.jpg"
+        },
         "date_added": "2024-01-19"
       },
       {
         "slug": "amazing-grace-29521360",
         "title": "Amazing Grace",
         "artist_name": "Spiritualized",
-        "image": "/album/amazing-grace-29521360/amazing-grace-29521360-medium.jpg",
+        "images": {
+          "hi-res": "/album/amazing-grace-29521360/amazing-grace-29521360-hi-res.jpg",
+          "medium": "/album/amazing-grace-29521360/amazing-grace-29521360-medium.jpg"
+        },
         "date_added": "2024-01-19"
       },
       {
         "slug": "people-who-arent-there-anymore-29592508",
         "title": "People Who Aren't There Anymore",
         "artist_name": "Future Islands",
-        "image": "/album/people-who-arent-there-anymore-29592508/people-who-arent-there-anymore-29592508-medium.jpg",
+        "images": {
+          "hi-res": "/album/people-who-arent-there-anymore-29592508/people-who-arent-there-anymore-29592508-hi-res.jpg",
+          "medium": "/album/people-who-arent-there-anymore-29592508/people-who-arent-there-anymore-29592508-medium.jpg"
+        },
         "date_added": "2024-01-26"
       },
       {
         "slug": "mission-impossible-29592832",
         "title": "Mission Impossible",
         "artist_name": "The James Taylor Quartet",
-        "image": "/album/mission-impossible-29592832/mission-impossible-29592832-medium.jpg",
+        "images": {
+          "hi-res": "/album/mission-impossible-29592832/mission-impossible-29592832-hi-res.jpg",
+          "medium": "/album/mission-impossible-29592832/mission-impossible-29592832-medium.jpg"
+        },
         "date_added": "2024-01-27"
       }
     ],
@@ -15464,44 +15562,72 @@
         "name": "Genesis",
         "slug": "genesis",
         "count": 11,
-        "image": "/artist/genesis/genesis-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/genesis/genesis-hi-res.jpg",
+          "medium": "/artist/genesis/genesis-medium.jpg",
+          "avatar": "/artist/genesis/genesis-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "turn-it-on-again-the-hits-30580414",
           "title": "Turn It On Again - The Hits",
-          "image": "/album/turn-it-on-again-the-hits-30580414/turn-it-on-again-the-hits-30580414-medium.jpg"
+          "images": {
+            "hi-res": "/album/turn-it-on-again-the-hits-30580414/turn-it-on-again-the-hits-30580414-hi-res.jpg",
+            "medium": "/album/turn-it-on-again-the-hits-30580414/turn-it-on-again-the-hits-30580414-medium.jpg"
+          }
         }
       },
       {
         "name": "AC/DC",
         "slug": "acdc",
         "count": 9,
-        "image": "/artist/acdc/acdc-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/acdc/acdc-hi-res.jpg",
+          "medium": "/artist/acdc/acdc-medium.jpg",
+          "avatar": "/artist/acdc/acdc-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "for-those-about-to-rock-30103079",
           "title": "For Those About To Rock",
-          "image": "/album/for-those-about-to-rock-30103079/for-those-about-to-rock-30103079-medium.jpg"
+          "images": {
+            "hi-res": "/album/for-those-about-to-rock-30103079/for-those-about-to-rock-30103079-hi-res.jpg",
+            "medium": "/album/for-those-about-to-rock-30103079/for-those-about-to-rock-30103079-medium.jpg"
+          }
         }
       },
       {
         "name": "Metallica",
         "slug": "metallica",
         "count": 7,
-        "image": "/artist/metallica/metallica-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/metallica/metallica-hi-res.jpg",
+          "medium": "/artist/metallica/metallica-medium.jpg",
+          "avatar": "/artist/metallica/metallica-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "master-of-puppets-29347279",
           "title": "Master Of Puppets",
-          "image": "/album/master-of-puppets-29347279/master-of-puppets-29347279-medium.jpg"
+          "images": {
+            "hi-res": "/album/master-of-puppets-29347279/master-of-puppets-29347279-hi-res.jpg",
+            "medium": "/album/master-of-puppets-29347279/master-of-puppets-29347279-medium.jpg"
+          }
         }
       },
       {
         "name": "Orbital",
         "slug": "orbital",
         "count": 3,
-        "image": "/artist/orbital/orbital-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/orbital/orbital-hi-res.jpg",
+          "medium": "/artist/orbital/orbital-medium.jpg",
+          "avatar": "/artist/orbital/orbital-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "chime-deeper-29941150",
           "title": "Chime / Deeper",
-          "image": "/album/chime-deeper-29941150/chime-deeper-29941150-medium.jpg"
+          "images": {
+            "hi-res": "/album/chime-deeper-29941150/chime-deeper-29941150-hi-res.jpg",
+            "medium": "/album/chime-deeper-29941150/chime-deeper-29941150-medium.jpg"
+          }
         }
       }
     ]

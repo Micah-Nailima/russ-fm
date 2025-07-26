@@ -1,7 +1,7 @@
 {
   "year": 2019,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:21.781Z",
+  "lastUpdated": "2025-07-26T09:03:58.411Z",
   "summary": {
     "totalReleases": 249,
     "uniqueArtists": 187,
@@ -10388,121 +10388,201 @@
         "name": "Stereolab",
         "slug": "stereolab",
         "count": 7,
-        "image": "/artist/stereolab/stereolab-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/stereolab/stereolab-hi-res.jpg",
+          "medium": "/artist/stereolab/stereolab-medium.jpg",
+          "avatar": "/artist/stereolab/stereolab-avatar.jpg"
+        }
       },
       {
         "name": "New Order",
         "slug": "new-order",
         "count": 5,
-        "image": "/artist/new-order/new-order-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/new-order/new-order-hi-res.jpg",
+          "medium": "/artist/new-order/new-order-medium.jpg",
+          "avatar": "/artist/new-order/new-order-avatar.jpg"
+        }
       },
       {
         "name": "Sigur Rós",
         "slug": "sigur-ros",
         "count": 3,
-        "image": "/artist/sigur-ros/sigur-ros-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/sigur-ros/sigur-ros-hi-res.jpg",
+          "medium": "/artist/sigur-ros/sigur-ros-medium.jpg",
+          "avatar": "/artist/sigur-ros/sigur-ros-avatar.jpg"
+        }
       },
       {
         "name": "Bruce Springsteen",
         "slug": "bruce-springsteen",
         "count": 3,
-        "image": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/bruce-springsteen/bruce-springsteen-hi-res.jpg",
+          "medium": "/artist/bruce-springsteen/bruce-springsteen-medium.jpg",
+          "avatar": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        }
       },
       {
         "name": "Prefab Sprout",
         "slug": "prefab-sprout",
         "count": 3,
-        "image": "/artist/prefab-sprout/prefab-sprout-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/prefab-sprout/prefab-sprout-hi-res.jpg",
+          "medium": "/artist/prefab-sprout/prefab-sprout-medium.jpg",
+          "avatar": "/artist/prefab-sprout/prefab-sprout-avatar.jpg"
+        }
       },
       {
         "name": "Gary Numan",
         "slug": "gary-numan",
         "count": 3,
-        "image": "/artist/gary-numan/gary-numan-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/gary-numan/gary-numan-hi-res.jpg",
+          "medium": "/artist/gary-numan/gary-numan-medium.jpg",
+          "avatar": "/artist/gary-numan/gary-numan-avatar.jpg"
+        }
       },
       {
         "name": "The Wannadies",
         "slug": "the-wannadies",
         "count": 3,
-        "image": "/artist/the-wannadies/the-wannadies-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-wannadies/the-wannadies-hi-res.jpg",
+          "medium": "/artist/the-wannadies/the-wannadies-medium.jpg",
+          "avatar": "/artist/the-wannadies/the-wannadies-avatar.jpg"
+        }
       },
       {
         "name": "Pink Floyd",
         "slug": "pink-floyd",
         "count": 3,
-        "image": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pink-floyd/pink-floyd-hi-res.jpg",
+          "medium": "/artist/pink-floyd/pink-floyd-medium.jpg",
+          "avatar": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        }
       },
       {
         "name": "Prince",
         "slug": "prince",
         "count": 3,
-        "image": "/artist/prince/prince-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/prince/prince-hi-res.jpg",
+          "medium": "/artist/prince/prince-medium.jpg",
+          "avatar": "/artist/prince/prince-avatar.jpg"
+        }
       },
       {
         "name": "Big Big Train",
         "slug": "big-big-train",
         "count": 3,
-        "image": "/artist/big-big-train/big-big-train-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/big-big-train/big-big-train-hi-res.jpg",
+          "medium": "/artist/big-big-train/big-big-train-medium.jpg",
+          "avatar": "/artist/big-big-train/big-big-train-avatar.jpg"
+        }
       },
       {
         "name": "Doves",
         "slug": "doves",
         "count": 3,
-        "image": "/artist/doves/doves-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/doves/doves-hi-res.jpg",
+          "medium": "/artist/doves/doves-medium.jpg",
+          "avatar": "/artist/doves/doves-avatar.jpg"
+        }
       },
       {
         "name": "Dinosaur Jr.",
         "slug": "dinosaur-jr",
         "count": 3,
-        "image": "/artist/dinosaur-jr/dinosaur-jr-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/dinosaur-jr/dinosaur-jr-hi-res.jpg",
+          "medium": "/artist/dinosaur-jr/dinosaur-jr-medium.jpg",
+          "avatar": "/artist/dinosaur-jr/dinosaur-jr-avatar.jpg"
+        }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 3,
-        "image": "/artist/xtc/xtc-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        }
       },
       {
         "name": "Fleetwood Mac",
         "slug": "fleetwood-mac",
         "count": 3,
-        "image": "/artist/fleetwood-mac/fleetwood-mac-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/fleetwood-mac/fleetwood-mac-hi-res.jpg",
+          "medium": "/artist/fleetwood-mac/fleetwood-mac-medium.jpg",
+          "avatar": "/artist/fleetwood-mac/fleetwood-mac-avatar.jpg"
+        }
       },
       {
         "name": "David Bowie",
         "slug": "david-bowie",
         "count": 2,
-        "image": "/artist/david-bowie/david-bowie-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/david-bowie/david-bowie-hi-res.jpg",
+          "medium": "/artist/david-bowie/david-bowie-medium.jpg",
+          "avatar": "/artist/david-bowie/david-bowie-avatar.jpg"
+        }
       },
       {
         "name": "Stars",
         "slug": "stars",
         "count": 2,
-        "image": "/artist/stars/stars-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/stars/stars-hi-res.jpg",
+          "medium": "/artist/stars/stars-medium.jpg",
+          "avatar": "/artist/stars/stars-avatar.jpg"
+        }
       },
       {
         "name": "O.R.k.",
         "slug": "ork",
         "count": 2,
-        "image": "/artist/ork/ork-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/ork/ork-hi-res.jpg",
+          "medium": "/artist/ork/ork-medium.jpg",
+          "avatar": "/artist/ork/ork-avatar.jpg"
+        }
       },
       {
         "name": "Mercury Rev",
         "slug": "mercury-rev",
         "count": 2,
-        "image": "/artist/mercury-rev/mercury-rev-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/mercury-rev/mercury-rev-hi-res.jpg",
+          "medium": "/artist/mercury-rev/mercury-rev-medium.jpg",
+          "avatar": "/artist/mercury-rev/mercury-rev-avatar.jpg"
+        }
       },
       {
         "name": "Rustin Man",
         "slug": "rustin-man",
         "count": 2,
-        "image": "/artist/rustin-man/rustin-man-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/rustin-man/rustin-man-hi-res.jpg",
+          "medium": "/artist/rustin-man/rustin-man-medium.jpg",
+          "avatar": "/artist/rustin-man/rustin-man-avatar.jpg"
+        }
       },
       {
         "name": "Mansun",
         "slug": "mansun",
         "count": 2,
-        "image": "/artist/mansun/mansun-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/mansun/mansun-hi-res.jpg",
+          "medium": "/artist/mansun/mansun-medium.jpg",
+          "avatar": "/artist/mansun/mansun-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -18115,42 +18195,60 @@
         "slug": "planet-silver-screen-12774767",
         "title": "Planet Silver Screen",
         "artist_name": "Four Stroke Baron",
-        "image": "/album/planet-silver-screen-12774767/planet-silver-screen-12774767-medium.jpg",
+        "images": {
+          "hi-res": "/album/planet-silver-screen-12774767/planet-silver-screen-12774767-hi-res.jpg",
+          "medium": "/album/planet-silver-screen-12774767/planet-silver-screen-12774767-medium.jpg"
+        },
         "date_added": "2019-01-03"
       },
       {
         "slug": "the-golden-age-of-apocalypse-3079712",
         "title": "The Golden Age Of Apocalypse",
         "artist_name": "Thundercat",
-        "image": "/album/the-golden-age-of-apocalypse-3079712/the-golden-age-of-apocalypse-3079712-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-golden-age-of-apocalypse-3079712/the-golden-age-of-apocalypse-3079712-hi-res.jpg",
+          "medium": "/album/the-golden-age-of-apocalypse-3079712/the-golden-age-of-apocalypse-3079712-medium.jpg"
+        },
         "date_added": "2019-01-04"
       },
       {
         "slug": "the-harder-they-come-original-soundtrack-recording-11949372",
         "title": "The Harder They Come (Original Soundtrack Recording)",
         "artist_name": "Various",
-        "image": "/album/the-harder-they-come-original-soundtrack-recording-11949372/the-harder-they-come-original-soundtrack-recording-11949372-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-harder-they-come-original-soundtrack-recording-11949372/the-harder-they-come-original-soundtrack-recording-11949372-hi-res.jpg",
+          "medium": "/album/the-harder-they-come-original-soundtrack-recording-11949372/the-harder-they-come-original-soundtrack-recording-11949372-medium.jpg"
+        },
         "date_added": "2019-01-04"
       },
       {
         "slug": "von-6655456",
         "title": "Von",
         "artist_name": "Sigur Rós",
-        "image": "/album/von-6655456/von-6655456-medium.jpg",
+        "images": {
+          "hi-res": "/album/von-6655456/von-6655456-hi-res.jpg",
+          "medium": "/album/von-6655456/von-6655456-medium.jpg"
+        },
         "date_added": "2019-01-04"
       },
       {
         "slug": "frampton-comes-alive-7084077",
         "title": "Frampton Comes Alive!",
         "artist_name": "Peter Frampton",
-        "image": "/album/frampton-comes-alive-7084077/frampton-comes-alive-7084077-medium.jpg",
+        "images": {
+          "hi-res": "/album/frampton-comes-alive-7084077/frampton-comes-alive-7084077-hi-res.jpg",
+          "medium": "/album/frampton-comes-alive-7084077/frampton-comes-alive-7084077-medium.jpg"
+        },
         "date_added": "2019-01-05"
       },
       {
         "slug": "the-awards-1992-2697679",
         "title": "The Awards 1992",
         "artist_name": "Various",
-        "image": "/album/the-awards-1992-2697679/the-awards-1992-2697679-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-awards-1992-2697679/the-awards-1992-2697679-hi-res.jpg",
+          "medium": "/album/the-awards-1992-2697679/the-awards-1992-2697679-medium.jpg"
+        },
         "date_added": "2019-01-05"
       }
     ],
@@ -18159,44 +18257,72 @@
         "name": "Stereolab",
         "slug": "stereolab",
         "count": 7,
-        "image": "/artist/stereolab/stereolab-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/stereolab/stereolab-hi-res.jpg",
+          "medium": "/artist/stereolab/stereolab-medium.jpg",
+          "avatar": "/artist/stereolab/stereolab-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "cobra-and-phases-group-play-voltage-in-the-milky-night-14128831",
           "title": "Cobra And Phases Group Play Voltage In The Milky Night",
-          "image": "/album/cobra-and-phases-group-play-voltage-in-the-milky-night-14128831/cobra-and-phases-group-play-voltage-in-the-milky-night-14128831-medium.jpg"
+          "images": {
+            "hi-res": "/album/cobra-and-phases-group-play-voltage-in-the-milky-night-14128831/cobra-and-phases-group-play-voltage-in-the-milky-night-14128831-hi-res.jpg",
+            "medium": "/album/cobra-and-phases-group-play-voltage-in-the-milky-night-14128831/cobra-and-phases-group-play-voltage-in-the-milky-night-14128831-medium.jpg"
+          }
         }
       },
       {
         "name": "New Order",
         "slug": "new-order",
         "count": 5,
-        "image": "/artist/new-order/new-order-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/new-order/new-order-hi-res.jpg",
+          "medium": "/artist/new-order/new-order-medium.jpg",
+          "avatar": "/artist/new-order/new-order-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "ceremony-13303363",
           "title": "Ceremony",
-          "image": "/album/ceremony-13303363/ceremony-13303363-medium.jpg"
+          "images": {
+            "hi-res": "/album/ceremony-13303363/ceremony-13303363-hi-res.jpg",
+            "medium": "/album/ceremony-13303363/ceremony-13303363-medium.jpg"
+          }
         }
       },
       {
         "name": "Sigur Rós",
         "slug": "sigur-ros",
         "count": 3,
-        "image": "/artist/sigur-ros/sigur-ros-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/sigur-ros/sigur-ros-hi-res.jpg",
+          "medium": "/artist/sigur-ros/sigur-ros-medium.jpg",
+          "avatar": "/artist/sigur-ros/sigur-ros-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "von-6655456",
           "title": "Von",
-          "image": "/album/von-6655456/von-6655456-medium.jpg"
+          "images": {
+            "hi-res": "/album/von-6655456/von-6655456-hi-res.jpg",
+            "medium": "/album/von-6655456/von-6655456-medium.jpg"
+          }
         }
       },
       {
         "name": "Bruce Springsteen",
         "slug": "bruce-springsteen",
         "count": 3,
-        "image": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/bruce-springsteen/bruce-springsteen-hi-res.jpg",
+          "medium": "/artist/bruce-springsteen/bruce-springsteen-medium.jpg",
+          "avatar": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "springsteen-on-broadway-13106936",
           "title": "Springsteen On Broadway",
-          "image": "/album/springsteen-on-broadway-13106936/springsteen-on-broadway-13106936-medium.jpg"
+          "images": {
+            "hi-res": "/album/springsteen-on-broadway-13106936/springsteen-on-broadway-13106936-hi-res.jpg",
+            "medium": "/album/springsteen-on-broadway-13106936/springsteen-on-broadway-13106936-medium.jpg"
+          }
         }
       }
     ]

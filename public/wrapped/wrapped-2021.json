@@ -1,7 +1,7 @@
 {
   "year": 2021,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:22.071Z",
+  "lastUpdated": "2025-07-26T09:03:58.504Z",
   "summary": {
     "totalReleases": 241,
     "uniqueArtists": 180,
@@ -9979,121 +9979,201 @@
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 5,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        }
       },
       {
         "name": "Spiritualized",
         "slug": "spiritualized",
         "count": 5,
-        "image": "/artist/spiritualized/spiritualized-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/spiritualized/spiritualized-hi-res.jpg",
+          "medium": "/artist/spiritualized/spiritualized-medium.jpg",
+          "avatar": "/artist/spiritualized/spiritualized-avatar.jpg"
+        }
       },
       {
         "name": "Matt Berry",
         "slug": "matt-berry",
         "count": 5,
-        "image": "/artist/matt-berry/matt-berry-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/matt-berry/matt-berry-hi-res.jpg",
+          "medium": "/artist/matt-berry/matt-berry-medium.jpg",
+          "avatar": "/artist/matt-berry/matt-berry-avatar.jpg"
+        }
       },
       {
         "name": "PJ Harvey",
         "slug": "pj-harvey",
         "count": 4,
-        "image": "/artist/pj-harvey/pj-harvey-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pj-harvey/pj-harvey-hi-res.jpg",
+          "medium": "/artist/pj-harvey/pj-harvey-medium.jpg",
+          "avatar": "/artist/pj-harvey/pj-harvey-avatar.jpg"
+        }
       },
       {
         "name": "World Party",
         "slug": "world-party",
         "count": 4,
-        "image": "/artist/world-party/world-party-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/world-party/world-party-hi-res.jpg",
+          "medium": "/artist/world-party/world-party-medium.jpg",
+          "avatar": "/artist/world-party/world-party-avatar.jpg"
+        }
       },
       {
         "name": "Goldfrapp",
         "slug": "goldfrapp",
         "count": 4,
-        "image": "/artist/goldfrapp/goldfrapp-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/goldfrapp/goldfrapp-hi-res.jpg",
+          "medium": "/artist/goldfrapp/goldfrapp-medium.jpg",
+          "avatar": "/artist/goldfrapp/goldfrapp-avatar.jpg"
+        }
       },
       {
         "name": "Marillion",
         "slug": "marillion",
         "count": 4,
-        "image": "/artist/marillion/marillion-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/marillion/marillion-hi-res.jpg",
+          "medium": "/artist/marillion/marillion-medium.jpg",
+          "avatar": "/artist/marillion/marillion-avatar.jpg"
+        }
       },
       {
         "name": "Primal Scream",
         "slug": "primal-scream",
         "count": 4,
-        "image": "/artist/primal-scream/primal-scream-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/primal-scream/primal-scream-hi-res.jpg",
+          "medium": "/artist/primal-scream/primal-scream-medium.jpg",
+          "avatar": "/artist/primal-scream/primal-scream-avatar.jpg"
+        }
       },
       {
         "name": "Suede",
         "slug": "suede",
         "count": 3,
-        "image": "/artist/suede/suede-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/suede/suede-hi-res.jpg",
+          "medium": "/artist/suede/suede-medium.jpg",
+          "avatar": "/artist/suede/suede-avatar.jpg"
+        }
       },
       {
         "name": "Haken",
         "slug": "haken",
         "count": 3,
-        "image": "/artist/haken/haken-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/haken/haken-hi-res.jpg",
+          "medium": "/artist/haken/haken-medium.jpg",
+          "avatar": "/artist/haken/haken-avatar.jpg"
+        }
       },
       {
         "name": "Amorphous Androgynous",
         "slug": "amorphous-androgynous",
         "count": 3,
-        "image": "/artist/amorphous-androgynous/amorphous-androgynous-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/amorphous-androgynous/amorphous-androgynous-hi-res.jpg",
+          "medium": "/artist/amorphous-androgynous/amorphous-androgynous-medium.jpg",
+          "avatar": "/artist/amorphous-androgynous/amorphous-androgynous-avatar.jpg"
+        }
       },
       {
         "name": "The Black Crowes",
         "slug": "the-black-crowes",
         "count": 3,
-        "image": "/artist/the-black-crowes/the-black-crowes-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-black-crowes/the-black-crowes-hi-res.jpg",
+          "medium": "/artist/the-black-crowes/the-black-crowes-medium.jpg",
+          "avatar": "/artist/the-black-crowes/the-black-crowes-avatar.jpg"
+        }
       },
       {
         "name": "Devin Townsend",
         "slug": "devin-townsend",
         "count": 3,
-        "image": "/artist/devin-townsend/devin-townsend-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/devin-townsend/devin-townsend-hi-res.jpg",
+          "medium": "/artist/devin-townsend/devin-townsend-medium.jpg",
+          "avatar": "/artist/devin-townsend/devin-townsend-avatar.jpg"
+        }
       },
       {
         "name": "My Bloody Valentine",
         "slug": "my-bloody-valentine",
         "count": 3,
-        "image": "/artist/my-bloody-valentine/my-bloody-valentine-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/my-bloody-valentine/my-bloody-valentine-hi-res.jpg",
+          "medium": "/artist/my-bloody-valentine/my-bloody-valentine-medium.jpg",
+          "avatar": "/artist/my-bloody-valentine/my-bloody-valentine-avatar.jpg"
+        }
       },
       {
         "name": "Talking Heads",
         "slug": "talking-heads",
         "count": 2,
-        "image": "/artist/talking-heads/talking-heads-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/talking-heads/talking-heads-hi-res.jpg",
+          "medium": "/artist/talking-heads/talking-heads-medium.jpg",
+          "avatar": "/artist/talking-heads/talking-heads-avatar.jpg"
+        }
       },
       {
         "name": "Blackfield",
         "slug": "blackfield",
         "count": 2,
-        "image": "/artist/blackfield/blackfield-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/blackfield/blackfield-hi-res.jpg",
+          "medium": "/artist/blackfield/blackfield-medium.jpg",
+          "avatar": "/artist/blackfield/blackfield-avatar.jpg"
+        }
       },
       {
         "name": "Jane Weaver",
         "slug": "jane-weaver",
         "count": 2,
-        "image": "/artist/jane-weaver/jane-weaver-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/jane-weaver/jane-weaver-hi-res.jpg",
+          "medium": "/artist/jane-weaver/jane-weaver-medium.jpg",
+          "avatar": "/artist/jane-weaver/jane-weaver-avatar.jpg"
+        }
       },
       {
         "name": "Amplifier",
         "slug": "amplifier",
         "count": 2,
-        "image": "/artist/amplifier/amplifier-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/amplifier/amplifier-hi-res.jpg",
+          "medium": "/artist/amplifier/amplifier-medium.jpg",
+          "avatar": "/artist/amplifier/amplifier-avatar.jpg"
+        }
       },
       {
         "name": "Ozzy Osbourne",
         "slug": "ozzy-osbourne",
         "count": 2,
-        "image": "/artist/ozzy-osbourne/ozzy-osbourne-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/ozzy-osbourne/ozzy-osbourne-hi-res.jpg",
+          "medium": "/artist/ozzy-osbourne/ozzy-osbourne-medium.jpg",
+          "avatar": "/artist/ozzy-osbourne/ozzy-osbourne-avatar.jpg"
+        }
       },
       {
         "name": "M83",
         "slug": "m83",
         "count": 2,
-        "image": "/artist/m83/m83-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/m83/m83-hi-res.jpg",
+          "medium": "/artist/m83/m83-medium.jpg",
+          "avatar": "/artist/m83/m83-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -17356,42 +17436,60 @@
         "slug": "the-best-of-suede-beautiful-ones-1992-2018-16032926",
         "title": "The Best Of Suede. Beautiful Ones. 1992-2018",
         "artist_name": "Suede",
-        "image": "/album/the-best-of-suede-beautiful-ones-1992-2018-16032926/the-best-of-suede-beautiful-ones-1992-2018-16032926-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-best-of-suede-beautiful-ones-1992-2018-16032926/the-best-of-suede-beautiful-ones-1992-2018-16032926-hi-res.jpg",
+          "medium": "/album/the-best-of-suede-beautiful-ones-1992-2018-16032926/the-best-of-suede-beautiful-ones-1992-2018-16032926-medium.jpg"
+        },
         "date_added": "2021-01-03"
       },
       {
         "slug": "the-life-of-the-honeybee-other-moments-of-clarity-15659971",
         "title": "The Life Of The Honeybee & Other Moments Of Clarity",
         "artist_name": "Abel Ganz",
-        "image": "/album/the-life-of-the-honeybee-other-moments-of-clarity-15659971/the-life-of-the-honeybee-other-moments-of-clarity-15659971-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-life-of-the-honeybee-other-moments-of-clarity-15659971/the-life-of-the-honeybee-other-moments-of-clarity-15659971-hi-res.jpg",
+          "medium": "/album/the-life-of-the-honeybee-other-moments-of-clarity-15659971/the-life-of-the-honeybee-other-moments-of-clarity-15659971-medium.jpg"
+        },
         "date_added": "2021-01-17"
       },
       {
         "slug": "virus-15637222",
         "title": "Virus",
         "artist_name": "Haken",
-        "image": "/album/virus-15637222/virus-15637222-medium.jpg",
+        "images": {
+          "hi-res": "/album/virus-15637222/virus-15637222-hi-res.jpg",
+          "medium": "/album/virus-15637222/virus-15637222-medium.jpg"
+        },
         "date_added": "2021-01-17"
       },
       {
         "slug": "speaking-in-tongues-16799757",
         "title": "Speaking In Tongues",
         "artist_name": "Talking Heads",
-        "image": "/album/speaking-in-tongues-16799757/speaking-in-tongues-16799757-medium.jpg",
+        "images": {
+          "hi-res": "/album/speaking-in-tongues-16799757/speaking-in-tongues-16799757-hi-res.jpg",
+          "medium": "/album/speaking-in-tongues-16799757/speaking-in-tongues-16799757-medium.jpg"
+        },
         "date_added": "2021-01-23"
       },
       {
         "slug": "the-name-of-this-band-is-talking-heads-16809120",
         "title": "The Name Of This Band Is Talking Heads",
         "artist_name": "Talking Heads",
-        "image": "/album/the-name-of-this-band-is-talking-heads-16809120/the-name-of-this-band-is-talking-heads-16809120-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-name-of-this-band-is-talking-heads-16809120/the-name-of-this-band-is-talking-heads-16809120-hi-res.jpg",
+          "medium": "/album/the-name-of-this-band-is-talking-heads-16809120/the-name-of-this-band-is-talking-heads-16809120-medium.jpg"
+        },
         "date_added": "2021-01-23"
       },
       {
         "slug": "is-this-desire-17061660",
         "title": "Is This Desire?",
         "artist_name": "PJ Harvey",
-        "image": "/album/is-this-desire-17061660/is-this-desire-17061660-medium.jpg",
+        "images": {
+          "hi-res": "/album/is-this-desire-17061660/is-this-desire-17061660-hi-res.jpg",
+          "medium": "/album/is-this-desire-17061660/is-this-desire-17061660-medium.jpg"
+        },
         "date_added": "2021-01-29"
       }
     ],
@@ -17400,44 +17498,72 @@
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 5,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "the-future-bites-17162293",
           "title": "The Future Bites",
-          "image": "/album/the-future-bites-17162293/the-future-bites-17162293-medium.jpg"
+          "images": {
+            "hi-res": "/album/the-future-bites-17162293/the-future-bites-17162293-hi-res.jpg",
+            "medium": "/album/the-future-bites-17162293/the-future-bites-17162293-medium.jpg"
+          }
         }
       },
       {
         "name": "Spiritualized",
         "slug": "spiritualized",
         "count": 5,
-        "image": "/artist/spiritualized/spiritualized-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/spiritualized/spiritualized-hi-res.jpg",
+          "medium": "/artist/spiritualized/spiritualized-medium.jpg",
+          "avatar": "/artist/spiritualized/spiritualized-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "lazer-guided-melodies-18366628",
           "title": "Lazer Guided Melodies",
-          "image": "/album/lazer-guided-melodies-18366628/lazer-guided-melodies-18366628-medium.jpg"
+          "images": {
+            "hi-res": "/album/lazer-guided-melodies-18366628/lazer-guided-melodies-18366628-hi-res.jpg",
+            "medium": "/album/lazer-guided-melodies-18366628/lazer-guided-melodies-18366628-medium.jpg"
+          }
         }
       },
       {
         "name": "Matt Berry",
         "slug": "matt-berry",
         "count": 5,
-        "image": "/artist/matt-berry/matt-berry-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/matt-berry/matt-berry-hi-res.jpg",
+          "medium": "/artist/matt-berry/matt-berry-medium.jpg",
+          "avatar": "/artist/matt-berry/matt-berry-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "the-blue-elephant-18722572",
           "title": "The Blue Elephant",
-          "image": "/album/the-blue-elephant-18722572/the-blue-elephant-18722572-medium.jpg"
+          "images": {
+            "hi-res": "/album/the-blue-elephant-18722572/the-blue-elephant-18722572-hi-res.jpg",
+            "medium": "/album/the-blue-elephant-18722572/the-blue-elephant-18722572-medium.jpg"
+          }
         }
       },
       {
         "name": "PJ Harvey",
         "slug": "pj-harvey",
         "count": 4,
-        "image": "/artist/pj-harvey/pj-harvey-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/pj-harvey/pj-harvey-hi-res.jpg",
+          "medium": "/artist/pj-harvey/pj-harvey-medium.jpg",
+          "avatar": "/artist/pj-harvey/pj-harvey-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "is-this-desire-17061660",
           "title": "Is This Desire?",
-          "image": "/album/is-this-desire-17061660/is-this-desire-17061660-medium.jpg"
+          "images": {
+            "hi-res": "/album/is-this-desire-17061660/is-this-desire-17061660-hi-res.jpg",
+            "medium": "/album/is-this-desire-17061660/is-this-desire-17061660-medium.jpg"
+          }
         }
       }
     ]

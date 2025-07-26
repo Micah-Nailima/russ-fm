@@ -1,7 +1,7 @@
 {
   "year": 2015,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:20.867Z",
+  "lastUpdated": "2025-07-26T09:03:58.147Z",
   "summary": {
     "totalReleases": 205,
     "uniqueArtists": 144,
@@ -8717,121 +8717,201 @@
         "name": "Bruce Springsteen",
         "slug": "bruce-springsteen",
         "count": 6,
-        "image": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/bruce-springsteen/bruce-springsteen-hi-res.jpg",
+          "medium": "/artist/bruce-springsteen/bruce-springsteen-medium.jpg",
+          "avatar": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        }
       },
       {
         "name": "Faith No More",
         "slug": "faith-no-more",
         "count": 5,
-        "image": "/artist/faith-no-more/faith-no-more-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/faith-no-more/faith-no-more-hi-res.jpg",
+          "medium": "/artist/faith-no-more/faith-no-more-medium.jpg",
+          "avatar": "/artist/faith-no-more/faith-no-more-avatar.jpg"
+        }
       },
       {
         "name": "Crowded House",
         "slug": "crowded-house",
         "count": 5,
-        "image": "/artist/crowded-house/crowded-house-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/crowded-house/crowded-house-hi-res.jpg",
+          "medium": "/artist/crowded-house/crowded-house-medium.jpg",
+          "avatar": "/artist/crowded-house/crowded-house-avatar.jpg"
+        }
       },
       {
         "name": "King Crimson",
         "slug": "king-crimson",
         "count": 4,
-        "image": "/artist/king-crimson/king-crimson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/king-crimson/king-crimson-hi-res.jpg",
+          "medium": "/artist/king-crimson/king-crimson-medium.jpg",
+          "avatar": "/artist/king-crimson/king-crimson-avatar.jpg"
+        }
       },
       {
         "name": "The Who",
         "slug": "the-who",
         "count": 4,
-        "image": "/artist/the-who/the-who-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-who/the-who-hi-res.jpg",
+          "medium": "/artist/the-who/the-who-medium.jpg",
+          "avatar": "/artist/the-who/the-who-avatar.jpg"
+        }
       },
       {
         "name": "Pink Floyd",
         "slug": "pink-floyd",
         "count": 4,
-        "image": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pink-floyd/pink-floyd-hi-res.jpg",
+          "medium": "/artist/pink-floyd/pink-floyd-medium.jpg",
+          "avatar": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        }
       },
       {
         "name": "Amplifier",
         "slug": "amplifier",
         "count": 3,
-        "image": "/artist/amplifier/amplifier-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/amplifier/amplifier-hi-res.jpg",
+          "medium": "/artist/amplifier/amplifier-medium.jpg",
+          "avatar": "/artist/amplifier/amplifier-avatar.jpg"
+        }
       },
       {
         "name": "The Smashing Pumpkins",
         "slug": "the-smashing-pumpkins",
         "count": 3,
-        "image": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-hi-res.jpg",
+          "medium": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-medium.jpg",
+          "avatar": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-avatar.jpg"
+        }
       },
       {
         "name": "John Grant",
         "slug": "john-grant",
         "count": 3,
-        "image": "/artist/john-grant/john-grant-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/john-grant/john-grant-hi-res.jpg",
+          "medium": "/artist/john-grant/john-grant-medium.jpg",
+          "avatar": "/artist/john-grant/john-grant-avatar.jpg"
+        }
       },
       {
         "name": "Tim Finn",
         "slug": "tim-finn",
         "count": 3,
-        "image": "/artist/tim-finn/tim-finn-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/tim-finn/tim-finn-hi-res.jpg",
+          "medium": "/artist/tim-finn/tim-finn-medium.jpg",
+          "avatar": "/artist/tim-finn/tim-finn-avatar.jpg"
+        }
       },
       {
         "name": "Genesis",
         "slug": "genesis",
         "count": 3,
-        "image": "/artist/genesis/genesis-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/genesis/genesis-hi-res.jpg",
+          "medium": "/artist/genesis/genesis-medium.jpg",
+          "avatar": "/artist/genesis/genesis-avatar.jpg"
+        }
       },
       {
         "name": "New Order",
         "slug": "new-order",
         "count": 3,
-        "image": "/artist/new-order/new-order-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/new-order/new-order-hi-res.jpg",
+          "medium": "/artist/new-order/new-order-medium.jpg",
+          "avatar": "/artist/new-order/new-order-avatar.jpg"
+        }
       },
       {
         "name": "Matt Berry",
         "slug": "matt-berry",
         "count": 3,
-        "image": "/artist/matt-berry/matt-berry-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/matt-berry/matt-berry-hi-res.jpg",
+          "medium": "/artist/matt-berry/matt-berry-medium.jpg",
+          "avatar": "/artist/matt-berry/matt-berry-avatar.jpg"
+        }
       },
       {
         "name": "The Black Crowes",
         "slug": "the-black-crowes",
         "count": 3,
-        "image": "/artist/the-black-crowes/the-black-crowes-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-black-crowes/the-black-crowes-hi-res.jpg",
+          "medium": "/artist/the-black-crowes/the-black-crowes-medium.jpg",
+          "avatar": "/artist/the-black-crowes/the-black-crowes-avatar.jpg"
+        }
       },
       {
         "name": "Roger Waters",
         "slug": "roger-waters",
         "count": 2,
-        "image": "/artist/roger-waters/roger-waters-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/roger-waters/roger-waters-hi-res.jpg",
+          "medium": "/artist/roger-waters/roger-waters-medium.jpg",
+          "avatar": "/artist/roger-waters/roger-waters-avatar.jpg"
+        }
       },
       {
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 2,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        }
       },
       {
         "name": "Rush",
         "slug": "rush",
         "count": 2,
-        "image": "/artist/rush/rush-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/rush/rush-hi-res.jpg",
+          "medium": "/artist/rush/rush-medium.jpg",
+          "avatar": "/artist/rush/rush-avatar.jpg"
+        }
       },
       {
         "name": "Radiohead",
         "slug": "radiohead",
         "count": 2,
-        "image": "/artist/radiohead/radiohead-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/radiohead/radiohead-hi-res.jpg",
+          "medium": "/artist/radiohead/radiohead-medium.jpg",
+          "avatar": "/artist/radiohead/radiohead-avatar.jpg"
+        }
       },
       {
         "name": "Johnny Cash",
         "slug": "johnny-cash",
         "count": 2,
-        "image": "/artist/johnny-cash/johnny-cash-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/johnny-cash/johnny-cash-hi-res.jpg",
+          "medium": "/artist/johnny-cash/johnny-cash-medium.jpg",
+          "avatar": "/artist/johnny-cash/johnny-cash-avatar.jpg"
+        }
       },
       {
         "name": "The Soulsavers",
         "slug": "the-soulsavers",
         "count": 2,
-        "image": "/artist/the-soulsavers/the-soulsavers-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-soulsavers/the-soulsavers-hi-res.jpg",
+          "medium": "/artist/the-soulsavers/the-soulsavers-medium.jpg",
+          "avatar": "/artist/the-soulsavers/the-soulsavers-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -15234,42 +15314,60 @@
         "slug": "3-feet-high-and-rising-4686503",
         "title": "3 Feet High And Rising",
         "artist_name": "De La Soul",
-        "image": "/album/3-feet-high-and-rising-4686503/3-feet-high-and-rising-4686503-medium.jpg",
+        "images": {
+          "hi-res": "/album/3-feet-high-and-rising-4686503/3-feet-high-and-rising-4686503-hi-res.jpg",
+          "medium": "/album/3-feet-high-and-rising-4686503/3-feet-high-and-rising-4686503-medium.jpg"
+        },
         "date_added": "2015-08-09"
       },
       {
         "slug": "858-6834775",
         "title": "8:58",
         "artist_name": "8:58",
-        "image": "/album/858-6834775/858-6834775-medium.jpg",
+        "images": {
+          "hi-res": "/album/858-6834775/858-6834775-hi-res.jpg",
+          "medium": "/album/858-6834775/858-6834775-medium.jpg"
+        },
         "date_added": "2015-08-09"
       },
       {
         "slug": "amused-to-death-7272383",
         "title": "Amused To Death",
         "artist_name": "Roger Waters",
-        "image": "/album/amused-to-death-7272383/amused-to-death-7272383-medium.jpg",
+        "images": {
+          "hi-res": "/album/amused-to-death-7272383/amused-to-death-7272383-hi-res.jpg",
+          "medium": "/album/amused-to-death-7272383/amused-to-death-7272383-medium.jpg"
+        },
         "date_added": "2015-08-09"
       },
       {
         "slug": "automatic-for-the-people-736266",
         "title": "Automatic For The People",
         "artist_name": "R.E.M.",
-        "image": "/album/automatic-for-the-people-736266/automatic-for-the-people-736266-medium.jpg",
+        "images": {
+          "hi-res": "/album/automatic-for-the-people-736266/automatic-for-the-people-736266-hi-res.jpg",
+          "medium": "/album/automatic-for-the-people-736266/automatic-for-the-people-736266-medium.jpg"
+        },
         "date_added": "2015-08-09"
       },
       {
         "slug": "blade-runner-7097828",
         "title": "Blade Runner",
         "artist_name": "Vangelis",
-        "image": "/album/blade-runner-7097828/blade-runner-7097828-medium.jpg",
+        "images": {
+          "hi-res": "/album/blade-runner-7097828/blade-runner-7097828-hi-res.jpg",
+          "medium": "/album/blade-runner-7097828/blade-runner-7097828-medium.jpg"
+        },
         "date_added": "2015-08-09"
       },
       {
         "slug": "bryter-layter-4635606",
         "title": "Bryter Layter",
         "artist_name": "Nick Drake",
-        "image": "/album/bryter-layter-4635606/bryter-layter-4635606-medium.jpg",
+        "images": {
+          "hi-res": "/album/bryter-layter-4635606/bryter-layter-4635606-hi-res.jpg",
+          "medium": "/album/bryter-layter-4635606/bryter-layter-4635606-medium.jpg"
+        },
         "date_added": "2015-08-09"
       }
     ],
@@ -15278,44 +15376,72 @@
         "name": "Bruce Springsteen",
         "slug": "bruce-springsteen",
         "count": 6,
-        "image": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/bruce-springsteen/bruce-springsteen-hi-res.jpg",
+          "medium": "/artist/bruce-springsteen/bruce-springsteen-medium.jpg",
+          "avatar": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "born-in-the-usa-1551256",
           "title": "Born In The U.S.A.",
-          "image": "/album/born-in-the-usa-1551256/born-in-the-usa-1551256-medium.jpg"
+          "images": {
+            "hi-res": "/album/born-in-the-usa-1551256/born-in-the-usa-1551256-hi-res.jpg",
+            "medium": "/album/born-in-the-usa-1551256/born-in-the-usa-1551256-medium.jpg"
+          }
         }
       },
       {
         "name": "Faith No More",
         "slug": "faith-no-more",
         "count": 5,
-        "image": "/artist/faith-no-more/faith-no-more-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/faith-no-more/faith-no-more-hi-res.jpg",
+          "medium": "/artist/faith-no-more/faith-no-more-medium.jpg",
+          "avatar": "/artist/faith-no-more/faith-no-more-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "introduce-yourself-652381",
           "title": "Introduce Yourself",
-          "image": "/album/introduce-yourself-652381/introduce-yourself-652381-medium.jpg"
+          "images": {
+            "hi-res": "/album/introduce-yourself-652381/introduce-yourself-652381-hi-res.jpg",
+            "medium": "/album/introduce-yourself-652381/introduce-yourself-652381-medium.jpg"
+          }
         }
       },
       {
         "name": "Crowded House",
         "slug": "crowded-house",
         "count": 5,
-        "image": "/artist/crowded-house/crowded-house-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/crowded-house/crowded-house-hi-res.jpg",
+          "medium": "/artist/crowded-house/crowded-house-medium.jpg",
+          "avatar": "/artist/crowded-house/crowded-house-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "temple-of-low-men-2580024",
           "title": "Temple Of Low Men",
-          "image": "/album/temple-of-low-men-2580024/temple-of-low-men-2580024-medium.jpg"
+          "images": {
+            "hi-res": "/album/temple-of-low-men-2580024/temple-of-low-men-2580024-hi-res.jpg",
+            "medium": "/album/temple-of-low-men-2580024/temple-of-low-men-2580024-medium.jpg"
+          }
         }
       },
       {
         "name": "King Crimson",
         "slug": "king-crimson",
         "count": 4,
-        "image": "/artist/king-crimson/king-crimson-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/king-crimson/king-crimson-hi-res.jpg",
+          "medium": "/artist/king-crimson/king-crimson-medium.jpg",
+          "avatar": "/artist/king-crimson/king-crimson-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669",
           "title": "In The Court Of The Crimson King (An Observation By King Crimson)",
-          "image": "/album/in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669/in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669-medium.jpg"
+          "images": {
+            "hi-res": "/album/in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669/in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669-hi-res.jpg",
+            "medium": "/album/in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669/in-the-court-of-the-crimson-king-an-observation-by-king-crimson-2287669-medium.jpg"
+          }
         }
       }
     ]

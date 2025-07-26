@@ -22,12 +22,12 @@ export function TopAlbumsCard({ albums }: TopAlbumsCardProps) {
           <Link
             key={album.slug}
             to={`/album/${album.slug}`}
-            className="group relative aspect-square overflow-hidden rounded-md"
+            className="group relative aspect-square overflow-hidden rounded-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-black/20"
           >
             <img
               src={album.image}
               alt={album.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="absolute bottom-0 left-0 right-0 p-2">

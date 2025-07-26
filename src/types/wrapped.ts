@@ -8,6 +8,7 @@ export interface WrappedRelease {
   images: {
     'hi-res': string;
     medium: string;
+    small?: string;
   };
   artists: Array<{ 
     name: string; 
@@ -47,25 +48,25 @@ export interface WrappedData {
   }>;
   insights: {
     genres: Array<{ name: string; count: number; percentage: number }>;
-    artists: Array<{ name: string; slug: string; count: number; image?: string }>;
+    artists: Array<{ name: string; slug: string; count: number; images?: { 'hi-res'?: string; medium?: string; avatar?: string } }>;
     decades: Array<{ name: string; count: number }>;
     timeline: Array<{ month: string; count: number; releases: WrappedRelease[] }>;
     topAlbums: Array<{
       slug: string;
       title: string;
       artist_name: string;
-      image: string;
+      images: { 'hi-res': string; medium: string; small?: string };
       date_added: string;
     }>;
     topArtists: Array<{
       name: string;
       slug: string;
       count: number;
-      image?: string;
+      images?: { 'hi-res'?: string; medium?: string; avatar?: string };
       topAlbum?: {
         slug: string;
         title: string;
-        image: string;
+        images: { 'hi-res': string; medium: string; small?: string };
       };
     }>;
   };

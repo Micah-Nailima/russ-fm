@@ -1,7 +1,7 @@
 {
   "year": 2018,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:21.637Z",
+  "lastUpdated": "2025-07-26T09:03:58.363Z",
   "summary": {
     "totalReleases": 331,
     "uniqueArtists": 237,
@@ -13794,121 +13794,201 @@
         "name": "Moby",
         "slug": "moby",
         "count": 6,
-        "image": "/artist/moby/moby-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/moby/moby-hi-res.jpg",
+          "medium": "/artist/moby/moby-medium.jpg",
+          "avatar": "/artist/moby/moby-avatar.jpg"
+        }
       },
       {
         "name": "Pop Will Eat Itself",
         "slug": "pop-will-eat-itself",
         "count": 6,
-        "image": "/artist/pop-will-eat-itself/pop-will-eat-itself-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pop-will-eat-itself/pop-will-eat-itself-hi-res.jpg",
+          "medium": "/artist/pop-will-eat-itself/pop-will-eat-itself-medium.jpg",
+          "avatar": "/artist/pop-will-eat-itself/pop-will-eat-itself-avatar.jpg"
+        }
       },
       {
         "name": "Kate Bush",
         "slug": "kate-bush",
         "count": 6,
-        "image": "/artist/kate-bush/kate-bush-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/kate-bush/kate-bush-hi-res.jpg",
+          "medium": "/artist/kate-bush/kate-bush-medium.jpg",
+          "avatar": "/artist/kate-bush/kate-bush-avatar.jpg"
+        }
       },
       {
         "name": "Split Enz",
         "slug": "split-enz",
         "count": 6,
-        "image": "/artist/split-enz/split-enz-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/split-enz/split-enz-hi-res.jpg",
+          "medium": "/artist/split-enz/split-enz-medium.jpg",
+          "avatar": "/artist/split-enz/split-enz-avatar.jpg"
+        }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 4,
-        "image": "/artist/xtc/xtc-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        }
       },
       {
         "name": "Tom Waits",
         "slug": "tom-waits",
         "count": 4,
-        "image": "/artist/tom-waits/tom-waits-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/tom-waits/tom-waits-hi-res.jpg",
+          "medium": "/artist/tom-waits/tom-waits-medium.jpg",
+          "avatar": "/artist/tom-waits/tom-waits-avatar.jpg"
+        }
       },
       {
         "name": "Jean-Michel Jarre",
         "slug": "jean-michel-jarre",
         "count": 4,
-        "image": "/artist/jean-michel-jarre/jean-michel-jarre-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/jean-michel-jarre/jean-michel-jarre-hi-res.jpg",
+          "medium": "/artist/jean-michel-jarre/jean-michel-jarre-medium.jpg",
+          "avatar": "/artist/jean-michel-jarre/jean-michel-jarre-avatar.jpg"
+        }
       },
       {
         "name": "Pink Floyd",
         "slug": "pink-floyd",
         "count": 4,
-        "image": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pink-floyd/pink-floyd-hi-res.jpg",
+          "medium": "/artist/pink-floyd/pink-floyd-medium.jpg",
+          "avatar": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        }
       },
       {
         "name": "Ghost",
         "slug": "ghost",
         "count": 4,
-        "image": "/artist/ghost/ghost-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/ghost/ghost-hi-res.jpg",
+          "medium": "/artist/ghost/ghost-medium.jpg",
+          "avatar": "/artist/ghost/ghost-avatar.jpg"
+        }
       },
       {
         "name": "The Beta Band",
         "slug": "the-beta-band",
         "count": 4,
-        "image": "/artist/the-beta-band/the-beta-band-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-beta-band/the-beta-band-hi-res.jpg",
+          "medium": "/artist/the-beta-band/the-beta-band-medium.jpg",
+          "avatar": "/artist/the-beta-band/the-beta-band-avatar.jpg"
+        }
       },
       {
         "name": "Orchestral Manoeuvres In The Dark",
         "slug": "orchestral-manoeuvres-in-the-dark",
         "count": 4,
-        "image": "/artist/orchestral-manoeuvres-in-the-dark/orchestral-manoeuvres-in-the-dark-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/orchestral-manoeuvres-in-the-dark/orchestral-manoeuvres-in-the-dark-hi-res.jpg",
+          "medium": "/artist/orchestral-manoeuvres-in-the-dark/orchestral-manoeuvres-in-the-dark-medium.jpg",
+          "avatar": "/artist/orchestral-manoeuvres-in-the-dark/orchestral-manoeuvres-in-the-dark-avatar.jpg"
+        }
       },
       {
         "name": "Senseless Things",
         "slug": "senseless-things",
         "count": 3,
-        "image": "/artist/senseless-things/senseless-things-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/senseless-things/senseless-things-hi-res.jpg",
+          "medium": "/artist/senseless-things/senseless-things-medium.jpg",
+          "avatar": "/artist/senseless-things/senseless-things-avatar.jpg"
+        }
       },
       {
         "name": "Ned's Atomic Dustbin",
         "slug": "neds-atomic-dustbin",
         "count": 3,
-        "image": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-hi-res.jpg",
+          "medium": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-medium.jpg",
+          "avatar": "/artist/neds-atomic-dustbin/neds-atomic-dustbin-avatar.jpg"
+        }
       },
       {
         "name": "Pet Shop Boys",
         "slug": "pet-shop-boys",
         "count": 3,
-        "image": "/artist/pet-shop-boys/pet-shop-boys-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pet-shop-boys/pet-shop-boys-hi-res.jpg",
+          "medium": "/artist/pet-shop-boys/pet-shop-boys-medium.jpg",
+          "avatar": "/artist/pet-shop-boys/pet-shop-boys-avatar.jpg"
+        }
       },
       {
         "name": "The Cure",
         "slug": "the-cure",
         "count": 3,
-        "image": "/artist/the-cure/the-cure-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-cure/the-cure-hi-res.jpg",
+          "medium": "/artist/the-cure/the-cure-medium.jpg",
+          "avatar": "/artist/the-cure/the-cure-avatar.jpg"
+        }
       },
       {
         "name": "The Levellers",
         "slug": "the-levellers",
         "count": 3,
-        "image": "/artist/the-levellers/the-levellers-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-levellers/the-levellers-hi-res.jpg",
+          "medium": "/artist/the-levellers/the-levellers-medium.jpg",
+          "avatar": "/artist/the-levellers/the-levellers-avatar.jpg"
+        }
       },
       {
         "name": "Manic Street Preachers",
         "slug": "manic-street-preachers",
         "count": 3,
-        "image": "/artist/manic-street-preachers/manic-street-preachers-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/manic-street-preachers/manic-street-preachers-hi-res.jpg",
+          "medium": "/artist/manic-street-preachers/manic-street-preachers-medium.jpg",
+          "avatar": "/artist/manic-street-preachers/manic-street-preachers-avatar.jpg"
+        }
       },
       {
         "name": "David Bowie",
         "slug": "david-bowie",
         "count": 3,
-        "image": "/artist/david-bowie/david-bowie-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/david-bowie/david-bowie-hi-res.jpg",
+          "medium": "/artist/david-bowie/david-bowie-medium.jpg",
+          "avatar": "/artist/david-bowie/david-bowie-avatar.jpg"
+        }
       },
       {
         "name": "Mansun",
         "slug": "mansun",
         "count": 3,
-        "image": "/artist/mansun/mansun-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/mansun/mansun-hi-res.jpg",
+          "medium": "/artist/mansun/mansun-medium.jpg",
+          "avatar": "/artist/mansun/mansun-avatar.jpg"
+        }
       },
       {
         "name": "Devin Townsend",
         "slug": "devin-townsend",
         "count": 3,
-        "image": "/artist/devin-townsend/devin-townsend-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/devin-townsend/devin-townsend-hi-res.jpg",
+          "medium": "/artist/devin-townsend/devin-townsend-medium.jpg",
+          "avatar": "/artist/devin-townsend/devin-townsend-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -23960,42 +24040,60 @@
         "slug": "silverlake-11269948",
         "title": "Silverlake",
         "artist_name": "Pugwash",
-        "image": "/album/silverlake-11269948/silverlake-11269948-medium.jpg",
+        "images": {
+          "hi-res": "/album/silverlake-11269948/silverlake-11269948-hi-res.jpg",
+          "medium": "/album/silverlake-11269948/silverlake-11269948-medium.jpg"
+        },
         "date_added": "2018-01-04"
       },
       {
         "slug": "amok-4312273",
         "title": "Amok",
         "artist_name": "Atoms For Peace",
-        "image": "/album/amok-4312273/amok-4312273-medium.jpg",
+        "images": {
+          "hi-res": "/album/amok-4312273/amok-4312273-hi-res.jpg",
+          "medium": "/album/amok-4312273/amok-4312273-medium.jpg"
+        },
         "date_added": "2018-01-06"
       },
       {
         "slug": "play-8465720",
         "title": "Play",
         "artist_name": "Moby",
-        "image": "/album/play-8465720/play-8465720-medium.jpg",
+        "images": {
+          "hi-res": "/album/play-8465720/play-8465720-hi-res.jpg",
+          "medium": "/album/play-8465720/play-8465720-medium.jpg"
+        },
         "date_added": "2018-01-06"
       },
       {
         "slug": "the-in-sound-from-way-out-11237631",
         "title": "The In Sound From Way Out!",
         "artist_name": "Beastie Boys",
-        "image": "/album/the-in-sound-from-way-out-11237631/the-in-sound-from-way-out-11237631-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-in-sound-from-way-out-11237631/the-in-sound-from-way-out-11237631-hi-res.jpg",
+          "medium": "/album/the-in-sound-from-way-out-11237631/the-in-sound-from-way-out-11237631-medium.jpg"
+        },
         "date_added": "2018-01-06"
       },
       {
         "slug": "utopia-11154874",
         "title": "Utopia",
         "artist_name": "Björk",
-        "image": "/album/utopia-11154874/utopia-11154874-medium.jpg",
+        "images": {
+          "hi-res": "/album/utopia-11154874/utopia-11154874-hi-res.jpg",
+          "medium": "/album/utopia-11154874/utopia-11154874-medium.jpg"
+        },
         "date_added": "2018-01-06"
       },
       {
         "slug": "out-of-time-9375101",
         "title": "Out Of Time",
         "artist_name": "R.E.M.",
-        "image": "/album/out-of-time-9375101/out-of-time-9375101-medium.jpg",
+        "images": {
+          "hi-res": "/album/out-of-time-9375101/out-of-time-9375101-hi-res.jpg",
+          "medium": "/album/out-of-time-9375101/out-of-time-9375101-medium.jpg"
+        },
         "date_added": "2018-01-08"
       }
     ],
@@ -24004,44 +24102,72 @@
         "name": "Moby",
         "slug": "moby",
         "count": 6,
-        "image": "/artist/moby/moby-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/moby/moby-hi-res.jpg",
+          "medium": "/artist/moby/moby-medium.jpg",
+          "avatar": "/artist/moby/moby-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "play-8465720",
           "title": "Play",
-          "image": "/album/play-8465720/play-8465720-medium.jpg"
+          "images": {
+            "hi-res": "/album/play-8465720/play-8465720-hi-res.jpg",
+            "medium": "/album/play-8465720/play-8465720-medium.jpg"
+          }
         }
       },
       {
         "name": "Pop Will Eat Itself",
         "slug": "pop-will-eat-itself",
         "count": 6,
-        "image": "/artist/pop-will-eat-itself/pop-will-eat-itself-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/pop-will-eat-itself/pop-will-eat-itself-hi-res.jpg",
+          "medium": "/artist/pop-will-eat-itself/pop-will-eat-itself-medium.jpg",
+          "avatar": "/artist/pop-will-eat-itself/pop-will-eat-itself-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "92-f-the-incredible-pwei-vs-dirty-harry-99641",
           "title": "92° F / The Incredible PWEI Vs Dirty Harry",
-          "image": "/album/92-f-the-incredible-pwei-vs-dirty-harry-99641/92-f-the-incredible-pwei-vs-dirty-harry-99641-medium.jpg"
+          "images": {
+            "hi-res": "/album/92-f-the-incredible-pwei-vs-dirty-harry-99641/92-f-the-incredible-pwei-vs-dirty-harry-99641-hi-res.jpg",
+            "medium": "/album/92-f-the-incredible-pwei-vs-dirty-harry-99641/92-f-the-incredible-pwei-vs-dirty-harry-99641-medium.jpg"
+          }
         }
       },
       {
         "name": "Kate Bush",
         "slug": "kate-bush",
         "count": 6,
-        "image": "/artist/kate-bush/kate-bush-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/kate-bush/kate-bush-hi-res.jpg",
+          "medium": "/artist/kate-bush/kate-bush-medium.jpg",
+          "avatar": "/artist/kate-bush/kate-bush-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "lionheart-426108",
           "title": "Lionheart",
-          "image": "/album/lionheart-426108/lionheart-426108-medium.jpg"
+          "images": {
+            "hi-res": "/album/lionheart-426108/lionheart-426108-hi-res.jpg",
+            "medium": "/album/lionheart-426108/lionheart-426108-medium.jpg"
+          }
         }
       },
       {
         "name": "Split Enz",
         "slug": "split-enz",
         "count": 6,
-        "image": "/artist/split-enz/split-enz-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/split-enz/split-enz-hi-res.jpg",
+          "medium": "/artist/split-enz/split-enz-medium.jpg",
+          "avatar": "/artist/split-enz/split-enz-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "mental-notes-1445113",
           "title": "Mental Notes",
-          "image": "/album/mental-notes-1445113/mental-notes-1445113-medium.jpg"
+          "images": {
+            "hi-res": "/album/mental-notes-1445113/mental-notes-1445113-hi-res.jpg",
+            "medium": "/album/mental-notes-1445113/mental-notes-1445113-medium.jpg"
+          }
         }
       }
     ]

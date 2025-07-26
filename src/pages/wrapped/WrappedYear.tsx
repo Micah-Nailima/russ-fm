@@ -3,8 +3,10 @@ import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { WrappedData } from '@/types/wrapped';
 import { BentoGrid } from './components/BentoGrid';
+import { SkeletonBentoGrid } from './components/SkeletonBentoGrid';
 import { YearSelector } from './components/YearSelector';
 import { YearPagination } from './components/YearPagination';
+import { PageTransition } from './components/PageTransition';
 
 export function WrappedYear() {
   const { year } = useParams<{ year: string }>();
@@ -20,11 +22,6 @@ export function WrappedYear() {
   // Set page title
   usePageTitle(data ? `${yearNum} Wrapped` : 'Wrapped');
 
-  // If no year provided, redirect to previous year
-  if (!year || !yearNum || isNaN(yearNum)) {
-    return <Navigate to={`/wrapped/${currentYear - 1}`} replace />;
-  }
-
   // Load available years
   useEffect(() => {
     const loadAvailableYears = async () => {
@@ -33,7 +30,7 @@ export function WrappedYear() {
         const collection = await response.json();
         
         const years = new Set<number>();
-        collection.forEach((release: any) => {
+        collection.forEach((release: { date_added: string }) => {
           const releaseYear = new Date(release.date_added).getFullYear();
           years.add(releaseYear);
         });
@@ -75,12 +72,33 @@ export function WrappedYear() {
     loadData();
   }, [yearNum, currentYear]);
 
+  // If no year provided, redirect to previous year
+  if (!year || !yearNum || isNaN(yearNum)) {
+    return <Navigate to={`/wrapped/${currentYear - 1}`} replace />;
+  }
+
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-muted-foreground">Loading wrapped data...</p>
+      <div className="min-h-screen">
+        <div className="container mx-auto px-4 py-8">
+          {/* Header skeleton */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded w-48 animate-pulse"></div>
+              <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded w-32 animate-pulse"></div>
+            </div>
+          </div>
+
+          {/* Skeleton grid */}
+          <SkeletonBentoGrid />
+          
+          {/* Navigation skeleton */}
+          <div className="flex justify-center mt-8">
+            <div className="flex space-x-4">
+              <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded w-20 animate-pulse"></div>
+              <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded w-20 animate-pulse"></div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -107,40 +125,42 @@ export function WrappedYear() {
   const nextYear = availableYears.find(y => y > yearNum);
 
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-4xl font-bold">
-              {yearNum} Wrapped
-              {data.isYearToDate && <span className="text-sm font-normal text-muted-foreground ml-2">(Year to Date)</span>}
-            </h1>
-            <YearSelector
-              currentYear={yearNum}
-              availableYears={availableYears}
-              onYearChange={(year) => navigate(`/wrapped/${year}`)}
-            />
+    <PageTransition key={yearNum}>
+      <div className="min-h-screen">
+        <div className="container mx-auto px-4 py-8">
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h1 className="text-4xl font-bold">
+                {yearNum} Wrapped
+                {data.isYearToDate && <span className="text-sm font-normal text-muted-foreground ml-2">(Year to Date)</span>}
+              </h1>
+              <YearSelector
+                currentYear={yearNum}
+                availableYears={availableYears}
+                onYearChange={(year) => navigate(`/wrapped/${year}`)}
+              />
+            </div>
+            
+            {data.isYearToDate && data.summary.projectedTotal && (
+              <p className="text-muted-foreground">
+                On track for {data.summary.projectedTotal} releases by year end
+              </p>
+            )}
           </div>
-          
-          {data.isYearToDate && data.summary.projectedTotal && (
-            <p className="text-muted-foreground">
-              On track for {data.summary.projectedTotal} releases by year end
-            </p>
-          )}
+
+          {/* Main Bento Grid */}
+          <BentoGrid data={data} />
+
+          {/* Navigation */}
+          <YearPagination
+            currentYear={yearNum}
+            previousYear={previousYear}
+            nextYear={nextYear}
+            onNavigate={(year) => navigate(`/wrapped/${year}`)}
+          />
         </div>
-
-        {/* Main Bento Grid */}
-        <BentoGrid data={data} />
-
-        {/* Navigation */}
-        <YearPagination
-          currentYear={yearNum}
-          previousYear={previousYear}
-          nextYear={nextYear}
-          onNavigate={(year) => navigate(`/wrapped/${year}`)}
-        />
       </div>
-    </div>
+    </PageTransition>
   );
 }

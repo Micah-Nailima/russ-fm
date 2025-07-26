@@ -1,4 +1,3 @@
-import { BaseCard } from './BaseCard';
 import { Users } from 'lucide-react';
 
 interface UniqueArtistsCardProps {
@@ -7,10 +6,10 @@ interface UniqueArtistsCardProps {
 
 export function UniqueArtistsCard({ count }: UniqueArtistsCardProps) {
   return (
-    <BaseCard className="flex flex-col items-center justify-center text-center">
-      <Users className="w-6 h-6 text-primary mb-2" />
-      <div className="text-2xl font-bold">{count}</div>
-      <p className="text-xs text-muted-foreground">Unique artists</p>
-    </BaseCard>
+    <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gradient-to-br from-orange-600 to-red-600 flex flex-col items-center justify-center text-center">
+      <Users className="w-10 h-10 text-white/90 mb-3" />
+      <div className="text-3xl font-bold text-white">{count}</div>
+      <p className="text-sm text-white/80 mt-1">Unique Artists</p>
+    </div>
   );
 }

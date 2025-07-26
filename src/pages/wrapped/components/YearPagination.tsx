@@ -15,13 +15,13 @@ export function YearPagination({ currentYear, previousYear, nextYear, onNavigate
         variant="outline"
         onClick={() => previousYear && onNavigate(previousYear)}
         disabled={!previousYear}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 transition-all duration-200 hover:scale-105 hover:shadow-md"
       >
-        <ChevronLeft className="w-4 h-4" />
+        <ChevronLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
         {previousYear || 'Previous'}
       </Button>
 
-      <span className="text-sm text-muted-foreground">
+      <span className="text-sm text-muted-foreground font-medium">
         {currentYear}
       </span>
 
@@ -29,10 +29,10 @@ export function YearPagination({ currentYear, previousYear, nextYear, onNavigate
         variant="outline"
         onClick={() => nextYear && onNavigate(nextYear)}
         disabled={!nextYear}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 transition-all duration-200 hover:scale-105 hover:shadow-md group"
       >
         {nextYear || 'Next'}
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
       </Button>
     </div>
   );

@@ -1,4 +1,3 @@
-import { BaseCard } from './BaseCard';
 import { Calendar } from 'lucide-react';
 import { WrappedRelease } from '@/types/wrapped';
 
@@ -16,27 +15,25 @@ export function FirstAdditionCard({ date, release }: FirstAdditionCardProps) {
   const releaseYear = release?.date_release_year;
 
   return (
-    <BaseCard className="flex flex-col">
-      <div className="flex items-center gap-2 mb-2">
-        <Calendar className="w-5 h-5 text-primary" />
-        <h4 className="font-medium text-sm">Year Starter</h4>
-      </div>
-      <div className="text-xl font-bold">{formattedDate}</div>
+    <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gradient-to-br from-yellow-600 to-orange-600 flex flex-col justify-center items-center text-center p-4">
+      <Calendar className="w-8 h-8 text-white/90 mb-2" />
+      <h4 className="font-medium text-xs text-white/80 mb-2">Year Starter</h4>
+      <div className="text-xl font-bold text-white">{formattedDate}</div>
       {release && (
         <div className="mt-2 space-y-1">
-          <p className="text-xs font-medium line-clamp-1">
+          <p className="text-xs font-medium line-clamp-1 text-white">
             {release.release_name}
           </p>
-          <p className="text-xs text-muted-foreground line-clamp-1">
+          <p className="text-xs text-white/80 line-clamp-1">
             {release.release_artist}
           </p>
           {releaseYear && (
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-white/60">
               ({releaseYear} release)
             </p>
           )}
         </div>
       )}
-    </BaseCard>
+    </div>
   );
 }

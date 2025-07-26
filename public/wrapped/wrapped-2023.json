@@ -1,7 +1,7 @@
 {
   "year": 2023,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:22.337Z",
+  "lastUpdated": "2025-07-26T09:03:58.592Z",
   "summary": {
     "totalReleases": 250,
     "uniqueArtists": 188,
@@ -10367,121 +10367,201 @@
         "name": "De La Soul",
         "slug": "de-la-soul",
         "count": 6,
-        "image": "/artist/de-la-soul/de-la-soul-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/de-la-soul/de-la-soul-hi-res.jpg",
+          "medium": "/artist/de-la-soul/de-la-soul-medium.jpg",
+          "avatar": "/artist/de-la-soul/de-la-soul-avatar.jpg"
+        }
       },
       {
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 4,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 4,
-        "image": "/artist/xtc/xtc-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        }
       },
       {
         "name": "Matt Berry",
         "slug": "matt-berry",
         "count": 4,
-        "image": "/artist/matt-berry/matt-berry-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/matt-berry/matt-berry-hi-res.jpg",
+          "medium": "/artist/matt-berry/matt-berry-medium.jpg",
+          "avatar": "/artist/matt-berry/matt-berry-avatar.jpg"
+        }
       },
       {
         "name": "Steely Dan",
         "slug": "steely-dan",
         "count": 4,
-        "image": "/artist/steely-dan/steely-dan-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steely-dan/steely-dan-hi-res.jpg",
+          "medium": "/artist/steely-dan/steely-dan-medium.jpg",
+          "avatar": "/artist/steely-dan/steely-dan-avatar.jpg"
+        }
       },
       {
         "name": "Richard Hawley",
         "slug": "richard-hawley",
         "count": 4,
-        "image": "/artist/richard-hawley/richard-hawley-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/richard-hawley/richard-hawley-hi-res.jpg",
+          "medium": "/artist/richard-hawley/richard-hawley-medium.jpg",
+          "avatar": "/artist/richard-hawley/richard-hawley-avatar.jpg"
+        }
       },
       {
         "name": "Prince",
         "slug": "prince",
         "count": 4,
-        "image": "/artist/prince/prince-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/prince/prince-hi-res.jpg",
+          "medium": "/artist/prince/prince-medium.jpg",
+          "avatar": "/artist/prince/prince-avatar.jpg"
+        }
       },
       {
         "name": "Tori Amos",
         "slug": "tori-amos",
         "count": 3,
-        "image": "/artist/tori-amos/tori-amos-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/tori-amos/tori-amos-hi-res.jpg",
+          "medium": "/artist/tori-amos/tori-amos-medium.jpg",
+          "avatar": "/artist/tori-amos/tori-amos-avatar.jpg"
+        }
       },
       {
         "name": "King Crimson",
         "slug": "king-crimson",
         "count": 3,
-        "image": "/artist/king-crimson/king-crimson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/king-crimson/king-crimson-hi-res.jpg",
+          "medium": "/artist/king-crimson/king-crimson-medium.jpg",
+          "avatar": "/artist/king-crimson/king-crimson-avatar.jpg"
+        }
       },
       {
         "name": "Curve",
         "slug": "curve",
         "count": 3,
-        "image": "/artist/curve/curve-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/curve/curve-hi-res.jpg",
+          "medium": "/artist/curve/curve-medium.jpg",
+          "avatar": "/artist/curve/curve-avatar.jpg"
+        }
       },
       {
         "name": "Thunder",
         "slug": "thunder",
         "count": 3,
-        "image": "/artist/thunder/thunder-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/thunder/thunder-hi-res.jpg",
+          "medium": "/artist/thunder/thunder-medium.jpg",
+          "avatar": "/artist/thunder/thunder-avatar.jpg"
+        }
       },
       {
         "name": "Amplifier",
         "slug": "amplifier",
         "count": 3,
-        "image": "/artist/amplifier/amplifier-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/amplifier/amplifier-hi-res.jpg",
+          "medium": "/artist/amplifier/amplifier-medium.jpg",
+          "avatar": "/artist/amplifier/amplifier-avatar.jpg"
+        }
       },
       {
         "name": "Lush",
         "slug": "lush",
         "count": 3,
-        "image": "/artist/lush/lush-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/lush/lush-hi-res.jpg",
+          "medium": "/artist/lush/lush-medium.jpg",
+          "avatar": "/artist/lush/lush-avatar.jpg"
+        }
       },
       {
         "name": "The Beatles",
         "slug": "the-beatles",
         "count": 3,
-        "image": "/artist/the-beatles/the-beatles-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-beatles/the-beatles-hi-res.jpg",
+          "medium": "/artist/the-beatles/the-beatles-medium.jpg",
+          "avatar": "/artist/the-beatles/the-beatles-avatar.jpg"
+        }
       },
       {
         "name": "Salad",
         "slug": "salad",
         "count": 3,
-        "image": "/artist/salad/salad-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/salad/salad-hi-res.jpg",
+          "medium": "/artist/salad/salad-medium.jpg",
+          "avatar": "/artist/salad/salad-avatar.jpg"
+        }
       },
       {
         "name": "Silver Sun",
         "slug": "silver-sun",
         "count": 3,
-        "image": "/artist/silver-sun/silver-sun-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/silver-sun/silver-sun-hi-res.jpg",
+          "medium": "/artist/silver-sun/silver-sun-medium.jpg",
+          "avatar": "/artist/silver-sun/silver-sun-avatar.jpg"
+        }
       },
       {
         "name": "The Anchoress",
         "slug": "the-anchoress",
         "count": 2,
-        "image": "/artist/the-anchoress/the-anchoress-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-anchoress/the-anchoress-hi-res.jpg",
+          "medium": "/artist/the-anchoress/the-anchoress-medium.jpg",
+          "avatar": "/artist/the-anchoress/the-anchoress-avatar.jpg"
+        }
       },
       {
         "name": "Syd Barrett",
         "slug": "syd-barrett",
         "count": 2,
-        "image": "/artist/syd-barrett/syd-barrett-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/syd-barrett/syd-barrett-hi-res.jpg",
+          "medium": "/artist/syd-barrett/syd-barrett-medium.jpg",
+          "avatar": "/artist/syd-barrett/syd-barrett-avatar.jpg"
+        }
       },
       {
         "name": "Paul Weller",
         "slug": "paul-weller",
         "count": 2,
-        "image": "/artist/paul-weller/paul-weller-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/paul-weller/paul-weller-hi-res.jpg",
+          "medium": "/artist/paul-weller/paul-weller-medium.jpg",
+          "avatar": "/artist/paul-weller/paul-weller-avatar.jpg"
+        }
       },
       {
         "name": "The Damned",
         "slug": "the-damned",
         "count": 2,
-        "image": "/artist/the-damned/the-damned-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-damned/the-damned-hi-res.jpg",
+          "medium": "/artist/the-damned/the-damned-medium.jpg",
+          "avatar": "/artist/the-damned/the-damned-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -18001,42 +18081,60 @@
         "slug": "little-earthquakes-25684807",
         "title": "Little Earthquakes",
         "artist_name": "Tori Amos",
-        "image": "/album/little-earthquakes-25684807/little-earthquakes-25684807-medium.jpg",
+        "images": {
+          "hi-res": "/album/little-earthquakes-25684807/little-earthquakes-25684807-hi-res.jpg",
+          "medium": "/album/little-earthquakes-25684807/little-earthquakes-25684807-medium.jpg"
+        },
         "date_added": "2023-01-07"
       },
       {
         "slug": "my-maudlin-career-1758491",
         "title": "My Maudlin Career",
         "artist_name": "Camera Obscura",
-        "image": "/album/my-maudlin-career-1758491/my-maudlin-career-1758491-medium.jpg",
+        "images": {
+          "hi-res": "/album/my-maudlin-career-1758491/my-maudlin-career-1758491-hi-res.jpg",
+          "medium": "/album/my-maudlin-career-1758491/my-maudlin-career-1758491-medium.jpg"
+        },
         "date_added": "2023-01-13"
       },
       {
         "slug": "the-art-of-losing-acoustic-ep-25733641",
         "title": "The Art of Losing - Acoustic EP",
         "artist_name": "The Anchoress",
-        "image": "/album/the-art-of-losing-acoustic-ep-25733641/the-art-of-losing-acoustic-ep-25733641-medium.jpg",
+        "images": {
+          "hi-res": "/album/the-art-of-losing-acoustic-ep-25733641/the-art-of-losing-acoustic-ep-25733641-hi-res.jpg",
+          "medium": "/album/the-art-of-losing-acoustic-ep-25733641/the-art-of-losing-acoustic-ep-25733641-medium.jpg"
+        },
         "date_added": "2023-01-13"
       },
       {
         "slug": "an-introduction-to-syd-barrett-25396930",
         "title": "An Introduction To Syd Barrett",
         "artist_name": "Syd Barrett",
-        "image": "/album/an-introduction-to-syd-barrett-25396930/an-introduction-to-syd-barrett-25396930-medium.jpg",
+        "images": {
+          "hi-res": "/album/an-introduction-to-syd-barrett-25396930/an-introduction-to-syd-barrett-25396930-hi-res.jpg",
+          "medium": "/album/an-introduction-to-syd-barrett-25396930/an-introduction-to-syd-barrett-25396930-medium.jpg"
+        },
         "date_added": "2023-01-15"
       },
       {
         "slug": "identity-25826326",
         "title": "ID.Entity",
         "artist_name": "Riverside",
-        "image": "/album/identity-25826326/identity-25826326-medium.jpg",
+        "images": {
+          "hi-res": "/album/identity-25826326/identity-25826326-hi-res.jpg",
+          "medium": "/album/identity-25826326/identity-25826326-medium.jpg"
+        },
         "date_added": "2023-01-20"
       },
       {
         "slug": "sky-void-of-stars-25820851",
         "title": "Sky Void Of Stars",
         "artist_name": "Katatonia",
-        "image": "/album/sky-void-of-stars-25820851/sky-void-of-stars-25820851-medium.jpg",
+        "images": {
+          "hi-res": "/album/sky-void-of-stars-25820851/sky-void-of-stars-25820851-hi-res.jpg",
+          "medium": "/album/sky-void-of-stars-25820851/sky-void-of-stars-25820851-medium.jpg"
+        },
         "date_added": "2023-01-21"
       }
     ],
@@ -18045,44 +18143,72 @@
         "name": "De La Soul",
         "slug": "de-la-soul",
         "count": 6,
-        "image": "/artist/de-la-soul/de-la-soul-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/de-la-soul/de-la-soul-hi-res.jpg",
+          "medium": "/artist/de-la-soul/de-la-soul-medium.jpg",
+          "avatar": "/artist/de-la-soul/de-la-soul-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "3-feet-high-and-rising-26591132",
           "title": "3 Feet High And Rising",
-          "image": "/album/3-feet-high-and-rising-26591132/3-feet-high-and-rising-26591132-medium.jpg"
+          "images": {
+            "hi-res": "/album/3-feet-high-and-rising-26591132/3-feet-high-and-rising-26591132-hi-res.jpg",
+            "medium": "/album/3-feet-high-and-rising-26591132/3-feet-high-and-rising-26591132-medium.jpg"
+          }
         }
       },
       {
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 4,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292",
           "title": "Intrigue (Steven Wilson Presents: Progressive Sounds In UK Alternative Music 1979-89)",
-          "image": "/album/intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292/intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292-medium.jpg"
+          "images": {
+            "hi-res": "/album/intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292/intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292-hi-res.jpg",
+            "medium": "/album/intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292/intrigue-steven-wilson-presents-progressive-sounds-in-uk-alternative-music-1979-89-26064292-medium.jpg"
+          }
         }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 4,
-        "image": "/artist/xtc/xtc-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "the-big-express-25208314",
           "title": "The Big Express",
-          "image": "/album/the-big-express-25208314/the-big-express-25208314-medium.jpg"
+          "images": {
+            "hi-res": "/album/the-big-express-25208314/the-big-express-25208314-hi-res.jpg",
+            "medium": "/album/the-big-express-25208314/the-big-express-25208314-medium.jpg"
+          }
         }
       },
       {
         "name": "Matt Berry",
         "slug": "matt-berry",
         "count": 4,
-        "image": "/artist/matt-berry/matt-berry-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/matt-berry/matt-berry-hi-res.jpg",
+          "medium": "/artist/matt-berry/matt-berry-medium.jpg",
+          "avatar": "/artist/matt-berry/matt-berry-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "kill-the-wolf-10th-anniversary-edition-27314406",
           "title": "Kill The Wolf - 10th Anniversary Edition",
-          "image": "/album/kill-the-wolf-10th-anniversary-edition-27314406/kill-the-wolf-10th-anniversary-edition-27314406-medium.jpg"
+          "images": {
+            "hi-res": "/album/kill-the-wolf-10th-anniversary-edition-27314406/kill-the-wolf-10th-anniversary-edition-27314406-hi-res.jpg",
+            "medium": "/album/kill-the-wolf-10th-anniversary-edition-27314406/kill-the-wolf-10th-anniversary-edition-27314406-medium.jpg"
+          }
         }
       }
     ]

@@ -1,7 +1,7 @@
 {
   "year": 2016,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:21.168Z",
+  "lastUpdated": "2025-07-26T09:03:58.227Z",
   "summary": {
     "totalReleases": 500,
     "uniqueArtists": 298,
@@ -20983,121 +20983,201 @@
         "name": "Pink Floyd",
         "slug": "pink-floyd",
         "count": 15,
-        "image": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pink-floyd/pink-floyd-hi-res.jpg",
+          "medium": "/artist/pink-floyd/pink-floyd-medium.jpg",
+          "avatar": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        }
       },
       {
         "name": "David Bowie",
         "slug": "david-bowie",
         "count": 11,
-        "image": "/artist/david-bowie/david-bowie-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/david-bowie/david-bowie-hi-res.jpg",
+          "medium": "/artist/david-bowie/david-bowie-medium.jpg",
+          "avatar": "/artist/david-bowie/david-bowie-avatar.jpg"
+        }
       },
       {
         "name": "Peter Gabriel",
         "slug": "peter-gabriel",
         "count": 10,
-        "image": "/artist/peter-gabriel/peter-gabriel-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/peter-gabriel/peter-gabriel-hi-res.jpg",
+          "medium": "/artist/peter-gabriel/peter-gabriel-medium.jpg",
+          "avatar": "/artist/peter-gabriel/peter-gabriel-avatar.jpg"
+        }
       },
       {
         "name": "Status Quo",
         "slug": "status-quo",
         "count": 10,
-        "image": "/artist/status-quo/status-quo-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/status-quo/status-quo-hi-res.jpg",
+          "medium": "/artist/status-quo/status-quo-medium.jpg",
+          "avatar": "/artist/status-quo/status-quo-avatar.jpg"
+        }
       },
       {
         "name": "Radiohead",
         "slug": "radiohead",
         "count": 8,
-        "image": "/artist/radiohead/radiohead-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/radiohead/radiohead-hi-res.jpg",
+          "medium": "/artist/radiohead/radiohead-medium.jpg",
+          "avatar": "/artist/radiohead/radiohead-avatar.jpg"
+        }
       },
       {
         "name": "Split Enz",
         "slug": "split-enz",
         "count": 7,
-        "image": "/artist/split-enz/split-enz-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/split-enz/split-enz-hi-res.jpg",
+          "medium": "/artist/split-enz/split-enz-medium.jpg",
+          "avatar": "/artist/split-enz/split-enz-avatar.jpg"
+        }
       },
       {
         "name": "Anathema",
         "slug": "anathema",
         "count": 7,
-        "image": "/artist/anathema/anathema-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/anathema/anathema-hi-res.jpg",
+          "medium": "/artist/anathema/anathema-medium.jpg",
+          "avatar": "/artist/anathema/anathema-avatar.jpg"
+        }
       },
       {
         "name": "Crippled Black Phoenix",
         "slug": "crippled-black-phoenix",
         "count": 6,
-        "image": "/artist/crippled-black-phoenix/crippled-black-phoenix-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/crippled-black-phoenix/crippled-black-phoenix-hi-res.jpg",
+          "medium": "/artist/crippled-black-phoenix/crippled-black-phoenix-medium.jpg",
+          "avatar": "/artist/crippled-black-phoenix/crippled-black-phoenix-avatar.jpg"
+        }
       },
       {
         "name": "Monster Magnet",
         "slug": "monster-magnet",
         "count": 6,
-        "image": "/artist/monster-magnet/monster-magnet-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/monster-magnet/monster-magnet-hi-res.jpg",
+          "medium": "/artist/monster-magnet/monster-magnet-medium.jpg",
+          "avatar": "/artist/monster-magnet/monster-magnet-avatar.jpg"
+        }
       },
       {
         "name": "Prince",
         "slug": "prince",
         "count": 6,
-        "image": "/artist/prince/prince-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/prince/prince-hi-res.jpg",
+          "medium": "/artist/prince/prince-medium.jpg",
+          "avatar": "/artist/prince/prince-avatar.jpg"
+        }
       },
       {
         "name": "Ian Dury",
         "slug": "ian-dury",
         "count": 5,
-        "image": "/artist/ian-dury/ian-dury-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/ian-dury/ian-dury-hi-res.jpg",
+          "medium": "/artist/ian-dury/ian-dury-medium.jpg",
+          "avatar": "/artist/ian-dury/ian-dury-avatar.jpg"
+        }
       },
       {
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 5,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        }
       },
       {
         "name": "The Smashing Pumpkins",
         "slug": "the-smashing-pumpkins",
         "count": 5,
-        "image": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-hi-res.jpg",
+          "medium": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-medium.jpg",
+          "avatar": "/artist/the-smashing-pumpkins/the-smashing-pumpkins-avatar.jpg"
+        }
       },
       {
         "name": "Talk Talk",
         "slug": "talk-talk",
         "count": 5,
-        "image": "/artist/talk-talk/talk-talk-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/talk-talk/talk-talk-hi-res.jpg",
+          "medium": "/artist/talk-talk/talk-talk-medium.jpg",
+          "avatar": "/artist/talk-talk/talk-talk-avatar.jpg"
+        }
       },
       {
         "name": "Crowded House",
         "slug": "crowded-house",
         "count": 4,
-        "image": "/artist/crowded-house/crowded-house-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/crowded-house/crowded-house-hi-res.jpg",
+          "medium": "/artist/crowded-house/crowded-house-medium.jpg",
+          "avatar": "/artist/crowded-house/crowded-house-avatar.jpg"
+        }
       },
       {
         "name": "Kraftwerk",
         "slug": "kraftwerk",
         "count": 4,
-        "image": "/artist/kraftwerk/kraftwerk-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/kraftwerk/kraftwerk-hi-res.jpg",
+          "medium": "/artist/kraftwerk/kraftwerk-medium.jpg",
+          "avatar": "/artist/kraftwerk/kraftwerk-avatar.jpg"
+        }
       },
       {
         "name": "Cardiacs",
         "slug": "cardiacs",
         "count": 4,
-        "image": "/artist/cardiacs/cardiacs-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/cardiacs/cardiacs-hi-res.jpg",
+          "medium": "/artist/cardiacs/cardiacs-medium.jpg",
+          "avatar": "/artist/cardiacs/cardiacs-avatar.jpg"
+        }
       },
       {
         "name": "Little Angels",
         "slug": "little-angels",
         "count": 4,
-        "image": "/artist/little-angels/little-angels-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/little-angels/little-angels-hi-res.jpg",
+          "medium": "/artist/little-angels/little-angels-medium.jpg",
+          "avatar": "/artist/little-angels/little-angels-avatar.jpg"
+        }
       },
       {
         "name": "Depeche Mode",
         "slug": "depeche-mode",
         "count": 4,
-        "image": "/artist/depeche-mode/depeche-mode-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/depeche-mode/depeche-mode-hi-res.jpg",
+          "medium": "/artist/depeche-mode/depeche-mode-medium.jpg",
+          "avatar": "/artist/depeche-mode/depeche-mode-avatar.jpg"
+        }
       },
       {
         "name": "John Williams",
         "slug": "john-williams",
         "count": 4,
-        "image": "/artist/john-williams/john-williams-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/john-williams/john-williams-hi-res.jpg",
+          "medium": "/artist/john-williams/john-williams-medium.jpg",
+          "avatar": "/artist/john-williams/john-williams-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -36402,42 +36482,60 @@
         "slug": "mothership-7690309",
         "title": "Mothership",
         "artist_name": "Led Zeppelin",
-        "image": "/album/mothership-7690309/mothership-7690309-medium.jpg",
+        "images": {
+          "hi-res": "/album/mothership-7690309/mothership-7690309-hi-res.jpg",
+          "medium": "/album/mothership-7690309/mothership-7690309-medium.jpg"
+        },
         "date_added": "2016-01-03"
       },
       {
         "slug": "three-snakes-and-one-charm-7836430",
         "title": "Three Snakes And One Charm",
         "artist_name": "The Black Crowes",
-        "image": "/album/three-snakes-and-one-charm-7836430/three-snakes-and-one-charm-7836430-medium.jpg",
+        "images": {
+          "hi-res": "/album/three-snakes-and-one-charm-7836430/three-snakes-and-one-charm-7836430-hi-res.jpg",
+          "medium": "/album/three-snakes-and-one-charm-7836430/three-snakes-and-one-charm-7836430-medium.jpg"
+        },
         "date_added": "2016-01-04"
       },
       {
         "slug": "time-on-earth-5536618",
         "title": "Time On Earth",
         "artist_name": "Crowded House",
-        "image": "/album/time-on-earth-5536618/time-on-earth-5536618-medium.jpg",
+        "images": {
+          "hi-res": "/album/time-on-earth-5536618/time-on-earth-5536618-hi-res.jpg",
+          "medium": "/album/time-on-earth-5536618/time-on-earth-5536618-medium.jpg"
+        },
         "date_added": "2016-01-04"
       },
       {
         "slug": "bridge-of-spies-423522",
         "title": "Bridge Of Spies",
         "artist_name": "T'Pau",
-        "image": "/album/bridge-of-spies-423522/bridge-of-spies-423522-medium.jpg",
+        "images": {
+          "hi-res": "/album/bridge-of-spies-423522/bridge-of-spies-423522-hi-res.jpg",
+          "medium": "/album/bridge-of-spies-423522/bridge-of-spies-423522-medium.jpg"
+        },
         "date_added": "2016-01-07"
       },
       {
         "slug": "diesel-and-dust-3639615",
         "title": "Diesel And Dust",
         "artist_name": "Midnight Oil",
-        "image": "/album/diesel-and-dust-3639615/diesel-and-dust-3639615-medium.jpg",
+        "images": {
+          "hi-res": "/album/diesel-and-dust-3639615/diesel-and-dust-3639615-hi-res.jpg",
+          "medium": "/album/diesel-and-dust-3639615/diesel-and-dust-3639615-medium.jpg"
+        },
         "date_added": "2016-01-07"
       },
       {
         "slug": "john-parr-1152756",
         "title": "John Parr",
         "artist_name": "John Parr",
-        "image": "/album/john-parr-1152756/john-parr-1152756-medium.jpg",
+        "images": {
+          "hi-res": "/album/john-parr-1152756/john-parr-1152756-hi-res.jpg",
+          "medium": "/album/john-parr-1152756/john-parr-1152756-medium.jpg"
+        },
         "date_added": "2016-01-07"
       }
     ],
@@ -36446,44 +36544,72 @@
         "name": "Pink Floyd",
         "slug": "pink-floyd",
         "count": 15,
-        "image": "/artist/pink-floyd/pink-floyd-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/pink-floyd/pink-floyd-hi-res.jpg",
+          "medium": "/artist/pink-floyd/pink-floyd-medium.jpg",
+          "avatar": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "meddle-4137493",
           "title": "Meddle",
-          "image": "/album/meddle-4137493/meddle-4137493-medium.jpg"
+          "images": {
+            "hi-res": "/album/meddle-4137493/meddle-4137493-hi-res.jpg",
+            "medium": "/album/meddle-4137493/meddle-4137493-medium.jpg"
+          }
         }
       },
       {
         "name": "David Bowie",
         "slug": "david-bowie",
         "count": 11,
-        "image": "/artist/david-bowie/david-bowie-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/david-bowie/david-bowie-hi-res.jpg",
+          "medium": "/artist/david-bowie/david-bowie-medium.jpg",
+          "avatar": "/artist/david-bowie/david-bowie-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "blackstar-7932038",
           "title": "★ (Blackstar)",
-          "image": "/album/blackstar-7932038/blackstar-7932038-medium.jpg"
+          "images": {
+            "hi-res": "/album/blackstar-7932038/blackstar-7932038-hi-res.jpg",
+            "medium": "/album/blackstar-7932038/blackstar-7932038-medium.jpg"
+          }
         }
       },
       {
         "name": "Peter Gabriel",
         "slug": "peter-gabriel",
         "count": 10,
-        "image": "/artist/peter-gabriel/peter-gabriel-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/peter-gabriel/peter-gabriel-hi-res.jpg",
+          "medium": "/artist/peter-gabriel/peter-gabriel-medium.jpg",
+          "avatar": "/artist/peter-gabriel/peter-gabriel-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "shaking-the-tree-twelve-golden-greats-1662226",
           "title": "Shaking The Tree (Twelve Golden Greats)",
-          "image": "/album/shaking-the-tree-twelve-golden-greats-1662226/shaking-the-tree-twelve-golden-greats-1662226-medium.jpg"
+          "images": {
+            "hi-res": "/album/shaking-the-tree-twelve-golden-greats-1662226/shaking-the-tree-twelve-golden-greats-1662226-hi-res.jpg",
+            "medium": "/album/shaking-the-tree-twelve-golden-greats-1662226/shaking-the-tree-twelve-golden-greats-1662226-medium.jpg"
+          }
         }
       },
       {
         "name": "Status Quo",
         "slug": "status-quo",
         "count": 10,
-        "image": "/artist/status-quo/status-quo-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/status-quo/status-quo-hi-res.jpg",
+          "medium": "/artist/status-quo/status-quo-medium.jpg",
+          "avatar": "/artist/status-quo/status-quo-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "blue-for-you-7580826",
           "title": "Blue For You",
-          "image": "/album/blue-for-you-7580826/blue-for-you-7580826-medium.jpg"
+          "images": {
+            "hi-res": "/album/blue-for-you-7580826/blue-for-you-7580826-hi-res.jpg",
+            "medium": "/album/blue-for-you-7580826/blue-for-you-7580826-medium.jpg"
+          }
         }
       }
     ]

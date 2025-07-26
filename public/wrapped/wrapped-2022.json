@@ -1,7 +1,7 @@
 {
   "year": 2022,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:22.199Z",
+  "lastUpdated": "2025-07-26T09:03:58.546Z",
   "summary": {
     "totalReleases": 222,
     "uniqueArtists": 185,
@@ -9210,121 +9210,201 @@
         "name": "Jesus Jones",
         "slug": "jesus-jones",
         "count": 8,
-        "image": "/artist/jesus-jones/jesus-jones-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/jesus-jones/jesus-jones-hi-res.jpg",
+          "medium": "/artist/jesus-jones/jesus-jones-medium.jpg",
+          "avatar": "/artist/jesus-jones/jesus-jones-avatar.jpg"
+        }
       },
       {
         "name": "Todd Rundgren",
         "slug": "todd-rundgren",
         "count": 7,
-        "image": "/artist/todd-rundgren/todd-rundgren-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/todd-rundgren/todd-rundgren-hi-res.jpg",
+          "medium": "/artist/todd-rundgren/todd-rundgren-medium.jpg",
+          "avatar": "/artist/todd-rundgren/todd-rundgren-avatar.jpg"
+        }
       },
       {
         "name": "Utopia",
         "slug": "utopia",
         "count": 4,
-        "image": "/artist/utopia/utopia-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/utopia/utopia-hi-res.jpg",
+          "medium": "/artist/utopia/utopia-medium.jpg",
+          "avatar": "/artist/utopia/utopia-avatar.jpg"
+        }
       },
       {
         "name": "Beth Orton",
         "slug": "beth-orton",
         "count": 4,
-        "image": "/artist/beth-orton/beth-orton-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/beth-orton/beth-orton-hi-res.jpg",
+          "medium": "/artist/beth-orton/beth-orton-medium.jpg",
+          "avatar": "/artist/beth-orton/beth-orton-avatar.jpg"
+        }
       },
       {
         "name": "Marillion",
         "slug": "marillion",
         "count": 3,
-        "image": "/artist/marillion/marillion-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/marillion/marillion-hi-res.jpg",
+          "medium": "/artist/marillion/marillion-medium.jpg",
+          "avatar": "/artist/marillion/marillion-avatar.jpg"
+        }
       },
       {
         "name": "Pink Floyd",
         "slug": "pink-floyd",
         "count": 3,
-        "image": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pink-floyd/pink-floyd-hi-res.jpg",
+          "medium": "/artist/pink-floyd/pink-floyd-medium.jpg",
+          "avatar": "/artist/pink-floyd/pink-floyd-avatar.jpg"
+        }
       },
       {
         "name": "Ride",
         "slug": "ride",
         "count": 3,
-        "image": "/artist/ride/ride-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/ride/ride-hi-res.jpg",
+          "medium": "/artist/ride/ride-medium.jpg",
+          "avatar": "/artist/ride/ride-avatar.jpg"
+        }
       },
       {
         "name": "Gavin Harrison",
         "slug": "gavin-harrison",
         "count": 2,
-        "image": "/artist/gavin-harrison/gavin-harrison-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/gavin-harrison/gavin-harrison-hi-res.jpg",
+          "medium": "/artist/gavin-harrison/gavin-harrison-medium.jpg",
+          "avatar": "/artist/gavin-harrison/gavin-harrison-avatar.jpg"
+        }
       },
       {
         "name": "The Rolling Stones",
         "slug": "the-rolling-stones",
         "count": 2,
-        "image": "/artist/the-rolling-stones/the-rolling-stones-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-rolling-stones/the-rolling-stones-hi-res.jpg",
+          "medium": "/artist/the-rolling-stones/the-rolling-stones-medium.jpg",
+          "avatar": "/artist/the-rolling-stones/the-rolling-stones-avatar.jpg"
+        }
       },
       {
         "name": "Tripping Daisy",
         "slug": "tripping-daisy",
         "count": 2,
-        "image": "/artist/tripping-daisy/tripping-daisy-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/tripping-daisy/tripping-daisy-hi-res.jpg",
+          "medium": "/artist/tripping-daisy/tripping-daisy-medium.jpg",
+          "avatar": "/artist/tripping-daisy/tripping-daisy-avatar.jpg"
+        }
       },
       {
         "name": "Dodgy",
         "slug": "dodgy",
         "count": 2,
-        "image": "/artist/dodgy/dodgy-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/dodgy/dodgy-hi-res.jpg",
+          "medium": "/artist/dodgy/dodgy-medium.jpg",
+          "avatar": "/artist/dodgy/dodgy-avatar.jpg"
+        }
       },
       {
         "name": "Pearl Jam",
         "slug": "pearl-jam",
         "count": 2,
-        "image": "/artist/pearl-jam/pearl-jam-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pearl-jam/pearl-jam-hi-res.jpg",
+          "medium": "/artist/pearl-jam/pearl-jam-medium.jpg",
+          "avatar": "/artist/pearl-jam/pearl-jam-avatar.jpg"
+        }
       },
       {
         "name": "Sel Balamir",
         "slug": "sel-balamir",
         "count": 2,
-        "image": "/artist/sel-balamir/sel-balamir-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/sel-balamir/sel-balamir-hi-res.jpg",
+          "medium": "/artist/sel-balamir/sel-balamir-medium.jpg",
+          "avatar": "/artist/sel-balamir/sel-balamir-avatar.jpg"
+        }
       },
       {
         "name": "Inspiral Carpets",
         "slug": "inspiral-carpets",
         "count": 2,
-        "image": "/artist/inspiral-carpets/inspiral-carpets-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/inspiral-carpets/inspiral-carpets-hi-res.jpg",
+          "medium": "/artist/inspiral-carpets/inspiral-carpets-medium.jpg",
+          "avatar": "/artist/inspiral-carpets/inspiral-carpets-avatar.jpg"
+        }
       },
       {
         "name": "Belle & Sebastian",
         "slug": "belle-sebastian",
         "count": 2,
-        "image": "/artist/belle-sebastian/belle-sebastian-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/belle-sebastian/belle-sebastian-hi-res.jpg",
+          "medium": "/artist/belle-sebastian/belle-sebastian-medium.jpg",
+          "avatar": "/artist/belle-sebastian/belle-sebastian-avatar.jpg"
+        }
       },
       {
         "name": "Alice In Chains",
         "slug": "alice-in-chains",
         "count": 2,
-        "image": "/artist/alice-in-chains/alice-in-chains-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/alice-in-chains/alice-in-chains-hi-res.jpg",
+          "medium": "/artist/alice-in-chains/alice-in-chains-medium.jpg",
+          "avatar": "/artist/alice-in-chains/alice-in-chains-avatar.jpg"
+        }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 2,
-        "image": "/artist/xtc/xtc-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        }
       },
       {
         "name": "Pure Reason Revolution",
         "slug": "pure-reason-revolution",
         "count": 2,
-        "image": "/artist/pure-reason-revolution/pure-reason-revolution-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pure-reason-revolution/pure-reason-revolution-hi-res.jpg",
+          "medium": "/artist/pure-reason-revolution/pure-reason-revolution-medium.jpg",
+          "avatar": "/artist/pure-reason-revolution/pure-reason-revolution-avatar.jpg"
+        }
       },
       {
         "name": "Bruce Springsteen",
         "slug": "bruce-springsteen",
         "count": 2,
-        "image": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/bruce-springsteen/bruce-springsteen-hi-res.jpg",
+          "medium": "/artist/bruce-springsteen/bruce-springsteen-medium.jpg",
+          "avatar": "/artist/bruce-springsteen/bruce-springsteen-avatar.jpg"
+        }
       },
       {
         "name": "Porcupine Tree",
         "slug": "porcupine-tree",
         "count": 2,
-        "image": "/artist/porcupine-tree/porcupine-tree-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/porcupine-tree/porcupine-tree-hi-res.jpg",
+          "medium": "/artist/porcupine-tree/porcupine-tree-medium.jpg",
+          "avatar": "/artist/porcupine-tree/porcupine-tree-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -16063,42 +16143,60 @@
         "slug": "cheating-the-polygraph-6905612",
         "title": "Cheating The Polygraph",
         "artist_name": "Gavin Harrison",
-        "image": "/album/cheating-the-polygraph-6905612/cheating-the-polygraph-6905612-medium.jpg",
+        "images": {
+          "hi-res": "/album/cheating-the-polygraph-6905612/cheating-the-polygraph-6905612-hi-res.jpg",
+          "medium": "/album/cheating-the-polygraph-6905612/cheating-the-polygraph-6905612-medium.jpg"
+        },
         "date_added": "2022-01-05"
       },
       {
         "slug": "hot-rocks-1964-1971-19121767",
         "title": "Hot Rocks 1964-1971",
         "artist_name": "The Rolling Stones",
-        "image": "/album/hot-rocks-1964-1971-19121767/hot-rocks-1964-1971-19121767-medium.jpg",
+        "images": {
+          "hi-res": "/album/hot-rocks-1964-1971-19121767/hot-rocks-1964-1971-19121767-hi-res.jpg",
+          "medium": "/album/hot-rocks-1964-1971-19121767/hot-rocks-1964-1971-19121767-medium.jpg"
+        },
         "date_added": "2022-01-06"
       },
       {
         "slug": "sublime-meets-scientist-mad-professor-inna-lbc-19113523",
         "title": "Sublime Meets Scientist & Mad Professor Inna L.B.C.",
         "artist_name": "Sublime & Scientist & Mad Professor",
-        "image": "/album/sublime-meets-scientist-mad-professor-inna-lbc-19113523/sublime-meets-scientist-mad-professor-inna-lbc-19113523-medium.jpg",
+        "images": {
+          "hi-res": "/album/sublime-meets-scientist-mad-professor-inna-lbc-19113523/sublime-meets-scientist-mad-professor-inna-lbc-19113523-hi-res.jpg",
+          "medium": "/album/sublime-meets-scientist-mad-professor-inna-lbc-19113523/sublime-meets-scientist-mad-professor-inna-lbc-19113523-medium.jpg"
+        },
         "date_added": "2022-01-06"
       },
       {
         "slug": "infernal-love-18393268",
         "title": "Infernal Love",
         "artist_name": "Therapy?",
-        "image": "/album/infernal-love-18393268/infernal-love-18393268-medium.jpg",
+        "images": {
+          "hi-res": "/album/infernal-love-18393268/infernal-love-18393268-hi-res.jpg",
+          "medium": "/album/infernal-love-18393268/infernal-love-18393268-medium.jpg"
+        },
         "date_added": "2022-01-07"
       },
       {
         "slug": "belinda-18914803",
         "title": "Belinda",
         "artist_name": "Belinda Carlisle",
-        "image": "/album/belinda-18914803/belinda-18914803-medium.jpg",
+        "images": {
+          "hi-res": "/album/belinda-18914803/belinda-18914803-hi-res.jpg",
+          "medium": "/album/belinda-18914803/belinda-18914803-medium.jpg"
+        },
         "date_added": "2022-01-09"
       },
       {
         "slug": "604-20527537",
         "title": "604",
         "artist_name": "Ladytron",
-        "image": "/album/604-20527537/604-20527537-medium.jpg",
+        "images": {
+          "hi-res": "/album/604-20527537/604-20527537-hi-res.jpg",
+          "medium": "/album/604-20527537/604-20527537-medium.jpg"
+        },
         "date_added": "2022-01-11"
       }
     ],
@@ -16107,44 +16205,72 @@
         "name": "Jesus Jones",
         "slug": "jesus-jones",
         "count": 8,
-        "image": "/artist/jesus-jones/jesus-jones-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/jesus-jones/jesus-jones-hi-res.jpg",
+          "medium": "/artist/jesus-jones/jesus-jones-medium.jpg",
+          "avatar": "/artist/jesus-jones/jesus-jones-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "scratched-unreleased-rare-tracks-remixes-22978766",
           "title": "Scratched (Unreleased Rare Tracks & Remixes)",
-          "image": "/album/scratched-unreleased-rare-tracks-remixes-22978766/scratched-unreleased-rare-tracks-remixes-22978766-medium.jpg"
+          "images": {
+            "hi-res": "/album/scratched-unreleased-rare-tracks-remixes-22978766/scratched-unreleased-rare-tracks-remixes-22978766-hi-res.jpg",
+            "medium": "/album/scratched-unreleased-rare-tracks-remixes-22978766/scratched-unreleased-rare-tracks-remixes-22978766-medium.jpg"
+          }
         }
       },
       {
         "name": "Todd Rundgren",
         "slug": "todd-rundgren",
         "count": 7,
-        "image": "/artist/todd-rundgren/todd-rundgren-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/todd-rundgren/todd-rundgren-hi-res.jpg",
+          "medium": "/artist/todd-rundgren/todd-rundgren-medium.jpg",
+          "avatar": "/artist/todd-rundgren/todd-rundgren-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "a-wizard-a-true-star-2244770",
           "title": "A Wizard, A True Star",
-          "image": "/album/a-wizard-a-true-star-2244770/a-wizard-a-true-star-2244770-medium.jpg"
+          "images": {
+            "hi-res": "/album/a-wizard-a-true-star-2244770/a-wizard-a-true-star-2244770-hi-res.jpg",
+            "medium": "/album/a-wizard-a-true-star-2244770/a-wizard-a-true-star-2244770-medium.jpg"
+          }
         }
       },
       {
         "name": "Utopia",
         "slug": "utopia",
         "count": 4,
-        "image": "/artist/utopia/utopia-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/utopia/utopia-hi-res.jpg",
+          "medium": "/artist/utopia/utopia-medium.jpg",
+          "avatar": "/artist/utopia/utopia-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "another-live-2312279",
           "title": "Another Live",
-          "image": "/album/another-live-2312279/another-live-2312279-medium.jpg"
+          "images": {
+            "hi-res": "/album/another-live-2312279/another-live-2312279-hi-res.jpg",
+            "medium": "/album/another-live-2312279/another-live-2312279-medium.jpg"
+          }
         }
       },
       {
         "name": "Beth Orton",
         "slug": "beth-orton",
         "count": 4,
-        "image": "/artist/beth-orton/beth-orton-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/beth-orton/beth-orton-hi-res.jpg",
+          "medium": "/artist/beth-orton/beth-orton-medium.jpg",
+          "avatar": "/artist/beth-orton/beth-orton-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "central-reservation-23031092",
           "title": "Central Reservation",
-          "image": "/album/central-reservation-23031092/central-reservation-23031092-medium.jpg"
+          "images": {
+            "hi-res": "/album/central-reservation-23031092/central-reservation-23031092-hi-res.jpg",
+            "medium": "/album/central-reservation-23031092/central-reservation-23031092-medium.jpg"
+          }
         }
       }
     ]

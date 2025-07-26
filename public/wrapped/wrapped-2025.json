@@ -1,7 +1,7 @@
 {
   "year": 2025,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:22.565Z",
+  "lastUpdated": "2025-07-26T09:03:58.694Z",
   "summary": {
     "totalReleases": 140,
     "uniqueArtists": 120,
@@ -5832,121 +5832,201 @@
         "name": "Cardiacs",
         "slug": "cardiacs",
         "count": 4,
-        "image": "/artist/cardiacs/cardiacs-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/cardiacs/cardiacs-hi-res.jpg",
+          "medium": "/artist/cardiacs/cardiacs-medium.jpg",
+          "avatar": "/artist/cardiacs/cardiacs-avatar.jpg"
+        }
       },
       {
         "name": "Regina Spektor",
         "slug": "regina-spektor",
         "count": 4,
-        "image": "/artist/regina-spektor/regina-spektor-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/regina-spektor/regina-spektor-hi-res.jpg",
+          "medium": "/artist/regina-spektor/regina-spektor-medium.jpg",
+          "avatar": "/artist/regina-spektor/regina-spektor-avatar.jpg"
+        }
       },
       {
         "name": "Rilo Kiley",
         "slug": "rilo-kiley",
         "count": 3,
-        "image": "/artist/rilo-kiley/rilo-kiley-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/rilo-kiley/rilo-kiley-hi-res.jpg",
+          "medium": "/artist/rilo-kiley/rilo-kiley-medium.jpg",
+          "avatar": "/artist/rilo-kiley/rilo-kiley-avatar.jpg"
+        }
       },
       {
         "name": "Dream Theater",
         "slug": "dream-theater",
         "count": 2,
-        "image": "/artist/dream-theater/dream-theater-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/dream-theater/dream-theater-hi-res.jpg",
+          "medium": "/artist/dream-theater/dream-theater-medium.jpg",
+          "avatar": "/artist/dream-theater/dream-theater-avatar.jpg"
+        }
       },
       {
         "name": "Matt Berry",
         "slug": "matt-berry",
         "count": 2,
-        "image": "/artist/matt-berry/matt-berry-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/matt-berry/matt-berry-hi-res.jpg",
+          "medium": "/artist/matt-berry/matt-berry-medium.jpg",
+          "avatar": "/artist/matt-berry/matt-berry-avatar.jpg"
+        }
       },
       {
         "name": "Sparks",
         "slug": "sparks",
         "count": 2,
-        "image": "/artist/sparks/sparks-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/sparks/sparks-hi-res.jpg",
+          "medium": "/artist/sparks/sparks-medium.jpg",
+          "avatar": "/artist/sparks/sparks-avatar.jpg"
+        }
       },
       {
         "name": "Mercury Rev",
         "slug": "mercury-rev",
         "count": 2,
-        "image": "/artist/mercury-rev/mercury-rev-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/mercury-rev/mercury-rev-hi-res.jpg",
+          "medium": "/artist/mercury-rev/mercury-rev-medium.jpg",
+          "avatar": "/artist/mercury-rev/mercury-rev-avatar.jpg"
+        }
       },
       {
         "name": "Nadia Reid",
         "slug": "nadia-reid",
         "count": 2,
-        "image": "/artist/nadia-reid/nadia-reid-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/nadia-reid/nadia-reid-hi-res.jpg",
+          "medium": "/artist/nadia-reid/nadia-reid-medium.jpg",
+          "avatar": "/artist/nadia-reid/nadia-reid-avatar.jpg"
+        }
       },
       {
         "name": "The Cure",
         "slug": "the-cure",
         "count": 2,
-        "image": "/artist/the-cure/the-cure-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-cure/the-cure-hi-res.jpg",
+          "medium": "/artist/the-cure/the-cure-medium.jpg",
+          "avatar": "/artist/the-cure/the-cure-avatar.jpg"
+        }
       },
       {
         "name": "Steely Dan",
         "slug": "steely-dan",
         "count": 2,
-        "image": "/artist/steely-dan/steely-dan-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steely-dan/steely-dan-hi-res.jpg",
+          "medium": "/artist/steely-dan/steely-dan-medium.jpg",
+          "avatar": "/artist/steely-dan/steely-dan-avatar.jpg"
+        }
       },
       {
         "name": "Steven Wilson",
         "slug": "steven-wilson",
         "count": 2,
-        "image": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/steven-wilson/steven-wilson-hi-res.jpg",
+          "medium": "/artist/steven-wilson/steven-wilson-medium.jpg",
+          "avatar": "/artist/steven-wilson/steven-wilson-avatar.jpg"
+        }
       },
       {
         "name": "The Pogues",
         "slug": "the-pogues",
         "count": 2,
-        "image": "/artist/the-pogues/the-pogues-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-pogues/the-pogues-hi-res.jpg",
+          "medium": "/artist/the-pogues/the-pogues-medium.jpg",
+          "avatar": "/artist/the-pogues/the-pogues-avatar.jpg"
+        }
       },
       {
         "name": "Gary Numan",
         "slug": "gary-numan",
         "count": 2,
-        "image": "/artist/gary-numan/gary-numan-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/gary-numan/gary-numan-hi-res.jpg",
+          "medium": "/artist/gary-numan/gary-numan-medium.jpg",
+          "avatar": "/artist/gary-numan/gary-numan-avatar.jpg"
+        }
       },
       {
         "name": "Jellyfish",
         "slug": "jellyfish",
         "count": 2,
-        "image": "/artist/jellyfish/jellyfish-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/jellyfish/jellyfish-hi-res.jpg",
+          "medium": "/artist/jellyfish/jellyfish-medium.jpg",
+          "avatar": "/artist/jellyfish/jellyfish-avatar.jpg"
+        }
       },
       {
         "name": "Pop Will Eat Itself",
         "slug": "pop-will-eat-itself",
         "count": 2,
-        "image": "/artist/pop-will-eat-itself/pop-will-eat-itself-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pop-will-eat-itself/pop-will-eat-itself-hi-res.jpg",
+          "medium": "/artist/pop-will-eat-itself/pop-will-eat-itself-medium.jpg",
+          "avatar": "/artist/pop-will-eat-itself/pop-will-eat-itself-avatar.jpg"
+        }
       },
       {
         "name": "Betty Boo",
         "slug": "betty-boo",
         "count": 2,
-        "image": "/artist/betty-boo/betty-boo-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/betty-boo/betty-boo-hi-res.jpg",
+          "medium": "/artist/betty-boo/betty-boo-medium.jpg",
+          "avatar": "/artist/betty-boo/betty-boo-avatar.jpg"
+        }
       },
       {
         "name": "Carter The Unstoppable Sex Machine",
         "slug": "carter-the-unstoppable-sex-machine",
         "count": 2,
-        "image": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-hi-res.jpg",
+          "medium": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-medium.jpg",
+          "avatar": "/artist/carter-the-unstoppable-sex-machine/carter-the-unstoppable-sex-machine-avatar.jpg"
+        }
       },
       {
         "name": "Amplifier",
         "slug": "amplifier",
         "count": 1,
-        "image": "/artist/amplifier/amplifier-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/amplifier/amplifier-hi-res.jpg",
+          "medium": "/artist/amplifier/amplifier-medium.jpg",
+          "avatar": "/artist/amplifier/amplifier-avatar.jpg"
+        }
       },
       {
         "name": "Sugar",
         "slug": "sugar",
         "count": 1,
-        "image": "/artist/sugar/sugar-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/sugar/sugar-hi-res.jpg",
+          "medium": "/artist/sugar/sugar-medium.jpg",
+          "avatar": "/artist/sugar/sugar-avatar.jpg"
+        }
       },
       {
         "name": "KillerStar",
         "slug": "killerstar",
         "count": 1,
-        "image": "/artist/killerstar/killerstar-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/killerstar/killerstar-hi-res.jpg",
+          "medium": "/artist/killerstar/killerstar-medium.jpg",
+          "avatar": "/artist/killerstar/killerstar-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -10242,42 +10322,60 @@
         "slug": "metropolis-pt-2-scenes-from-a-memory-32745087",
         "title": "Metropolis Pt. 2: Scenes From A Memory",
         "artist_name": "Dream Theater",
-        "image": "/album/metropolis-pt-2-scenes-from-a-memory-32745087/metropolis-pt-2-scenes-from-a-memory-32745087-medium.jpg",
+        "images": {
+          "hi-res": "/album/metropolis-pt-2-scenes-from-a-memory-32745087/metropolis-pt-2-scenes-from-a-memory-32745087-hi-res.jpg",
+          "medium": "/album/metropolis-pt-2-scenes-from-a-memory-32745087/metropolis-pt-2-scenes-from-a-memory-32745087-medium.jpg"
+        },
         "date_added": "2025-01-10"
       },
       {
         "slug": "cardiacs-ep-32729889",
         "title": "Cardiacs E.P.",
         "artist_name": "Cardiacs",
-        "image": "/album/cardiacs-ep-32729889/cardiacs-ep-32729889-medium.jpg",
+        "images": {
+          "hi-res": "/album/cardiacs-ep-32729889/cardiacs-ep-32729889-hi-res.jpg",
+          "medium": "/album/cardiacs-ep-32729889/cardiacs-ep-32729889-medium.jpg"
+        },
         "date_added": "2025-01-17"
       },
       {
         "slug": "gargantuan-32870103",
         "title": "Gargantuan",
         "artist_name": "Amplifier",
-        "image": "/album/gargantuan-32870103/gargantuan-32870103-medium.jpg",
+        "images": {
+          "hi-res": "/album/gargantuan-32870103/gargantuan-32870103-hi-res.jpg",
+          "medium": "/album/gargantuan-32870103/gargantuan-32870103-medium.jpg"
+        },
         "date_added": "2025-01-18"
       },
       {
         "slug": "copper-blue-15116960",
         "title": "Copper Blue",
         "artist_name": "Sugar",
-        "image": "/album/copper-blue-15116960/copper-blue-15116960-medium.jpg",
+        "images": {
+          "hi-res": "/album/copper-blue-15116960/copper-blue-15116960-hi-res.jpg",
+          "medium": "/album/copper-blue-15116960/copper-blue-15116960-medium.jpg"
+        },
         "date_added": "2025-01-20"
       },
       {
         "slug": "killerstar-30077947",
         "title": "KillerStar",
         "artist_name": "KillerStar",
-        "image": "/album/killerstar-30077947/killerstar-30077947-medium.jpg",
+        "images": {
+          "hi-res": "/album/killerstar-30077947/killerstar-30077947-hi-res.jpg",
+          "medium": "/album/killerstar-30077947/killerstar-30077947-medium.jpg"
+        },
         "date_added": "2025-01-20"
       },
       {
         "slug": "crash-boom-bang-32490318",
         "title": "Crash! Boom! Bang!",
         "artist_name": "Roxette",
-        "image": "/album/crash-boom-bang-32490318/crash-boom-bang-32490318-medium.jpg",
+        "images": {
+          "hi-res": "/album/crash-boom-bang-32490318/crash-boom-bang-32490318-hi-res.jpg",
+          "medium": "/album/crash-boom-bang-32490318/crash-boom-bang-32490318-medium.jpg"
+        },
         "date_added": "2025-01-22"
       }
     ],
@@ -10286,44 +10384,72 @@
         "name": "Cardiacs",
         "slug": "cardiacs",
         "count": 4,
-        "image": "/artist/cardiacs/cardiacs-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/cardiacs/cardiacs-hi-res.jpg",
+          "medium": "/artist/cardiacs/cardiacs-medium.jpg",
+          "avatar": "/artist/cardiacs/cardiacs-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "cardiacs-ep-32729889",
           "title": "Cardiacs E.P.",
-          "image": "/album/cardiacs-ep-32729889/cardiacs-ep-32729889-medium.jpg"
+          "images": {
+            "hi-res": "/album/cardiacs-ep-32729889/cardiacs-ep-32729889-hi-res.jpg",
+            "medium": "/album/cardiacs-ep-32729889/cardiacs-ep-32729889-medium.jpg"
+          }
         }
       },
       {
         "name": "Regina Spektor",
         "slug": "regina-spektor",
         "count": 4,
-        "image": "/artist/regina-spektor/regina-spektor-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/regina-spektor/regina-spektor-hi-res.jpg",
+          "medium": "/artist/regina-spektor/regina-spektor-medium.jpg",
+          "avatar": "/artist/regina-spektor/regina-spektor-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "begin-to-hope-34002381",
           "title": "Begin To Hope",
-          "image": "/album/begin-to-hope-34002381/begin-to-hope-34002381-medium.jpg"
+          "images": {
+            "hi-res": "/album/begin-to-hope-34002381/begin-to-hope-34002381-hi-res.jpg",
+            "medium": "/album/begin-to-hope-34002381/begin-to-hope-34002381-medium.jpg"
+          }
         }
       },
       {
         "name": "Rilo Kiley",
         "slug": "rilo-kiley",
         "count": 3,
-        "image": "/artist/rilo-kiley/rilo-kiley-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/rilo-kiley/rilo-kiley-hi-res.jpg",
+          "medium": "/artist/rilo-kiley/rilo-kiley-medium.jpg",
+          "avatar": "/artist/rilo-kiley/rilo-kiley-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "rilo-kiley-16106497",
           "title": "Rilo Kiley",
-          "image": "/album/rilo-kiley-16106497/rilo-kiley-16106497-medium.jpg"
+          "images": {
+            "hi-res": "/album/rilo-kiley-16106497/rilo-kiley-16106497-hi-res.jpg",
+            "medium": "/album/rilo-kiley-16106497/rilo-kiley-16106497-medium.jpg"
+          }
         }
       },
       {
         "name": "Dream Theater",
         "slug": "dream-theater",
         "count": 2,
-        "image": "/artist/dream-theater/dream-theater-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/dream-theater/dream-theater-hi-res.jpg",
+          "medium": "/artist/dream-theater/dream-theater-medium.jpg",
+          "avatar": "/artist/dream-theater/dream-theater-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "metropolis-pt-2-scenes-from-a-memory-32745087",
           "title": "Metropolis Pt. 2: Scenes From A Memory",
-          "image": "/album/metropolis-pt-2-scenes-from-a-memory-32745087/metropolis-pt-2-scenes-from-a-memory-32745087-medium.jpg"
+          "images": {
+            "hi-res": "/album/metropolis-pt-2-scenes-from-a-memory-32745087/metropolis-pt-2-scenes-from-a-memory-32745087-hi-res.jpg",
+            "medium": "/album/metropolis-pt-2-scenes-from-a-memory-32745087/metropolis-pt-2-scenes-from-a-memory-32745087-medium.jpg"
+          }
         }
       }
     ]

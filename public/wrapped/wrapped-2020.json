@@ -1,7 +1,7 @@
 {
   "year": 2020,
   "isYearToDate": false,
-  "lastUpdated": "2025-07-26T08:47:21.933Z",
+  "lastUpdated": "2025-07-26T09:03:58.460Z",
   "summary": {
     "totalReleases": 273,
     "uniqueArtists": 235,
@@ -11375,121 +11375,201 @@
         "name": "PJ Harvey",
         "slug": "pj-harvey",
         "count": 6,
-        "image": "/artist/pj-harvey/pj-harvey-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pj-harvey/pj-harvey-hi-res.jpg",
+          "medium": "/artist/pj-harvey/pj-harvey-medium.jpg",
+          "avatar": "/artist/pj-harvey/pj-harvey-avatar.jpg"
+        }
       },
       {
         "name": "Ozric Tentacles",
         "slug": "ozric-tentacles",
         "count": 4,
-        "image": "/artist/ozric-tentacles/ozric-tentacles-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/ozric-tentacles/ozric-tentacles-hi-res.jpg",
+          "medium": "/artist/ozric-tentacles/ozric-tentacles-medium.jpg",
+          "avatar": "/artist/ozric-tentacles/ozric-tentacles-avatar.jpg"
+        }
       },
       {
         "name": "Joy Division",
         "slug": "joy-division",
         "count": 4,
-        "image": "/artist/joy-division/joy-division-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/joy-division/joy-division-hi-res.jpg",
+          "medium": "/artist/joy-division/joy-division-medium.jpg",
+          "avatar": "/artist/joy-division/joy-division-avatar.jpg"
+        }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 4,
-        "image": "/artist/xtc/xtc-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        }
       },
       {
         "name": "The Orb",
         "slug": "the-orb",
         "count": 3,
-        "image": "/artist/the-orb/the-orb-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-orb/the-orb-hi-res.jpg",
+          "medium": "/artist/the-orb/the-orb-medium.jpg",
+          "avatar": "/artist/the-orb/the-orb-avatar.jpg"
+        }
       },
       {
         "name": "Split Enz",
         "slug": "split-enz",
         "count": 3,
-        "image": "/artist/split-enz/split-enz-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/split-enz/split-enz-hi-res.jpg",
+          "medium": "/artist/split-enz/split-enz-medium.jpg",
+          "avatar": "/artist/split-enz/split-enz-avatar.jpg"
+        }
       },
       {
         "name": "Rush",
         "slug": "rush",
         "count": 3,
-        "image": "/artist/rush/rush-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/rush/rush-hi-res.jpg",
+          "medium": "/artist/rush/rush-medium.jpg",
+          "avatar": "/artist/rush/rush-avatar.jpg"
+        }
       },
       {
         "name": "Eric Clapton",
         "slug": "eric-clapton",
         "count": 3,
-        "image": "/artist/eric-clapton/eric-clapton-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/eric-clapton/eric-clapton-hi-res.jpg",
+          "medium": "/artist/eric-clapton/eric-clapton-medium.jpg",
+          "avatar": "/artist/eric-clapton/eric-clapton-avatar.jpg"
+        }
       },
       {
         "name": "Slowdive",
         "slug": "slowdive",
         "count": 3,
-        "image": "/artist/slowdive/slowdive-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/slowdive/slowdive-hi-res.jpg",
+          "medium": "/artist/slowdive/slowdive-medium.jpg",
+          "avatar": "/artist/slowdive/slowdive-avatar.jpg"
+        }
       },
       {
         "name": "The Style Council",
         "slug": "the-style-council",
         "count": 2,
-        "image": "/artist/the-style-council/the-style-council-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-style-council/the-style-council-hi-res.jpg",
+          "medium": "/artist/the-style-council/the-style-council-medium.jpg",
+          "avatar": "/artist/the-style-council/the-style-council-avatar.jpg"
+        }
       },
       {
         "name": "Thank You Scientist",
         "slug": "thank-you-scientist",
         "count": 2,
-        "image": "/artist/thank-you-scientist/thank-you-scientist-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/thank-you-scientist/thank-you-scientist-hi-res.jpg",
+          "medium": "/artist/thank-you-scientist/thank-you-scientist-medium.jpg",
+          "avatar": "/artist/thank-you-scientist/thank-you-scientist-avatar.jpg"
+        }
       },
       {
         "name": "Supergrass",
         "slug": "supergrass",
         "count": 2,
-        "image": "/artist/supergrass/supergrass-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/supergrass/supergrass-hi-res.jpg",
+          "medium": "/artist/supergrass/supergrass-medium.jpg",
+          "avatar": "/artist/supergrass/supergrass-avatar.jpg"
+        }
       },
       {
         "name": "Beastie Boys",
         "slug": "beastie-boys",
         "count": 2,
-        "image": "/artist/beastie-boys/beastie-boys-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/beastie-boys/beastie-boys-hi-res.jpg",
+          "medium": "/artist/beastie-boys/beastie-boys-medium.jpg",
+          "avatar": "/artist/beastie-boys/beastie-boys-avatar.jpg"
+        }
       },
       {
         "name": "They Might Be Giants",
         "slug": "they-might-be-giants",
         "count": 2,
-        "image": "/artist/they-might-be-giants/they-might-be-giants-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/they-might-be-giants/they-might-be-giants-hi-res.jpg",
+          "medium": "/artist/they-might-be-giants/they-might-be-giants-medium.jpg",
+          "avatar": "/artist/they-might-be-giants/they-might-be-giants-avatar.jpg"
+        }
       },
       {
         "name": "Cat Stevens",
         "slug": "cat-stevens",
         "count": 2,
-        "image": "/artist/cat-stevens/cat-stevens-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/cat-stevens/cat-stevens-hi-res.jpg",
+          "medium": "/artist/cat-stevens/cat-stevens-medium.jpg",
+          "avatar": "/artist/cat-stevens/cat-stevens-avatar.jpg"
+        }
       },
       {
         "name": "Big Star",
         "slug": "big-star",
         "count": 2,
-        "image": "/artist/big-star/big-star-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/big-star/big-star-hi-res.jpg",
+          "medium": "/artist/big-star/big-star-medium.jpg",
+          "avatar": "/artist/big-star/big-star-avatar.jpg"
+        }
       },
       {
         "name": "Jon Hopkins",
         "slug": "jon-hopkins",
         "count": 2,
-        "image": "/artist/jon-hopkins/jon-hopkins-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/jon-hopkins/jon-hopkins-hi-res.jpg",
+          "medium": "/artist/jon-hopkins/jon-hopkins-medium.jpg",
+          "avatar": "/artist/jon-hopkins/jon-hopkins-avatar.jpg"
+        }
       },
       {
         "name": "Pure Reason Revolution",
         "slug": "pure-reason-revolution",
         "count": 2,
-        "image": "/artist/pure-reason-revolution/pure-reason-revolution-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pure-reason-revolution/pure-reason-revolution-hi-res.jpg",
+          "medium": "/artist/pure-reason-revolution/pure-reason-revolution-medium.jpg",
+          "avatar": "/artist/pure-reason-revolution/pure-reason-revolution-avatar.jpg"
+        }
       },
       {
         "name": "The Soundtrack Of Our Lives",
         "slug": "the-soundtrack-of-our-lives",
         "count": 2,
-        "image": "/artist/the-soundtrack-of-our-lives/the-soundtrack-of-our-lives-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/the-soundtrack-of-our-lives/the-soundtrack-of-our-lives-hi-res.jpg",
+          "medium": "/artist/the-soundtrack-of-our-lives/the-soundtrack-of-our-lives-medium.jpg",
+          "avatar": "/artist/the-soundtrack-of-our-lives/the-soundtrack-of-our-lives-avatar.jpg"
+        }
       },
       {
         "name": "Pet Shop Boys",
         "slug": "pet-shop-boys",
         "count": 2,
-        "image": "/artist/pet-shop-boys/pet-shop-boys-avatar.jpg"
+        "images": {
+          "hi-res": "/artist/pet-shop-boys/pet-shop-boys-hi-res.jpg",
+          "medium": "/artist/pet-shop-boys/pet-shop-boys-medium.jpg",
+          "avatar": "/artist/pet-shop-boys/pet-shop-boys-avatar.jpg"
+        }
       }
     ],
     "decades": [
@@ -19845,42 +19925,60 @@
         "slug": "live-baby-live-wembley-stadium-14406405",
         "title": "Live Baby Live Wembley Stadium",
         "artist_name": "INXS",
-        "image": "/album/live-baby-live-wembley-stadium-14406405/live-baby-live-wembley-stadium-14406405-medium.jpg",
+        "images": {
+          "hi-res": "/album/live-baby-live-wembley-stadium-14406405/live-baby-live-wembley-stadium-14406405-hi-res.jpg",
+          "medium": "/album/live-baby-live-wembley-stadium-14406405/live-baby-live-wembley-stadium-14406405-medium.jpg"
+        },
         "date_added": "2020-01-02"
       },
       {
         "slug": "american-thighs-2258972",
         "title": "American Thighs",
         "artist_name": "Veruca Salt",
-        "image": "/album/american-thighs-2258972/american-thighs-2258972-medium.jpg",
+        "images": {
+          "hi-res": "/album/american-thighs-2258972/american-thighs-2258972-hi-res.jpg",
+          "medium": "/album/american-thighs-2258972/american-thighs-2258972-medium.jpg"
+        },
         "date_added": "2020-01-03"
       },
       {
         "slug": "flibbiddydibbiddydob-1178217",
         "title": "Flibbiddydibbiddydob",
         "artist_name": "Snuff",
-        "image": "/album/flibbiddydibbiddydob-1178217/flibbiddydibbiddydob-1178217-medium.jpg",
+        "images": {
+          "hi-res": "/album/flibbiddydibbiddydob-1178217/flibbiddydibbiddydob-1178217-hi-res.jpg",
+          "medium": "/album/flibbiddydibbiddydob-1178217/flibbiddydibbiddydob-1178217-medium.jpg"
+        },
         "date_added": "2020-01-03"
       },
       {
         "slug": "tribulation-times-3355275",
         "title": "Tribulation Times",
         "artist_name": "Dennis Brown",
-        "image": "/album/tribulation-times-3355275/tribulation-times-3355275-medium.jpg",
+        "images": {
+          "hi-res": "/album/tribulation-times-3355275/tribulation-times-3355275-hi-res.jpg",
+          "medium": "/album/tribulation-times-3355275/tribulation-times-3355275-medium.jpg"
+        },
         "date_added": "2020-01-06"
       },
       {
         "slug": "fugazi-8498294",
         "title": "Fugazi",
         "artist_name": "Fugazi",
-        "image": "/album/fugazi-8498294/fugazi-8498294-medium.jpg",
+        "images": {
+          "hi-res": "/album/fugazi-8498294/fugazi-8498294-hi-res.jpg",
+          "medium": "/album/fugazi-8498294/fugazi-8498294-medium.jpg"
+        },
         "date_added": "2020-01-08"
       },
       {
         "slug": "horses-14504020",
         "title": "Horses",
         "artist_name": "Patti Smith",
-        "image": "/album/horses-14504020/horses-14504020-medium.jpg",
+        "images": {
+          "hi-res": "/album/horses-14504020/horses-14504020-hi-res.jpg",
+          "medium": "/album/horses-14504020/horses-14504020-medium.jpg"
+        },
         "date_added": "2020-01-08"
       }
     ],
@@ -19889,44 +19987,72 @@
         "name": "PJ Harvey",
         "slug": "pj-harvey",
         "count": 6,
-        "image": "/artist/pj-harvey/pj-harvey-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/pj-harvey/pj-harvey-hi-res.jpg",
+          "medium": "/artist/pj-harvey/pj-harvey-medium.jpg",
+          "avatar": "/artist/pj-harvey/pj-harvey-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "dry-demos-15657433",
           "title": "Dry - Demos",
-          "image": "/album/dry-demos-15657433/dry-demos-15657433-medium.jpg"
+          "images": {
+            "hi-res": "/album/dry-demos-15657433/dry-demos-15657433-hi-res.jpg",
+            "medium": "/album/dry-demos-15657433/dry-demos-15657433-medium.jpg"
+          }
         }
       },
       {
         "name": "Ozric Tentacles",
         "slug": "ozric-tentacles",
         "count": 4,
-        "image": "/artist/ozric-tentacles/ozric-tentacles-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/ozric-tentacles/ozric-tentacles-hi-res.jpg",
+          "medium": "/artist/ozric-tentacles/ozric-tentacles-medium.jpg",
+          "avatar": "/artist/ozric-tentacles/ozric-tentacles-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "jurassic-shift-5159986",
           "title": "Jurassic Shift",
-          "image": "/album/jurassic-shift-5159986/jurassic-shift-5159986-medium.jpg"
+          "images": {
+            "hi-res": "/album/jurassic-shift-5159986/jurassic-shift-5159986-hi-res.jpg",
+            "medium": "/album/jurassic-shift-5159986/jurassic-shift-5159986-medium.jpg"
+          }
         }
       },
       {
         "name": "Joy Division",
         "slug": "joy-division",
         "count": 4,
-        "image": "/artist/joy-division/joy-division-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/joy-division/joy-division-hi-res.jpg",
+          "medium": "/artist/joy-division/joy-division-medium.jpg",
+          "avatar": "/artist/joy-division/joy-division-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "atmosphere-15622185",
           "title": "Atmosphere",
-          "image": "/album/atmosphere-15622185/atmosphere-15622185-medium.jpg"
+          "images": {
+            "hi-res": "/album/atmosphere-15622185/atmosphere-15622185-hi-res.jpg",
+            "medium": "/album/atmosphere-15622185/atmosphere-15622185-medium.jpg"
+          }
         }
       },
       {
         "name": "XTC",
         "slug": "xtc",
         "count": 4,
-        "image": "/artist/xtc/xtc-avatar.jpg",
+        "images": {
+          "hi-res": "/artist/xtc/xtc-hi-res.jpg",
+          "medium": "/artist/xtc/xtc-medium.jpg",
+          "avatar": "/artist/xtc/xtc-avatar.jpg"
+        },
         "topAlbum": {
           "slug": "white-music-1067913",
           "title": "White Music",
-          "image": "/album/white-music-1067913/white-music-1067913-medium.jpg"
+          "images": {
+            "hi-res": "/album/white-music-1067913/white-music-1067913-hi-res.jpg",
+            "medium": "/album/white-music-1067913/white-music-1067913-medium.jpg"
+          }
         }
       }
     ]

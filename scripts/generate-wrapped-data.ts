@@ -49,6 +49,7 @@ interface Release {
   images: {
     'hi-res': string;
     medium: string;
+    small?: string;
   };
   artists: Array<{ 
     name: string; 
@@ -89,25 +90,25 @@ interface WrappedData {
   }>;
   insights: {
     genres: Array<{ name: string; count: number; percentage: number }>;
-    artists: Array<{ name: string; slug: string; count: number; image?: string }>;
+    artists: Array<{ name: string; slug: string; count: number; images?: { 'hi-res'?: string; medium?: string; avatar?: string } }>;
     decades: Array<{ name: string; count: number }>;
     timeline: Array<{ month: string; count: number; releases: Release[] }>;
     topAlbums: Array<{
       slug: string;
       title: string;
       artist_name: string;
-      image: string;
+      images: { 'hi-res': string; medium: string; small?: string };
       date_added: string;
     }>;
     topArtists: Array<{
       name: string;
       slug: string;
       count: number;
-      image?: string;
+      images?: { 'hi-res'?: string; medium?: string; avatar?: string };
       topAlbum?: {
         slug: string;
         title: string;
-        image: string;
+        images: { 'hi-res': string; medium: string; small?: string };
       };
     }>;
   };
@@ -248,7 +249,7 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
       const albumSlug = getSlugFromUri(release.uri_release);
       const albumDetail = await loadAlbumDetail(albumSlug);
       
-      // Create a lightweight release object with only what we need
+      // Create a lightweight release object with ALL image sizes
       const lightRelease = {
         release_name: release.release_name,
         release_artist: release.release_artist,
@@ -258,9 +259,10 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
         slug: albumSlug,
         images: {
           'hi-res': release.images_uri_release['hi-res'],
-          medium: release.images_uri_release.medium
+          medium: release.images_uri_release.medium,
+          small: release.images_uri_release.small // Include small if available
         },
-        // Only include essential artist info
+        // Include ALL artist image sizes
         artists: release.artists.map(artist => ({
           name: artist.name,
           slug: getSlugFromUri(artist.uri_artist),
@@ -281,7 +283,7 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
 
   // Calculate insights
   const genreCounts = new Map<string, number>();
-  const artistCounts = new Map<string, { count: number; image?: string; slug: string }>();
+  const artistCounts = new Map<string, { count: number; images?: { 'hi-res'?: string; medium?: string; avatar?: string }; slug: string }>();
   const decadeCounts = new Map<string, number>();
   const monthlyData = new Map<string, Release[]>();
   const styleCounts = new Map<string, number>();
@@ -308,7 +310,11 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
           artistCounts.set(artist.name, { 
             count: current.count + 1, 
             slug: artist.slug,
-            image: artist.images.avatar 
+            images: {
+              'hi-res': artist.images['hi-res'],
+              medium: artist.images.medium,
+              avatar: artist.images.avatar
+            }
           });
         }
       }
@@ -346,7 +352,7 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
       name,
       slug: data.slug,
       count: data.count,
-      image: data.image
+      images: data.images
     }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 20);
@@ -377,7 +383,7 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
       slug: release.slug,
       title: release.release_name,
       artist_name: release.release_artist,
-      image: release.images.medium,
+      images: release.images,
       date_added: release.date_added
     }));
 
@@ -393,11 +399,11 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
         name: artist.name,
         slug: artist.slug,
         count: artist.count,
-        image: artist.image,
+        images: artist.images,
         topAlbum: {
           slug: artistAlbum.release.slug,
           title: artistAlbum.release.release_name,
-          image: artistAlbum.release.images.medium
+          images: artistAlbum.release.images
         }
       };
     }
@@ -406,7 +412,7 @@ async function generateWrappedData(year: number, isYearToDate: boolean = false):
       name: artist.name,
       slug: artist.slug,
       count: artist.count,
-      image: artist.image
+      images: artist.images
     };
   });
 
