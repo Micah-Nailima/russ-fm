@@ -26,7 +26,7 @@ export function DynamicStatCard({ stat, size }: DynamicStatCardProps) {
         return <Calendar className={iconClass} />;
       case 'decades':
       case 'timeline':
-      case 'genres':
+      case 'genre':
         return <Music className={iconClass} />;
       default:
         return <Hash className={iconClass} />;
@@ -125,20 +125,23 @@ export function DynamicStatCard({ stat, size }: DynamicStatCardProps) {
               </div>
               {getIcon()}
             </div>
-            <div className="flex-1 flex items-end justify-between gap-2">
+            <div className="flex-1 flex items-end justify-end gap-2 min-h-0">
               {stat.data && Array.isArray(stat.data) ? stat.data.map((month: any, index: number) => {
-                const maxCount = Math.max(...stat.data.map((m: any) => m.count));
+                const timelineData = stat.data as any[];
+                const maxCount = Math.max(...timelineData.map((m: any) => m.count));
                 const height = (month.count / maxCount) * 100;
                 return (
-                  <div key={index} className="flex flex-col items-center flex-1 h-full justify-end">
-                    <div className="text-white/80 text-xs font-medium mb-1">
+                  <div key={index} className="flex flex-col items-center gap-1 flex-1 h-full min-h-0">
+                    <div className="text-xs text-white/60 mb-1">
                       {month.count}
                     </div>
-                    <div 
-                      className="bg-white/80 w-full rounded-sm min-h-[20px] transition-all duration-300 hover:bg-white"
-                      style={{ height: `${Math.max(height, 25)}%` }}
-                    />
-                    <span className="text-white/70 text-xs mt-2 font-medium">
+                    <div className="flex flex-col justify-end flex-1 w-full min-h-0">
+                      <div 
+                        className="bg-white/80 w-full rounded-sm transition-all duration-300 hover:bg-white"
+                        style={{ height: `${maxCount > 0 ? Math.max(height, month.count > 0 ? 8 : 3) : 3}%` }}
+                      />
+                    </div>
+                    <span className="text-white/70 text-xs mt-1 font-medium">
                       {month.month.slice(0, 3)}
                     </span>
                   </div>

@@ -22,7 +22,7 @@ export function BentoGrid({ data }: BentoGridProps) {
   const topArtists = data.insights.topArtists.slice(0, 6); // Get top 6 artists
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-8">
+    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-rows-2 md:grid-rows-2 gap-2 mb-8">
       {/* Release 1 - Large (2x2) */}
       {topReleases[0] && (
         <AnimatedCard delay={0} animation="scaleUp" className="col-span-1 md:col-span-2 row-span-2">
@@ -107,8 +107,8 @@ export function BentoGrid({ data }: BentoGridProps) {
         <ReleaseDecadesCard decades={data.insights.decades} />
       </AnimatedCard>
 
-      {/* Monthly Timeline - Wide (2x1) */}
-      <AnimatedCard delay={700} animation="slideRight" className="col-span-1 md:col-span-2">
+      {/* Monthly Timeline - Timeline */}
+      <AnimatedCard delay={800} animation="slideUp" className="col-span-2 row-span-2">
         <MonthlyTimelineCard timeline={data.insights.timeline} />
       </AnimatedCard>
 

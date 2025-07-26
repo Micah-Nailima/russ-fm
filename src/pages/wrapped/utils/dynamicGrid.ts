@@ -288,7 +288,7 @@ export function getGridClasses(item: GridItem): string {
   
   // Debug: Log timeline cards
   if (item.type === 'stat' && (item.data as StatCardData).type === 'timeline') {
-    console.log('TIMELINE CARD:', { cols, rows, classes });
+    console.log('TIMELINE CARD:', { cols, rows, classes, size: item.size });
   }
   
   return classes;
