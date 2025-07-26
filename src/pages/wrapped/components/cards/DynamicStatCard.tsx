@@ -5,9 +5,10 @@ import { MonthlyHeatGrid } from './MonthlyHeatGrid';
 interface DynamicStatCardProps {
   stat: StatCardData;
   size: GridSize;
+  index?: number;
 }
 
-export function DynamicStatCard({ stat, size }: DynamicStatCardProps) {
+export function DynamicStatCard({ stat, size, index = 0 }: DynamicStatCardProps) {
   // Get appropriate icon based on stat type
   const getIcon = () => {
     const iconSize = size === 'extra-wide' ? 'w-6 h-6' : size === 'large' ? 'w-8 h-8' : size === 'medium' ? 'w-6 h-6' : 'w-5 h-5';
@@ -54,20 +55,24 @@ export function DynamicStatCard({ stat, size }: DynamicStatCardProps) {
       case 'timeline':
         return 'bg-gradient-to-br from-red-600 to-orange-700';
       case 'genre':
-        // Dynamic colors for genre cards based on count
+        // Dynamic colors for genre cards based on count with better distribution
         const count = typeof stat.value === 'number' ? stat.value : 0;
-        if (count >= 50) {
-          return 'bg-gradient-to-br from-red-600 to-orange-700'; // Hot colors for high counts
+        if (count >= 150) {
+          return 'bg-gradient-to-br from-red-600 to-rose-700'; // Hot red for very high
+        } else if (count >= 100) {
+          return 'bg-gradient-to-br from-orange-600 to-red-700'; // Orange-red
+        } else if (count >= 75) {
+          return 'bg-gradient-to-br from-amber-600 to-orange-700'; // Amber-orange
+        } else if (count >= 50) {
+          return 'bg-gradient-to-br from-yellow-600 to-amber-700'; // Yellow-amber
         } else if (count >= 30) {
-          return 'bg-gradient-to-br from-orange-600 to-amber-700';
+          return 'bg-gradient-to-br from-lime-600 to-green-700'; // Lime-green
         } else if (count >= 20) {
-          return 'bg-gradient-to-br from-amber-600 to-yellow-700';
+          return 'bg-gradient-to-br from-emerald-600 to-teal-700'; // Emerald-teal
         } else if (count >= 10) {
-          return 'bg-gradient-to-br from-emerald-600 to-green-700';
-        } else if (count >= 5) {
-          return 'bg-gradient-to-br from-teal-600 to-cyan-700';
+          return 'bg-gradient-to-br from-cyan-600 to-blue-700'; // Cyan-blue
         } else {
-          return 'bg-gradient-to-br from-blue-600 to-indigo-700'; // Cool colors for low counts
+          return 'bg-gradient-to-br from-indigo-600 to-purple-700'; // Indigo-purple for low
         }
       default:
         return 'bg-gradient-to-br from-gray-600 to-gray-800';
@@ -86,8 +91,8 @@ export function DynamicStatCard({ stat, size }: DynamicStatCardProps) {
       const [year, month, day] = stat.value.split('-');
       return (
         <div className="flex flex-col leading-tight">
-          <span className="text-4xl font-black">{year}-</span>
-          <span className="text-4xl font-black">{month}-{day}</span>
+          <span className="text-4xl font-black text-white">{year}-</span>
+          <span className="text-4xl font-black text-white">{month}-{day}</span>
         </div>
       );
     }

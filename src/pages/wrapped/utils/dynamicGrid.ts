@@ -211,39 +211,63 @@ function shuffleAndMix(
   // Final shuffle but keep top artists near the beginning
   const shuffledContent = rng.shuffle(topContent);
 
-  // Find timeline card and insert it early, then handle other stat cards
-  const result: Array<{ type: GridItemType; data: WrappedRelease | WrappedArtist | StatCardData; originalIndex?: number }> = [];
-  let statCardIndex = 0;
+  // Separate timeline, genre cards, and other stat cards
+  const timelineCard = statCards.find(card => card.type === 'timeline');
+  const genreCards = statCards.filter(card => card.type === 'genre');
+  const otherStatCards = statCards.filter(card => card.type !== 'timeline' && card.type !== 'genre');
   
-  // Find and insert timeline card first (at position 3-5)
-  const timelineCardIndex = statCards.findIndex(card => card.type === 'timeline');
+  // Shuffle genres to distribute them randomly
+  const shuffledGenres = rng.shuffle(genreCards);
+  
+  // Create insertion points for stat cards - spread throughout the grid
+  const totalContentLength = shuffledContent.length;
+  const totalStatsToInsert = otherStatCards.length + shuffledGenres.length + (timelineCard ? 1 : 0);
+  const spacing = Math.floor(totalContentLength / (totalStatsToInsert + 1));
+  
+  const result: Array<{ type: GridItemType; data: WrappedRelease | WrappedArtist | StatCardData; originalIndex?: number }> = [];
+  let genreIndex = 0;
+  let otherStatIndex = 0;
   let timelineInserted = false;
-
+  
   shuffledContent.forEach((item, index) => {
     result.push(item);
-
-    // Insert timeline card early (between positions 3-5)
-    if (!timelineInserted && index >= 2 && index <= 4 && timelineCardIndex !== -1) {
-      result.push({ type: 'stat', data: statCards[timelineCardIndex] });
+    
+    // Insert timeline card early (position 3-5)
+    if (!timelineInserted && index >= 2 && index <= 4 && timelineCard) {
+      result.push({ type: 'stat', data: timelineCard });
       timelineInserted = true;
     }
-
-    // Insert other stat cards every 8-12 items
-    if ((index + 1) % rng.nextInt(8, 12) === 0 && statCardIndex < statCards.length) {
-      // Skip timeline card since we already inserted it
-      if (statCards[statCardIndex].type !== 'timeline') {
-        result.push({ type: 'stat', data: statCards[statCardIndex] });
+    
+    // Distribute other cards throughout the grid
+    if (index > 0 && index % spacing === 0) {
+      // Randomly choose between genre and other stat cards
+      if (rng.next() < 0.6 && genreIndex < shuffledGenres.length) {
+        // 60% chance to insert a genre card if available
+        result.push({ type: 'stat', data: shuffledGenres[genreIndex] });
+        genreIndex++;
+      } else if (otherStatIndex < otherStatCards.length) {
+        // Insert other stat card
+        result.push({ type: 'stat', data: otherStatCards[otherStatIndex] });
+        otherStatIndex++;
+      } else if (genreIndex < shuffledGenres.length) {
+        // If no other stats left, insert remaining genres
+        result.push({ type: 'stat', data: shuffledGenres[genreIndex] });
+        genreIndex++;
       }
-      statCardIndex++;
     }
   });
-
-  // Add remaining stat cards at the end (except timeline if already inserted)
-  while (statCardIndex < statCards.length) {
-    if (statCards[statCardIndex].type !== 'timeline' || !timelineInserted) {
-      result.push({ type: 'stat', data: statCards[statCardIndex] });
-    }
-    statCardIndex++;
+  
+  // Add any remaining cards at the end
+  while (genreIndex < shuffledGenres.length) {
+    result.push({ type: 'stat', data: shuffledGenres[genreIndex] });
+    genreIndex++;
+  }
+  while (otherStatIndex < otherStatCards.length) {
+    result.push({ type: 'stat', data: otherStatCards[otherStatIndex] });
+    otherStatIndex++;
+  }
+  if (!timelineInserted && timelineCard) {
+    result.push({ type: 'stat', data: timelineCard });
   }
 
   return result;
