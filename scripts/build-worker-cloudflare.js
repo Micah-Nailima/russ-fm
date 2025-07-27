@@ -42,6 +42,16 @@ function removeImagesFromDirectory(dirPath) {
 function runBuild() {
   console.log('Starting Cloudflare build process...');
   
+  // Generate wrapped data first
+  console.log('Generating wrapped data...');
+  try {
+    execSync('tsx scripts/generate-wrapped-data.ts', { stdio: 'inherit' });
+    console.log('Wrapped data generated successfully');
+  } catch (error) {
+    console.error('Wrapped data generation failed:', error.message);
+    process.exit(1);
+  }
+  
   // Remove images from public/album and public/artist directories
   const albumPath = join(__dirname, '..', 'public', 'album');
   const artistPath = join(__dirname, '..', 'public', 'artist');
