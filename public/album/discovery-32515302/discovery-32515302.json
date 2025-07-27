@@ -34,7 +34,7 @@
     }
   },
   "country": "Worldwide",
-  "created_at": "2025-07-20T10:32:30.363678",
+  "created_at": "2025-07-27T18:36:19.829397",
   "date_added": "2024-12-17T10:26:02-08:00",
   "discogs_id": "32515302",
   "discogs_url": "https://www.discogs.com/release/32515302-Daft-Punk-ダフトパンク-Discovery-ディスカバリー",
@@ -159,12 +159,12 @@
   "lastfm_mbid": null,
   "lastfm_url": null,
   "local_images": {
-    "hi-res": "../public/album/discovery-ディスカバリー-32515302/discovery-ディスカバリー-32515302-hi-res.jpg"
+    "hi-res": "../public/album/discovery-32515302/discovery-32515302-hi-res.jpg"
   },
   "processing_info": {
     "has_local_images": true,
     "local_images_count": 1,
-    "processed_at": "2025-07-20T10:32:39.904296",
+    "processed_at": "2025-07-27T18:36:32.397340",
     "services_used": [
       "discogs",
       "spotify",
@@ -212,7 +212,7 @@
         }
       ],
       "label": "Daft Life Ltd./ADA France",
-      "popularity": 78,
+      "popularity": 77,
       "preview_url": null,
       "raw_data": {
         "album_type": "album",
@@ -267,7 +267,7 @@
         "is_playable": true,
         "label": "Daft Life Ltd./ADA France",
         "name": "Discovery",
-        "popularity": 78,
+        "popularity": 77,
         "release_date": "2001-03-12",
         "release_date_precision": "day",
         "total_tracks": 14,
@@ -986,6 +986,6 @@
       "title": "Too Long = 自由をこの手に"
     }
   ],
-  "updated_at": "2025-07-20T10:32:39.835969",
+  "updated_at": "2025-07-27T18:36:32.314743",
   "year": 2024
 }

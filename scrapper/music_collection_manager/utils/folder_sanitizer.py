@@ -118,6 +118,16 @@ def sanitize_folder_name(name: str) -> str:
         'Ω': 'o', 'ω': 'o', 'ώ': 'o', 'Ώ': 'o'
     }
     
+    # Japanese character ranges to remove (Hiragana, Katakana, Kanji)
+    # We'll remove these characters entirely rather than transliterate
+    japanese_ranges = [
+        (0x3040, 0x309F),  # Hiragana
+        (0x30A0, 0x30FF),  # Katakana
+        (0x4E00, 0x9FAF),  # CJK Unified Ideographs (Kanji)
+        (0x3400, 0x4DBF),  # CJK Extension A
+        (0xFF00, 0xFFEF),  # Halfwidth and Fullwidth Forms
+    ]
+    
     # Apply accent transliteration
     for accented, ascii_equiv in accent_map.items():
         sanitized = sanitized.replace(accented, ascii_equiv)
@@ -140,6 +150,10 @@ def sanitize_folder_name(name: str) -> str:
     # Apply Greek character transliteration
     for greek_char, latin_equiv in greek_map.items():
         sanitized = sanitized.replace(greek_char, latin_equiv)
+    
+    # Remove Japanese characters (Hiragana, Katakana, Kanji)
+    sanitized = ''.join(char for char in sanitized 
+                       if not any(start <= ord(char) <= end for start, end in japanese_ranges))
     
     # Remove any remaining special characters except dashes
     sanitized = "".join(c for c in sanitized if c.isalnum() or c in "-")

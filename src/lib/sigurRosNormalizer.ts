@@ -99,6 +99,14 @@ export function sanitizeFolderName(name: string): string {
     sanitized = sanitized.replace(new RegExp(greekChar, 'g'), latin);
   }
   
+  // 12. Remove Japanese characters (Hiragana, Katakana, Kanji)
+  // Remove these characters entirely rather than transliterate
+  sanitized = sanitized.replace(/[\u3040-\u309F]/g, ''); // Hiragana
+  sanitized = sanitized.replace(/[\u30A0-\u30FF]/g, ''); // Katakana
+  sanitized = sanitized.replace(/[\u4E00-\u9FAF]/g, ''); // CJK Unified Ideographs (Kanji)
+  sanitized = sanitized.replace(/[\u3400-\u4DBF]/g, ''); // CJK Extension A
+  sanitized = sanitized.replace(/[\uFF00-\uFFEF]/g, ''); // Halfwidth and Fullwidth Forms
+  
   // 12. Remove any remaining special characters except dashes
   sanitized = sanitized.replace(/[^a-z0-9-]/g, '');
   
