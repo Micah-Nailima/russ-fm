@@ -1,0 +1,1048 @@
+{
+  "apple_music_id": null,
+  "apple_music_url": null,
+  "artists": [
+    {
+      "apple_music_id": "532997",
+      "biography": "Mazzy Star is an American alternative rock band formed in Santa Monica, California, in 1989 from the group Opal, a collaboration of guitarist David Roback and bassist Kendra Smith. Roback's friend Hope Sandoval became the group's vocalist when Smith left the band.\n\nMazzy Star is probably best known for the song \"Fade into You\" which brought the band some success in the mid-1990s and was the group's biggest mainstream hit, earning extensive exposure on MTV, VH1, and radio airplay. Roback and Sandoval are the creative center of the band, with Sandoval as lyricist and Roback as composer of the majority of the band's material.",
+      "discogs_id": "15262",
+      "discogs_original_name": "Mazzy Star",
+      "id": null,
+      "lastfm_mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+      "name": "Mazzy Star",
+      "role": "",
+      "spotify_id": "37w38cCSGgKLdayTRjna4W",
+      "wikipedia_url": null
+    }
+  ],
+  "artists_wikipedia": {
+    "Mazzy Star": {
+      "biography": "Mazzy Star is an American alternative rock band formed in Santa Monica, California, in 1989 from the group Opal, a collaboration of guitarist David Roback and bassist Kendra Smith. Roback's friend Hope Sandoval became the group's vocalist when Smith left the band.\n\nMazzy Star is probably best known for the song \"Fade into You\" which brought the band some success in the mid-1990s and was the group's biggest mainstream hit, earning extensive exposure on MTV, VH1, and radio airplay. Roback and Sandoval are the creative center of the band, with Sandoval as lyricist and Roback as composer of the majority of the band's material.",
+      "wikipedia_url": null
+    }
+  },
+  "country": "Worldwide",
+  "created_at": "2025-07-29T17:12:25.541169",
+  "date_added": "2025-07-29T06:54:36-07:00",
+  "discogs_id": "34573666",
+  "discogs_url": "https://www.discogs.com/release/34573666-Mazzy-Star-She-Hangs-Brightly",
+  "formats": [
+    "Vinyl"
+  ],
+  "genres": [
+    "Rock"
+  ],
+  "id": "34573666",
+  "images": [
+    {
+      "height": 585,
+      "resource_url": "https://i.discogs.com/aW30pRQfi2wnF9L4OfrgxP1XXr6OMuwvM00ziHBdgTQ/rs:fit/g:sm/q:90/h:585/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NTcz/NjY2LTE3NTMzNzE5/ODMtNjQ5Mi5qcGVn.jpeg",
+      "type": "primary",
+      "url": "https://i.discogs.com/aW30pRQfi2wnF9L4OfrgxP1XXr6OMuwvM00ziHBdgTQ/rs:fit/g:sm/q:90/h:585/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NTcz/NjY2LTE3NTMzNzE5/ODMtNjQ5Mi5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 579,
+      "resource_url": "https://i.discogs.com/bOIPaG4BBBSfKtSKaqOa1EcZXVS3q4RAs03uPG7qvQo/rs:fit/g:sm/q:90/h:579/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NTcz/NjY2LTE3NTMzNzE5/ODMtNzk1Ni5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/bOIPaG4BBBSfKtSKaqOa1EcZXVS3q4RAs03uPG7qvQo/rs:fit/g:sm/q:90/h:579/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NTcz/NjY2LTE3NTMzNzE5/ODMtNzk1Ni5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 589,
+      "resource_url": "https://i.discogs.com/olUzjJoCzElpbI8RFA7aiB5xonLH8bDKroxz4Do2dGI/rs:fit/g:sm/q:90/h:589/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NTcz/NjY2LTE3NTMzNzE5/ODMtNjg3NS5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/olUzjJoCzElpbI8RFA7aiB5xonLH8bDKroxz4Do2dGI/rs:fit/g:sm/q:90/h:589/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0NTcz/NjY2LTE3NTMzNzE5/ODMtNjg3NS5qcGVn.jpeg",
+      "width": 600
+    }
+  ],
+  "labels": [
+    "Capitol Records",
+    "UMe"
+  ],
+  "lastfm_mbid": null,
+  "lastfm_url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly",
+  "local_images": {
+    "hi-res": "../public/album/she-hangs-brightly-34573666/she-hangs-brightly-34573666-hi-res.jpg"
+  },
+  "processing_info": {
+    "has_local_images": true,
+    "local_images_count": 1,
+    "processed_at": "2025-07-29T17:12:44.704392",
+    "services_used": [
+      "discogs",
+      "spotify",
+      "wikipedia"
+    ]
+  },
+  "release_name_apple_music": null,
+  "release_name_discogs": "She Hangs Brightly",
+  "release_name_spotify": "She Hangs Brightly",
+  "released": "2025-07-25",
+  "services": {
+    "lastfm": {
+      "images": [
+        {
+          "size": "small",
+          "url": "https://lastfm.freetls.fastly.net/i/u/34s/74f05b741bd9481a88cf7b3b471697f1.png"
+        },
+        {
+          "size": "medium",
+          "url": "https://lastfm.freetls.fastly.net/i/u/64s/74f05b741bd9481a88cf7b3b471697f1.png"
+        },
+        {
+          "size": "large",
+          "url": "https://lastfm.freetls.fastly.net/i/u/174s/74f05b741bd9481a88cf7b3b471697f1.png"
+        },
+        {
+          "size": "extralarge",
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/74f05b741bd9481a88cf7b3b471697f1.png"
+        },
+        {
+          "size": "mega",
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/74f05b741bd9481a88cf7b3b471697f1.png"
+        },
+        {
+          "size": "",
+          "url": "https://lastfm.freetls.fastly.net/i/u/300x300/74f05b741bd9481a88cf7b3b471697f1.png"
+        }
+      ],
+      "listeners": 933485,
+      "mbid": "20a7bedb-ff1e-3713-a55e-390f43180824",
+      "playcount": 18938897,
+      "raw_data": {
+        "album": {
+          "artist": "Mazzy Star",
+          "image": [
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/34s/74f05b741bd9481a88cf7b3b471697f1.png",
+              "size": "small"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/64s/74f05b741bd9481a88cf7b3b471697f1.png",
+              "size": "medium"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/174s/74f05b741bd9481a88cf7b3b471697f1.png",
+              "size": "large"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/74f05b741bd9481a88cf7b3b471697f1.png",
+              "size": "extralarge"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/74f05b741bd9481a88cf7b3b471697f1.png",
+              "size": "mega"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/74f05b741bd9481a88cf7b3b471697f1.png",
+              "size": ""
+            }
+          ],
+          "listeners": "933485",
+          "mbid": "20a7bedb-ff1e-3713-a55e-390f43180824",
+          "name": "She Hangs Brightly",
+          "playcount": "18938897",
+          "tags": {
+            "tag": [
+              {
+                "name": "1990",
+                "url": "https://www.last.fm/tag/1990"
+              },
+              {
+                "name": "dream pop",
+                "url": "https://www.last.fm/tag/dream+pop"
+              },
+              {
+                "name": "alternative rock",
+                "url": "https://www.last.fm/tag/alternative+rock"
+              },
+              {
+                "name": "female vocalists",
+                "url": "https://www.last.fm/tag/female+vocalists"
+              },
+              {
+                "name": "shoegaze",
+                "url": "https://www.last.fm/tag/shoegaze"
+              }
+            ]
+          },
+          "tracks": {
+            "track": [
+              {
+                "@attr": {
+                  "rank": 1
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 196,
+                "name": "Halah",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Halah"
+              },
+              {
+                "@attr": {
+                  "rank": 2
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 225,
+                "name": "Blue Flower",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Blue+Flower"
+              },
+              {
+                "@attr": {
+                  "rank": 3
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 182,
+                "name": "Ride It On",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Ride+It+On"
+              },
+              {
+                "@attr": {
+                  "rank": 4
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 382,
+                "name": "She Hangs Brightly",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/She+Hangs+Brightly"
+              },
+              {
+                "@attr": {
+                  "rank": 5
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 190,
+                "name": "I'm Sailin",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/I%27m+Sailin"
+              },
+              {
+                "@attr": {
+                  "rank": 6
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 230,
+                "name": "Give You My Lovin",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Give+You+My+Lovin"
+              },
+              {
+                "@attr": {
+                  "rank": 7
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 197,
+                "name": "Be My Angel",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Be+My+Angel"
+              },
+              {
+                "@attr": {
+                  "rank": 8
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 333,
+                "name": "Taste of Blood",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Taste+of+Blood"
+              },
+              {
+                "@attr": {
+                  "rank": 9
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 195,
+                "name": "Ghost Highway",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Ghost+Highway"
+              },
+              {
+                "@attr": {
+                  "rank": 10
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 186,
+                "name": "Free",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Free"
+              },
+              {
+                "@attr": {
+                  "rank": 11
+                },
+                "artist": {
+                  "mbid": "c48d4327-8122-4286-af66-05e1ee6ac4d8",
+                  "name": "Mazzy Star",
+                  "url": "https://www.last.fm/music/Mazzy+Star"
+                },
+                "duration": 130,
+                "name": "Before I Sleep",
+                "streamable": {
+                  "#text": "0",
+                  "fulltrack": "0"
+                },
+                "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly/Before+I+Sleep"
+              }
+            ]
+          },
+          "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly",
+          "wiki": {
+            "content": "She Hangs Brightly is the debut studio album by American alternative rock band Mazzy Star. It was released on May 21, 1990, by Rough Trade Records and re-released by Capitol Records later in the year.\n\n\"Blue Flower\" was released as a single and reached number 29 on the Billboard Alternative Songs chart. Four years later, \"Halah\" reached number 19 on the same chart after the success of \"Fade Into You\".\n\nThe album cover is a shot of the interior of Hôtel Tassel in Brussels. <a href=\"https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.",
+            "published": "10 Oct 2022, 14:24",
+            "summary": "She Hangs Brightly is the debut studio album by American alternative rock band Mazzy Star. It was released on May 21, 1990, by Rough Trade Records and re-released by Capitol Records later in the year. \"Blue Flower\" was released as a single and reached number 29 on the Billboard Alternative Songs chart. Four years later, \"Halah\" reached number 19 on the same chart after the success of \"Fade Into You\". The album cover is a shot of the interior of Hôtel Tassel in Brussels. <a href=\"https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly\">Read more on Last.fm</a>."
+          }
+        }
+      },
+      "similar_artists": [],
+      "tags": [
+        "1990",
+        "dream pop",
+        "alternative rock",
+        "female vocalists",
+        "shoegaze"
+      ],
+      "top_albums": [],
+      "top_tracks": [],
+      "url": "https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly",
+      "wiki_content": "She Hangs Brightly is the debut studio album by American alternative rock band Mazzy Star. It was released on May 21, 1990, by Rough Trade Records and re-released by Capitol Records later in the year.\n\n\"Blue Flower\" was released as a single and reached number 29 on the Billboard Alternative Songs chart. Four years later, \"Halah\" reached number 19 on the same chart after the success of \"Fade Into You\".\n\nThe album cover is a shot of the interior of Hôtel Tassel in Brussels. <a href=\"https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.",
+      "wiki_summary": "She Hangs Brightly is the debut studio album by American alternative rock band Mazzy Star. It was released on May 21, 1990, by Rough Trade Records and re-released by Capitol Records later in the year. \"Blue Flower\" was released as a single and reached number 29 on the Billboard Alternative Songs chart. Four years later, \"Halah\" reached number 19 on the same chart after the success of \"Fade Into You\". The album cover is a shot of the interior of Hôtel Tassel in Brussels. <a href=\"https://www.last.fm/music/Mazzy+Star/She+Hangs+Brightly\">Read more on Last.fm</a>."
+    },
+    "spotify": {
+      "album_type": "album",
+      "available_markets": [],
+      "copyrights": [
+        {
+          "text": "© 1990 Capitol Records Inc.",
+          "type": "C"
+        },
+        {
+          "text": "℗ 1990 Capitol Records Inc.",
+          "type": "P"
+        }
+      ],
+      "explicit": false,
+      "external_ids": {
+        "upc": "00077779650859"
+      },
+      "id": "2ZAcLWdHBHrdybwws1PVuA",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273afce4c9cd3313302c0a16ed1",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02afce4c9cd3313302c0a16ed1",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851afce4c9cd3313302c0a16ed1",
+          "width": 64
+        }
+      ],
+      "label": "Capitol Records",
+      "popularity": 63,
+      "preview_url": null,
+      "raw_data": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+            },
+            "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+            "id": "37w38cCSGgKLdayTRjna4W",
+            "name": "Mazzy Star",
+            "type": "artist",
+            "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+          }
+        ],
+        "copyrights": [
+          {
+            "text": "© 1990 Capitol Records Inc.",
+            "type": "C"
+          },
+          {
+            "text": "℗ 1990 Capitol Records Inc.",
+            "type": "P"
+          }
+        ],
+        "external_ids": {
+          "upc": "00077779650859"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/2ZAcLWdHBHrdybwws1PVuA"
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/albums/2ZAcLWdHBHrdybwws1PVuA?market=US",
+        "id": "2ZAcLWdHBHrdybwws1PVuA",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273afce4c9cd3313302c0a16ed1",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02afce4c9cd3313302c0a16ed1",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851afce4c9cd3313302c0a16ed1",
+            "width": 64
+          }
+        ],
+        "is_playable": true,
+        "label": "Capitol Records",
+        "name": "She Hangs Brightly",
+        "popularity": 63,
+        "release_date": "1990-05-21",
+        "release_date_precision": "day",
+        "total_tracks": 11,
+        "tracks": {
+          "href": "https://api.spotify.com/v1/albums/2ZAcLWdHBHrdybwws1PVuA/tracks?offset=0&limit=50&market=US",
+          "items": [
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 196226,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6JuEshIRliNXRU1LXctRjZ"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6JuEshIRliNXRU1LXctRjZ",
+              "id": "6JuEshIRliNXRU1LXctRjZ",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Halah",
+              "preview_url": null,
+              "track_number": 1,
+              "type": "track",
+              "uri": "spotify:track:6JuEshIRliNXRU1LXctRjZ"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 215440,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6Rz4b1XPWPquE1h2Uup29S"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6Rz4b1XPWPquE1h2Uup29S",
+              "id": "6Rz4b1XPWPquE1h2Uup29S",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Blue Flower",
+              "preview_url": null,
+              "track_number": 2,
+              "type": "track",
+              "uri": "spotify:track:6Rz4b1XPWPquE1h2Uup29S"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 181226,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/1kYaJKP3kGm3oNcD7Mz1xZ"
+              },
+              "href": "https://api.spotify.com/v1/tracks/1kYaJKP3kGm3oNcD7Mz1xZ",
+              "id": "1kYaJKP3kGm3oNcD7Mz1xZ",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Ride It On",
+              "preview_url": null,
+              "track_number": 3,
+              "type": "track",
+              "uri": "spotify:track:1kYaJKP3kGm3oNcD7Mz1xZ"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 384400,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/0PwKkV9wQCpbCxJmYEkcsd"
+              },
+              "href": "https://api.spotify.com/v1/tracks/0PwKkV9wQCpbCxJmYEkcsd",
+              "id": "0PwKkV9wQCpbCxJmYEkcsd",
+              "is_local": false,
+              "is_playable": true,
+              "name": "She Hangs Brightly",
+              "preview_url": null,
+              "track_number": 4,
+              "type": "track",
+              "uri": "spotify:track:0PwKkV9wQCpbCxJmYEkcsd"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 193266,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/18GrzIO8luZZRhjdrie45E"
+              },
+              "href": "https://api.spotify.com/v1/tracks/18GrzIO8luZZRhjdrie45E",
+              "id": "18GrzIO8luZZRhjdrie45E",
+              "is_local": false,
+              "is_playable": true,
+              "name": "I'm Sailin",
+              "preview_url": null,
+              "track_number": 5,
+              "type": "track",
+              "uri": "spotify:track:18GrzIO8luZZRhjdrie45E"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 230066,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/7Gwi3AOnlyXkt6yJzU3BmM"
+              },
+              "href": "https://api.spotify.com/v1/tracks/7Gwi3AOnlyXkt6yJzU3BmM",
+              "id": "7Gwi3AOnlyXkt6yJzU3BmM",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Give You My Lovin",
+              "preview_url": null,
+              "track_number": 6,
+              "type": "track",
+              "uri": "spotify:track:7Gwi3AOnlyXkt6yJzU3BmM"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 197333,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/3R6kyOmqWcAsqZqqe9CGL0"
+              },
+              "href": "https://api.spotify.com/v1/tracks/3R6kyOmqWcAsqZqqe9CGL0",
+              "id": "3R6kyOmqWcAsqZqqe9CGL0",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Be My Angel",
+              "preview_url": null,
+              "track_number": 7,
+              "type": "track",
+              "uri": "spotify:track:3R6kyOmqWcAsqZqqe9CGL0"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 336973,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/3aj5gLvhtDmk2XsGygvPWs"
+              },
+              "href": "https://api.spotify.com/v1/tracks/3aj5gLvhtDmk2XsGygvPWs",
+              "id": "3aj5gLvhtDmk2XsGygvPWs",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Taste Of Blood",
+              "preview_url": null,
+              "track_number": 8,
+              "type": "track",
+              "uri": "spotify:track:3aj5gLvhtDmk2XsGygvPWs"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 208266,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/3coYDUUfzgL8bPwRuTiWnP"
+              },
+              "href": "https://api.spotify.com/v1/tracks/3coYDUUfzgL8bPwRuTiWnP",
+              "id": "3coYDUUfzgL8bPwRuTiWnP",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Ghost Highway",
+              "preview_url": null,
+              "track_number": 9,
+              "type": "track",
+              "uri": "spotify:track:3coYDUUfzgL8bPwRuTiWnP"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 191133,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6VaUh9WjvgMB3OkFopXVWw"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6VaUh9WjvgMB3OkFopXVWw",
+              "id": "6VaUh9WjvgMB3OkFopXVWw",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Free",
+              "preview_url": null,
+              "track_number": 10,
+              "type": "track",
+              "uri": "spotify:track:6VaUh9WjvgMB3OkFopXVWw"
+            },
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/37w38cCSGgKLdayTRjna4W"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/37w38cCSGgKLdayTRjna4W",
+                  "id": "37w38cCSGgKLdayTRjna4W",
+                  "name": "Mazzy Star",
+                  "type": "artist",
+                  "uri": "spotify:artist:37w38cCSGgKLdayTRjna4W"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 130026,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/6fpaLxz4zYgxTWzioHfxSJ"
+              },
+              "href": "https://api.spotify.com/v1/tracks/6fpaLxz4zYgxTWzioHfxSJ",
+              "id": "6fpaLxz4zYgxTWzioHfxSJ",
+              "is_local": false,
+              "is_playable": true,
+              "name": "Before I Sleep",
+              "preview_url": null,
+              "track_number": 11,
+              "type": "track",
+              "uri": "spotify:track:6fpaLxz4zYgxTWzioHfxSJ"
+            }
+          ],
+          "limit": 50,
+          "next": null,
+          "offset": 0,
+          "previous": null,
+          "total": 11
+        },
+        "type": "album",
+        "uri": "spotify:album:2ZAcLWdHBHrdybwws1PVuA"
+      },
+      "release_date": "1990-05-21",
+      "release_date_precision": "day",
+      "total_tracks": 11,
+      "tracks": [
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 196226,
+          "explicit": false,
+          "id": "6JuEshIRliNXRU1LXctRjZ",
+          "name": "Halah",
+          "preview_url": null,
+          "track_number": 1
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 215440,
+          "explicit": false,
+          "id": "6Rz4b1XPWPquE1h2Uup29S",
+          "name": "Blue Flower",
+          "preview_url": null,
+          "track_number": 2
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 181226,
+          "explicit": false,
+          "id": "1kYaJKP3kGm3oNcD7Mz1xZ",
+          "name": "Ride It On",
+          "preview_url": null,
+          "track_number": 3
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 384400,
+          "explicit": false,
+          "id": "0PwKkV9wQCpbCxJmYEkcsd",
+          "name": "She Hangs Brightly",
+          "preview_url": null,
+          "track_number": 4
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 193266,
+          "explicit": false,
+          "id": "18GrzIO8luZZRhjdrie45E",
+          "name": "I'm Sailin",
+          "preview_url": null,
+          "track_number": 5
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 230066,
+          "explicit": false,
+          "id": "7Gwi3AOnlyXkt6yJzU3BmM",
+          "name": "Give You My Lovin",
+          "preview_url": null,
+          "track_number": 6
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 197333,
+          "explicit": false,
+          "id": "3R6kyOmqWcAsqZqqe9CGL0",
+          "name": "Be My Angel",
+          "preview_url": null,
+          "track_number": 7
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 336973,
+          "explicit": false,
+          "id": "3aj5gLvhtDmk2XsGygvPWs",
+          "name": "Taste Of Blood",
+          "preview_url": null,
+          "track_number": 8
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 208266,
+          "explicit": false,
+          "id": "3coYDUUfzgL8bPwRuTiWnP",
+          "name": "Ghost Highway",
+          "preview_url": null,
+          "track_number": 9
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 191133,
+          "explicit": false,
+          "id": "6VaUh9WjvgMB3OkFopXVWw",
+          "name": "Free",
+          "preview_url": null,
+          "track_number": 10
+        },
+        {
+          "artists": [
+            {
+              "id": "37w38cCSGgKLdayTRjna4W",
+              "name": "Mazzy Star"
+            }
+          ],
+          "duration_ms": 130026,
+          "explicit": false,
+          "id": "6fpaLxz4zYgxTWzioHfxSJ",
+          "name": "Before I Sleep",
+          "preview_url": null,
+          "track_number": 11
+        }
+      ],
+      "url": "https://open.spotify.com/album/2ZAcLWdHBHrdybwws1PVuA"
+    }
+  },
+  "spotify_id": "2ZAcLWdHBHrdybwws1PVuA",
+  "spotify_url": "https://open.spotify.com/album/2ZAcLWdHBHrdybwws1PVuA",
+  "styles": [
+    "Alternative Rock"
+  ],
+  "title": "She Hangs Brightly",
+  "tracklist": [
+    {
+      "artists": [],
+      "duration": "3:12",
+      "position": "A1",
+      "title": "Halah"
+    },
+    {
+      "artists": [],
+      "duration": "3:32",
+      "position": "A2",
+      "title": "Blue Flower"
+    },
+    {
+      "artists": [],
+      "duration": "2:58",
+      "position": "A3",
+      "title": "Ride It On"
+    },
+    {
+      "artists": [],
+      "duration": "6:22",
+      "position": "A4",
+      "title": "She Hangs Brightly"
+    },
+    {
+      "artists": [],
+      "duration": "3:10",
+      "position": "A5",
+      "title": "I'm Sailin"
+    },
+    {
+      "artists": [],
+      "duration": "3:47",
+      "position": "B1",
+      "title": "Give You My Lovin"
+    },
+    {
+      "artists": [],
+      "duration": "3:14",
+      "position": "B2",
+      "title": "Be My Angel"
+    },
+    {
+      "artists": [],
+      "duration": "5:33",
+      "position": "B3",
+      "title": "Taste Of Blood"
+    },
+    {
+      "artists": [],
+      "duration": "3:25",
+      "position": "B4",
+      "title": "Ghost Highway"
+    },
+    {
+      "artists": [],
+      "duration": "3:06",
+      "position": "B5",
+      "title": "Free"
+    },
+    {
+      "artists": [],
+      "duration": "2:09",
+      "position": "B6",
+      "title": "Before I Sleep"
+    }
+  ],
+  "updated_at": "2025-07-29T17:12:44.501463",
+  "year": 2025
+}
