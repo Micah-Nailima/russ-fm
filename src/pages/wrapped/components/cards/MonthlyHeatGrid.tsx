@@ -1,5 +1,7 @@
 import { StatCardData, GridSize } from '@/types/wrapped';
-import { Music } from 'lucide-react';
+import { Calendar } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 interface MonthlyHeatGridProps {
   stat: StatCardData;
@@ -7,117 +9,258 @@ interface MonthlyHeatGridProps {
 }
 
 export function MonthlyHeatGrid({ stat }: MonthlyHeatGridProps) {
-  const timelineData = stat.data as Array<{ month: string; count: number; releases: unknown[] }>;
+  const [hoveredDate, setHoveredDate] = useState<string | null>(null);
+
+  const timelineData = stat.data as Array<{ month: string; count: number; releases: Array<{ date_added: string; release_name: string; release_artist: string }> }>;
   
   if (!timelineData || !Array.isArray(timelineData)) {
     return null;
   }
 
-  // Calculate intensity for heat mapping
-  const maxCount = Math.max(...timelineData.map(m => m.count));
-  const minCount = Math.min(...timelineData.map(m => m.count));
-  const range = maxCount - minCount || 1;
+  // Extract the year from the stat data
+  const year = new Date(timelineData[0]?.releases[0]?.date_added || new Date()).getFullYear();
+  
+  // Create maps for daily data
+  const dailyCounts = new Map<string, number>();
+  const dailyReleases = new Map<string, Array<{ name: string; artist: string }>>();
+  let maxDailyCount = 0;
+  
+  timelineData.forEach(monthData => {
+    if (monthData.releases && Array.isArray(monthData.releases)) {
+      monthData.releases.forEach(release => {
+        const date = release.date_added.split('T')[0]; // Get YYYY-MM-DD
+        const count = (dailyCounts.get(date) || 0) + 1;
+        dailyCounts.set(date, count);
+        maxDailyCount = Math.max(maxDailyCount, count);
+        
+        // Store release details
+        if (!dailyReleases.has(date)) {
+          dailyReleases.set(date, []);
+        }
+        dailyReleases.get(date)!.push({
+          name: release.release_name,
+          artist: release.release_artist
+        });
+      });
+    }
+  });
 
-  // Get intensity (0-1) for heat mapping
-  const getIntensity = (count: number) => {
-    if (maxCount === 0) return 0;
-    return (count - minCount) / range;
+  const totalCount = timelineData.reduce((sum, m) => sum + m.count, 0);
+
+  // Get the first day of the year and calculate the offset
+  const yearStart = new Date(year, 0, 1);
+  const yearEnd = new Date(year, 11, 31);
+  const startDayOfWeek = yearStart.getDay();
+  
+  // Generate grid data based on actual calendar
+  const gridData: Array<{ date: string; count: number; dayOfWeek: number }[]> = [];
+  let currentWeek: Array<{ date: string; count: number; dayOfWeek: number }> = [];
+  
+  // Add empty cells for the beginning of the first week
+  for (let i = 0; i < startDayOfWeek; i++) {
+    currentWeek.push({ date: '', count: 0, dayOfWeek: i });
+  }
+  
+  // Fill in all days of the year
+  const currentDate = new Date(yearStart);
+  while (currentDate <= yearEnd) {
+    const dateStr = currentDate.toISOString().split('T')[0];
+    const dayCount = dailyCounts.get(dateStr) || 0;
+    
+    currentWeek.push({
+      date: dateStr,
+      count: dayCount,
+      dayOfWeek: currentDate.getDay()
+    });
+    
+    // Start new week on Sunday
+    if (currentDate.getDay() === 6) {
+      gridData.push(currentWeek);
+      currentWeek = [];
+    }
+    
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+  
+  // Add the last week if it has any days
+  if (currentWeek.length > 0) {
+    // Pad the last week
+    while (currentWeek.length < 7) {
+      currentWeek.push({ date: '', count: 0, dayOfWeek: currentWeek.length });
+    }
+    gridData.push(currentWeek);
+  }
+
+  // GitHub color levels
+  const getLevel = (count: number) => {
+    if (count === 0) return 0;
+    if (count === 1) return 1;
+    if (count === 2) return 2;
+    if (count === 3) return 3;
+    return 4;
   };
 
-  // Get heat color based on intensity
-  const getHeatColor = (intensity: number) => {
-    if (intensity === 0) return 'bg-white/10';
-    if (intensity < 0.2) return 'bg-gradient-to-br from-blue-400/30 to-blue-500/40';
-    if (intensity < 0.4) return 'bg-gradient-to-br from-blue-500/50 to-purple-500/60';
-    if (intensity < 0.6) return 'bg-gradient-to-br from-purple-500/60 to-pink-500/70';
-    if (intensity < 0.8) return 'bg-gradient-to-br from-pink-500/70 to-red-500/80';
-    return 'bg-gradient-to-br from-red-500/80 to-orange-400/90';
+  // GitHub-style color scheme with light/dark mode support
+  const getLevelColor = (level: number) => {
+    switch (level) {
+      case 0: return 'bg-gray-200 dark:bg-gray-800';
+      case 1: return 'bg-emerald-200 dark:bg-emerald-900/80';
+      case 2: return 'bg-emerald-400 dark:bg-emerald-700/80';
+      case 3: return 'bg-emerald-600 dark:bg-emerald-600/80';
+      case 4: return 'bg-emerald-800 dark:bg-emerald-500';
+      default: return 'bg-gray-200 dark:bg-gray-800';
+    }
   };
 
-  // Get glow effect for high intensity
-  const getGlowEffect = (intensity: number) => {
-    if (intensity > 0.7) return 'shadow-lg shadow-red-500/20';
-    if (intensity > 0.5) return 'shadow-md shadow-purple-500/15';
-    if (intensity > 0.3) return 'shadow-sm shadow-blue-500/10';
+  // Track which months we've already shown
+  const shownMonths = new Set<string>();
+  
+  // Month labels - only show at the start of each month
+  const getMonthLabel = (weekIndex: number) => {
+    if (weekIndex >= gridData.length) return '';
+    const week = gridData[weekIndex];
+    for (const day of week) {
+      if (day.date) {
+        const date = new Date(day.date);
+        const monthKey = `${date.getFullYear()}-${date.getMonth()}`;
+        if (!shownMonths.has(monthKey)) {
+          shownMonths.add(monthKey);
+          return date.toLocaleDateString('en-US', { month: 'short' });
+        }
+      }
+    }
     return '';
   };
 
-  // Arrange months in 4x3 grid (3 months per row)
-  const rows = [
-    timelineData.slice(0, 3),   // Jan, Feb, Mar
-    timelineData.slice(3, 6),   // Apr, May, Jun
-    timelineData.slice(6, 9),   // Jul, Aug, Sep
-    timelineData.slice(9, 12),  // Oct, Nov, Dec
-  ];
+  const dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
   return (
-    <div className="relative w-full h-full rounded-lg overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 border border-white/10">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[length:20px_20px]" />
-      </div>
-
-      {/* Content */}
-      <div className="relative h-full p-4">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="font-semibold text-white/90 text-lg">
-            {stat.title}
+    <>
+      {/* Tooltip rendered outside the main container */}
+      {hoveredDate && (
+        <div 
+          className="fixed px-3 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-xs rounded-lg pointer-events-none shadow-xl"
+          style={{
+            left: '50%',
+            top: '200px',
+            transform: 'translateX(-50%)',
+            zIndex: 99999
+          }}
+        >
+          <div className="font-semibold mb-1">
+            {new Date(hoveredDate).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
           </div>
-          <Music className="w-5 h-5 text-white/70" />
-        </div>
-
-        {/* Heat Grid */}
-        <div className="flex-1 flex flex-col gap-2">
-          {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex gap-2 flex-1">
-              {row.map((month) => {
-                const intensity = getIntensity(month.count);
-                const heatColor = getHeatColor(intensity);
-                const glowEffect = getGlowEffect(intensity);
-                
-                return (
-                  <div
-                    key={month.month}
-                    className={`
-                      flex-1 rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer
-                      ${heatColor} ${glowEffect}
-                      border border-white/20 backdrop-blur-sm
-                      relative overflow-hidden group
-                    `}
-                    title={`${month.month}: ${month.count} releases`}
-                  >
-                    {/* Shimmer effect on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    
-                    {/* Content */}
-                    <div className="relative h-full flex flex-col items-center justify-center p-2">
-                      <div className="text-white/90 font-bold text-lg leading-none">
-                        {month.count}
-                      </div>
-                      <div className="text-white/70 text-xs font-medium mt-1">
-                        {month.month.slice(0, 3)}
-                      </div>
-                    </div>
-
-                    {/* Pulse effect for high activity */}
-                    {intensity > 0.8 && (
-                      <div className="absolute inset-0 rounded-lg bg-white/10 animate-pulse" />
-                    )}
-                  </div>
-                );
-              })}
+          <div className="text-gray-700 dark:text-gray-300 mb-1">
+            {dailyCounts.get(hoveredDate) || 0} {(dailyCounts.get(hoveredDate) || 0) === 1 ? 'addition' : 'additions'}
+          </div>
+          {dailyReleases.get(hoveredDate) && (
+            <div className="border-t border-gray-200 dark:border-gray-700 pt-1 mt-1 space-y-1">
+              {dailyReleases.get(hoveredDate)!.slice(0, 5).map((release, idx) => (
+                <div key={idx} className="text-[11px]">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-medium">{release.name}</span>
+                  <span className="text-gray-500 dark:text-gray-400"> by </span>
+                  <span className="text-gray-700 dark:text-gray-300">{release.artist}</span>
+                </div>
+              ))}
+              {dailyReleases.get(hoveredDate)!.length > 5 && (
+                <div className="text-[11px] text-gray-500">...and {dailyReleases.get(hoveredDate)!.length - 5} more</div>
+              )}
             </div>
-          ))}
+          )}
+        </div>
+      )}
+      
+      <div className="relative w-full h-full rounded-lg bg-gray-100 dark:bg-gray-950 p-4 overflow-visible">
+        <div className="h-full flex flex-col">
+        {/* Header */}
+        <div className="flex items-center gap-2 mb-4">
+          <Calendar className="w-4 h-4 text-gray-600 dark:text-gray-500" />
+          <h3 className="text-sm font-medium text-gray-800 dark:text-gray-300">
+            {totalCount} additions in {year}
+          </h3>
         </div>
 
-        {/* Footer stats */}
-        <div className="mt-3 flex justify-between text-xs text-white/60">
-          <span>Peak: {maxCount}</span>
-          <span>Total: {timelineData.reduce((sum, m) => sum + m.count, 0)}</span>
-          <span>Avg: {Math.round(timelineData.reduce((sum, m) => sum + m.count, 0) / 12)}</span>
+        {/* GitHub-style contribution graph */}
+        <div className="flex-1 flex justify-center items-center py-2 overflow-visible">
+          <div className="w-full max-w-full overflow-visible">
+            <div className="flex gap-[2px] overflow-visible">
+              {/* Day labels */}
+              <div className="flex flex-col justify-around text-[10px] text-gray-600 dark:text-gray-500 pr-2 w-8">
+                {dayLabels.map((day, i) => (
+                  <span key={i} className="h-[15px] flex items-center">{day}</span>
+                ))}
+              </div>
+
+              {/* Grid container */}
+              <div className="flex-1 overflow-x-auto overflow-y-visible scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className="inline-flex flex-col gap-[2px] overflow-visible">
+                  {/* Month labels */}
+                  <div className="flex text-[10px] text-gray-600 dark:text-gray-500 h-5 mb-1">
+                    {gridData.map((_, weekIndex) => {
+                      const label = getMonthLabel(weekIndex);
+                      return (
+                        <div key={weekIndex} className="w-[13px] mr-[2px]">
+                          {label && <span className="block -ml-4">{label}</span>}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Contribution grid */}
+                  <div className="flex gap-[2px] overflow-visible">
+                    {gridData.map((week, weekIndex) => (
+                      <div key={weekIndex} className="flex flex-col gap-[2px] overflow-visible">
+                        {week.map((day, dayIndex) => {
+                          const level = getLevel(day.count);
+                          const isHovered = hoveredDate === day.date;
+                          
+                          return (
+                            <div
+                              key={`${weekIndex}-${dayIndex}`}
+                              data-date={day.date}
+                              onMouseEnter={() => day.date && setHoveredDate(day.date)}
+                              onMouseLeave={() => setHoveredDate(null)}
+                              className={`
+                                w-[13px] h-[15px] rounded-sm relative
+                                ${day.date ? 'cursor-pointer' : ''}
+                                ${getLevelColor(level)}
+                                ${isHovered ? 'ring-1 ring-gray-600 dark:ring-gray-400' : ''}
+                                transition-all duration-150
+                              `}
+                            >
+                            </div>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Legend */}
+        <div className="flex items-center gap-2 mt-4 text-[11px] text-gray-600 dark:text-gray-500">
+          <span>Less</span>
+          <div className="flex gap-[2px]">
+            {[0, 1, 2, 3, 4].map((level) => (
+              <div
+                key={level}
+                className={`w-[13px] h-[15px] rounded-sm ${getLevelColor(level)}`}
+              />
+            ))}
+          </div>
+          <span>More</span>
+        </div>
+
+        {/* Stats */}
+        <div className="mt-3 text-[11px] text-gray-700 dark:text-gray-600">
+          Most active: {maxDailyCount} additions in a single day
+        </div>
+
       </div>
     </div>
+    </>
   );
 }
