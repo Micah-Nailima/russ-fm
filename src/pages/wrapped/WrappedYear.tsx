@@ -121,8 +121,8 @@ export function WrappedYear() {
     );
   }
 
-  const previousYear = availableYears.find(y => y < yearNum);
-  const nextYear = availableYears.find(y => y > yearNum);
+  const previousYear = availableYears.filter(y => y < yearNum).sort((a, b) => b - a)[0];
+  const nextYear = availableYears.filter(y => y > yearNum).sort((a, b) => a - b)[0];
 
   return (
     <PageTransition key={yearNum}>
