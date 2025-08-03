@@ -18,7 +18,7 @@ A modern, full-stack music collection management and showcase system with a Reac
 
 ### Frontend Development
 ```bash
-npm run dev              # Start development server (http://localhost:5173)
+npm run dev             # Start development server (http://localhost:5173)
 npm run build           # TypeScript compilation + Vite build (outputs to dist/)
 npm run lint            # Run ESLint
 npm run preview         # Preview production build locally
