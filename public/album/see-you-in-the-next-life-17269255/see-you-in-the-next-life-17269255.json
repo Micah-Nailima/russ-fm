@@ -22,7 +22,7 @@
     }
   },
   "country": "Europe",
-  "created_at": "2025-07-10T07:50:37.884040",
+  "created_at": "2025-08-03T18:55:52.985368",
   "date_added": "2021-04-19T02:24:22-07:00",
   "discogs_id": "17269255",
   "discogs_url": "https://www.discogs.com/release/17269255-Suede-See-You-In-The-Next-Life",
@@ -83,14 +83,12 @@
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/Suede/See+You+In+The+Next+Life...",
   "local_images": {
-    "hi-res": "../public/album/see-you-in-the-next-life-17269255/see-you-in-the-next-life-17269255-hi-res.jpg",
-    "medium": "../public/album/see-you-in-the-next-life-17269255/see-you-in-the-next-life-17269255-medium.jpg",
-    "small": "../public/album/see-you-in-the-next-life-17269255/see-you-in-the-next-life-17269255-small.jpg"
+    "hi-res": "../public/album/see-you-in-the-next-life-17269255/see-you-in-the-next-life-17269255-hi-res.jpg"
   },
   "processing_info": {
     "has_local_images": true,
-    "local_images_count": 3,
-    "processed_at": "2025-07-10T07:50:39.491043",
+    "local_images_count": 1,
+    "processed_at": "2025-08-03T18:56:01.345113",
     "services_used": [
       "discogs",
       "apple_music",
@@ -175,9 +173,9 @@
           "url": "https://lastfm.freetls.fastly.net/i/u/300x300/d623526942cb3983822c4161bf229795.jpg"
         }
       ],
-      "listeners": 442,
+      "listeners": 481,
       "mbid": "4d855be1-cd69-462c-bb23-abd510fa5ce7",
-      "playcount": 6214,
+      "playcount": 7137,
       "raw_data": {
         "album": {
           "artist": "Suede",
@@ -207,10 +205,10 @@
               "size": ""
             }
           ],
-          "listeners": "442",
+          "listeners": "481",
           "mbid": "4d855be1-cd69-462c-bb23-abd510fa5ce7",
           "name": "See You In The Next Life...",
-          "playcount": "6214",
+          "playcount": "7137",
           "tags": {
             "tag": [
               {
@@ -222,16 +220,16 @@
                 "url": "https://www.last.fm/tag/britpop"
               },
               {
-                "name": "demo",
-                "url": "https://www.last.fm/tag/demo"
-              },
-              {
                 "name": "british",
                 "url": "https://www.last.fm/tag/british"
               },
               {
-                "name": "alternative",
-                "url": "https://www.last.fm/tag/alternative"
+                "name": "demo",
+                "url": "https://www.last.fm/tag/demo"
+              },
+              {
+                "name": "cello",
+                "url": "https://www.last.fm/tag/cello"
               }
             ]
           },
@@ -450,9 +448,9 @@
       "tags": [
         "indie",
         "britpop",
-        "demo",
         "british",
-        "alternative"
+        "demo",
+        "cello"
       ],
       "top_albums": [],
       "top_tracks": [],
@@ -1223,6 +1221,6 @@
       "title": "Still Life (Strings)"
     }
   ],
-  "updated_at": "2025-07-10T07:50:39.158292",
+  "updated_at": "2025-08-03T18:56:01.231343",
   "year": 2021
 }
