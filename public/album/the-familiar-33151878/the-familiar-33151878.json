@@ -1,0 +1,331 @@
+{
+  "apple_music_id": "1794598900",
+  "apple_music_url": "https://music.apple.com/gb/album/the-familiar-ep/1794598900",
+  "artists": [
+    {
+      "apple_music_id": "345449182",
+      "biography": "Check https://vennart.bandcamp.com/ ‎ \nManchester-based guitar player/singer. Formerly known as frontman of Oceansize. \nAlso a member of Biffy Clyro's live band, and British Theatre, in 2023 started project Empire State Bastard with friends Biffy Clyro.‎ <a href=\"https://www.last.fm/music/Vennart\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.",
+      "discogs_id": "4423684",
+      "discogs_original_name": "Vennart",
+      "id": null,
+      "lastfm_mbid": null,
+      "name": "Vennart",
+      "role": "",
+      "spotify_id": "4snFq5Edr0NPE10gbj46cK",
+      "wikipedia_url": null
+    }
+  ],
+  "artists_wikipedia": {
+    "Vennart": {
+      "biography": "Check https://vennart.bandcamp.com/ ‎ \nManchester-based guitar player/singer. Formerly known as frontman of Oceansize. \nAlso a member of Biffy Clyro's live band, and British Theatre, in 2023 started project Empire State Bastard with friends Biffy Clyro.‎ <a href=\"https://www.last.fm/music/Vennart\">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.",
+      "wikipedia_url": null
+    }
+  },
+  "country": "UK",
+  "created_at": "2025-08-09T12:01:25.957031",
+  "date_added": "2025-08-09T03:59:27-07:00",
+  "discogs_id": "33151878",
+  "discogs_url": "https://www.discogs.com/release/33151878-Vennart-The-Familiar",
+  "formats": [
+    "Vinyl"
+  ],
+  "genres": [
+    "Rock"
+  ],
+  "id": "33151878",
+  "images": [
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/_xaHGDfbScwTikQyPiQ8Z-iOJPFHIatrSmPcBc4R39I/rs:fit/g:sm/q:90/h:600/w:561/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDAxNTc1/MzYtNTAwNi5qcGVn.jpeg",
+      "type": "primary",
+      "url": "https://i.discogs.com/_xaHGDfbScwTikQyPiQ8Z-iOJPFHIatrSmPcBc4R39I/rs:fit/g:sm/q:90/h:600/w:561/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDAxNTc1/MzYtNTAwNi5qcGVn.jpeg",
+      "width": 561
+    },
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/yZWzX1dADHZx0Eeho0bHgCWQylUcbAKXiHFoivqxXLc/rs:fit/g:sm/q:90/h:600/w:544/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3Mzk2Njk2/NDEtMzMxOS5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/yZWzX1dADHZx0Eeho0bHgCWQylUcbAKXiHFoivqxXLc/rs:fit/g:sm/q:90/h:600/w:544/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3Mzk2Njk2/NDEtMzMxOS5qcGVn.jpeg",
+      "width": 544
+    },
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/p2FuFwLrulea1RFk3Rg9hEPVVsUA_ebhIA9tCSnGCbU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDA1MDg5/MDctMzQxMS5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/p2FuFwLrulea1RFk3Rg9hEPVVsUA_ebhIA9tCSnGCbU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDA1MDg5/MDctMzQxMS5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 600,
+      "resource_url": "https://i.discogs.com/Z2g63BzviTDvuMFIPrAacebMb7pYc56IPV-5VnrkIU0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDA1MDg5/MDctNzMzNC5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/Z2g63BzviTDvuMFIPrAacebMb7pYc56IPV-5VnrkIU0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDA1MDg5/MDctNzMzNC5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 444,
+      "resource_url": "https://i.discogs.com/54BaZGPj_41_fkYQcUPYtspU-jGV5EaQeuOdcXHu9Fk/rs:fit/g:sm/q:90/h:444/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDU3Njg2/NTQtNjIzMC5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/54BaZGPj_41_fkYQcUPYtspU-jGV5EaQeuOdcXHu9Fk/rs:fit/g:sm/q:90/h:444/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDU3Njg2/NTQtNjIzMC5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 450,
+      "resource_url": "https://i.discogs.com/GsUpWlWDSY_ac99D3MQFOu5DOPH6tMl0GRhYU5N7TEE/rs:fit/g:sm/q:90/h:450/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDA1MDg5/MDYtMTU5OC5qcGVn.jpeg",
+      "type": "secondary",
+      "url": "https://i.discogs.com/GsUpWlWDSY_ac99D3MQFOu5DOPH6tMl0GRhYU5N7TEE/rs:fit/g:sm/q:90/h:450/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzMTUx/ODc4LTE3NDA1MDg5/MDYtMTU5OC5qcGVn.jpeg",
+      "width": 600
+    },
+    {
+      "height": 2000,
+      "resource_url": null,
+      "type": "apple_music_artwork",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/e0/5a/c2e05a1e-c25f-a961-6089-d87e56718885/161197.jpg/2000x2000bb.jpg",
+      "width": 2000
+    }
+  ],
+  "labels": [
+    "Not On Label (Vennart Self-released)"
+  ],
+  "lastfm_mbid": null,
+  "lastfm_url": null,
+  "local_images": {
+    "hi-res": "../public/album/the-familiar-33151878/the-familiar-33151878-hi-res.jpg"
+  },
+  "processing_info": {
+    "has_local_images": true,
+    "local_images_count": 1,
+    "processed_at": "2025-08-09T12:01:36.846886",
+    "services_used": [
+      "discogs",
+      "apple_music",
+      "spotify",
+      "wikipedia"
+    ]
+  },
+  "release_name_apple_music": "The Familiar - EP",
+  "release_name_discogs": "The Familiar",
+  "release_name_spotify": "The Familiar",
+  "released": "2025-02-14",
+  "services": {
+    "apple_music": {
+      "artwork_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/e0/5a/c2e05a1e-c25f-a961-6089-d87e56718885/161197.jpg/2000x2000bb.jpg",
+      "content_rating": null,
+      "copyright": "℗ 2025 VENNART",
+      "editorial_notes": null,
+      "id": "1794598900",
+      "is_complete": true,
+      "preview_url": null,
+      "raw_attributes": {
+        "artistName": "Vennart",
+        "artwork": {
+          "bgColor": "a82a22",
+          "height": 3000,
+          "textColor1": "faf4f3",
+          "textColor2": "f6e9e8",
+          "textColor3": "eacbc9",
+          "textColor4": "e6c3c1",
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/e0/5a/c2e05a1e-c25f-a961-6089-d87e56718885/161197.jpg/{w}x{h}bb.jpg",
+          "width": 3000
+        },
+        "copyright": "℗ 2025 VENNART",
+        "genreNames": [
+          "Rock",
+          "Music"
+        ],
+        "isCompilation": false,
+        "isComplete": true,
+        "isMasteredForItunes": false,
+        "isSingle": true,
+        "name": "The Familiar - EP",
+        "playParams": {
+          "id": "1794598900",
+          "kind": "album"
+        },
+        "recordLabel": "VENNART",
+        "releaseDate": "2025-02-14",
+        "trackCount": 1,
+        "upc": "5056826832672",
+        "url": "https://music.apple.com/gb/album/the-familiar-ep/1794598900"
+      },
+      "url": "https://music.apple.com/gb/album/the-familiar-ep/1794598900"
+    },
+    "spotify": {
+      "album_type": "single",
+      "available_markets": [],
+      "copyrights": [
+        {
+          "text": "2025 VENNART",
+          "type": "C"
+        },
+        {
+          "text": "2025 VENNART",
+          "type": "P"
+        }
+      ],
+      "explicit": false,
+      "external_ids": {
+        "upc": "5056826832672"
+      },
+      "id": "65NTC1yvfQQoDu4h7mUrjT",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273895d54443b54807a9d6d52e2",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02895d54443b54807a9d6d52e2",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851895d54443b54807a9d6d52e2",
+          "width": 64
+        }
+      ],
+      "label": "VENNART",
+      "popularity": 2,
+      "preview_url": null,
+      "raw_data": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4snFq5Edr0NPE10gbj46cK"
+            },
+            "href": "https://api.spotify.com/v1/artists/4snFq5Edr0NPE10gbj46cK",
+            "id": "4snFq5Edr0NPE10gbj46cK",
+            "name": "Vennart",
+            "type": "artist",
+            "uri": "spotify:artist:4snFq5Edr0NPE10gbj46cK"
+          }
+        ],
+        "copyrights": [
+          {
+            "text": "2025 VENNART",
+            "type": "C"
+          },
+          {
+            "text": "2025 VENNART",
+            "type": "P"
+          }
+        ],
+        "external_ids": {
+          "upc": "5056826832672"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/65NTC1yvfQQoDu4h7mUrjT"
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/albums/65NTC1yvfQQoDu4h7mUrjT?market=US",
+        "id": "65NTC1yvfQQoDu4h7mUrjT",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273895d54443b54807a9d6d52e2",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02895d54443b54807a9d6d52e2",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851895d54443b54807a9d6d52e2",
+            "width": 64
+          }
+        ],
+        "is_playable": true,
+        "label": "VENNART",
+        "name": "The Familiar",
+        "popularity": 2,
+        "release_date": "2025-02-14",
+        "release_date_precision": "day",
+        "total_tracks": 1,
+        "tracks": {
+          "href": "https://api.spotify.com/v1/albums/65NTC1yvfQQoDu4h7mUrjT/tracks?offset=0&limit=50&market=US",
+          "items": [
+            {
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/4snFq5Edr0NPE10gbj46cK"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/4snFq5Edr0NPE10gbj46cK",
+                  "id": "4snFq5Edr0NPE10gbj46cK",
+                  "name": "Vennart",
+                  "type": "artist",
+                  "uri": "spotify:artist:4snFq5Edr0NPE10gbj46cK"
+                }
+              ],
+              "disc_number": 1,
+              "duration_ms": 956133,
+              "explicit": false,
+              "external_urls": {
+                "spotify": "https://open.spotify.com/track/4Rix14rb0xnyPAugZVkmrL"
+              },
+              "href": "https://api.spotify.com/v1/tracks/4Rix14rb0xnyPAugZVkmrL",
+              "id": "4Rix14rb0xnyPAugZVkmrL",
+              "is_local": false,
+              "is_playable": true,
+              "name": "The Familiar",
+              "preview_url": null,
+              "track_number": 1,
+              "type": "track",
+              "uri": "spotify:track:4Rix14rb0xnyPAugZVkmrL"
+            }
+          ],
+          "limit": 50,
+          "next": null,
+          "offset": 0,
+          "previous": null,
+          "total": 1
+        },
+        "type": "album",
+        "uri": "spotify:album:65NTC1yvfQQoDu4h7mUrjT"
+      },
+      "release_date": "2025-02-14",
+      "release_date_precision": "day",
+      "total_tracks": 1,
+      "tracks": [
+        {
+          "artists": [
+            {
+              "id": "4snFq5Edr0NPE10gbj46cK",
+              "name": "Vennart"
+            }
+          ],
+          "duration_ms": 956133,
+          "explicit": false,
+          "id": "4Rix14rb0xnyPAugZVkmrL",
+          "name": "The Familiar",
+          "preview_url": null,
+          "track_number": 1
+        }
+      ],
+      "url": "https://open.spotify.com/album/65NTC1yvfQQoDu4h7mUrjT"
+    }
+  },
+  "spotify_id": "65NTC1yvfQQoDu4h7mUrjT",
+  "spotify_url": "https://open.spotify.com/album/65NTC1yvfQQoDu4h7mUrjT",
+  "styles": [
+    "Doom Metal",
+    "Psychedelic Rock",
+    "Prog Rock",
+    "Art Rock"
+  ],
+  "title": "The Familiar",
+  "tracklist": [
+    {
+      "artists": [],
+      "duration": "15:57",
+      "position": "A",
+      "title": "The Familiar"
+    }
+  ],
+  "updated_at": "2025-08-09T12:01:35.737930",
+  "year": 2025
+}
