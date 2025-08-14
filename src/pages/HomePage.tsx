@@ -334,80 +334,19 @@ export function HomePage() {
                 </motion.div>
               </AnimatePresence>
               
-              {/* Elegant Navigation dots */}
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
-                {featuredAlbums.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => setFeaturedIndex(index)}
-                    className="relative group"
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    {/* Background glow */}
-                    <motion.div
-                      className="absolute inset-0 rounded-full blur-sm"
-                      style={{
-                        backgroundColor: currentPalette?.accent || '#ffffff',
-                        opacity: index === featuredIndex ? 0.6 : 0
-                      }}
-                      animate={{
-                        scale: index === featuredIndex ? 1.8 : 1,
-                        opacity: index === featuredIndex ? 0.6 : 0
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    
-                    {/* Main dot */}
-                    <motion.div
-                      className="relative rounded-full shadow-lg"
-                      style={{
-                        backgroundColor: index === featuredIndex 
-                          ? (currentPalette?.accent || '#ffffff')
-                          : 'rgba(255,255,255,0.5)',
-                        width: index === featuredIndex ? 12 : 8,
-                        height: index === featuredIndex ? 12 : 8,
-                      }}
-                      animate={{
-                        width: index === featuredIndex ? 12 : 8,
-                        height: index === featuredIndex ? 12 : 8,
-                      }}
-                      transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-                    />
-                    
-                    {/* Active indicator ring */}
-                    {index === featuredIndex && (
-                      <motion.div
-                        className="absolute inset-0 rounded-full border-2"
-                        style={{
-                          borderColor: currentPalette?.accent || '#ffffff',
-                          width: 20,
-                          height: 20,
-                          left: -4,
-                          top: -4
-                        }}
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 0.7 }}
-                        exit={{ scale: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </motion.button>
-                ))}
-              </div>
             </div>
 
-            {/* Album Info */}
+            {/* Album Info - Right Aligned */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={featuredIndex}
-                className="text-center lg:text-left space-y-8 flex-1 lg:max-w-2xl"
+                className="flex flex-col justify-center text-center lg:text-right space-y-6"
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 1.0, delay: 0.4, ease: "easeInOut" }}
               >
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <motion.h1 
                     className="text-3xl lg:text-4xl xl:text-5xl font-light leading-tight"
                     style={{ 
@@ -439,7 +378,7 @@ export function HomePage() {
                 </div>
                 
                 <motion.div 
-                  className="flex flex-wrap gap-2 justify-center lg:justify-start"
+                  className="flex flex-wrap gap-2 justify-center lg:justify-end"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
@@ -469,6 +408,7 @@ export function HomePage() {
                 </motion.div>
 
                 <motion.div
+                  className="flex flex-col items-center lg:items-end gap-4"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
@@ -489,6 +429,68 @@ export function HomePage() {
                       Explore Album
                     </Link>
                   </Button>
+                  
+                  {/* Navigation dots - Now under the button */}
+                  <div className="flex items-center gap-3">
+                    {featuredAlbums.map((_, index) => (
+                      <motion.button
+                        key={index}
+                        onClick={() => setFeaturedIndex(index)}
+                        className="relative group"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        {/* Background glow */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full blur-sm"
+                          style={{
+                            backgroundColor: currentPalette?.accent || '#ffffff',
+                            opacity: index === featuredIndex ? 0.6 : 0
+                          }}
+                          animate={{
+                            scale: index === featuredIndex ? 2.0 : 1,
+                            opacity: index === featuredIndex ? 0.6 : 0
+                          }}
+                          transition={{ duration: 0.3 }}
+                        />
+                        
+                        {/* Main dot */}
+                        <motion.div
+                          className="relative rounded-full shadow-lg"
+                          style={{
+                            backgroundColor: index === featuredIndex 
+                              ? (currentPalette?.accent || '#ffffff')
+                              : 'rgba(255,255,255,0.5)',
+                            width: index === featuredIndex ? 16 : 10,
+                            height: index === featuredIndex ? 16 : 10,
+                          }}
+                          animate={{
+                            width: index === featuredIndex ? 16 : 10,
+                            height: index === featuredIndex ? 16 : 10,
+                          }}
+                          transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+                        />
+                        
+                        {/* Active indicator ring */}
+                        {index === featuredIndex && (
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-2"
+                            style={{
+                              borderColor: currentPalette?.accent || '#ffffff',
+                              width: 24,
+                              height: 24,
+                              left: -4,
+                              top: -4
+                            }}
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 0.7 }}
+                            exit={{ scale: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          />
+                        )}
+                      </motion.button>
+                    ))}
+                  </div>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
