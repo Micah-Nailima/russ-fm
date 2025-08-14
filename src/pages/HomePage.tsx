@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { appConfig } from '@/config/app.config';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
+import { extractColorsFromImage, type ColorPalette } from '@/lib/colorExtractor';
 
 interface Album {
   release_name: string;
@@ -33,6 +34,7 @@ export function HomePage() {
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [randomizedGenreAlbums, setRandomizedGenreAlbums] = useState<Record<string, Album>>({});
   const [randomizedEraAlbums, setRandomizedEraAlbums] = useState<Record<string, Album>>({});
+  const [colorPalettes, setColorPalettes] = useState<Record<string, ColorPalette>>({});
 
   // Refs for intersection observer
   const recentAlbumsRef = useRef(null);
@@ -139,6 +141,25 @@ export function HomePage() {
 
         setRandomizedGenreAlbums(genreAlbumMap);
         setRandomizedEraAlbums(eraAlbumMap);
+        
+        // Extract colors for featured albums
+        const extractColors = async () => {
+          const palettes: Record<string, ColorPalette> = {};
+          const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
+          
+          for (const album of featuredAlbums) {
+            try {
+              const palette = await extractColorsFromImage(album.images_uri_release['hi-res']);
+              palettes[album.uri_release] = palette;
+            } catch (error) {
+              console.warn('Failed to extract colors for', album.release_name, error);
+            }
+          }
+          
+          setColorPalettes(palettes);
+        };
+        
+        extractColors();
       })
       .catch(error => console.error('Error loading collection:', error));
   }, []);
@@ -155,6 +176,7 @@ export function HomePage() {
 
   const featuredAlbums = recentAlbums.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
   const currentFeatured = featuredAlbums[featuredIndex];
+  const currentPalette = currentFeatured ? colorPalettes[currentFeatured.uri_release] : null;
 
   // Get top genres (calculated from state if albums are loaded)
   const topGenres = albums.length > 0 
@@ -190,51 +212,187 @@ export function HomePage() {
       {/* Hero Section - Featured Albums */}
       {currentFeatured && (
         <motion.section 
-          className="relative"
+          className="relative rounded-3xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Album Artwork */}
-            <div className="relative group">
+          {/* Full background album artwork with blur */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`bg-${featuredIndex}`}
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 1.8, ease: "easeInOut" }}
+            >
+              <div 
+                className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat filter blur-2xl"
+                style={{
+                  backgroundImage: `url(${currentFeatured.images_uri_release['hi-res']})`,
+                  transform: 'scale(1.1)'
+                }}
+              />
+              
+              {/* Dynamic gradient overlay */}
+              <div 
+                className="absolute inset-0"
+                style={{
+                  background: currentPalette 
+                    ? `linear-gradient(135deg, 
+                        ${currentPalette.background}E6 0%, 
+                        ${currentPalette.background}B3 25%,
+                        ${currentPalette.muted}80 50%,
+                        ${currentPalette.accent}40 75%,
+                        ${currentPalette.background}CC 100%)`
+                    : 'linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%)'
+                }}
+              />
+              
+              {/* Color bleeding effect */}
+              {currentPalette && (
+                <>
+                  <div 
+                    className="absolute top-0 left-0 w-1/3 h-1/3 opacity-30"
+                    style={{
+                      background: `radial-gradient(ellipse at top left, ${currentPalette.accent}60, transparent 70%)`
+                    }}
+                  />
+                  <div 
+                    className="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-20"
+                    style={{
+                      background: `radial-gradient(ellipse at bottom right, ${currentPalette.muted}80, transparent 70%)`
+                    }}
+                  />
+                </>
+              )}
+            </motion.div>
+          </AnimatePresence>
+          
+          <div className="relative grid lg:grid-cols-2 gap-8 p-8 lg:p-12 min-h-[400px]">
+            {/* Floating Album Artwork - Full Left Side */}
+            <div className="relative group flex items-center justify-center lg:justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={featuredIndex}
-                  className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
+                  className="relative w-80 h-80 lg:w-full lg:h-full lg:max-w-[400px] lg:max-h-[400px] aspect-square"
+                  initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, rotateY: 10 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  style={{ perspective: '1000px' }}
                 >
-                  <img
-                    src={currentFeatured.images_uri_release['hi-res']}
-                    alt={`${currentFeatured.release_name} by ${currentFeatured.release_artist}`}
-                    className="w-full h-full object-cover"
+                  {/* Glow effect behind album */}
+                  <div 
+                    className="absolute -inset-8 rounded-3xl opacity-60 blur-2xl"
+                    style={{
+                      background: currentPalette 
+                        ? `radial-gradient(ellipse at center, ${currentPalette.accent}80, ${currentPalette.muted}40, transparent 70%)`
+                        : 'radial-gradient(ellipse at center, rgba(255,255,255,0.3), transparent 70%)'
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  
+                  {/* Main album cover */}
+                  <div 
+                    className="relative rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20 backdrop-blur-sm"
+                    style={{
+                      boxShadow: currentPalette 
+                        ? `0 25px 50px -12px ${currentPalette.background}80, 0 0 0 1px ${currentPalette.accent}30`
+                        : '0 25px 50px -12px rgba(0,0,0,0.5)'
+                    }}
+                  >
+                    <img
+                      src={currentFeatured.images_uri_release['hi-res']}
+                      alt={`${currentFeatured.release_name} by ${currentFeatured.release_artist}`}
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Subtle gradient overlay on artwork */}
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        background: currentPalette 
+                          ? `linear-gradient(135deg, transparent 0%, ${currentPalette.accent}10 100%)`
+                          : 'linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%)'
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Reflection effect */}
+                  <div 
+                    className="absolute top-full left-0 w-full h-1/2 rounded-b-3xl opacity-20 blur-sm transform scale-y-[-1] origin-top"
+                    style={{
+                      background: `url(${currentFeatured.images_uri_release['hi-res']})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)'
+                    }}
+                  />
                 </motion.div>
               </AnimatePresence>
               
-              {/* Navigation dots */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+              {/* Elegant Navigation dots */}
+              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
                 {featuredAlbums.map((_, index) => (
                   <motion.button
                     key={index}
                     onClick={() => setFeaturedIndex(index)}
-                    className={`h-2 rounded-full ${
-                      index === featuredIndex 
-                        ? 'bg-primary' 
-                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
-                    }`}
-                    animate={{ 
-                      width: index === featuredIndex ? 32 : 8,
-                    }}
-                    transition={{ duration: 0.3 }}
+                    className="relative group"
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
-                  />
+                  >
+                    {/* Background glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full blur-sm"
+                      style={{
+                        backgroundColor: currentPalette?.accent || '#ffffff',
+                        opacity: index === featuredIndex ? 0.6 : 0
+                      }}
+                      animate={{
+                        scale: index === featuredIndex ? 1.8 : 1,
+                        opacity: index === featuredIndex ? 0.6 : 0
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    
+                    {/* Main dot */}
+                    <motion.div
+                      className="relative rounded-full shadow-lg"
+                      style={{
+                        backgroundColor: index === featuredIndex 
+                          ? (currentPalette?.accent || '#ffffff')
+                          : 'rgba(255,255,255,0.5)',
+                        width: index === featuredIndex ? 12 : 8,
+                        height: index === featuredIndex ? 12 : 8,
+                      }}
+                      animate={{
+                        width: index === featuredIndex ? 12 : 8,
+                        height: index === featuredIndex ? 12 : 8,
+                      }}
+                      transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+                    />
+                    
+                    {/* Active indicator ring */}
+                    {index === featuredIndex && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2"
+                        style={{
+                          borderColor: currentPalette?.accent || '#ffffff',
+                          width: 20,
+                          height: 20,
+                          left: -4,
+                          top: -4
+                        }}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 0.7 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -243,26 +401,38 @@ export function HomePage() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={featuredIndex}
-                className="text-center lg:text-left space-y-6"
-                initial={{ opacity: 0, x: 20 }}
+                className="text-center lg:text-left space-y-8 flex-1 lg:max-w-2xl"
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 1.0, delay: 0.4, ease: "easeInOut" }}
               >
-                <div>
+                <div className="space-y-3">
                   <motion.h1 
-                    className="text-4xl lg:text-6xl font-light text-foreground mb-2 leading-tight"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
+                    className="text-3xl lg:text-4xl xl:text-5xl font-light leading-tight"
+                    style={{ 
+                      color: '#ffffff',
+                      textShadow: currentPalette 
+                        ? `0 4px 20px ${currentPalette.background}80, 0 2px 4px rgba(0,0,0,0.5)`
+                        : '0 4px 20px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.8)'
+                    }}
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 100 }}
                   >
                     {currentFeatured.release_name}
                   </motion.h1>
                   <motion.p 
-                    className="text-xl lg:text-2xl text-muted-foreground"
-                    initial={{ opacity: 0, y: 10 }}
+                    className="text-lg lg:text-xl font-normal"
+                    style={{ 
+                      color: '#ffffff',
+                      textShadow: currentPalette 
+                        ? `0 4px 20px ${currentPalette.background}80, 0 2px 4px rgba(0,0,0,0.5)`
+                        : '0 4px 20px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.8)'
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
                   >
                     {currentFeatured.release_artist}
                   </motion.p>
@@ -303,7 +473,18 @@ export function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
                 >
-                  <Button asChild size="lg" className="rounded-full">
+                  <Button 
+                    asChild 
+                    size="lg" 
+                    className="rounded-full font-medium px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    style={{
+                      backgroundColor: currentPalette?.accent || 'rgb(var(--primary))',
+                      color: currentPalette?.background || 'rgb(var(--primary-foreground))',
+                      boxShadow: currentPalette?.accent 
+                        ? `0 10px 25px -5px ${currentPalette.accent}40, 0 4px 6px -2px ${currentPalette.accent}20`
+                        : undefined
+                    }}
+                  >
                     <Link to={currentFeatured.uri_release}>
                       Explore Album
                     </Link>
