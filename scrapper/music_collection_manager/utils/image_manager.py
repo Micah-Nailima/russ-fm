@@ -40,8 +40,8 @@ class ImageManager:
             self.image_sizes = {"hi-res": 2000}
 
     def sanitize_filename(self, text: str) -> str:
-        """Convert text to URL-safe filename."""
-        return clean_for_filename(text)
+        """Convert text to URL-safe filename using folder sanitization for consistency."""
+        return sanitize_folder_name(text)
 
     def create_release_folder(self, release_title: str, discogs_id: str) -> Path:
         """Create folder for release with URL-safe name."""

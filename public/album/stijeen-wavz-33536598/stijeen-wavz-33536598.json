@@ -22,7 +22,7 @@
     }
   },
   "country": "UK",
-  "created_at": "2025-07-18T19:20:31.393013",
+  "created_at": "2025-08-14T12:42:21.132239",
   "date_added": "2025-03-28T04:00:37-07:00",
   "discogs_id": "33536598",
   "discogs_url": "https://www.discogs.com/release/33536598-Envy-Of-None-Stijēən-Wāvz",
@@ -125,12 +125,12 @@
   "lastfm_mbid": null,
   "lastfm_url": null,
   "local_images": {
-    "hi-res": "../public/album/stijēən-wāvz-33536598/stijēən-wāvz-33536598-hi-res.jpg"
+    "hi-res": "../public/album/stijeen-wavz-33536598/stijeen-wavz-33536598-hi-res.jpg"
   },
   "processing_info": {
     "has_local_images": true,
     "local_images_count": 1,
-    "processed_at": "2025-07-18T19:20:39.200555",
+    "processed_at": "2025-08-14T12:42:24.925600",
     "services_used": [
       "discogs",
       "spotify",
@@ -178,7 +178,7 @@
         }
       ],
       "label": "Kscope Music",
-      "popularity": 31,
+      "popularity": 26,
       "preview_url": null,
       "raw_data": {
         "album_type": "album",
@@ -233,7 +233,7 @@
         "is_playable": true,
         "label": "Kscope Music",
         "name": "Stygian Wavz",
-        "popularity": 31,
+        "popularity": 26,
         "release_date": "2025-03-28",
         "release_date_precision": "day",
         "total_tracks": 11,
@@ -805,6 +805,6 @@
       "title": "Stij(ē)ən Wāvz"
     }
   ],
-  "updated_at": "2025-07-18T19:20:38.968198",
+  "updated_at": "2025-08-14T12:42:24.864195",
   "year": 2025
 }
