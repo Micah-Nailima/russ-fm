@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
 import { AlbumsPage } from './pages/AlbumsPage';
 import { ArtistsPage } from './pages/ArtistsPage';
 import { ArtistDetailPage } from './pages/ArtistDetailPage';
@@ -34,7 +35,8 @@ function App() {
       
       <main className="pt-28">
         <Routes>
-          <Route path="/" element={<AlbumsPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/albums" element={<AlbumsPage />} />
           <Route path="/albums/:page" element={<AlbumsPage />} />
           <Route path="/artists" element={<ArtistsPage />} />

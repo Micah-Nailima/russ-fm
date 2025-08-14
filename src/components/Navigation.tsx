@@ -58,22 +58,35 @@ export function Navigation() {
           <nav className="h-16 bg-background border dark:border-slate-700/70 rounded-full">
             <div className="h-full flex items-center justify-between px-6">
               <div className="flex items-center gap-8">
-                <Link to="/albums/1">
+                <Link to="/">
                   <Logo className="shrink-0" />
                 </Link>
 
                 {/* Center navigation links */}
                 <div className="hidden md:flex items-center gap-6">
                   <Link 
+                    to="/" 
+                    className={`text-sm font-medium transition-all duration-200 hover:text-foreground relative py-2 ${
+                      location.pathname === '/' || location.pathname === '/home'
+                        ? 'text-primary font-semibold' 
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Home
+                    {(location.pathname === '/' || location.pathname === '/home') && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                    )}
+                  </Link>
+                  <Link 
                     to="/albums/1" 
                     className={`text-sm font-medium transition-all duration-200 hover:text-foreground relative py-2 ${
-                      location.pathname === '/' || location.pathname.startsWith('/albums') 
+                      location.pathname.startsWith('/albums') 
                         ? 'text-primary font-semibold' 
                         : 'text-muted-foreground'
                     }`}
                   >
                     Albums
-                    {(location.pathname === '/' || location.pathname.startsWith('/albums')) && (
+                    {location.pathname.startsWith('/albums') && (
                       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
                     )}
                   </Link>
@@ -186,10 +199,21 @@ export function Navigation() {
                 {/* Mobile Navigation Links */}
                 <div className="space-y-2">
                   <Link
+                    to="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted ${
+                      location.pathname === '/' || location.pathname === '/home'
+                        ? 'text-foreground bg-muted'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    Home
+                  </Link>
+                  <Link
                     to="/albums/1"
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-muted ${
-                      location.pathname === '/' || location.pathname.startsWith('/albums')
+                      location.pathname.startsWith('/albums')
                         ? 'text-foreground bg-muted'
                         : 'text-muted-foreground'
                     }`}

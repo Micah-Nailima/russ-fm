@@ -13,6 +13,20 @@ export const appConfig = {
     enableFilters: true,
     enableSorting: true,
   },
+
+  // Home page configuration
+  homepage: {
+    hero: {
+      numberOfFeaturedAlbums: 6, // Number of albums in the hero rotation
+      autoRotateInterval: 5000, // Auto-rotation interval in milliseconds
+    },
+    recentlyAdded: {
+      displayCount: 12, // Number of recently added albums to show
+    },
+    eras: {
+      excludedDecades: [1930], // Array of decades to exclude (e.g., [1960, 1970])
+    },
+  },
   
   // Asset configuration for images
   assets: {
