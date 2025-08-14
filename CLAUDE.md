@@ -146,19 +146,39 @@ python main.py status                 # Check processing status
 - Special filtering logic excludes "Various Artists" from artist listings
 
 ### Image and Asset Management
-- Three image sizes: hi-res (1400px), medium (800px), small (400px)
+- **Available image sizes**: `'hi-res'` (1400px), `'medium'` (800px), `'small'` (400px)
+- **Artist avatars**: Square format images for artist thumbnails (`'avatar'`)
 - Images stored in structured directories: `/public/album/{slug}/` and `/public/artist/{slug}/`
 - Frontend components select appropriate image size based on display context
 
-**Image Utility Functions** (`src/lib/image-utils.ts`):
+**🚨 CRITICAL: Image Utility Functions** (`src/lib/image-utils.ts`):
+
+**⚠️ NEVER USE DIRECT IMAGE PATHS IN FRONTEND COMPONENTS! ⚠️**
+**ALWAYS use these utility functions for ALL image rendering:**
+
 - `getImageUrl(relativePath)` - Handles dev/prod environment differences (local vs R2 CDN)
 - `getAlbumImageUrl(albumSlug, size)` - Constructs album image URLs with proper sizing
+  - `size` parameter: `'hi-res' | 'medium' | 'small'` (defaults to `'medium'`)
 - `getArtistImageUrl(artistSlug, size)` - Constructs artist image URLs with proper sizing
-- `getArtistAvatarUrl(artistSlug)` - Gets artist avatar (small square format)
+  - `size` parameter: `'hi-res' | 'medium' | 'small'` (defaults to `'medium'`)
+- `getArtistAvatarUrl(artistSlug)` - Gets artist avatar (small square format, always `'avatar'` size)
 - `getAlbumImageFromData(uriRelease, size)` - Extracts slug from URI and gets album image
 - `getArtistImageFromData(uriArtist, size)` - Extracts slug from URI and gets artist image
 - `handleImageError()` - Provides fallback logic for broken images
-- Always use these utility functions instead of direct image paths to ensure proper environment handling
+
+**❌ NEVER DO THIS:**
+```jsx
+<img src="/album/some-album/image.jpg" />
+<img src={album.images_uri_release['hi-res']} />
+```
+
+**✅ ALWAYS DO THIS:**
+```jsx
+<img src={getAlbumImageFromData(album.uri_release, 'hi-res')} />
+<img src={getArtistImageFromData(artist.uri_artist, 'medium')} />
+```
+
+**WHY:** These functions handle environment differences (dev vs prod), R2 CDN routing, fallbacks, and ensure images work correctly in production deployments.
 
 ### Error Handling and Fallbacks
 - Comprehensive fallback systems for missing data, images, and service failures
