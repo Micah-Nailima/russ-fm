@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { appConfig } from '@/config/app.config';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import type { ColorPalette } from '@/lib/colorExtractor';
-import { getAlbumImageFromData, getArtistAvatarFromData, handleImageError } from '@/lib/image-utils';
+import { getAlbumImageFromData, getArtistImageFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -115,21 +115,7 @@ export function HomePage() {
           .map(([_, { album, artist }]) => ({
             name: artist.name,
             uri: artist.uri_artist,
-            avatar: (() => {
-              if (artist.uri_artist) {
-                // Find the specific artist in the album's artists array
-                const foundArtist = album.artists?.find(a => a.uri_artist === artist.uri_artist);
-                if (foundArtist?.images_uri_artist?.['hi-res']) {
-                  return foundArtist.images_uri_artist['hi-res'];
-                }
-                // Fallback to album's main artist images if this is the main artist
-                if (album.uri_artist === artist.uri_artist && album.images_uri_artist?.['hi-res']) {
-                  return album.images_uri_artist['hi-res'];
-                }
-              }
-              // Final fallback to album image
-              return getAlbumImageFromData(album.uri_release, 'hi-res');
-            })(),
+            avatar: artist.uri_artist ? getArtistImageFromData(artist.uri_artist, 'hi-res') : getAlbumImageFromData(album.uri_release, 'hi-res'),
             latestAlbum: album
           }));
 

@@ -150,6 +150,16 @@ python main.py status                 # Check processing status
 - Images stored in structured directories: `/public/album/{slug}/` and `/public/artist/{slug}/`
 - Frontend components select appropriate image size based on display context
 
+**Image Utility Functions** (`src/lib/image-utils.ts`):
+- `getImageUrl(relativePath)` - Handles dev/prod environment differences (local vs R2 CDN)
+- `getAlbumImageUrl(albumSlug, size)` - Constructs album image URLs with proper sizing
+- `getArtistImageUrl(artistSlug, size)` - Constructs artist image URLs with proper sizing
+- `getArtistAvatarUrl(artistSlug)` - Gets artist avatar (small square format)
+- `getAlbumImageFromData(uriRelease, size)` - Extracts slug from URI and gets album image
+- `getArtistImageFromData(uriArtist, size)` - Extracts slug from URI and gets artist image
+- `handleImageError()` - Provides fallback logic for broken images
+- Always use these utility functions instead of direct image paths to ensure proper environment handling
+
 ### Error Handling and Fallbacks
 - Comprehensive fallback systems for missing data, images, and service failures
 - Backend includes retry logic and graceful degradation for API failures
