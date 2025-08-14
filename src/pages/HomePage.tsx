@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { appConfig } from '@/config/app.config';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import { extractColorsFromImage, type ColorPalette } from '@/lib/colorExtractor';
+import { getAlbumImageFromData, getArtistAvatarFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
   release_name: string;
@@ -114,7 +115,7 @@ export function HomePage() {
           .map(([_, { album, artist }]) => ({
             name: artist.name,
             uri: artist.uri_artist,
-            avatar: artist.images_uri_artist?.['hi-res'] || artist.images_uri_artist?.medium || album.images_uri_release['hi-res'],
+            avatar: artist.uri_artist ? getArtistAvatarFromData(artist.uri_artist) : getAlbumImageFromData(album.uri_release, 'hi-res'),
             latestAlbum: album
           }));
 
@@ -149,7 +150,8 @@ export function HomePage() {
           
           for (const album of featuredAlbums) {
             try {
-              const palette = await extractColorsFromImage(album.images_uri_release['hi-res']);
+              const imageUrl = getAlbumImageFromData(album.uri_release, 'hi-res');
+              const palette = await extractColorsFromImage(imageUrl);
               palettes[album.uri_release] = palette;
             } catch (error) {
               console.warn('Failed to extract colors for', album.release_name, error);
@@ -230,7 +232,7 @@ export function HomePage() {
               <div 
                 className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat filter blur-2xl"
                 style={{
-                  backgroundImage: `url(${currentFeatured.images_uri_release['hi-res']})`,
+                  backgroundImage: `url(${getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')})`,
                   transform: 'scale(1.1)'
                 }}
               />
@@ -304,9 +306,10 @@ export function HomePage() {
                     }}
                   >
                     <img
-                      src={currentFeatured.images_uri_release['hi-res']}
+                      src={getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')}
                       alt={`${currentFeatured.release_name} by ${currentFeatured.release_artist}`}
                       className="w-full h-full object-cover"
+                      onError={handleImageError}
                     />
                     
                     {/* Subtle gradient overlay on artwork */}
@@ -324,7 +327,7 @@ export function HomePage() {
                   <div 
                     className="absolute top-full left-0 w-full h-1/2 rounded-b-3xl opacity-20 blur-sm transform scale-y-[-1] origin-top"
                     style={{
-                      background: `url(${currentFeatured.images_uri_release['hi-res']})`,
+                      background: `url(${getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
@@ -533,9 +536,10 @@ export function HomePage() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <img
-                    src={album.images_uri_release.medium}
+                    src={getAlbumImageFromData(album.uri_release, 'medium')}
                     alt={`${album.release_name} by ${album.release_artist}`}
                     className="w-full h-full object-cover"
+                    onError={handleImageError}
                   />
                 </motion.div>
                 <div className="space-y-1">
@@ -590,6 +594,7 @@ export function HomePage() {
                     src={artist.avatar}
                     alt={artist.name}
                     className="w-full h-full object-cover"
+                    onError={handleImageError}
                   />
                 </motion.div>
                 <div className="space-y-1 text-center">
@@ -661,11 +666,12 @@ export function HomePage() {
                     {/* Photo */}
                     <div className="aspect-square overflow-hidden rounded-sm">
                       <motion.img
-                        src={representativeAlbum.images_uri_release['hi-res']}
+                        src={getAlbumImageFromData(representativeAlbum.uri_release, 'hi-res')}
                         alt={`${representativeAlbum.release_name} by ${representativeAlbum.release_artist}`}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.3 }}
+                        onError={handleImageError}
                       />
                     </div>
                     
@@ -765,11 +771,12 @@ export function HomePage() {
                         {/* Album Image */}
                         <div className="aspect-square rounded-lg overflow-hidden mb-3 shadow-md">
                           <motion.img
-                            src={representativeAlbum.images_uri_release['hi-res']}
+                            src={getAlbumImageFromData(representativeAlbum.uri_release, 'hi-res')}
                             alt={`${representativeAlbum.release_name} from the ${decade}s`}
                             className="w-full h-full object-cover"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.3 }}
+                            onError={handleImageError}
                           />
                         </div>
                         
