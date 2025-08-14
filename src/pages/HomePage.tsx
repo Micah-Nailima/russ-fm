@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { appConfig } from '@/config/app.config';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
-import { extractColorsFromImage, type ColorPalette } from '@/lib/colorExtractor';
+import type { ColorPalette } from '@/lib/colorExtractor';
 import { getAlbumImageFromData, getArtistAvatarFromData, handleImageError } from '@/lib/image-utils';
 
 interface Album {
@@ -115,7 +115,21 @@ export function HomePage() {
           .map(([_, { album, artist }]) => ({
             name: artist.name,
             uri: artist.uri_artist,
-            avatar: artist.uri_artist ? getArtistAvatarFromData(artist.uri_artist) : getAlbumImageFromData(album.uri_release, 'hi-res'),
+            avatar: (() => {
+              if (artist.uri_artist) {
+                // Find the specific artist in the album's artists array
+                const foundArtist = album.artists?.find(a => a.uri_artist === artist.uri_artist);
+                if (foundArtist?.images_uri_artist?.['hi-res']) {
+                  return foundArtist.images_uri_artist['hi-res'];
+                }
+                // Fallback to album's main artist images if this is the main artist
+                if (album.uri_artist === artist.uri_artist && album.images_uri_artist?.['hi-res']) {
+                  return album.images_uri_artist['hi-res'];
+                }
+              }
+              // Final fallback to album image
+              return getAlbumImageFromData(album.uri_release, 'hi-res');
+            })(),
             latestAlbum: album
           }));
 
@@ -143,25 +157,51 @@ export function HomePage() {
         setRandomizedGenreAlbums(genreAlbumMap);
         setRandomizedEraAlbums(eraAlbumMap);
         
-        // Extract colors for featured albums
-        const extractColors = async () => {
-          const palettes: Record<string, ColorPalette> = {};
-          const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
-          
-          for (const album of featuredAlbums) {
-            try {
-              const imageUrl = getAlbumImageFromData(album.uri_release, 'hi-res');
-              const palette = await extractColorsFromImage(imageUrl);
-              palettes[album.uri_release] = palette;
-            } catch (error) {
-              console.warn('Failed to extract colors for', album.release_name, error);
+        // Load pre-generated colors for featured albums
+        const loadColors = async () => {
+          try {
+            const response = await fetch('/album-colors.json');
+            const allColors = await response.json();
+            
+            // Filter to only include featured albums for better performance
+            const palettes: Record<string, ColorPalette> = {};
+            const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
+            
+            for (const album of featuredAlbums) {
+              if (allColors[album.uri_release]) {
+                palettes[album.uri_release] = allColors[album.uri_release];
+              } else {
+                // Fallback to default palette
+                palettes[album.uri_release] = {
+                  background: '#1a1a2e',
+                  foreground: '#ffffff',
+                  accent: '#0066cc',
+                  muted: '#666666',
+                };
+              }
             }
+            
+            setColorPalettes(palettes);
+          } catch (error) {
+            console.warn('Failed to load pre-generated colors, using defaults:', error);
+            // Set default palettes for all featured albums
+            const palettes: Record<string, ColorPalette> = {};
+            const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
+            
+            for (const album of featuredAlbums) {
+              palettes[album.uri_release] = {
+                background: '#1a1a2e',
+                foreground: '#ffffff',
+                accent: '#0066cc',
+                muted: '#666666',
+              };
+            }
+            
+            setColorPalettes(palettes);
           }
-          
-          setColorPalettes(palettes);
         };
         
-        extractColors();
+        loadColors();
       })
       .catch(error => console.error('Error loading collection:', error));
   }, []);

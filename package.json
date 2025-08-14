@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev:worker": "wrangler dev",
-    "build": "tsc --noEmit && vite build && npm run process-images",
+    "build": "tsc --noEmit && vite build && npm run process-images && npm run generate-colors",
+    "generate-colors": "node scripts/generate-album-colors.js",
     "build:fast": "tsc --noEmit && vite build",
     "build:generate-sync": "npm run build && npm run build:sync",
     "build:sync": "node scripts/sync-to-r2.js",

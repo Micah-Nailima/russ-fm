@@ -134,7 +134,11 @@ function medianCut(colors: RgbColor[], depth: number = 0): RgbColor[] {
 export async function extractColorsFromImage(imageUrl: string): Promise<ColorPalette> {
   return new Promise((resolve) => {
     const img = new Image();
-    img.crossOrigin = 'anonymous';
+    
+    // Only set crossOrigin for external URLs (R2), not for local development
+    if (imageUrl.startsWith('http')) {
+      img.crossOrigin = 'anonymous';
+    }
     
     img.onload = () => {
       const canvas = document.createElement('canvas');
