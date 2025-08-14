@@ -222,7 +222,7 @@ export function AlbumDetailPage() {
 
   // Set page title based on album data
   const pageTitle = detailedAlbum 
-    ? `${normalizeSigurRosTitle(detailedAlbum.title, album?.release_artist)} by ${
+    ? `${detailedAlbum.title} by ${
         album?.artists && album.artists.length > 1 
           ? album.artists.map(artist => artist.name).join(' & ')
           : album?.release_artist || 'Unknown Artist'
@@ -506,7 +506,7 @@ export function AlbumDetailPage() {
               )
             )}
             <div className="flex-1 min-w-0">
-              <h1 className="text-4xl font-bold mb-2">{normalizeSigurRosTitle(album.release_name, album.release_artist)}</h1>
+              <h1 className="text-4xl font-bold mb-2">{album.release_name}</h1>
               <div className="text-2xl text-muted-foreground">
                 {album.artists && album.artists.length > 1 ? (
                   <div className="flex flex-wrap items-center gap-1">

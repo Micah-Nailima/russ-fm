@@ -10,7 +10,7 @@ import { AlbumCard } from '@/components/AlbumCard';
 import { usePageTitle } from '@/hooks/usePageTitle';
 import { getCleanGenresFromArray } from '@/lib/genreUtils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
-import { normalizeSigurRosArtistName, sanitizeFolderName } from '@/lib/sigurRosNormalizer';
+import { sanitizeFolderName } from '@/lib/sigurRosNormalizer';
 import { getArtistImageFromData, handleImageError, sanitizeJsonPath } from '@/lib/image-utils';
 
 interface Album {
@@ -322,7 +322,7 @@ export function ArtistDetailPage() {
   };
   
   const rawArtistName = getArtistName();
-  const artistName = normalizeSigurRosArtistName(rawArtistName); // Display name only
+  const artistName = rawArtistName; // Use raw name for display
   
   // Get the correct artist images for individual artists
   const getArtistImages = () => {

@@ -11,7 +11,6 @@ import { getCleanGenresFromArray } from '@/lib/genreUtils';
 import { AlbumScrobbleButton } from './AlbumScrobbleButton';
 import { getAlbumImageFromData, getArtistAvatarFromData, handleImageError } from '@/lib/image-utils';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
-import { normalizeSigurRosTitle, normalizeSigurRosArtistName } from '@/lib/sigurRosNormalizer';
 
 interface Album {
   release_name: string;
@@ -43,9 +42,9 @@ export function AlbumCard({ album, onClick }: AlbumCardProps) {
   const cleanGenres = getCleanGenresFromArray(album.genre_names, album.release_artist);
   const displayGenres = cleanGenres.slice(0, 4);
   
-  // Normalize Sigur Rós names for display ONLY (not for paths/URLs)
-  const displayArtistName = normalizeSigurRosArtistName(album.release_artist);
-  const displayAlbumName = normalizeSigurRosTitle(album.release_name, album.release_artist);
+  // Use raw names for display (normalization is only for URLs/paths)
+  const displayArtistName = album.release_artist;
+  const displayAlbumName = album.release_name;
 
   const albumPath = album.uri_release.replace('/album/', '').replace('/', '');
   
