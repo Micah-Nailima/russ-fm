@@ -270,13 +270,13 @@ export function HomePage() {
             </motion.div>
           </AnimatePresence>
           
-          <div className="relative grid lg:grid-cols-2 gap-8 p-8 lg:p-12 min-h-[400px]">
+          <div className="relative grid lg:grid-cols-2 gap-12 p-8 lg:p-16 min-h-[500px]">
             {/* Floating Album Artwork - Full Left Side */}
             <div className="relative group flex items-center justify-center lg:justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={featuredIndex}
-                  className="relative w-80 h-80 lg:w-full lg:h-full lg:max-w-[400px] lg:max-h-[400px] aspect-square"
+                  className="relative w-80 h-80 lg:w-full lg:h-full lg:max-w-[500px] lg:max-h-[500px] aspect-square"
                   initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
                   animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                   exit={{ opacity: 0, scale: 0.9, rotateY: 10 }}
@@ -346,9 +346,9 @@ export function HomePage() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 1.0, delay: 0.4, ease: "easeInOut" }}
               >
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <motion.h1 
-                    className="text-3xl lg:text-4xl xl:text-5xl font-light leading-tight"
+                    className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light leading-tight"
                     style={{ 
                       color: '#ffffff',
                       textShadow: currentPalette 
@@ -362,7 +362,7 @@ export function HomePage() {
                     {currentFeatured.release_name}
                   </motion.h1>
                   <motion.p 
-                    className="text-lg lg:text-xl font-normal"
+                    className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-normal"
                     style={{ 
                       color: '#ffffff',
                       textShadow: currentPalette 
@@ -378,7 +378,7 @@ export function HomePage() {
                 </div>
                 
                 <motion.div 
-                  className="flex flex-wrap gap-2 justify-center lg:justify-end"
+                  className="flex flex-wrap gap-3 justify-center lg:justify-end"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
@@ -394,7 +394,7 @@ export function HomePage() {
                     >
                       <Link to={`/albums/1?genre=${encodeURIComponent(genre)}`}>
                         <Badge
-                          className="px-3 py-1 text-sm cursor-pointer"
+                          className="px-4 py-2 text-base font-medium cursor-pointer"
                           style={{
                             backgroundColor: getGenreColor(genre),
                             color: getGenreTextColor(getGenreColor(genre))
@@ -408,7 +408,7 @@ export function HomePage() {
                 </motion.div>
 
                 <motion.div
-                  className="flex flex-col items-center lg:items-end gap-4"
+                  className="flex flex-col items-center lg:items-end gap-6"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
@@ -416,7 +416,7 @@ export function HomePage() {
                   <Button 
                     asChild 
                     size="lg" 
-                    className="rounded-full font-medium px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    className="rounded-full font-medium px-10 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                     style={{
                       backgroundColor: currentPalette?.accent || 'rgb(var(--primary))',
                       color: currentPalette?.background || 'rgb(var(--primary-foreground))',
@@ -430,8 +430,8 @@ export function HomePage() {
                     </Link>
                   </Button>
                   
-                  {/* Navigation dots - Now under the button */}
-                  <div className="flex items-center gap-3">
+                  {/* Navigation dots - Larger and more prominent */}
+                  <div className="flex items-center gap-4">
                     {featuredAlbums.map((_, index) => (
                       <motion.button
                         key={index}
@@ -448,7 +448,7 @@ export function HomePage() {
                             opacity: index === featuredIndex ? 0.6 : 0
                           }}
                           animate={{
-                            scale: index === featuredIndex ? 2.0 : 1,
+                            scale: index === featuredIndex ? 2.2 : 1,
                             opacity: index === featuredIndex ? 0.6 : 0
                           }}
                           transition={{ duration: 0.3 }}
@@ -461,12 +461,12 @@ export function HomePage() {
                             backgroundColor: index === featuredIndex 
                               ? (currentPalette?.accent || '#ffffff')
                               : 'rgba(255,255,255,0.5)',
-                            width: index === featuredIndex ? 16 : 10,
-                            height: index === featuredIndex ? 16 : 10,
+                            width: index === featuredIndex ? 20 : 12,
+                            height: index === featuredIndex ? 20 : 12,
                           }}
                           animate={{
-                            width: index === featuredIndex ? 16 : 10,
-                            height: index === featuredIndex ? 16 : 10,
+                            width: index === featuredIndex ? 20 : 12,
+                            height: index === featuredIndex ? 20 : 12,
                           }}
                           transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
                         />
@@ -477,8 +477,8 @@ export function HomePage() {
                             className="absolute inset-0 rounded-full border-2"
                             style={{
                               borderColor: currentPalette?.accent || '#ffffff',
-                              width: 24,
-                              height: 24,
+                              width: 28,
+                              height: 28,
                               left: -4,
                               top: -4
                             }}
