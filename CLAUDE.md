@@ -171,4 +171,10 @@ python main.py status                 # Check processing status
 - Lazy loading and image optimization for large collections
 - Configurable pagination to manage large dataset rendering
 
+**Build-time Color Extraction:**
+- `npm run generate-colors` - Extracts dominant colors from album covers during build
+- Generates `/public/album-colors.css` (CSS custom properties) and `/public/album-colors.json` (JS data)
+- Eliminates runtime image processing and CORS issues
+- Colors used in HomePage hero section for dynamic theming
+
 This architecture demonstrates clean separation between data collection and presentation, with robust error handling and comprehensive tooling for both development and production deployment.
