@@ -22,7 +22,7 @@
     }
   },
   "country": "UK",
-  "created_at": "2025-07-10T07:44:18.501469",
+  "created_at": "2025-08-14T11:43:16.329172",
   "date_added": "2022-01-09T03:56:30-08:00",
   "discogs_id": "18914803",
   "discogs_url": "https://www.discogs.com/release/18914803-Belinda-Carlisle-Belinda",
@@ -128,14 +128,12 @@
   "lastfm_mbid": null,
   "lastfm_url": "https://www.last.fm/music/Belinda+Carlisle/Belinda",
   "local_images": {
-    "hi-res": "../public/album/belinda-18914803/belinda-18914803-hi-res.jpg",
-    "medium": "../public/album/belinda-18914803/belinda-18914803-medium.jpg",
-    "small": "../public/album/belinda-18914803/belinda-18914803-small.jpg"
+    "hi-res": "../public/album/belinda-18914803/belinda-18914803-hi-res.jpg"
   },
   "processing_info": {
     "has_local_images": true,
-    "local_images_count": 3,
-    "processed_at": "2025-07-10T07:44:20.036352",
+    "local_images_count": 1,
+    "processed_at": "2025-08-14T11:43:34.941222",
     "services_used": [
       "discogs",
       "apple_music",
@@ -219,9 +217,9 @@
           "url": "https://lastfm.freetls.fastly.net/i/u/300x300/38fe3fd4fcb8452cc51f51b99fa5d623.png"
         }
       ],
-      "listeners": 31065,
+      "listeners": 33050,
       "mbid": "130b4c04-3153-339c-98e1-aadaf8bab7ef",
-      "playcount": 182111,
+      "playcount": 206971,
       "raw_data": {
         "album": {
           "artist": "Belinda Carlisle",
@@ -251,10 +249,10 @@
               "size": ""
             }
           ],
-          "listeners": "31065",
+          "listeners": "33050",
           "mbid": "130b4c04-3153-339c-98e1-aadaf8bab7ef",
           "name": "Belinda",
-          "playcount": "182111",
+          "playcount": "206971",
           "tags": {
             "tag": [
               {
@@ -290,7 +288,7 @@
                   "name": "Belinda Carlisle",
                   "url": "https://www.last.fm/music/Belinda+Carlisle"
                 },
-                "duration": 217,
+                "duration": 216,
                 "name": "Mad About You",
                 "streamable": {
                   "#text": "0",
@@ -506,7 +504,7 @@
         }
       ],
       "label": "CAPITOL CATALOG MKT (C92)",
-      "popularity": 44,
+      "popularity": 39,
       "preview_url": null,
       "raw_data": {
         "album_type": "album",
@@ -561,7 +559,7 @@
         "is_playable": true,
         "label": "CAPITOL CATALOG MKT (C92)",
         "name": "Belinda",
-        "popularity": 44,
+        "popularity": 39,
         "release_date": "1986-05-19",
         "release_date_precision": "day",
         "total_tracks": 10,
@@ -1156,6 +1154,6 @@
       "title": "Head Over Heels"
     }
   ],
-  "updated_at": "2025-07-10T07:44:19.697908",
+  "updated_at": "2025-08-14T11:43:33.295365",
   "year": 2021
 }
