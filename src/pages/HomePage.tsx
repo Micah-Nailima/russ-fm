@@ -10,6 +10,7 @@ import { RecentAlbumsSection } from '@/components/home/RecentAlbumsSection';
 import { RecentArtistsSection } from '@/components/home/RecentArtistsSection';
 import { GenresSection } from '@/components/home/GenresSection';
 import { RandomCollectionSection } from '@/components/home/RandomCollectionSection';
+import { RandomArtistsSection } from '@/components/home/RandomArtistsSection';
 
 export function HomePage() {
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -18,9 +19,10 @@ export function HomePage() {
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [randomizedGenreAlbums, setRandomizedGenreAlbums] = useState<Record<string, Album>>({});
   const [randomCollectionItems, setRandomCollectionItems] = useState<Album[]>([]);
-  const [randomFeaturedIndex, setRandomFeaturedIndex] = useState(0);
-  const [randomAutoRotateEnabled, setRandomAutoRotateEnabled] = useState(true);
+  const [randomArtists, setRandomArtists] = useState<Artist[]>([]);
   const [colorPalettes, setColorPalettes] = useState<Record<string, ColorPalette>>({});
+  const [nonRecentAlbums, setNonRecentAlbums] = useState<Album[]>([]);
+  const [nonRecentArtists, setNonRecentArtists] = useState<Artist[]>([]);
 
   useEffect(() => {
     fetch('/collection.json')
@@ -32,7 +34,7 @@ export function HomePage() {
         const recentCount = Math.max(
           appConfig.homepage.recentlyAdded.displayCount,
           appConfig.homepage.hero.numberOfFeaturedAlbums
-        ) + 6; // Get extra for variety
+        ); // No extra since we're excluding them from random collection
         const recent = [...data]
           .sort((a, b) => new Date(b.date_added).getTime() - new Date(a.date_added).getTime())
           .slice(0, recentCount);
@@ -46,14 +48,22 @@ export function HomePage() {
           return acc;
         }, {} as Record<string, number>);
 
-        // Select random albums for the collection showcase
-        const shuffledAlbums = [...data].sort(() => Math.random() - 0.5);
+        // Select random albums for the collection showcase, excluding recent ones
+        const recentAlbumIds = new Set(recent.map(album => album.uri_release));
+        const nonRecentAlbumsData = data.filter(album => !recentAlbumIds.has(album.uri_release));
+        setNonRecentAlbums(nonRecentAlbumsData);
+        
+        const shuffledAlbums = [...nonRecentAlbumsData].sort(() => Math.random() - 0.5);
         const randomItems = shuffledAlbums.slice(0, appConfig.homepage.randomCollection.displayCount);
         console.log('HomePage: Setting randomCollectionItems:', {
           totalAlbums: data.length,
+          recentAlbumsCount: recent.length,
+          nonRecentAlbumsCount: nonRecentAlbumsData.length,
           shuffledCount: shuffledAlbums.length,
           randomItems: randomItems,
-          firstItem: randomItems[0]
+          randomItemsLength: randomItems.length,
+          firstItem: randomItems[0],
+          configDisplayCount: appConfig.homepage.randomCollection.displayCount
         });
 
         // Get recently added artists (unique by artist name, sorted by most recent album)
@@ -82,6 +92,46 @@ export function HomePage() {
 
         setRecentArtists(recentArtistsList);
 
+        // Generate random artists excluding recent ones
+        const recentArtistNames = new Set(recentArtistsList.map(artist => artist.name));
+        
+        // Get all unique artists from the collection
+        const allArtistsMap = new Map<string, { album: Album; artist: any }>();
+        data.forEach(album => {
+          album.artists.forEach(artist => {
+            if (!allArtistsMap.has(artist.name)) {
+              allArtistsMap.set(artist.name, { album, artist });
+            }
+          });
+        });
+
+        // Filter out recent artists and convert to array
+        const nonRecentArtistsList = Array.from(allArtistsMap.entries())
+          .filter(([artistName]) => !recentArtistNames.has(artistName))
+          .map(([_, { album, artist }]) => ({
+            name: artist.name,
+            uri: artist.uri_artist,
+            avatar: artist.uri_artist ? getArtistImageFromData(artist.uri_artist, 'hi-res') : getAlbumImageFromData(album.uri_release, 'hi-res'),
+            latestAlbum: album
+          }));
+
+        setNonRecentArtists(nonRecentArtistsList);
+
+        // Select random artists
+        const shuffledArtists = [...nonRecentArtistsList].sort(() => Math.random() - 0.5);
+        const randomArtistItems = shuffledArtists.slice(0, appConfig.homepage.randomArtists.displayCount);
+        setRandomArtists(randomArtistItems);
+
+        console.log('HomePage: Setting randomArtists:', {
+          totalUniqueArtists: allArtistsMap.size,
+          recentArtistsCount: recentArtistsList.length,
+          nonRecentArtistsCount: nonRecentArtistsList.length,
+          randomArtistItems: randomArtistItems,
+          randomArtistsLength: randomArtistItems.length,
+          firstRandomArtist: randomArtistItems[0],
+          configDisplayCount: appConfig.homepage.randomArtists.displayCount
+        });
+
         // Pre-randomize genre representative albums (only once on load)
         const genreAlbumMap: Record<string, Album> = {};
 
@@ -95,7 +145,6 @@ export function HomePage() {
 
         setRandomizedGenreAlbums(genreAlbumMap);
         setRandomCollectionItems(randomItems);
-        setRandomFeaturedIndex(0); // Reset to first item
         
         // Load pre-generated colors for featured albums
         const loadColors = async () => {
@@ -156,25 +205,34 @@ export function HomePage() {
     }
   }, [recentAlbums]);
 
-  // Auto-rotate random collection with better control
-  useEffect(() => {
-    if (randomCollectionItems.length > 0 && randomAutoRotateEnabled) {
-      const interval = setInterval(() => {
-        setRandomFeaturedIndex((prev) => (prev + 1) % randomCollectionItems.length);
-      }, appConfig.homepage.randomCollection.autoRotateInterval);
-      return () => clearInterval(interval);
+  // Function to refresh random collection items
+  const refreshRandomCollection = () => {
+    if (nonRecentAlbums.length > 0) {
+      const shuffledAlbums = [...nonRecentAlbums].sort(() => Math.random() - 0.5);
+      const randomItems = shuffledAlbums.slice(0, appConfig.homepage.randomCollection.displayCount);
+      setRandomCollectionItems(randomItems);
+      console.log('HomePage: Refreshed randomCollectionItems:', {
+        nonRecentAlbumsCount: nonRecentAlbums.length,
+        shuffledCount: shuffledAlbums.length,
+        randomItems: randomItems,
+        firstItem: randomItems[0]
+      });
     }
-  }, [randomCollectionItems, randomAutoRotateEnabled]);
+  };
 
-  // Handle manual navigation for random collection
-  const handleRandomNavigation = (newIndex: number) => {
-    setRandomAutoRotateEnabled(false);
-    setRandomFeaturedIndex(newIndex);
-    
-    // Re-enable auto-rotation after 10 seconds of no manual interaction
-    setTimeout(() => {
-      setRandomAutoRotateEnabled(true);
-    }, 10000);
+  // Function to refresh random artists
+  const refreshRandomArtists = () => {
+    if (nonRecentArtists.length > 0) {
+      const shuffledArtists = [...nonRecentArtists].sort(() => Math.random() - 0.5);
+      const randomArtistItems = shuffledArtists.slice(0, appConfig.homepage.randomArtists.displayCount);
+      setRandomArtists(randomArtistItems);
+      console.log('HomePage: Refreshed randomArtists:', {
+        nonRecentArtistsCount: nonRecentArtists.length,
+        shuffledCount: shuffledArtists.length,
+        randomArtistItems: randomArtistItems,
+        firstArtist: randomArtistItems[0]
+      });
+    }
   };
 
   const featuredAlbums = recentAlbums.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
@@ -215,8 +273,13 @@ export function HomePage() {
     randomCollection: () => (
       <RandomCollectionSection
         randomCollectionItems={randomCollectionItems}
-        randomFeaturedIndex={randomFeaturedIndex}
-        handleRandomNavigation={handleRandomNavigation}
+        onRefresh={refreshRandomCollection}
+      />
+    ),
+    randomArtists: () => (
+      <RandomArtistsSection
+        randomArtists={randomArtists}
+        onRefresh={refreshRandomArtists}
       />
     ),
   };

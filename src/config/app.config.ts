@@ -27,8 +27,10 @@ export const appConfig = {
       excludedDecades: [1930], // Array of decades to exclude (e.g., [1960, 1970])
     },
     randomCollection: {
-      displayCount: 6, // Number of random albums to show
-      autoRotateInterval: 5000, // Auto-rotation interval in milliseconds (5 seconds)
+      displayCount: 12, // Number of random albums to show
+    },
+    randomArtists: {
+      displayCount: 12, // Number of random artists to show
     },
     // Define the order and visibility of homepage sections
     // Comment out sections to hide them, reorder array to change sequence
@@ -37,7 +39,8 @@ export const appConfig = {
       'recentAlbums',   // Recently added albums carousel
       'recentArtists',  // Recently added artists carousel
       'genres',         // Popular genres grid (polaroid style)
-      // 'randomCollection', // Random collection vinyl player
+      'randomCollection', // Random collection grid
+      'randomArtists',  // Random artists with polaroid style
     ],
   },
   
