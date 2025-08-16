@@ -465,15 +465,15 @@ export function AlbumDetailPage() {
           ...colorProperties
         }}
       >
-        {/* Color bleeding effects */}
+        {/* Bold color bleeding effects */}
         <div 
-          className="absolute top-0 left-0 w-1/3 h-1/3 opacity-30 pointer-events-none"
+          className="absolute top-0 left-0 w-1/2 h-1/2 opacity-60 pointer-events-none"
           style={{
             background: createColorBleeding(albumColors, 'top-left')
           }}
         />
         <div 
-          className="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-20 pointer-events-none"
+          className="absolute bottom-0 right-0 w-2/3 h-2/3 opacity-40 pointer-events-none"
           style={{
             background: createColorBleeding(albumColors, 'bottom-right')
           }}
@@ -482,19 +482,19 @@ export function AlbumDetailPage() {
         {/* Content Container */}
         <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 p-8">
         <div className="lg:col-span-2 relative group">
-          {/* Sophisticated glow effect behind image */}
+          {/* Bold glow effect behind image */}
           <div 
-            className="absolute -inset-8 rounded-3xl opacity-50 blur-3xl transition-all duration-700 group-hover:opacity-70 group-hover:scale-105"
+            className="absolute -inset-8 rounded-3xl opacity-70 blur-3xl transition-all duration-700 group-hover:opacity-90 group-hover:scale-105"
             style={{
-              background: createGlowGradient(albumColors, 'medium')
+              background: createGlowGradient(albumColors, 'bold')
             }}
           />
           
           {/* Secondary glow for depth */}
           <div 
-            className="absolute -inset-4 rounded-2xl opacity-30 blur-xl transition-all duration-500 group-hover:opacity-50"
+            className="absolute -inset-4 rounded-2xl opacity-50 blur-xl transition-all duration-500 group-hover:opacity-70"
             style={{
-              background: createGlowGradient(albumColors, 'subtle')
+              background: createGlowGradient(albumColors, 'medium')
             }}
           />
           

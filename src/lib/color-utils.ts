@@ -156,18 +156,18 @@ export function createGlowGradient(colors: AlbumColorPalette, intensity: 'subtle
   let alpha: number;
   let spread: number;
   
-  // Adjust intensity based on background and accent colors
+  // Adjust intensity for more vibrant glows
   switch (intensity) {
     case 'subtle':
-      alpha = backgroundLuminance > 0.5 ? 0.1 : 0.15;
+      alpha = backgroundLuminance > 0.5 ? 0.2 : 0.3;
       spread = 80;
       break;
     case 'medium':
-      alpha = backgroundLuminance > 0.5 ? 0.2 : 0.3;
+      alpha = backgroundLuminance > 0.5 ? 0.4 : 0.5;
       spread = 75;
       break;
     case 'bold':
-      alpha = backgroundLuminance > 0.5 ? 0.3 : 0.4;
+      alpha = backgroundLuminance > 0.5 ? 0.6 : 0.7;
       spread = 70;
       break;
   }
@@ -205,7 +205,7 @@ export function createAlbumShadow(colors: AlbumColorPalette, intensity: 'subtle'
 }
 
 /**
- * Create sophisticated color-bleeding effect overlays
+ * Create bold, vibrant color-bleeding effect overlays
  */
 export function createColorBleeding(colors: AlbumColorPalette, position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-left'): string {
   const positions = {
@@ -218,17 +218,17 @@ export function createColorBleeding(colors: AlbumColorPalette, position: 'top-le
   const backgroundLuminance = getLuminance(colors.background);
   
   if (backgroundLuminance > 0.5) {
-    // Light backgrounds - use more subtle bleeding
+    // Light backgrounds - still need vibrant bleeding
     return `radial-gradient(${positions[position]}, 
-      ${addAlpha(colors.accent, 0.15)} 0%, 
-      ${addAlpha(colors.muted, 0.08)} 40%, 
-      transparent 80%)`;
-  } else {
-    // Dark backgrounds - can be more dramatic
-    return `radial-gradient(${positions[position]}, 
-      ${addAlpha(colors.accent, 0.25)} 0%, 
-      ${addAlpha(colors.muted, 0.15)} 40%, 
+      ${addAlpha(colors.accent, 0.4)} 0%, 
+      ${addAlpha(colors.muted, 0.25)} 35%, 
       transparent 75%)`;
+  } else {
+    // Dark backgrounds - maximum dramatic impact
+    return `radial-gradient(${positions[position]}, 
+      ${addAlpha(colors.accent, 0.6)} 0%, 
+      ${addAlpha(colors.muted, 0.4)} 35%, 
+      transparent 70%)`;
   }
 }
 
@@ -328,41 +328,44 @@ export function getComplementaryColors(colors: AlbumColorPalette) {
 }
 
 /**
- * Create a sophisticated hero background with multiple layers
+ * Create bold, vibrant hero backgrounds that match album energy
  */
 export function createHeroBackground(colors: AlbumColorPalette): string {
   const backgroundLuminance = getLuminance(colors.background);
+  const accentLuminance = getLuminance(colors.accent);
   
   if (backgroundLuminance > 0.5) {
-    // Light backgrounds - elegant and sophisticated
+    // Light backgrounds - still need to be bold and vibrant
     return `
       linear-gradient(135deg, 
-        ${addAlpha(colors.background, 0.98)} 0%, 
-        ${addAlpha(colors.muted, 0.4)} 25%, 
-        ${addAlpha(colors.accent, 0.25)} 50%, 
-        ${addAlpha(colors.muted, 0.3)} 75%, 
-        ${addAlpha(colors.background, 0.95)} 100%),
+        ${addAlpha(colors.background, 0.9)} 0%, 
+        ${addAlpha(colors.muted, 0.7)} 20%, 
+        ${addAlpha(colors.accent, 0.6)} 40%, 
+        ${addAlpha(colors.muted, 0.8)} 60%, 
+        ${addAlpha(colors.accent, 0.5)} 80%, 
+        ${addAlpha(colors.background, 0.85)} 100%),
       radial-gradient(ellipse at top left, 
-        ${addAlpha(colors.accent, 0.15)} 0%, 
-        transparent 60%),
+        ${addAlpha(colors.accent, 0.4)} 0%, 
+        transparent 70%),
       radial-gradient(ellipse at bottom right, 
-        ${addAlpha(colors.muted, 0.12)} 0%, 
-        transparent 70%)
+        ${addAlpha(colors.muted, 0.35)} 0%, 
+        transparent 75%)
     `;
   } else {
-    // Dark backgrounds - rich and immersive
+    // Dark backgrounds - maximize drama and vibrancy
     return `
       linear-gradient(135deg, 
-        ${addAlpha(colors.background, 0.95)} 0%, 
-        ${addAlpha(colors.accent, 0.5)} 25%, 
-        ${addAlpha(colors.muted, 0.4)} 50%, 
-        ${addAlpha(colors.accent, 0.3)} 75%, 
-        ${addAlpha(colors.background, 0.98)} 100%),
+        ${addAlpha(colors.background, 0.85)} 0%, 
+        ${addAlpha(colors.accent, 0.8)} 20%, 
+        ${addAlpha(colors.muted, 0.7)} 40%, 
+        ${addAlpha(colors.accent, 0.9)} 60%, 
+        ${addAlpha(colors.muted, 0.6)} 80%, 
+        ${addAlpha(colors.background, 0.9)} 100%),
       radial-gradient(ellipse at top left, 
-        ${addAlpha(colors.accent, 0.2)} 0%, 
-        transparent 60%),
+        ${addAlpha(colors.accent, 0.5)} 0%, 
+        transparent 65%),
       radial-gradient(ellipse at bottom right, 
-        ${addAlpha(colors.muted, 0.15)} 0%, 
+        ${addAlpha(colors.muted, 0.4)} 0%, 
         transparent 70%)
     `;
   }
