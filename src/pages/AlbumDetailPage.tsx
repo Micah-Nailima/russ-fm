@@ -15,6 +15,8 @@ import { MusicPlayerSection } from '@/components/MusicPlayerSection';
 import { AlbumScrobbleButton } from '@/components/AlbumScrobbleButton';
 import { getAlbumImageFromData, getArtistImageFromData, handleImageError, sanitizeJsonPath } from '@/lib/image-utils';
 import { sanitizeFolderName, normalizeSigurRosTitle } from '@/lib/sigurRosNormalizer';
+import { useAlbumColorsWithFallback } from '@/hooks/useAlbumColors';
+import { createAlbumGradient, createAlbumShadow, createGlowGradient, createColorBleeding, getReadableTextColor, getEnhancedTextColor, generateColorProperties, createHeroBackground } from '@/lib/color-utils';
 
 interface Album {
   release_name: string;
@@ -158,6 +160,9 @@ export function AlbumDetailPage() {
   const [biographyExpanded, setBiographyExpanded] = useState(false);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const [showDescriptionButton, setShowDescriptionButton] = useState(false);
+  
+  // Load album colors using the album path
+  const albumColors = useAlbumColorsWithFallback(albumPath);
 
   // Check if URL needs sanitization and redirect if necessary
   useEffect(() => {
@@ -435,6 +440,13 @@ export function AlbumDetailPage() {
   
   const tracks = getTracks();
 
+  // Generate CSS custom properties for album colors
+  const colorProperties = generateColorProperties(albumColors);
+  
+  // Get enhanced text styling for better contrast
+  const titleTextStyle = getEnhancedTextColor(albumColors.background, albumColors);
+  const subtitleTextStyle = getEnhancedTextColor(albumColors.background, albumColors);
+
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Back Button */}
@@ -445,15 +457,78 @@ export function AlbumDetailPage() {
         </Button>
       </Link>
 
-      {/* Album Header */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8">
-        <div className="lg:col-span-2">
-          <img
-            src={getAlbumImageFromData(`/album/${albumPath}/`, 'hi-res')}
-            onError={handleImageError}
-            alt={album.release_name}
-            className="w-full rounded-lg shadow-lg"
+      {/* Album Header with Rich Background */}
+      <div 
+        className="relative rounded-3xl overflow-hidden mb-8"
+        style={{
+          background: createHeroBackground(albumColors),
+          ...colorProperties
+        }}
+      >
+        {/* Color bleeding effects */}
+        <div 
+          className="absolute top-0 left-0 w-1/3 h-1/3 opacity-30 pointer-events-none"
+          style={{
+            background: createColorBleeding(albumColors, 'top-left')
+          }}
+        />
+        <div 
+          className="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-20 pointer-events-none"
+          style={{
+            background: createColorBleeding(albumColors, 'bottom-right')
+          }}
+        />
+        
+        {/* Content Container */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 p-8">
+        <div className="lg:col-span-2 relative group">
+          {/* Sophisticated glow effect behind image */}
+          <div 
+            className="absolute -inset-8 rounded-3xl opacity-50 blur-3xl transition-all duration-700 group-hover:opacity-70 group-hover:scale-105"
+            style={{
+              background: createGlowGradient(albumColors, 'medium')
+            }}
           />
+          
+          {/* Secondary glow for depth */}
+          <div 
+            className="absolute -inset-4 rounded-2xl opacity-30 blur-xl transition-all duration-500 group-hover:opacity-50"
+            style={{
+              background: createGlowGradient(albumColors, 'subtle')
+            }}
+          />
+          
+          {/* Main album image with refined styling */}
+          <div className="relative">
+            <img
+              src={getAlbumImageFromData(`/album/${albumPath}/`, 'hi-res')}
+              onError={handleImageError}
+              alt={album.release_name}
+              className="w-full rounded-2xl transition-all duration-500 group-hover:scale-[1.03] relative z-10"
+              style={{
+                boxShadow: createAlbumShadow(albumColors, 'medium'),
+                border: `2px solid ${albumColors.accent}30`
+              }}
+            />
+            
+            {/* Subtle color overlay on hover */}
+            <div 
+              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none z-20"
+              style={{
+                background: `linear-gradient(135deg, ${albumColors.accent}60 0%, transparent 60%, ${albumColors.muted}30 100%)`
+              }}
+            />
+            
+            {/* Refined border accent */}
+            <div 
+              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-60 transition-all duration-500 pointer-events-none"
+              style={{
+                background: 'transparent',
+                border: `1px solid ${albumColors.accent}80`,
+                filter: 'blur(1px)'
+              }}
+            />
+          </div>
         </div>
         
         <div className="lg:col-span-3">
@@ -506,35 +581,100 @@ export function AlbumDetailPage() {
               )
             )}
             <div className="flex-1 min-w-0">
-              <h1 className="text-4xl font-bold mb-2">{album.release_name}</h1>
-              <div className="text-2xl text-muted-foreground">
+              <h1 
+                className="text-4xl font-bold mb-2 leading-tight"
+                style={{
+                  color: titleTextStyle.color,
+                  textShadow: titleTextStyle.textShadow
+                }}
+              >
+                {album.release_name}
+              </h1>
+              <div 
+                className="text-2xl"
+                style={{
+                  color: subtitleTextStyle.color,
+                  textShadow: subtitleTextStyle.textShadow,
+                  opacity: 0.95
+                }}
+              >
                 {album.artists && album.artists.length > 1 ? (
                   <div className="flex flex-wrap items-center gap-1">
                     {album.artists.map((artist, index) => (
                       <React.Fragment key={index}>
                         {artist.name.toLowerCase() === 'various' ? (
-                          <span className="text-muted-foreground">{artist.name}</span>
+                          <span 
+                            style={{
+                              color: subtitleTextStyle.color,
+                              textShadow: subtitleTextStyle.textShadow,
+                              opacity: 0.8
+                            }}
+                          >
+                            {artist.name}
+                          </span>
                         ) : (
                           <Link 
                             to={artist.uri_artist}
-                            className="hover:text-primary transition-colors"
+                            className="transition-all duration-200 hover:scale-105"
+                            style={{
+                              color: subtitleTextStyle.color,
+                              textShadow: subtitleTextStyle.textShadow,
+                              textDecoration: 'none'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.color = albumColors.accent;
+                              e.currentTarget.style.textShadow = `${subtitleTextStyle.textShadow}, 0 0 15px ${albumColors.accent}60`;
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.color = subtitleTextStyle.color;
+                              e.currentTarget.style.textShadow = subtitleTextStyle.textShadow;
+                            }}
                           >
                             {artist.name}
                           </Link>
                         )}
                         {index < album.artists.length - 1 && (
-                          <span className="text-muted-foreground/60">&</span>
+                          <span 
+                            style={{
+                              color: subtitleTextStyle.color,
+                              textShadow: subtitleTextStyle.textShadow,
+                              opacity: 0.6
+                            }}
+                          >
+                            &
+                          </span>
                         )}
                       </React.Fragment>
                     ))}
                   </div>
                 ) : (
                   album.release_artist.toLowerCase() === 'various' ? (
-                    <span className="text-muted-foreground">{album.release_artist}</span>
+                    <span 
+                      style={{
+                        color: subtitleTextStyle.color,
+                        textShadow: subtitleTextStyle.textShadow,
+                        opacity: 0.8
+                      }}
+                    >
+                      {album.release_artist}
+                    </span>
                   ) : (
                     <Link 
                       to={album.uri_artist}
-                      className="hover:text-primary transition-colors inline-block"
+                      className="transition-all duration-200 hover:scale-105 inline-block"
+                      style={{
+                        color: subtitleTextStyle.color,
+                        textShadow: subtitleTextStyle.textShadow,
+                        textDecoration: 'none'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = albumColors.accent;
+                        e.currentTarget.style.textShadow = `${subtitleTextStyle.textShadow}, 0 0 15px ${albumColors.accent}60`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = subtitleTextStyle.color;
+                        e.currentTarget.style.textShadow = subtitleTextStyle.textShadow;
+                      }}
                     >
                       {album.release_artist}
                     </Link>
@@ -546,22 +686,29 @@ export function AlbumDetailPage() {
           
           <div className="space-y-6">
             {/* Combined Info and Statistics */}
-            <div className="flex flex-wrap items-center gap-6 text-sm">
+            <div 
+              className="flex flex-wrap items-center gap-6 text-sm"
+              style={{
+                color: subtitleTextStyle.color,
+                textShadow: subtitleTextStyle.textShadow,
+                opacity: 0.9
+              }}
+            >
               {/* Added Date */}
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2">
                 <FcPlus className="h-4 w-4" />
                 <span>Added: {new Date(album.date_added).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span>
               </div>
               
               {/* Release Year */}
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2">
                 <FcCalendar className="h-4 w-4" />
                 <span>{year}</span>
               </div>
               
               {/* Country */}
               {detailedAlbum?.country && (
-                <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="flex items-center gap-2">
                   <FcGlobe className="h-4 w-4" />
                   <span>{detailedAlbum.country}</span>
                 </div>
@@ -729,6 +876,7 @@ export function AlbumDetailPage() {
               })()}
             </div>
           </div>
+        </div>
         </div>
       </div>
 
