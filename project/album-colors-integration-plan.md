@@ -63,10 +63,7 @@ This plan outlines how to integrate the prerendered album colors from `/public/a
   - **Color-reactive containers** that frame the buttons with album colors
 
 - **Genre Badges**:
-  - **Vibrant album color integration** as secondary accent colors
-  - **Enhanced genre colors** with album color mixing
-  - **Dynamic gradient backgrounds** that blend genre and album colors
-  - **Rich hover states** that bring out the album's personality
+  - **DO NOT CHANGE** (DO NOT CHANGE)
 
 - **Information Cards**:
   - **Bold color accents** on card borders and headers using full-strength album colors

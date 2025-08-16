@@ -42,8 +42,11 @@ export function FilterBar({
     }
   };
 
+  const filterBarClassName = "flex flex-wrap gap-3 mb-6 p-4 bg-background/50 backdrop-blur-sm border rounded-lg transition-all duration-300" +
+    (hasActiveFilters ? " border-primary/20 bg-primary/5" : "");
+
   return (
-    <div className="flex flex-wrap gap-3 mb-6 p-4 bg-background/50 backdrop-blur-sm border rounded-lg">
+    <div className={filterBarClassName}>
       {/* Search Input */}
       {onSearchChange && (
         <div className="relative flex-1 min-w-[200px] max-w-sm">
@@ -53,7 +56,7 @@ export function FilterBar({
             placeholder={searchPlaceholder}
             value={searchValue}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="pl-9 pr-9 h-8"
+            className={`pl-9 pr-9 h-8 transition-colors ${searchValue ? 'border-primary/30 bg-primary/5' : ''}`}
           />
           {searchValue && (
             <button
@@ -69,7 +72,7 @@ export function FilterBar({
       <div className="flex items-center gap-2">
         <span className="text-sm text-muted-foreground whitespace-nowrap">Sort:</span>
         <Select value={sortBy} onValueChange={setSortBy}>
-          <SelectTrigger className="w-[140px] h-8">
+          <SelectTrigger className={`w-[140px] h-8 transition-colors ${sortBy !== 'date_added' ? 'border-primary/30 bg-primary/5' : ''}`}>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -84,7 +87,7 @@ export function FilterBar({
       <div className="flex items-center gap-2">
         <span className="text-sm text-muted-foreground whitespace-nowrap">Genre:</span>
         <Select value={selectedGenre} onValueChange={setSelectedGenre}>
-          <SelectTrigger className="w-[120px] h-8">
+          <SelectTrigger className={`w-[120px] h-8 transition-colors ${selectedGenre !== 'all' ? 'border-primary/30 bg-primary/5' : ''}`}>
             <SelectValue placeholder="All" />
           </SelectTrigger>
           <SelectContent>
@@ -101,7 +104,7 @@ export function FilterBar({
       <div className="flex items-center gap-2">
         <span className="text-sm text-muted-foreground whitespace-nowrap">Year:</span>
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="w-[80px] h-8">
+          <SelectTrigger className={`w-[80px] h-8 transition-colors ${selectedYear !== 'all' ? 'border-primary/30 bg-primary/5' : ''}`}>
             <SelectValue placeholder="All" />
           </SelectTrigger>
           <SelectContent>
