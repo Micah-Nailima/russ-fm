@@ -804,8 +804,12 @@ export function AlbumDetailPage() {
               {(detailedAlbum?.discogs_url || detailedAlbum?.discogs_id || detailedAlbum?.services?.discogs?.url || detailedAlbum?.services?.discogs?.id) && (
                 <Button 
                   variant="outline"
-                  className="w-full btn-service btn-discogs h-12"
+                  className="w-full btn-service btn-discogs h-12 bg-white/95 backdrop-blur-sm border-2 hover:bg-white hover:scale-[1.02] transition-all duration-200 shadow-lg"
                   onClick={() => window.open(detailedAlbum?.discogs_url || detailedAlbum?.services?.discogs?.url || `https://www.discogs.com/release/${detailedAlbum?.discogs_id || detailedAlbum?.services?.discogs?.id}`, '_blank')}
+                  style={{
+                    borderColor: `${albumColors.accent}40`,
+                    boxShadow: `0 4px 12px ${albumColors.background}20, 0 2px 4px rgba(0,0,0,0.1)`
+                  }}
                 >
                   <SiDiscogs className="service-icon" />
                   <span className="service-text">View on Discogs</span>
@@ -821,8 +825,12 @@ export function AlbumDetailPage() {
                     <Button 
                       key="apple"
                       variant="outline"
-                      className="btn-service btn-apple-music h-12"
+                      className="btn-service btn-apple-music h-12 bg-white/95 backdrop-blur-sm border-2 hover:bg-white hover:scale-[1.02] transition-all duration-200 shadow-lg"
                       onClick={() => window.open(detailedAlbum.services.apple_music.url, '_blank')}
+                      style={{
+                        borderColor: `${albumColors.accent}40`,
+                        boxShadow: `0 4px 12px ${albumColors.background}20, 0 2px 4px rgba(0,0,0,0.1)`
+                      }}
                     >
                       <SiApplemusic className="service-icon" />
                       <span className="service-text">View on Apple Music</span>
@@ -836,8 +844,12 @@ export function AlbumDetailPage() {
                     <Button 
                       key="spotify"
                       variant="outline"
-                      className="btn-service btn-spotify h-12"
+                      className="btn-service btn-spotify h-12 bg-white/95 backdrop-blur-sm border-2 hover:bg-white hover:scale-[1.02] transition-all duration-200 shadow-lg"
                       onClick={() => window.open(detailedAlbum?.spotify_url || detailedAlbum?.services?.spotify?.url || detailedAlbum?.services?.spotify?.raw_data?.external_urls?.spotify, '_blank')}
+                      style={{
+                        borderColor: `${albumColors.accent}40`,
+                        boxShadow: `0 4px 12px ${albumColors.background}20, 0 2px 4px rgba(0,0,0,0.1)`
+                      }}
                     >
                       <SiSpotify className="service-icon" />
                       <span className="service-text">View on Spotify</span>
@@ -851,8 +863,12 @@ export function AlbumDetailPage() {
                     <Button 
                       key="lastfm"
                       variant="outline"
-                      className="btn-service btn-lastfm h-12"
+                      className="btn-service btn-lastfm h-12 bg-white/95 backdrop-blur-sm border-2 hover:bg-white hover:scale-[1.02] transition-all duration-200 shadow-lg"
                       onClick={() => window.open(detailedAlbum.services.lastfm.url, '_blank')}
+                      style={{
+                        borderColor: `${albumColors.accent}40`,
+                        boxShadow: `0 4px 12px ${albumColors.background}20, 0 2px 4px rgba(0,0,0,0.1)`
+                      }}
                     >
                       <SiLastdotfm className="service-icon" />
                       <span className="service-text">View on Last.fm</span>
