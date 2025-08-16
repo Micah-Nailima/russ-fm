@@ -696,20 +696,26 @@ export function AlbumDetailPage() {
             >
               {/* Added Date */}
               <div className="flex items-center gap-2">
-                <FcPlus className="h-4 w-4" />
+                <div className="p-1 rounded-full bg-white/90 shadow-sm">
+                  <FcPlus className="h-4 w-4" />
+                </div>
                 <span>Added: {new Date(album.date_added).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span>
               </div>
               
               {/* Release Year */}
               <div className="flex items-center gap-2">
-                <FcCalendar className="h-4 w-4" />
+                <div className="p-1 rounded-full bg-white/90 shadow-sm">
+                  <FcCalendar className="h-4 w-4" />
+                </div>
                 <span>{year}</span>
               </div>
               
               {/* Country */}
               {detailedAlbum?.country && (
                 <div className="flex items-center gap-2">
-                  <FcGlobe className="h-4 w-4" />
+                  <div className="p-1 rounded-full bg-white/90 shadow-sm">
+                    <FcGlobe className="h-4 w-4" />
+                  </div>
                   <span>{detailedAlbum.country}</span>
                 </div>
               )}
@@ -718,7 +724,9 @@ export function AlbumDetailPage() {
               {detailedAlbum?.services?.spotify?.popularity && (
                 <div className="relative group">
                   <div className="flex items-center gap-2 cursor-help">
-                    <SiSpotify className="h-4 w-4 text-green-600" />
+                    <div className="p-1 rounded-full bg-white/90 shadow-sm">
+                      <SiSpotify className="h-4 w-4 text-green-600" />
+                    </div>
                     <span>{detailedAlbum.services.spotify.popularity}% popularity</span>
                   </div>
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 w-64">
@@ -733,7 +741,9 @@ export function AlbumDetailPage() {
               {/* Last.fm Listeners */}
               {detailedAlbum?.services?.lastfm?.listeners && (
                 <div className="flex items-center gap-2">
-                  <SiLastdotfm className="h-4 w-4 text-red-600" />
+                  <div className="p-1 rounded-full bg-white/90 shadow-sm">
+                    <SiLastdotfm className="h-4 w-4 text-red-600" />
+                  </div>
                   <span>{formatNumber(detailedAlbum.services.lastfm.listeners)} listeners</span>
                 </div>
               )}
@@ -741,7 +751,9 @@ export function AlbumDetailPage() {
               {/* Last.fm Plays */}
               {detailedAlbum?.services?.lastfm?.playcount && (
                 <div className="flex items-center gap-2">
-                  <SiLastdotfm className="h-4 w-4 text-red-600" />
+                  <div className="p-1 rounded-full bg-white/90 shadow-sm">
+                    <SiLastdotfm className="h-4 w-4 text-red-600" />
+                  </div>
                   <span>{formatNumber(detailedAlbum.services.lastfm.playcount)} plays</span>
                 </div>
               )}
