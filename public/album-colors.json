@@ -1,4 +1,10 @@
 {
+  "/album/we-like-it-here-remixed-remastered-reimagined-34176394/": {
+    "background": "#114e4a",
+    "foreground": "#ffffff",
+    "accent": "#185a52",
+    "muted": "#306a57"
+  },
   "/album/med-sud-i-eyrum-vid-spilum-endalaust-21139177/": {
     "background": "#000000",
     "foreground": "#ffffff",
@@ -557,11 +563,11 @@
     "accent": "#a78862",
     "muted": "#625644"
   },
-  "/album/stijēən-wāvz-33536598/": {
-    "background": "#1a1a2e",
+  "/album/stijeen-wavz-33536598/": {
+    "background": "#09141f",
     "foreground": "#ffffff",
-    "accent": "#0066cc",
-    "muted": "#666666"
+    "accent": "#02a6e3",
+    "muted": "#366d2d"
   },
   "/album/the-best-of-the-pogues-32238447/": {
     "background": "#29161d",
