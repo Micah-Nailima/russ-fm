@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shuffle } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
@@ -16,7 +16,27 @@ export function RandomCollectionSection({
   onRefresh
 }: RandomCollectionSectionProps) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const [hasTriggered, setHasTriggered] = useState(false);
+
+  // Ensure animation triggers even if component mounts in view
+  useEffect(() => {
+    if (inView && !hasTriggered) {
+      setHasTriggered(true);
+    }
+  }, [inView, hasTriggered]);
+
+  // Fallback: trigger after a short delay if still not triggered
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!hasTriggered) {
+        setHasTriggered(true);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [hasTriggered]);
+
+  const shouldAnimate = inView || hasTriggered;
 
   if (randomCollectionItems.length === 0) {
     return null;
@@ -26,13 +46,13 @@ export function RandomCollectionSection({
     <motion.section
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.6 }}
     >
       <motion.div 
         className="flex items-center justify-between mb-8"
         initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
+        animate={shouldAnimate ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
         transition={{ delay: 0.2 }}
       >
         <div className="flex items-center gap-3">
@@ -64,7 +84,7 @@ export function RandomCollectionSection({
           <motion.div
             key={album.uri_release}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.3 + index * 0.1 }}
             whileHover={{ y: -5 }}
           >
@@ -75,10 +95,16 @@ export function RandomCollectionSection({
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <img
-                  src={getAlbumImageFromData(album.uri_release, 'medium')}
+                  src={getAlbumImageFromData(album.uri_release, 'small')}
+                  srcSet={`
+                    ${getAlbumImageFromData(album.uri_release, 'small')} 400w,
+                    ${getAlbumImageFromData(album.uri_release, 'medium')} 800w
+                  `}
+                  sizes="(max-width: 768px) 200px, (max-width: 1024px) 150px, 200px"
                   alt={`${album.release_name} by ${album.release_artist}`}
                   className="w-full h-full object-cover"
                   onError={handleImageError}
+                  loading="lazy"
                 />
               </motion.div>
               <div className="space-y-1">

@@ -93,5 +93,29 @@ export default defineConfig({
     fs: {
       strict: false
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor libraries into separate chunks
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-select', '@radix-ui/react-separator', '@radix-ui/react-slot', '@radix-ui/react-switch', '@radix-ui/react-tabs', '@radix-ui/react-tooltip', '@radix-ui/react-progress'],
+          'animation-vendor': ['framer-motion'],
+          'chart-vendor': ['d3', 'recharts'],
+          'utils-vendor': ['clsx', 'tailwind-merge', 'class-variance-authority', 'fuse.js', 'use-debounce']
+        }
+      }
+    },
+    // Optimize CSS
+    cssCodeSplit: true,
+    // Enable minification
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
   }
 })

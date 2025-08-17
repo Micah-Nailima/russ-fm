@@ -48,10 +48,16 @@ export function RecentAlbumsSection({ recentAlbums }: RecentAlbumsSectionProps) 
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <img
-                  src={getAlbumImageFromData(album.uri_release, 'medium')}
+                  src={getAlbumImageFromData(album.uri_release, 'small')}
+                  srcSet={`
+                    ${getAlbumImageFromData(album.uri_release, 'small')} 400w,
+                    ${getAlbumImageFromData(album.uri_release, 'medium')} 800w
+                  `}
+                  sizes="(max-width: 768px) 200px, (max-width: 1024px) 150px, 200px"
                   alt={`${album.release_name} by ${album.release_artist}`}
                   className="w-full h-full object-cover"
                   onError={handleImageError}
+                  loading="lazy"
                 />
               </motion.div>
               <div className="space-y-1">

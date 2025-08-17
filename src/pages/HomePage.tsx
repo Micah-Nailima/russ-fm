@@ -146,47 +146,42 @@ export function HomePage() {
         setRandomizedGenreAlbums(genreAlbumMap);
         setRandomCollectionItems(randomItems);
         
-        // Load pre-generated colors for featured albums
+        // Load pre-generated colors for featured albums (lazy loaded)
         const loadColors = async () => {
+          // Set default palettes first for immediate render
+          const palettes: Record<string, ColorPalette> = {};
+          const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
+          
+          for (const album of featuredAlbums) {
+            palettes[album.uri_release] = {
+              background: '#1a1a2e',
+              foreground: '#ffffff',
+              accent: '#0066cc',
+              muted: '#666666',
+            };
+          }
+          
+          setColorPalettes(palettes);
+          
+          // Load actual colors in the background
           try {
             const response = await fetch('/album-colors.json');
             const allColors = await response.json();
             
-            // Filter to only include featured albums for better performance
-            const palettes: Record<string, ColorPalette> = {};
-            const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
-            
+            // Update with actual colors
+            const updatedPalettes: Record<string, ColorPalette> = {};
             for (const album of featuredAlbums) {
               if (allColors[album.uri_release]) {
-                palettes[album.uri_release] = allColors[album.uri_release];
+                updatedPalettes[album.uri_release] = allColors[album.uri_release];
               } else {
-                // Fallback to default palette
-                palettes[album.uri_release] = {
-                  background: '#1a1a2e',
-                  foreground: '#ffffff',
-                  accent: '#0066cc',
-                  muted: '#666666',
-                };
+                updatedPalettes[album.uri_release] = palettes[album.uri_release];
               }
             }
             
-            setColorPalettes(palettes);
+            setColorPalettes(updatedPalettes);
           } catch (error) {
             console.warn('Failed to load pre-generated colors, using defaults:', error);
-            // Set default palettes for all featured albums
-            const palettes: Record<string, ColorPalette> = {};
-            const featuredAlbums = recent.slice(0, appConfig.homepage.hero.numberOfFeaturedAlbums);
-            
-            for (const album of featuredAlbums) {
-              palettes[album.uri_release] = {
-                background: '#1a1a2e',
-                foreground: '#ffffff',
-                accent: '#0066cc',
-                muted: '#666666',
-              };
-            }
-            
-            setColorPalettes(palettes);
+            // Keep default palettes already set
           }
         };
         

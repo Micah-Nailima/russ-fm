@@ -45,7 +45,7 @@ export function HeroSection({
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat filter blur-2xl"
             style={{
-              backgroundImage: `url(${getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')})`,
+              backgroundImage: `url(${getAlbumImageFromData(currentFeatured.uri_release, 'medium')})`,
               transform: 'scale(1.1)'
             }}
           />
@@ -119,10 +119,17 @@ export function HeroSection({
                 }}
               >
                 <img
-                  src={getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')}
+                  src={getAlbumImageFromData(currentFeatured.uri_release, 'medium')}
+                  srcSet={`
+                    ${getAlbumImageFromData(currentFeatured.uri_release, 'small')} 400w,
+                    ${getAlbumImageFromData(currentFeatured.uri_release, 'medium')} 800w,
+                    ${getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')} 1400w
+                  `}
+                  sizes="(max-width: 768px) 400px, (max-width: 1024px) 500px, 600px"
                   alt={`${currentFeatured.release_name} by ${currentFeatured.release_artist}`}
                   className="w-full h-full object-cover"
                   onError={handleImageError}
+                  loading="eager"
                 />
                 
                 {/* Subtle gradient overlay on artwork */}
@@ -140,7 +147,7 @@ export function HeroSection({
               <div 
                 className="absolute top-full left-0 w-full h-1/2 rounded-b-3xl opacity-20 blur-sm transform scale-y-[-1] origin-top"
                 style={{
-                  background: `url(${getAlbumImageFromData(currentFeatured.uri_release, 'hi-res')})`,
+                  background: `url(${getAlbumImageFromData(currentFeatured.uri_release, 'medium')})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
