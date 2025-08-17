@@ -48,7 +48,7 @@ export function RecentAlbumsSection({ recentAlbums }: RecentAlbumsSectionProps) 
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <img
-                  src={getAlbumImageFromData(album.uri_release, 'small')}
+                  src={getAlbumImageFromData(album.uri_release, 'medium')}
                   srcSet={`
                     ${getAlbumImageFromData(album.uri_release, 'small')} 400w,
                     ${getAlbumImageFromData(album.uri_release, 'medium')} 800w
