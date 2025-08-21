@@ -1,4 +1,10 @@
 {
+  "/album/underwater-moonlight-34614694/": {
+    "background": "#081316",
+    "foreground": "#ffffff",
+    "accent": "#0a8ec6",
+    "muted": "#356773"
+  },
   "/album/we-like-it-here-remixed-remastered-reimagined-34176394/": {
     "background": "#114e4a",
     "foreground": "#ffffff",

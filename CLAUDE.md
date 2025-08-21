@@ -146,10 +146,20 @@ python main.py status                 # Check processing status
 - Special filtering logic excludes "Various Artists" from artist listings
 
 ### Image and Asset Management
-- **Available image sizes**: `'hi-res'` (1400px), `'medium'` (800px), `'small'` (400px)
+- **🚨 CRITICAL: Available image sizes**: ONLY `'hi-res'` (1400px) and `'medium'` (800px) exist in the data!
+- **❌ 'small' (400px) size does NOT exist** - never use this size or it will break images!
 - **Artist avatars**: Square format images for artist thumbnails (`'avatar'`)
 - Images stored in structured directories: `/public/album/{slug}/` and `/public/artist/{slug}/`
 - Frontend components select appropriate image size based on display context
+
+**🚨 CRITICAL: Actual Data Structure (`/public/collection.json`):**
+```json
+"images_uri_release": {
+  "hi-res": "/album/album-name/album-name-hi-res.jpg",
+  "medium": "/album/album-name/album-name-medium.jpg"
+  // NO 'small' size exists!
+}
+```
 
 **🚨 CRITICAL: Image Utility Functions** (`src/lib/image-utils.ts`):
 
@@ -158,9 +168,9 @@ python main.py status                 # Check processing status
 
 - `getImageUrl(relativePath)` - Handles dev/prod environment differences (local vs R2 CDN)
 - `getAlbumImageUrl(albumSlug, size)` - Constructs album image URLs with proper sizing
-  - `size` parameter: `'hi-res' | 'medium' | 'small'` (defaults to `'medium'`)
+  - `size` parameter: `'hi-res' | 'medium'` ONLY (defaults to `'medium'`) - **NEVER use 'small'!**
 - `getArtistImageUrl(artistSlug, size)` - Constructs artist image URLs with proper sizing
-  - `size` parameter: `'hi-res' | 'medium' | 'small'` (defaults to `'medium'`)
+  - `size` parameter: `'hi-res' | 'medium'` ONLY (defaults to `'medium'`) - **NEVER use 'small'!**
 - `getArtistAvatarUrl(artistSlug)` - Gets artist avatar (small square format, always `'avatar'` size)
 - `getAlbumImageFromData(uriRelease, size)` - Extracts slug from URI and gets album image
 - `getArtistImageFromData(uriArtist, size)` - Extracts slug from URI and gets artist image
@@ -170,12 +180,16 @@ python main.py status                 # Check processing status
 ```jsx
 <img src="/album/some-album/image.jpg" />
 <img src={album.images_uri_release['hi-res']} />
+<img src={getAlbumImageFromData(album.uri_release, 'small')} /> // 'small' BREAKS IMAGES!
+srcSet={`${getAlbumImageFromData(album.uri_release, 'small')} 400w`} // 'small' BREAKS IMAGES!
 ```
 
 **✅ ALWAYS DO THIS:**
 ```jsx
 <img src={getAlbumImageFromData(album.uri_release, 'hi-res')} />
+<img src={getAlbumImageFromData(album.uri_release, 'medium')} />
 <img src={getArtistImageFromData(artist.uri_artist, 'medium')} />
+// NO srcSet needed - only 2 sizes exist: 'hi-res' and 'medium'
 ```
 
 **WHY:** These functions handle environment differences (dev vs prod), R2 CDN routing, fallbacks, and ensure images work correctly in production deployments.
