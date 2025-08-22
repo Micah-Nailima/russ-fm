@@ -1,4 +1,10 @@
 {
+  "/album/machina-the-machines-of-god-34889285/": {
+    "background": "#1e1312",
+    "foreground": "#ffffff",
+    "accent": "#c3873d",
+    "muted": "#764c2d"
+  },
   "/album/underwater-moonlight-34614694/": {
     "background": "#081316",
     "foreground": "#ffffff",
