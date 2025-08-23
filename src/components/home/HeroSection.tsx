@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { appConfig } from '@/config/app.config';
 import { getGenreColor, getGenreTextColor } from '@/lib/genreColors';
 import type { ColorPalette } from '@/lib/colorExtractor';
+import { getReadableTextColor } from '@/lib/color-utils';
 import { getAlbumImageFromData, handleImageError } from '@/lib/image-utils';
 import type { Album } from '@/types/album';
 
@@ -241,14 +242,16 @@ export function HeroSection({
                 className="rounded-full font-medium px-10 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 style={{
                   backgroundColor: currentPalette?.accent || 'rgb(var(--primary))',
-                  color: currentPalette?.background || 'rgb(var(--primary-foreground))',
+                  color: currentPalette?.accent 
+                    ? getReadableTextColor(currentPalette.accent)
+                    : 'rgb(var(--primary-foreground))',
                   boxShadow: currentPalette?.accent 
                     ? `0 10px 25px -5px ${currentPalette.accent}40, 0 4px 6px -2px ${currentPalette.accent}20`
                     : undefined
                 }}
               >
                 <Link to={currentFeatured.uri_release}>
-                  Explore Album
+                  {appConfig.homepage.hero.exploreButtonText}
                 </Link>
               </Button>
               
